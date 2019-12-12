@@ -1,0 +1,48 @@
+<script id="template-order_info" type="text/template">
+{{if orderProductList && orderProductList.length>0}}
+{{each orderProductList as product j}}
+{{if product.supplierRefuseFlag!=1}}
+<tr data-product_id="{{product.orderProductId}}">
+    <td>{{product.serialNumber}}</td>
+    <td>
+        {{if product.productPic}}<a href="{{product.productPic}}" class="img" target="_blank"><img src="{{product.productPic}}"></a>{{/if}}
+        <div>{{product.productName}}</div>
+    </td>
+    <td data-product_attr="{{product.productAttr}}" data-product_url="{{product.printingFileUrl}}" data-download_filename="{{product.printingFileName}}">
+        <p>{{product.productAttr}}</p>
+        {{if product.printingFileUrl}}
+        <button type="button" data-print_flag="{{product.printFileDownloadFlag||0}}" data-attr="download" class="btn btn-primary btn-xs">下载文件</button>
+        {{/if}}
+        {{if product.printingFileUrl&&product.printFileDownloadFlag}}<span class="badge">已下载</span>{{/if}}
+    </td>
+    <td>{{if product.status == '4'}}{{product.updateTime}}{{/if}}</td>
+    <td><h5>{{product.settlementAmount}}（含运费{{product.supplierShip}}）</h5></td>
+    <td>
+        <p style="margin: 0;">{{product.statusStr}}</p>
+        {{if product.status==2 || product.status==3}}
+        <p style="margin: 0;">{{product.planSend}}</p>
+        {{/if}}
+        {{if orderStatusType}}
+        <button data-attr="details" data-detail_url="{{detailUrl}}" type="button" class="btn btn-link">订单详情</button>
+        {{/if}}
+    </td>
+    <td>
+        <p style="margin: 0;">{{actualTakeTypeStr}}</p>
+        {{if product.logisticsCode&&product.status == '4'}}
+        <p><a href="http://www.kuaidi100.com/chaxun?com={{product.logisticsName}}&nu={{product.logisticsCode}}" target="_blank">{{product.logisticsName}}：{{product.logisticsCode}}</a></p>
+        {{/if}}
+    </td>
+    {{if j == 0}}
+    <td rowspan={{orderProductList.length}}">
+    {{if orderStatusType=='2'&&status}}
+    <button data-attr="confirm" data-detail_url="{{detailUrl}}" type="button" class="btn btn-primary">确认任务</button>
+    {{else if (orderStatusType=='3'||orderStatusType=='120'||orderStatusType=='121')&&status}}
+    <button data-attr="delivery" type="button" class="btn btn-primary">发货</button>
+    {{/if}}
+    </td>
+{{/if}}
+</tr>
+{{/if}}
+{{/each}}
+{{/if}}
+</script>

@@ -1,0 +1,21 @@
+<div class="options options-{{productId}}">
+    <fieldset class="product_detail">
+        <div id="form_details" class="forms forms_border_left">
+            <div class="pro_title">
+                <?php include(TEMPLATES.'product/headline.xhtml');?>
+            </div>
+            <div class="attr clearfix">
+                <div class="atr">安装费用：</div>
+                <div class="itr">{{priceDesc}}<span class="yellow">{{priceNote}}</span></div>
+            </div>
+            <?php include(TEMPLATES.'product/address.xhtml');?>
+            <div class="attr clearfix">
+                <div class="atr">服务说明：</div>
+                <div class="itr">{{serviceNote}}</div>
+            </div>
+            <div class="attr form_btm clearfix">
+                <span class="atr">&nbsp;</span><a id="qqconsultation" class="submit yellow-box" href="javascript:;" target="_blank" onclick="_czc.push(['_trackEvent', '{{productName}}', '咨询客服', '','','']);">咨询客服</a><a class="submit buynow yellow-btn" href="javascript:;" onclick="_czc.push(['_trackEvent', '{{productName}}', '立即下单', '','','']);">立即下单</a>
+            </div>
+        </div>
+    </fieldset>
+</div>

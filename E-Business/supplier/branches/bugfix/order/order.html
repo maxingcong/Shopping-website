@@ -1,0 +1,275 @@
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<div class="page-order">
+    <ol class="breadcrumb">
+        <li><a href="<?=DOMAIN?>home/index.html"><i class="fa fa-home"></i>首页</a></li>
+        <li class="active">订单管理</li>
+    </ol>
+    <!-- Start Filter -->
+    <div class="panel form-inline panel-filter">
+        <div class="panel-collapse collapse in" role="tabpanel">
+            <div class="panel-body">
+                <div class="form-group">
+                    <select class="form-control">
+                        <option>下单时间</option>
+                        <!--<option>发货时间</option>-->
+                    </select>
+                    <input id="startTime" size="16" type="text" data-font-awesome="true" readonly class="form_datetime form-control">至
+                    <input id="endTime" size="16" type="text" data-font-awesome="true" readonly class="form_datetime form-control">
+                </div>
+                <div class="form-group ml30">
+                    <label for="orderStatus" class="control-label">订单状态：</label>
+                    <select id="orderStatus" class="form-control">
+                        <option value="">全部</option>
+                        <option value="0">未支付</option>
+                        <option value="1">已支付</option>
+                        <option value="3">交易完成</option>
+                    </select>
+                </div>
+                <div class="form-group ml30">
+                    <label for="productStatus" class="control-label">商品状态：</label>
+                    <select id="productStatus" class="form-control">
+                        <option value="2">待生产</option>
+                        <option value="3">生产中</option>
+                        <option value="120">今天应发货</option>
+                        <option value="121">发货逾期</option>
+                        <option value="4">已发货</option>
+                        <option value="all">全部</option>
+                    </select>
+                </div>
+                <div class="pull-right mt10">
+                    <div class="input-group">
+                        <input id="orderCode" type="text" class="form-control" placeholder="订单号" />
+                    </div>
+                    <button id="searchBtn" class="btn btn-primary" type="button"><i class="fa fa-search"></i> 搜索</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Filter -->
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#" aria-controls="" role="tab" data-toggle="tab" data-product_status="2">待生产</a></li>
+        <li role="presentation"><a href="#" aria-controls="" role="tab" data-toggle="tab" data-product_status="3">生产中</a></li>
+        <li role="presentation"><a href="#" aria-controls="" role="tab" data-toggle="tab" data-product_status="120">今日应发货</a></li>
+        <li role="presentation"><a href="#" aria-controls="" role="tab" data-toggle="tab" data-product_status="121">发货逾期</a></li>
+        <li role="presentation"><a href="#" aria-controls="" role="tab" data-toggle="tab" data-product_status="4">已发货</a></li>
+        <li role="presentation"><a href="#" aria-controls="" role="tab" data-toggle="tab" data-product_status="all">全部订单</a></li>
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active">
+            <div class="table-product-price table-scroll mt15">
+                <table class="table table-bordered text-center table-fixed">
+                    <colgroup>
+                        <col style="width: 80px">
+                        <col style="width: 120px">
+                        <col style="width: 22%">
+                        <col style="width: 12%">
+                        <col style="width: 12%">
+                        <col style="width: 12%">
+                        <col style="width: 12%">
+                        <col>
+                    </colgroup>
+                    <thead>
+                    <tr class="tr-head">
+                        <th>商品编号</th>
+                        <th>产品名称</th>
+                        <th>产品属性</th>
+                        <th>发货日期</th>
+                        <th>结算金额（元）</th>
+                        <th>商品状态<br/>预计发货日期</th>
+                        <th>配送信息</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                </table>
+                <div id="template-order_list-view" class="table-product-price"></div>
+            </div>
+        <div class="pagination clearfix">
+            <div class="pull-left">
+                <span>共 <b id="data-recordCount">0</b> 条，每页
+                <select class="form-control" name="pageCount">
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                    <option value="40">40</option>
+                    <option value="50">50</option>
+                </select> 条</span>
+            </div>
+            <div id="paginbar" class="pull-right paginbar"></div>
+        </div>
+        </div>
+    </div>
+</div>
+<script id="template-order_list" type="text/template">
+    {{if orderList && orderList.length>0}}
+        {{each orderList as order i}}
+        <table data-order_code="{{order.orderCode}}" data-user_name="{{order.userName}}" class="table table-bordered text-center table-fixed" style="margin-top: 15px;">
+            <colgroup>
+                <col style="width: 80px">
+                <col style="width: 120px">
+                <col style="width: 22%">
+                <col style="width: 12%">
+                <col style="width: 12%">
+                <col style="width: 12%">
+                <col style="width: 12%">
+                <col>
+            </colgroup>
+            <thead>
+            <tr class="tr-head">
+                <th colspan="3">订单编号：<a href="javascript:;" class="go-details" data-detail_url="{{order.detailUrl}}">{{order.orderCode}}</a>{{if order.isTest}}<span class="light">（测试订单，勿生产）</span>{{/if}}</th>
+                <th colspan="3">下单时间：{{order.recordTime}}</th>
+                <th colspan="2">订单状态：{{order.statusStr}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="tr-head">
+                <td colspan="3">
+                    {{if order.actualReceiveName||order.actualReceiveMobile}}
+                    联系人：{{order.actualReceiveName||'暂无姓名'}} , {{order.actualReceiveMobile||'暂无电话'}}
+                    {{else}}
+                    暂无联系人信息
+                    {{/if}}
+                </td>
+                <td colspan="5">收货地址：{{order.actualReceiveAddress}}</td>
+            </tr>
+            {{include 'template-order_info' order}}
+            </tbody>
+        </table>
+        {{/each}}
+    {{else}}
+    <table class="table">
+        <tr><td>未获取到相应订单信息</td></tr>
+    </table>
+    {{/if}}
+</script>
+<script id="template-confirm_attr" type="text/template">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">确认信息</h4>
+    </div>
+    <div class="modal-body">
+        <p>请确认该产品以下工艺可生产并可按期交货。</p>
+        <div class="info-box">{{attr}}</div>
+    </div>
+    <div class="modal-footer">
+        <a href="{{url}}" class="btn btn-primary md-btn save">确认并下载</a>
+    </div>
+</script>
+<script id="template-delivery_products" type="text/template">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">订单发货-{{orderCode}}</h4>
+    </div>
+    <div class="modal-body">
+        <p>请选择商品：</p>
+        <table class="table table-hover">
+            <colgroup>
+                <col style="width:50px;" />
+                <col style="width:15%" />
+                <col style="width:18%" />
+                <col style="width:50%" />
+                <col />
+            </colgroup>
+            <thead>
+            <th></th>
+            <th>商品编号</th>
+            <th>产品名称</th>
+            <th>产品属性</th>
+            <th>款数</th>
+            </thead>
+            {{if status==1&&orderProductList&& orderProductList.length}}
+            {{each orderProductList as product}}
+            {{if product.status==3||product.status==15}}
+            <tr>
+                <td>
+                    <div class="checkbox">
+                        <label><input data-product_id="{{product.orderProductId}}" type="checkbox" name="checkbox"/><i class="fa fa-checkbox"></i></label>
+                    </div>
+                </td>
+                <td>{{product.serialNumber}}</td>
+                <td>{{product.productName}}</td>
+                <td>{{product.productAttr}}</td>
+                <td>{{product.productCount}}款</td>
+            </tr>
+            {{/if}}
+            {{/each}}
+            <tr>
+                <td>
+                    <div class="checkbox">
+                        <label><input type="checkbox" name="checkbox_all"/><i class="fa fa-checkbox"></i></label>
+                    </div>
+                </td>
+                <td>全选</td>
+                <td colspan="3"></td>
+            </tr>
+            {{/if}}
+        </table>
+        {{if orderProductList[0].supplierShipMethod==0}}<p class="light">请在发货时填写发货人为：云印技术</p>{{/if}}
+        <form class="form-inline">
+            {{if status==1&&orderProductList&& orderProductList.length}}
+            <table class="table-form">
+                <colgroup>
+                    <col style="width: 100px">
+                    <col style="width: 33%">
+                    <col style="width: 100px">
+                    <col>
+                </colgroup>
+                <tbody>
+                {{if actualTakeTypeStr}}
+                <tr>
+                    <td>配送方式：</td>
+                    <td colspan="3">
+                        {{actualTakeTypeStr}}
+                    </td>
+                </tr>
+                {{/if}}
+                <tr>
+                    <td>收货地址：</td>
+                    <td colspan="3">{{actualReceiveAddress}}</td>
+                </tr>
+                {{if actualReceiveName||actualReceiveMobile}}
+                <tr>
+                    <td>联系人：</td>
+                    <td colspan="3">{{actualReceiveName||'暂无姓名'}}， {{actualReceiveMobile||'暂无电话'}}</td>
+                </tr>
+                {{/if}}
+                {{if actualTakeTypeStr=='普通快递'||actualTakeTypeStr=='顺丰发货'||actualTakeTypeStr=='物流发货'}}
+                <tr>
+                    <td>物流公司：</td>
+                    <td colspan="3">
+                        <select id="deliverySelect" class="form-control"></select>
+                        <input type="text" class="form-control hide" id="deliveryInput" placeholder="请填写物流公司" />
+                        <input type="text" class="form-control" id="sendInfo" placeholder="请填写快递单号" />
+                    </td>
+                </tr>
+                {{/if}}
+                {{if orderProductList[0].takeType==16}}
+                <!--<tr>
+                    <td>配送人：</td>
+                    <td>
+                        <input id="deliveryMan" type="text" class="form-control" />
+                    </td>
+                    <td>联系电话：</td>
+                    <td>
+                        <input id="deliveryMb" type="text" class="form-control" />
+                    </td>
+                </tr>-->
+                {{else if orderProductList[0].takeType==5}}
+                <!-- <tr>
+                    <td>提货地址：</td>
+                    <td>{{way.takeAddress}}</td>
+                    <td>联系电话：</td>
+                    <td><input id="facMb" type="text" class="form-control" placeholder="联系电话" /></td>
+                </tr>-->
+                {{/if}}
+                </tbody></table>
+            {{/if}}
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button id="confirmDelivery" data-user_name="{{userName}}" data-order_code="{{orderCode}}" type="button" class="btn btn-primary md-btn">确认发货</button>
+    </div>
+</script>
+<?php include(TEMPLATES.'order/order_info.xhtml');?>
+<script type="text/javascript" src="<?=SCRIPTS?>order/order.js"></script>

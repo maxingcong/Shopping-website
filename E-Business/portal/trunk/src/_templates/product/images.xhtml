@@ -1,0 +1,20 @@
+<div class="dupload">
+    <dl class="images">
+        <dt id="proimg" class="zoomimg">
+            <a href="<?=DOMAIN?>product/{{productId}}.html" title="{{productName}}">
+                <img data-imguri="{{pImageFirst}}" src="{{pImageFirst}}" alt="{{productName}}" />
+            </a>
+        </dt>
+        <dd>
+            <ul id="imglist">
+                {{each pImages as img i}}
+                <li data-imguri="{{img}}">
+                    <a href="javascript:;">
+                        <img src="{{img}}?imageMogr2/thumbnail/!60x60r/auto-orient/gravity/Center/crop/60x60" alt="{{productName}}"/>
+                    </a>
+                </li>
+                {{/each}}
+            </ul>
+        </dd>
+    </dl>
+</div>

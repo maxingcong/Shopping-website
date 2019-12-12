@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="印刷保" />
+    <meta name="description" content="" />
+    <meta name="author" content="${author}" />
+    <meta name="copyright" content="${copyright}" />
+    <title>印刷保</title>
+    <link  rel="shortcut icon" type="image/x-icon" href="<?=DOMAIN?>favicon.ico"  />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>layout.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>activity.css" />
+    <?php include(MODULES.'dns_prefetch.xhtml');?>
+    <style type="text/css">
+        .print_ensure{padding: 0 0 130px;}
+        .print_ensure .box{position: relative; width: 1220px; margin: 0 auto; padding: 30px 0 75px;overflow: hidden;}
+        .print_ensure .box h3{line-height: 64px; font-size: 36px; font-weight: normal;}
+        .print_ensure .box .text{font-size: 16px; color: #666;}
+        .print_ensure .box .icon{position: absolute; top: 0px; left: 0px; display: inline-block; width: 44px; height: 44px; background: url(../themes/images/print_ensure.png?v=1) no-repeat;}
+        .print_ensure .box .icon1{background-position: 0 -78px;}
+        .print_ensure .box .icon2{background-position: 0 -160px;}
+        .print_ensure .box .particular{line-height: 36px; padding: 40px 142px 0;}
+        .print_ensure .box .particular .left{position: relative; padding: 0 40px 0 84px; border-right: 1px solid #ccc; font-size: 20px; }
+        .print_ensure .box .particular .right{padding-left: 40px; text-align: left;}
+        .print_ensure .mt-12{margin-top: -12px;}
+        .print_ensure .clause{margin-left: 238px;}
+        .print_ensure .images{position: absolute; z-index: -1; bottom: 80px; right: 142px;}
+    </style>
+</head>
+<body>
+<?php include(MODULES.'header_register.xhtml');?>
+<div class="full-banner"><img src="<?=IMAGES?>about/print_ensure.jpg" alt="印刷保"></div>
+<div class="main print_ensure">
+    <div class="box">
+        <h3 class="blue">印刷保</h3>
+        <p class="text">用户权益保障100%</p>
+        <div class="particular clearfix">
+            <span class="blue fl left"><i class="icon"></i>品质保障</span>
+            <span class="text fl right">云印严格把控产品质量，针对产品问题，免费重印、优惠券任您选</span>
+        </div>
+        <div class="particular clearfix">
+            <span class="blue fl left"><i class="icon icon1"></i>周期保障</span>
+            <span class="text fl right">业界独创30天超长质保周期（非人为因素产品问题）</span>
+        </div>
+        <div class="particular clearfix">
+            <span class="blue fl left"><i class="icon icon2"></i>服务保障</span>
+            <span class="text fl right mt-12">负责到底&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="gray">专属客服为您全程服务闭环问题</span><br/>
+                                        承诺时效&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="gray">一小时提供解决方案，超时赔付优惠券</span><br/>
+                                        结果反馈&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="gray">解决结果及时反馈</span>
+                <a href="http://www.ininin.com/help/returns.html" class="clause">服务条款&gt;&gt;</a></span>
+        </div>
+        <div class="images"><img src="<?=IMAGES?>about/print_ensure2.jpg" alt="印刷保"></div>
+    </div>
+</div>
+<?php include(MODULES.'footer_simple.xhtml');?>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script><!--
+<script type="text/javascript" src="<?=SCRIPTS?>passport/register.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>location.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>template-native.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>zh_cn.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tool.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>passport/register.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>libs/location.js"></script>-->
+<?php include(MODULES.'linklogin.xhtml');?>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<script id="template-product_params" type="text/template">
+    {{if names&&names.length>0&&params}}
+    <div class="product-attrs">
+        {{each names as name i}}
+        <div class="attr clearfix">
+            <span class="atr">{{name}}：</span>
+            <span class="vals">
+            {{each attrs[name] as attr k}}
+                {{if k>0}}、{{/if}}{{attr}}
+            {{/each}}
+            </span>
+        </div>
+        {{/each}}
+    </div>
+    {{else}}
+    <span class="gray">{{if showMode==2}}请先选择具体产品{{else}}没有数据{{/if}}</span>
+    {{/if}}
+</script>

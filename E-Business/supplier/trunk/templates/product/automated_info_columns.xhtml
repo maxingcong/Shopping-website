@@ -1,0 +1,132 @@
+<script id="template-automated_info_columns" type="text/template">
+    <!-- quickPanelTwo -->
+    <a id="quickPanelTwo" class="quick-nav-link" href="#quickPanelTwo"></a>
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingTwo">
+            <h4 class="panel-title">
+                生产货期
+                <a class="pull-right" role="button" data-toggle="collapse" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fa fa-angle-double-down"></i>
+                    <i class="fa fa-angle-double-up"></i>
+                </a>
+                <!--<span class="gray pull-right">（不填写表示该产品不可生产）&nbsp;&nbsp;</span>-->
+            </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+            <div id="template-product_delivery_table-view" class="panel-body"></div>
+        </div>
+    </div>
+    <!-- End quickPanelTwo -->
+    {{if physicalId == '299'}}
+    <!-- quickPanelSeven -->
+    <a id="quickPanelSeven" class="quick-nav-link" href="#quickPanelSeven"></a>
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingSeven">
+            <h4 class="panel-title">
+                手数设置
+                <a class="pull-right" role="button" data-toggle="collapse" href="#collapseSeven" aria-expanded="true" aria-controls="collapseSeven">
+                    <i class="fa fa-angle-double-down"></i>
+                    <i class="fa fa-angle-double-up"></i>
+                </a>
+            </h4>
+        </div>
+        <div id="collapseSeven" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingSeven">
+            <div id="template-option_settings-view" class="panel-body"></div>
+        </div>
+    </div>
+    <!-- End quickPanelSeven -->
+    <!-- quickPanelEight -->
+    <a id="quickPanelEight" class="quick-nav-link" href="#quickPanelEight"></a>
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingEight">
+            <h4 class="panel-title">
+                纸张损耗（封面，上机纸）
+                <a class="pull-right" role="button" data-toggle="collapse" href="#collapseEight" aria-expanded="true" aria-controls="collapseEight">
+                    <i class="fa fa-angle-double-down"></i>
+                    <i class="fa fa-angle-double-up"></i>
+                </a>
+                <span class="gray pull-right">（单位：张）&nbsp;&nbsp;</span>
+            </h4>
+        </div>
+        <div id="collapseEight" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingEight">
+            <div id="template-paper_loss_table-view" class="panel-body"></div>
+        </div>
+    </div>
+    <!-- End quickPanelEight -->
+    <!-- quickPanelNine -->
+    <a id="quickPanelNine" class="quick-nav-link" href="#quickPanelNine"></a>
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingNine">
+            <h4 class="panel-title">
+                纸张损耗（内文，上机纸）
+                <a class="pull-right" role="button" data-toggle="collapse" href="#collapseNine" aria-expanded="true" aria-controls="collapseNine">
+                    <i class="fa fa-angle-double-down"></i>
+                    <i class="fa fa-angle-double-up"></i>
+                </a>
+                <span class="gray pull-right">（单位：张）&nbsp;&nbsp;</span>
+            </h4>
+        </div>
+        <div id="collapseNine" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingNine">
+            <div id="template-paper_loss_inner_table-view" class="panel-body"></div>
+        </div>
+    </div>
+    <!-- End quickPanelNine -->
+    {{else}}
+    <!-- quickPanelThree -->
+    <a id="quickPanelThree" class="quick-nav-link" href="#quickPanelThree"></a>
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingThree">
+            <h4 class="panel-title">
+                纸张损耗（上机纸）
+                <a class="pull-right" role="button" data-toggle="collapse" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                    <i class="fa fa-angle-double-down"></i>
+                    <i class="fa fa-angle-double-up"></i>
+                </a>
+                <span class="gray pull-right">（单位：张）&nbsp;&nbsp;</span>
+            </h4>
+        </div>
+        <div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
+            <div id="template-paper_loss_table-view" class="panel-body"></div>
+        </div>
+    </div>
+    <!-- End quickPanelThree -->
+    {{/if}}
+    <!-- quickPanelFour -->
+    <a id="quickPanelFour" class="quick-nav-link" href="#quickPanelFour"></a>
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingFour">
+            <h4 class="panel-title">
+                工艺价格
+                <a class="pull-right" role="button" data-toggle="collapse" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                    <i class="fa fa-angle-double-down"></i>
+                    <i class="fa fa-angle-double-up"></i>
+                </a>
+                <!--<span class="gray pull-right">（不填写表示该产品不可供货）&nbsp;&nbsp;</span>-->
+            </h4>
+        </div>
+        <div id="collapseFour" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFour">
+            <div id="template-process_price_table-view" class="panel-body"></div>
+        </div>
+    </div>
+    <!-- End quickPanelFour -->
+    <!-- quickPanelFive -->
+    {{if physicalId !='299'}}
+    <a id="quickPanelFive" class="quick-nav-link" href="#quickPanelFive"></a>
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingFive">
+            <h4 class="panel-title">
+                单页价格
+                <a class="pull-right" role="button" data-toggle="collapse" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+                    <i class="fa fa-angle-double-down"></i>
+                    <i class="fa fa-angle-double-up"></i>
+                </a>
+                <!--<span class="gray pull-right">（不填写表示该产品不可供货）&nbsp;&nbsp;</span>-->
+            </h4>
+        </div>
+        <div id="collapseFive" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFive">
+            <div id="template-cost_price_table-view" class="panel-body"></div>
+        </div>
+    </div>
+    {{/if}}
+    <!-- End quickPanelFive -->
+</script>

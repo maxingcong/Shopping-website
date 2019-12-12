@@ -1,0 +1,82 @@
+@charset "utf-8";
+/*场景化解决方案子页面公共样式 在.solution类之下*/
+.whitebg{background-color: #fff;}
+.greybg{background-color: #f5f5f5;}
+.solution{width: 1220px; padding-top: 20px; margin: 0 auto; overflow: hidden;}
+.solution .slide{margin: 50px auto; text-align: left;}
+.solution hr{padding: 0; margin: 0; background-color: #ccd5df;}
+.solution .title{padding-bottom: 10px; font-size: 18px; line-height: 18px; font-weight: bold;}
+.solution p{font-size: 14px; line-height: 30px; color: #666;}
+.solution p strong{color: #333;}
+.solution .green{color: #8cce19;}
+.solution .pink{color: #f261a8;}
+.solution .syellow{color: #ffa838;}
+
+.solution .mb0{margin-bottom: 0;}
+.solution .mb15{margin-bottom: 15px;} .solution .mb20{margin-bottom: 20px;} .solution .mb25{margin-bottom: 25px;} .solution .mb50{margin-bottom: 50px;}
+.solution .ml20{margin-left: 20px;} .solution .ml25{margin-left: 25px;}
+.solution .rbottom{position: absolute; right: 0; bottom: 0; width: 36px; height: 36px; background: url(../images/solutions.png?v=1) no-repeat;}
+.solution .icon1{background-position: 0 0;}
+.solution .icon2{background-position: 0 -50px;}
+.solution .icon3{background-position: 0 -100px;}
+.solution .icon4{background-position: 0 -150px;}
+.solution .square{position: relative; float: left; display: inline-block; width: 236px; height: 236px; overflow: hidden;}
+.solution .square .buybtn{position: absolute; left: 0; bottom: 0; z-index: 9;
+	 width: 100%; height: 0; line-height: 34px; text-align: center; background-color: #ff7800; color: #fff; overflow: hidden;}
+.solution .square .line:hover{text-decoration: none;}
+
+/*云印场景化解决方案 index.html*/
+.all_solution ul li{float: left; width: 600px; margin: 12px auto 22px; overflow: hidden;}
+.all_solution ul li.even{margin-left: 20px;}
+.all_solution .card_box{position: relative; height: 360px; overflow: hidden;}
+.all_solution .card_list .title{height: 44px; font: bold 24px/44px '微软雅黑'; text-align: center; color: #0487e2;}
+.all_solution li .card{position: absolute; left: 0; top: 0; display: block; width: 200%; height: 360px; overflow: hidden;}
+.all_solution .card .item{display: inline-block; width: 600px; height: 360px; float: left;}
+.all_solution .card_cont{position: relative; background-color: #0487e2; color: #fff;}
+.all_solution .card_cont>div{height: 200px; padding: 60px 20px; border: 1px solid #fff; margin: 19px;}
+.all_solution .card_cont .txt{text-align: left; color: #fff;}
+.all_solution .card_cont .card_btn{position: absolute; bottom: 60px; left: 237px; display: inline-block; width: 126px; line-height: 34px; background-color: #fff; color: #0487e2;}
+
+/*日常办公 dailyoffice.html*/
+.dailyoffice .mb23{margin-bottom: 23px;}
+.dailyoffice .rect_sm{position: relative; width: 703px; height: 236px; overflow: hidden;text-align: left;}
+.dailyoffice .rect_big{position: relative; width: 703px; height: 482px; overflow: hidden; text-align: left;}
+
+/*展会必备 exhibition.html*/
+.exhibition{overflow: visible;}
+.exhibition .mt-42{margin-top: -42px;}
+.exhibition .title{padding-top: 8px;}
+.exhibition .rect_sm{position: relative; width: 713px; height: 236px; overflow: hidden;text-align: left;}
+.exhibition .rect_big{position: relative; width: 718px; height: 484px; overflow: hidden; text-align: left;}
+.exhibition .rect_long{width: 100%; overflow: hidden;}
+.exhibition .rect_thin{position: relative; height: 120px; text-align: left;}
+.exhibition .square{overflow: visible;}
+.exhibition .incline{position: absolute; left: 0; top: 0; z-index: 9;}
+/*培训套装 training.html*/
+.training .rect_sm{position: relative; width: 472px; height: 236px;}
+.training .rect_thin{position: relative; height: 112px;}
+.training .rect_mid{position: relative; height: 238px;}
+.training .rect_mid .imgout{width: 964px; margin-top: -20px;}
+.training .rect_mid .title{margin-top: -70px;}
+/* 门店套装 store_suit.html */
+.store_suit .rect_sm{width: 738px; height: 329px; overflow: hidden;text-align: left;}
+.store_suit .mb17{margin-bottom: 17px;}
+.store_suit .rect_thin{position: relative; float: left; width: 480px; height: 75px; margin-top: 19px;}
+.store_suit .images_box{height: 235px; margin-left: -10px; clear: both;}
+.store_suit .images_box .square{margin: 21px 0 0 10px;}
+.store_suit .rect_long{position: relative; width: 472px; height: 238px; overflow: hidden; text-align: left;}
+.store_suit .rect_big{position: relative; width: 482px; height: 310px; overflow: hidden; text-align: left;}
+.store_suit .rect_big .rbottom{bottom: 74px;}
+.store_suit .rect_md{width: 738px; height: 180px; clear: both;}
+.store_suit .right{float: right; height: 236px; width: 482px; margin-top: -244px;}
+
+/* 地推套装 push_suit.html */
+.push_suit .rect_sm{position: relative; width: 718px; height: 236px; overflow: hidden; text-align: left;}
+.push_suit .rect_big{position: relative; width: 718px; height: 482px; overflow: hidden; text-align: left;}
+.push_suit .mt-31{margin-top: -31px;}
+
+/*门店节日 festival.html*/
+.festival .rect_sm{position: relative; width: 472px; height: 236px;}
+.festival .rect_thin{position: relative; width: 728px; height: 172px; margin-top: 62px;}
+.festival .rect_long{position: relative; height: 112px;}
+

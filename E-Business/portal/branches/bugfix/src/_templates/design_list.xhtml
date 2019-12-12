@@ -1,0 +1,15 @@
+<h3 class="headline_order"><%=design.categoryName%> <span class="ref_order">
+    <%if(printProduct && printProduct.orderCode){%>
+        已关联印刷产品订单 <a href="<?=DOMAIN?>member/odetail.html?o=<%=printProduct.orderCode%>&t=0" target="_blank"><%=printProduct.orderCode%></a>，<%=printProduct.productAttr%>
+    <%}%>
+    </span></h3>
+<% if(design && design.designServiceList && design.designServiceList.length>1){ %>
+<h3 class="headline <%=design.designServiceList.length<2?'hide':''%>"><span>请选择设计服务</span></h3>
+<dl class="designs radios <%=design.designServiceList.length<2?'hide':''%>">
+<% for(var k=0; item = design.designServiceList[k]; k++){ %>
+<dd class="item" data-design_id="<%=item.id%>">
+    <span class="radio"><span class="name"><%=item.designName%></span><span class="price red"><%if(item.id==54){%><s>500.00</s>&nbsp;&nbsp;<%}%><%if(item.id==66){%><s>200.00</s>&nbsp;&nbsp;<%}%><%=RMB(item.price)%>元<%if(item.id==54||item.id==66){%>（迎双节限时特惠价）<%}%></span><span class="gray"><%=item.designDes%></span></span>
+</dd>
+<% }%>
+</dl>
+<% }%>

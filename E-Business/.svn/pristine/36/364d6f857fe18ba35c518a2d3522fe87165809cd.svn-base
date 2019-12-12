@@ -1,0 +1,19 @@
+<% for(var idx=0; namesOrder.length>idx; idx++){ var name = namesOrder[idx]; if(name&&attrs[name]&&(attrs[name].length||(HAS_INPUT_QUANTITY&&name===_quantityName))){ %>
+<div class="attr <%=(HAS_SINGLE_HIDE==1||showType==1)&&attrs[name].length==1?'readonly':''%> clearfix">
+<span class="atr"><%=name%>：</span>
+    <span class="vals" data-name="<%=name%>">
+        <% if(HAS_CUSTOM_QUANTITY&&name===_quantityName){ %>
+        <% include('template-product_params_quantity') %>
+        <% }else { %>
+        <% if((HAS_INPUT_QUANTITY&&name===_quantityName&&attrs[name]&&attrs[name].length>1)||name!=_quantityName||!HAS_INPUT_QUANTITY){ %>
+        <% for(var atr="", i=0; atr=attrs[name][i]; i++){ %>
+        <a class="val <%=atr==attr[name]?'sel':''%> <%=disValues&&disValues[atr]?'dis':''%>" href="javascript:;" data-value="<%=atr%>" data-alt_text="<%=_valuesAlt[atr]%>"><%=atr%></a>&nbsp;
+        <% } %>
+        <% } %>
+        <% if(HAS_INPUT_QUANTITY&&name===_quantityName){ %>
+        <span class="counter" data-name="<%=_quantityName%>"><a>-</a><input id="quantity" class="textbox" type="text" name="quantity" value="<%=attr[_quantityName]>=_quantityMulriple?attr[_quantityName]/_quantityMulriple:0%>"/><b>+</b></span><span class="unit"><%=_quantityInputUnit%></span><span class="mark"><%=_quantityAlt%></span>
+        <% } %>
+        <% } %>
+    </span>
+</div>
+<% } } %>

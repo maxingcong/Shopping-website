@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="none" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="${author}" />
+    <meta name="copyright" content="${copyright}" />
+    <title>折页创意设计</title>
+    <link rel="shortcut icon" type="image/x-icon" href="<?=DOMAIN?>favicon.ico"  />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>layout.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES_DESIGN?>layout.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES_DESIGN?>design.css" />
+    <?php include(MODULES.'dns_prefetch.xhtml');?>
+</head>
+<body class="demand">
+<?php include(MODULES_DESIGN.'header.xhtml');?>
+<div class="main load">
+    <div id="demand" class="layout demand-list clearfix">
+        <div id="template-demand-view"></div>
+        <?php include(MODULES.'ordering.xhtml');?>
+    </div>
+</div>
+<?php include(MODULES_DESIGN.'footer.xhtml');?>
+<?php include(TEMPLATES_DESIGN.'demand/headline.xhtml');?>
+<?php include(TEMPLATES_DESIGN.'demand/attrs.xhtml');?>
+<script id="template-demand" type="text/template">
+    <?php include(TEMPLATES_DESIGN.'demand/sitemap.xhtml');?>
+    {{include 'demand_headline'}}
+    {{include 'demand_attrs'}}
+    <div class="d-attrs clearfix">
+        <h3 class="d-caption"><!-- <b class="red">*</b> -->请填写所需要填写的信息</h3>
+        <dl class="d-alts">
+            <dt class="red">为了快速高效地为您完成设计，请尽量详细描述您的设计需求，如：</dt>
+            <dt><b>第一面</b>：</dt>
+            <dt>主标题：云印科兴体验店开业啦！！</dt>
+            <dt>副标题：让 设计“省”心 印刷“简”单</dt>
+            <dt><b>第二面</b>：</dt>
+            <dt>公司简介：见素材中txt</dt>
+            <dt><b>第三面</b>：</dt>
+            <dt>公司的产品介绍一</dt>
+            <dt><b>第四面</b>：</dt>
+            <dt>公司的产品介绍二</dt>
+        </dl>
+        <dl class="attr attr-form clearfix">
+            <!-- <dt class="atr">展示内容：</dt> -->
+            <dd class="vals">
+                <textarea class="textbox high" name="展示内容">{{demandParamsInfo['展示内容']}}</textarea>
+            </dd>
+        </dl>
+    </div>
+    <?php include(TEMPLATES_DESIGN.'demand/material.xhtml');?>
+    <?php include(TEMPLATES_DESIGN.'demand/contact_info.xhtml');?>
+</script>
+<?php include(TEMPLATES_DESIGN.'demand/choice_yunfile.xhtml');?>
+<?php include(TEMPLATES.'previewer.xhtml');?>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>uploader/main.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS_DESIGN?>product/main.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS_DESIGN?>product/22.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>location.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js?ininin=<?=VERSION?>"></script>
+<?php include(MODULES.'linklogin.xhtml');?>
+</body>
+</html>

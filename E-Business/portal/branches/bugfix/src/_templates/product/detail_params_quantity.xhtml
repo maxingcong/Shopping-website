@@ -1,0 +1,28 @@
+<% var num = attrs[_quantityName].length>5?3:attrs[_quantityName].length; %>
+<% for(var atr="", i=0; atr=attrs[_quantityName][i], num>i; i++){ %>
+<a class="val <%=(atr==attr[_quantityName]&&!_droplist[_quantityName]&&!_custom.length)?'sel':''%>" href="javascript:;" data-value="<%=atr%>"><%=atr%></a>&nbsp;
+<% } if(attrs[_quantityName].length>5){ var uuid = _getUUID(); %>
+<div uuid="droplist-<%=uuid%>" class="droplist <%=_droplist[_quantityName]&&!_custom.length?'focus':''%>">
+<i class="dropbtn"></i>
+<a class="dropval" href="javascript:;" data-value=""><%=(_isCustom!=1&&_droplist[_quantityName])||_droplist.firstItem%></a>
+<input type="hidden" name="number" value="<%=_droplist[_quantityName]%>" data-name="<%=_quantityName%>"/>
+<a class="val sel" href="javascript:;"><%=_isCustom!=1&&_droplist[_quantityName]%></a>
+<div uuid="droplist-<%=uuid%>" class="dropoptions">
+    <div class="dropitems">
+        <!--a class="dropitem" href="javascript:;" data-value=""><%=_droplist.firstItem%></a-->
+        <% for(var atr="", i=3; atr=attrs[_quantityName][i]; i++){ %>
+        <a class="dropitem <%=atr==_droplist[_quantityName]&&!_custom.length?'sel':''%>" href="javascript:;" data-value="<%=atr%>"><%=atr%></a>
+        <% } %>
+    </div>
+</div>
+</div>
+<% } %>
+<% if(HAS_CUSTOM_QUANTITY){ %>
+<a class="but <%=_custom&&_custom.length?'sel':''%>" href="javascript:;">自定义</a>
+<% if(_quantityCustomAlt){ %>
+<a class="icon_help" href="javascript:;" data-alt_text="<%=_quantityCustomAlt%>"></a>
+<% } %>
+<% } %>
+<% if(categoryId==30||categoryId==39||categoryId==40||categoryId==41||categoryId==42||categoryId==141||categoryId==142){ %>
+<span class="alt_red">（每盒100张）</span>
+<% } %>

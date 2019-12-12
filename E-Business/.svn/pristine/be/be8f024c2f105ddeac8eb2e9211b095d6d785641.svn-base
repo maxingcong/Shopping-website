@@ -1,0 +1,30 @@
+<script id="slider_list" type="text/template">
+<div class="slide-panel" data-duration="{{carouselTime}}" data-interval="{{pauseTime}}">
+    <ul class="slide-layer clearfix">
+        {{each adContent as item i}}
+        <li class="slide-item">
+            {{if item.link}}
+            <a class="slide-link" href="{{item.link}}" title="{{item.title}}" target="_blank">
+                <!--<img src="{{item.picPath}}?imageMogr2/thumbnail/!{{width}}x{{height}}r/auto-orient/gravity/Center/crop/{{width}}x{{height}}" alt="{{item.title}}"/>-->
+                <img src="{{item.picPath}}" alt="{{item.title}}"/>
+            </a>
+            {{else}}
+            <img src="{{item.picPath}}" alt="{{item.title}}"/>
+            {{/if}}
+            {{if adAreaCode=='print1'}}
+            {{include 'slider_list-'+item.id item}}
+            {{/if}}
+        </li>
+        {{/each}}
+    </ul>
+    {{if adContent && adContent.length>1}}
+    <div class="slide-dots">
+        {{each adContent as item i}}
+        <span class="slide-dot"><i class="slide-shade"></i><span class="slide-sort">{{i+1}}</span></span>
+        {{/each}}
+    </div>
+    <div class="slide-prev"></div>
+    <div class="slide-next"></div>
+    {{/if}}
+</div>
+</script>

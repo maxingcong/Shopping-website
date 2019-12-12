@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="常见问题-订单类" />
+    <meta name="description" content="" />
+    <meta name="author" content="${author}" />
+    <meta name="copyright" content="${copyright}" />
+    <title>常见问题-订单类</title>
+    <link rel="shortcut icon" type="image/x-icon"  href="<?=DOMAIN?>favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>faq.css" />
+	<?php include(MODULES.'dns_prefetch.xhtml');?>
+</head>
+<body>
+<?php include(MODULES.'header.xhtml');?>
+<div class="main faq">
+	<div class="layout clearfix">
+		<?php include(MODULES.'helpsidebar.xhtml');?>
+		<div class="container faqs">
+			<div class="upanel">
+				<dl class="faq_item">
+					<dt class="faq_tit"> <span>1.如何下单？</span> </dt>
+					<dd class="faq_contain">
+						<div class="order_type">具体内容见<a href="<?=DOMAIN?>help/index.html" target="_blank">"订购流程"</a>。</div>
+						<div class="order_type">下单总体流程如下：</div>
+						 <img src="<?=IMAGES?>faq/faq8.jpg" alt="云印技术" />
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<dl class="faq_item">
+					<dt class="faq_tit"><span>2.可以拨打客服热线/联系QQ客服下单吗？</span> </dt>
+					<dd class="faq_contain">
+						<div>目前不支持通过电话或QQ下单。如果您下单遇到问题，请咨询我们的客服人员，我们一定会全力为您提供帮助。</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<dl class="faq_item">
+					<dt class="faq_tit"> <span>3.款数和数量有什么区别？</span> </dt>
+					<dd class="faq_contain">
+						<ul class="faq_msg">
+							<li>1)数量是对于印刷某一个产品，需要印刷的份数；</li>
+							<li>2)款数是指印刷某一个产品，需要印刷不同的样式内容；</li>
+							<li>
+								<div>比如：如果您需要印刷5个人的名片，每个人印刷2盒，则数量为2（盒），款数为5。</div>
+							</li>
+						</ul>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<dl class="faq_item">
+					<dt class="faq_tit"> <span>4.如何上传印刷文件？</span> </dt>
+					<dd class="faq_contain">
+						<div>在您提交订单后，可以在“<a href="<?=DOMAIN?>member/index.html" target="_blank">个人中心</a>》<a href="<?=DOMAIN?>order/index.html" target="_blank">我的订单</a>”页面点击上传文件按钮，上传各个商品对应的印刷文件。具体上传文件方式如下：</div>
+                        <div class="block">
+                            <b>名片产品</b>
+                            <ul class="faq_msg">
+                                <li>您可以选择名片设计服务定制您的专属模板，使用模板可以快速生成印刷文件。一次设计，永久免费使用。</li>
+                            </ul>
+                        </div>
+                        <div class="block">
+                            <b>其他产品</b>
+                            <ul class="faq_msg">
+                                <li>其他产品支持两种选择印刷文件的方式：</li>
+                                <li>1) 上传您电脑中的本地文件。文件格式支持ai、cdr、psd、pdf，具体印刷文件要求见上传文件须知</li>
+                                <li>2) 选择云端印刷文件：云端印刷文件是指您在云印平台下单（通过审核后）的所有印刷文件。</li>
+                            </ul>
+                        </div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<dl class="faq_item">
+					<dt class="faq_tit"> <span>5.印刷文件需要什么格式？</span> </dt>
+					<dd class="faq_contain">
+						<div>目前印刷文件支持ai、cdr、psd、pdf、jpg格式；如果上传jpg图片，请确保分辨率为300~350DPI，色彩模式为CMYK。</div>
+						<div>如果需要上传多个文件，请将以上文件压缩为rar/zip格式上传。</div>
+						<div>具体见"<a href="<?=DOMAIN?>help/upload.html">上传文件须知</a>"。</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<dl class="faq_item">
+					<dt class="faq_tit"> <span>6.一次需要印刷多个产品的话怎么下单？</span> </dt>
+					<dd class="faq_contain">
+						<div>如果是印刷同一种产品（纸质、数量、工艺一致），但印刷信息不同，则选择对应的款数，并且将文件打包压缩后上传。</div>
+						<div>如果需要印刷不同产品，则分别选择产品加入购物车，提交订单后一起支付。</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<dl class="faq_item">
+					<dt class="faq_tit"> <span>7.单独报价的产品怎么下单？</span> </dt>
+					<dd class="faq_contain">
+						<div>对于网上没有展现的印刷产品，您可以咨询我们的客服是否可以生产；确认报价后，在首页选择"更多服务"—"非标产品"，通过选择不同的数量支付金额。</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<dl class="faq_item">
+					<dt class="faq_tit"> <span>8.印刷文件上传错了怎么办？/印刷文件上传了还可以修改吗？</span> </dt>
+					<dd class="faq_contain">
+						<ul class="faq_msg">
+							<li>1)若订单还没有完成支付，则在"我的订单"页面，重新上传印刷文件。
+							<li>2)若文件已经支付并且进入审核流程，请您尽快拨打400-680-9111联系客服暂不安排进入生产。取消后，将商品状态设置为审核不通过，您再重新上传文件。</li>
+							<li>3)若商品已安排生产，则无法修改，需要您重新下单。</li>
+							<li>因此为了减少您的损失，请上传文件前仔细核对文件信息。</li>
+						</ul>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<dl class="faq_item">
+					<dt class="faq_tit"> <span>9.订单提交成功后，还可以修改订单信息吗？</span> </dt>
+					<dd class="faq_contain">
+						<div>订单提交后，购买的商品信息不支持修改。您可以拨打400-680-9111联系客服人员修改订单或者取消此订单后重新下单。</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<dl class="faq_item">
+					<dt class="faq_tit"> <span>10.如何取消订单？</span> </dt>
+					<dd class="faq_contain">
+                        <div>若订单还未进入审核中、生产/设计状态，您可以在订单列表页面直接取消订单；</div>
+                        <div>若订单已进入审核中、生产/设计状态，则不支持取消订单；</div>
+                        <div>账户充值订单一经购买，不支持取消。</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<dl class="faq_item">
+					<dt class="faq_tit"> <span>11.订单取消后还能恢复吗？</span> </dt>
+					<dd class="faq_contain">
+						<div>订单取消后，将无法进行恢复。因此，请您取消订单前确认相关信息。</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<dl class="faq_item">
+					<dt class="faq_tit"> <span>12.订单取消后怎么进行退款？</span> </dt>
+					<dd class="faq_contain">
+						<div>当您取消订单成功后，系统自动退款。对于各种支付方式的处理规则如下：</div>
+						<div>（1）全额退款时，优惠券会返还到您的账户中，若部分退款，优惠券不支持退还。</div>
+						<div>（2）其他支付方式的金额均退还至您的“现金账户”。</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<dl class="faq_item">
+					<dt class="faq_tit"> <span>13.怎么查看我的订单？</span> </dt>
+					<dd class="faq_contain">
+						<div>在网站右上角点击"我的订单"按钮，可以进入"我的订单"页面查看订单基本信息；</div>
+						<div>在"我的订单"页面"查看详情"，可以查看各订单的详细信息。</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<!--<dl class="faq_item">
+					<dt class="faq_tit"> <span>14.积分如何兑换？</span> </dt>
+					<dd class="faq_contain">
+						<div>您可以在账户中心-<a href="<?=DOMAIN?>member/myintegral.html" target="_blank">我的积分</a>页面中查看积分数量以及积分获取和消费记录。</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>-->
+				<dl class="faq_item">
+					<dt class="faq_tit"> <span>14.网站支持哪些配送方式？</span> </dt>
+					<dd class="faq_contain">
+						<div>系统支持四种配送方式：专车配送，普通快递，顺丰发货，上门自提。</div>
+						<ul class="faq_msg">
+							<li>1)专车配送范围以订单提交页为准；</li>
+							<li>2)普通快递系统会自动计算运费；</li>
+							<li>3)顺丰发货系统会自动计算运费；</li>
+							<li>4)上门自提，您可到云印的服务点进行取货。</li>
+						</ul>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<dl class="faq_item">
+					<dt class="faq_tit"> <span>15.如何修改收货地址？</span> </dt>
+					<dd class="faq_contain">
+						<div>您可以在账户中心-收货地址页面新增/修改收货地址；</div>
+						<div>如果您已经提交订单需要修改收货地址，请及时联系我们的客服记录并更新。</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<dl class="faq_item">
+					<dt class="faq_tit"> <span>16.为什么客服电话总是打不通？</span> </dt>
+					<dd class="faq_contain">
+						<div>很抱歉，随着云印业务发展，客户办理的业务增多，有时候导致座席电话繁忙，我司会尽快解决这一问题，同时建议您可以避开高峰期拨打客服电话，或者通过联系客服QQ咨询，非常抱歉给您带来不便，请谅解！</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<dl class="faq_item">
+					<dt class="faq_tit"> <span>17.您们的账户充值好像很复杂，可以直接给我打折吗？</span> </dt>
+					<dd class="faq_contain">
+						<div>很抱歉，我们暂时还没有直接打折的政策；而且，我们的账户充值并不复杂，账户充值赠送的积分就相当于折扣。</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+</div>
+<?php include(MODULES.'footer.xhtml');?>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>other/faq.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>location.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js?ininin=<?=VERSION?>"></script>
+<!--<script type="text/javascript" src="<?=SCRIPTS?>jquery-1.7.2.min.js"></script> -->
+<!--<script type="text/javascript" src="<?=SCRIPTS?>template-native.js"></script> -->
+<!--<script type="text/javascript" src="<?=SCRIPTS?>zh_cn.js"></script> -->
+<!--<script type="text/javascript" src="<?=SCRIPTS?>tool.js"></script> -->
+<!--<script type="text/javascript" src="<?=SCRIPTS?>other/faq.js"></script>-->
+<!--<script type="text/javascript" src="<?=SCRIPTS?>loaded.js"></script>-->
+<!--<script type="text/javascript" src="<?=SCRIPTS?>libs/location.js"></script>-->
+<?php include(MODULES.'linklogin.xhtml');?>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="名片设计免费啦" />
+    <meta name="description" content="为了让更多客户体验到方便快捷的云印模板功能，云印现针对所有客户免费赠送一次模版设计服务" />
+    <meta name="author" content="${author}" />
+    <meta name="copyright" content="${copyright}" />
+    <title>名片设计免费啦</title>
+    <link href="<?=DOMAIN?>favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>activity.css" />
+    <?php include(MODULES.'dns_prefetch.xhtml');?>
+    <style type="text/css">
+        .layout .act_main{width: 960px; padding-bottom: 70px; margin: 0 auto;}
+        .layout .act_body{padding: 30px 40px 110px; background-color: #d43c8a; font-size: 24px; line-height: 50px; color: #fff;}
+        .layout .rect_bord{width: 772px; margin: 0 auto; border: 1px solid #eda747; background-color: transparent; line-height: 54px; text-align: center;}
+        .layout .rect_offset{position: relative; top: 10px; left: 10px;}
+        .layout .act_body strong{font-weight: normal; color: #eda747;}
+        .layout .act_body hr{background-color: #eda747; color: #eda747;}
+    </style>
+</head>
+<body>
+<?php include(MODULES.'header.xhtml');?>
+<div class="main active non_pad">
+    <div class="layout">
+        <div class="act_main">
+            <img src="<?=IMAGES?>activity/a22_1.jpg" alt="名片设计免费啦"/>
+            <div class="act_body text_center">
+                <div class="rect_bord">
+                    <div class="rect_bord rect_offset">
+                        <p style="margin-top: 4px;">为了让更多客户体验到方便快捷的<strong>云印模板功能</strong>，</p>
+                        <p class="mb15">云印现针对所有客户免费赠送一次模版设计服务</p>
+                    </div>
+                </div>
+                <img class="mt20 mb35" src="<?=IMAGES?>activity/a22_2.png" alt="名片设计免费啦"/>
+                <p>不论新老用户，只要您账户中还没有名片模板，都可以参加这次活动，<br/>名片设计模板将保存在您的印刷文件模板中，一次设计永久免费使用。</p>
+                <p class="mb35" style="font-size: 30px;"><strong>无论1人还是100人的名片印刷，一步就能轻松搞定！</strong></p>
+                <div class="new_btn_yellow mb35">
+                    <a class="blue_buy" href="<?=DOMAIN?>design/9.html" onclick="_czc.push(['_trackEvent', '名片设计免费啦', '点击进入设计页面', '','','']);">点击进入设计页面</a>
+                </div>
+                <hr class="mb35" />
+                <p class="mb15">还没有领取的客户，赶紧联系您的专属商务经理和客服领取吧！</p>
+                <div class="new_btn_yellow">
+                    <a id="qqservice" class="blue_buy" href="javascript:;" rel="nofollow" target="_blank" onclick="_czc.push(['_trackEvent', '名片设计免费啦', '点击联系客服领取', '','','']);">点击联系客服领取</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php include(MODULES.'footer.xhtml');?>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>activity/detail.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>location.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js?ininin=<?=VERSION?>"></script>
+<!--script type="text/javascript" src="<?=SCRIPTS?>jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>template-native.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>zh_cn.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tool.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>activity/detail.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>libs/location.js"></script-->
+<?php include(MODULES.'linklogin.xhtml');?>
+</body>
+</html>

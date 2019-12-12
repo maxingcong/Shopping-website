@@ -1,0 +1,105 @@
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<div>
+    <ol class="breadcrumb">
+        <li><a href="<?=DOMAIN?>home/index.html"><i class="fa fa-home"></i>首页</a></li>
+        <li class="active">现金账户记录</li>
+    </ol>
+    <!-- Nav tabs -->
+    <ul id="list_tabs" class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#" aria-controls="" role="tab" data-toggle="tab" data-list_type="Income">收益记录</a></li>
+        <li role="presentation"><a href="#" aria-controls="" role="tab" data-toggle="tab" data-list_type="Withdraw">提现记录</a></li>
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div id="list_tab_panel" role="tabpanel" class="tab-pane active">
+            <div id="template-account_list-view" class="table-scroll"></div>
+            <div class="pagination clearfix">
+                <div class="pull-left">
+                    <span>共 <b id="data-recordCount">0</b> 条，每页
+                    <select class="form-control" name="pageCount">
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                        <option value="40">40</option>
+                        <option value="50">50</option>
+                    </select> 条</span>
+                </div>
+                <div id="paginbar" class="pull-right paginbar"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script id="template-account_list" type="text/template">
+    <table class="table table-hover">
+        <colgroup>
+            <col style="width: 50px">
+            <col style="width: 200px">
+            <col style="width: 10%">
+            <col style="width: 10%">
+            <col style="width: 12%">
+            <col style="width: 15%">
+            <col>
+        </colgroup>
+        <thead>
+        <tr>
+            <th>
+                <div class="checkbox">
+                    <label><input type="checkbox" name="checkbox_all"/><i class="fa fa-checkbox"></i></label>
+                </div>
+            </th>
+            <th>时间</th>
+            <th>操作人</th>
+            <th>动作</th>
+            {{if supplierAccountList}}
+            <th>累计金额（元）</th>
+            <th>订单号</th>
+            <th>原因</th>
+            {{else if supplierWithdrawList}}
+            <th>申请金额（元）</th>
+            <th>发票</th>
+            <th>审核结果</th>
+            {{/if}}
+        </tr>
+        </thead>
+        <tbody>
+        {{if supplierAccountList&&supplierAccountList.length>0}}
+            {{each supplierAccountList as accountList}}
+            <tr>
+                <th scope="row">
+                    <div class="checkbox">
+                        <label><input type="checkbox" name="checkbox"/><i class="fa fa-checkbox"></i></label>
+                    </div>
+                </th>
+                <td>{{accountList.operationTime}}</td>
+                <td>{{accountList.operator}}</td>
+                <td>{{if accountList.changeCashAmount>0}}+{{/if}}{{accountList.changeCashAmount}}</td>
+                <td>{{accountList.cashAmount}}</td>
+                <td>{{accountList.relationOrderCode}}</td>
+                <td>{{accountList.description}}</td>
+            </tr>
+            {{/each}}
+            {{else if supplierWithdrawList&&supplierWithdrawList.length>0}}
+                {{each supplierWithdrawList as withdrawList}}
+                <tr>
+                    <th scope="row">
+                        <div class="checkbox">
+                            <label><input type="checkbox" name="checkbox"/><i class="fa fa-checkbox"></i></label>
+                        </div>
+                    </th>
+                    <td>{{withdrawList.dateCreated}}</td>
+                    <td>{{withdrawList.operator}}</td>
+                    <td>申请提现</td>
+                    <td>{{withdrawList.requestAmount}}</td>
+                    <td>{{if withdrawList.issueInvoice==0}}不可开发票{{else}}可开发票{{/if}}</td>
+                    <td>{{if withdrawList.status=="Pass"}}审核通过{{else if withdrawList.status=="NotPass"}}审核不通过{{else}}审核中{{/if}}</td>
+                </tr>
+                {{/each}}
+            {{else}}
+            <tr>
+                <td colspan="7" class="text-center">未查询到相关记录</td>
+            </tr>
+        {{/if}}
+        </tbody>
+    </table>
+</script>
+<script type="text/javascript" src="<?=SCRIPTS?>cash/cash_account.js"></script>

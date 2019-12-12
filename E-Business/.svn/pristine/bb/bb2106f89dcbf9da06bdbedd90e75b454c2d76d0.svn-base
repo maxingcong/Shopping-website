@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="none" />
+    <meta name="author" content="${author}" />
+    <meta name="copyright" content="${copyright}" />
+    <title>代下单授权</title>
+    <link rel="shortcut icon" type="image/x-icon" href="<?=DOMAIN?>favicon.ico"  />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>layout.css" />
+    <?php include(MODULES.'dns_prefetch.xhtml');?>
+</head>
+<body>
+<h3 style="padding: 25px 0"><img style="vertical-align:middle;" src="<?=IMAGES?>loading.gif"/> 正在授权...</h3>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+<!--<script type="text/javascript" src="<?=SCRIPTS?>jquery-1.7.2.min.js"></script>-->
+<!--<script type="text/javascript" src="<?=SCRIPTS?>template-native.js"></script>-->
+<!--<script type="text/javascript" src="<?=SCRIPTS?>tool.js"></script>-->
+<script type="text/javascript">
+    require(["base", "tools"], function ($, T) {
+        /*Input	Request params
+         {
+         sid：xxx；
+         user_name：xxx(会员名)
+         }
+         Output	{基本字段
+         "result":0, //错误代码，0正常，1= 错误 ，-1异常
+         "msg":"xxxxxxx"//错误信息
+         inner_user_name ：xxx //代下单操作人用户名
+         nickName：xxx  //会员昵称
+         userName：xxx//会员名
+         sid：xxx//会员sid
+         userSupportQQ:xxx//会员客服QQ
+         }*/
+        var auth = {
+            params: T.getRequest(),
+            backuri: T.DOMAIN.WWW,
+            init: function(){debugger
+                var _this = this;
+                if(_this.params.sid){
+                    try{
+                        _this.params.redirect_uri = decodeURIComponent(_this.params.redirect_uri||"");
+                    }catch(e){}
+                    //处理redirect_uri
+                    var _uri = _this.params.redirect_uri.replace(/\?.*$|#.*$/g, "");
+                    if(_uri.indexOf("design/")>=0){
+                        var _categoryId = _uri.replace(/^.*\//g, "").replace(/\.html$/g, "");
+                        if(_categoryId==9||_categoryId==14||_categoryId==23||_categoryId==25||_categoryId==29||_categoryId==31||_categoryId==32){
+                        }else{
+                            _this.params.redirect_uri = _this.params.redirect_uri.replace(_categoryId+".html", "datum.html")
+                        }
+                    }
+                    _this.set();
+                    _this.auth();
+                }else{
+                    T.alt(T.TIPS.DEF);
+                }
+            },
+            set: function(){//保存登录信息
+                var _this = this;
+                T.SetCookie({
+                    sid: _this.params.sid||"",
+                    type: 3 //代理登录
+                });
+            },
+            auth: function(){//权限验证
+                var _this = this;
+                var params = T.getRequest();
+                //去除sid
+                if(params.sid){
+                    delete params.sid;
+                }
+                if(params.redirect_uri){
+                    delete params.redirect_uri;
+                }
+                T.GET({
+                    action: "in_user/instead_order_check",
+                    params: params,
+                    success: function(data){
+                        //代下单系统信息
+                        var systemInfo = ">> 欢迎光临 " + data.systemType||"云印电商";
+                        if(data.service_point_name!=null && data.service_point_name!==""){
+                            systemInfo += data.service_point_name;
+                        }
+                        systemInfo += " <<";
+                        //操作人
+                        var operator = "";
+                        if(data.inner_real_name!=null && data.inner_real_name!==""){
+                            operator = data.inner_real_name;
+                        }
+                        if(operator!==""){
+                            operator += "[" + data.inner_user_name + "]";
+                        }else{
+                            operator = data.inner_user_name;
+                        }
+                        //设置代下单信息
+                        T.SetCookie({
+                            sid: _this.params.sid,
+                            type: 3,
+                            userName: data.inner_user_name,
+                            nickName: data.inner_user_name,
+                            systemInfo: systemInfo,
+                            operator: operator,
+							operatorCode: data.user_code || params.user_code || "",
+                            user: data
+                        });
+                        location.replace(_this.params.redirect_uri||auth.backuri);
+                    },
+                    failure: function(data){
+                        _this.alt(data.msg||"您还没有代下单权限或用户禁用了代下单功能");
+                    }
+                }, function(data){
+                    _this.alt("授权密匙已过期，请重新授权");
+                }, function(data){
+                    _this.alt("您没有此项权限");
+                });
+            },
+            alt: function(msg){//信息提示框
+                var _this = this;
+                T.UnCookie(1, 0);//清除登录信息
+                T.alt(msg||"您没有此项权限", function(_o){
+                    _o.remove();
+                    location.replace(auth.backuri);
+                }, function(_o){
+                    _o.remove();
+                    location.replace(auth.backuri);
+                });
+            }
+        };
+        auth.init();
+    });
+</script>
+</body>
+</html>

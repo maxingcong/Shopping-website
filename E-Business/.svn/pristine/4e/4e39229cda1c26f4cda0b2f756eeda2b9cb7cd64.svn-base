@@ -1,0 +1,214 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="确认订单" />
+    <meta name="description" content="" />
+    <meta name="author" content="${author}" />
+    <meta name="copyright" content="${copyright}" />
+    <title>确认订单</title>
+    <link rel="shortcut icon" type="image/x-icon"  href="<?=DOMAIN?>favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>layout.css" />
+    <?php include(MODULES.'dns_prefetch.xhtml');?>
+</head>
+<body>
+<?php include(MODULES.'header_simple.xhtml');?>
+<div class="order-step"><img id="step_img" src="<?=IMAGES?>step/1_2.png" alt="" /></div>
+<div class="main order">
+    <div class="layout">
+        <h3 class="headline_order">确认订单信息</h3>
+        <form id="order" class="forms">
+            <h3 class="headline">
+                <span>收货信息</span>
+            </h3>
+            <div id="template-address_list-view" class="adrview collapsed"></div>
+            <h3 class="headline">
+                <a id="link_back_cart" class="lnk" href="<?=DOMAIN?>cart/index.html">返回购物修改商品>></a>
+                <span>商品信息<em class="gray">（为了您的商品更快地生产和配送，您的订单可能会拆分配送）</em></span>
+            </h3>
+            <div id="template-product_list-view" class="goods_list"></div>
+            <div class="btmline"></div>
+            <?php include(MODULES.'ordering_print.xhtml');?>
+        </form>
+    </div>
+</div>
+<div class="hide">
+    <?php include(TEMPLATES.'address_form.xhtml');?>
+    <div id="template-take_address_list-view" class="point_view"></div>
+</div>
+<?php include(MODULES.'footer.xhtml');?>
+<script id="template-take_address_list" type="text/template">
+    <div class="point_filter">
+        <!--select id="pid-take_address" name="province">
+        </select><select id="cid-take_address" name="city">
+        </select-->
+        选择区域：<select id="did-districts" name="area" data-mode="1">
+            <option value="" selected="selected">全部区/县</option>
+        </select>
+        <!--input id="pcd-take_address" name="take_pcd" type="hidden" value="" /-->
+    </div>
+    <div class="point_box clearfix" style="width: <%=_listWidth%>px; height: <%=_listHeight%>px">
+        <ul id="template-point_list-view" class="point_list radios">
+            <% include('template-point_list') %>
+        </ul>
+        <div id="baidumap" class="baidumap"></div>
+    </div>
+    <a class="submit" href="javascript:;">确定</a>
+</script>
+<script id="template-point_list" type="text/template">
+    <% if(addressList&&addressList.length){ %>
+    <% for(var k=0; temp = addressList[k]; k++){ %>
+    <li id="take_address_item-<%=temp.addressId%>" class="item" data-address_id="<%=temp.addressId%>">
+        <h3 class="radio"><span><%=k+1%></span> <%=temp.addressName%> <span class="red"><%=k?'':'推荐'%></span></h3>
+        <div class="text"><%=temp.address.replace(/\^/gi,"")%></div>
+    </li>
+    <% } %>
+    <% }else{ %>
+    <li class="empty">当前城市下暂无自提点，请您选择其他配送方式</li>
+    <% } %>
+</script>
+<script id="template-point" type="text/template">
+    <dt class="gray">自提点：</dt>
+    <dd>
+        <span class="name"><%=addressName%></span>
+        <span class="coord" data-name="<%=addressName%>" data-coord="<%=addressCoordinate%>"></span>
+        <a class="upd" href="javascript:;" data-address_id="<%=addressId%>">修改</a>
+    </dd>
+</script>
+<script id="template-take_date" type="text/template">
+    <dt class="gray">配送时间：</dt>
+    <dd class="radios radios_mini">
+        <% for(var h=0; temp = takeDateList[h]; h++){ %>
+        <p><span class="radio <%=h?'':'sel'%>" data-date_id="<%=temp.dateId%>"><%=temp.name%><span class="gray"><%=temp.desc%></span></span></p>
+        <% } %>
+    </dd>
+</script>
+<script id="template-address_list" type="text/template">
+    <?php include(TEMPLATES.'address_list.xhtml');?>
+    <% if(addressList&&addressList.length>3){%>
+    <% if(_collapsed){ %>
+    <div class="shwmore"><a class="showmore" href="javascript:;">展开全部</a></div>
+    <% }else{ %>
+    <div class="shwmore"><a class="hidemore" href="javascript:;">收起全部</a></div>
+    <% } %>
+    <% } %>
+</script>
+<script id="template-product_list" type="text/template">
+    <% for(var i=0; item = data[i]; i++){ %>
+    <div class="goods_item" data-supplier_id="<%=item.supplierId%>">
+        <% for(var row=0; supplier = item.supplierDataList[row]; row++){ if(supplier.productList.length){ %>
+        <div class="goods_row clearfix" data-id="<%=supplier.blockId%>">
+            <div class="dm_info">
+                <p class="tit">配送方式：</p>
+                <div class="dm_list clearfix">
+                    <% for(var k=0; temp = supplier.deliveryList[k]; k++){ %>
+                    <a class="radio <%=temp.CHECKED?'sel':''%>" href="javascript:;" data-delivery_id="<%=temp.deliveryId%>" alt="<%=temp.deliveryName%>">
+                        <i></i>
+                        <%=temp.deliveryName%><%if(temp.deliveryInstruction){%><em class="small_icon_help" data-text="<%=temp.deliveryInstruction%>"></em><%}%>
+                    </a>
+                    <% }%>
+                    <% if(!supplier.deliveryList.length){ %>
+                    <b class="red">您选择的商品暂不支持配送至该收货地址，请您更换收货地址</b>
+                    <% }%>
+                </div>
+                <dl id="template-point-<%=supplier.blockId%>-view" class="take_adr">
+                    <% if(FCFID==supplier.defDeliveryId){ %>
+                    <dd><a class="upd" href="javascript:;" data-address_id="<%=FCFID%>">请选择自提点</a><dd>
+                    <% }%>
+                </dl>
+                <dl id="template-take_date-<%=supplier.blockId%>-view" class="take_date clearfix" style="display: <%=FHDID==supplier.defDeliveryId?'':'none'%>">
+                    <% include('template-take_date') %>
+                </dl>
+                <div class="dm-price <%=shipFlag==1||supplier.shipPrice<0?'hide':''%>">配送运费：<span id="split_ship-<%=supplier.blockId%>" class="red"><%if (shipFlag!=1&&supplier.shipPrice>0){%><%=supplier.shipPrice%><%}%></span> 元</div>
+            </div>
+            <p class="tit">商品信息：</p>
+            <ul class="pdt_list">
+                <% for(var k=0; temp = supplier.productList[k]; k++){ %>
+                <li class="pdt_item clearfix" data-cart_id="<%=temp.cartId%>">
+                    <dl class="pdt_opts">
+                        <% if(temp.hasSupply){ %>
+                        <dd>
+                            <a class="pdt_del" href="javascript:;">删除该商品</a>
+                        </dd>
+                        <dt class="pdt_not red"><%=temp.hasSupply==1 ? '无法配送' : '商品已下架'%></dt>
+                        <% }else{ %>
+                        <dd>&nbsp;</dd>
+                        <dt>支持配送</dt>
+                        <% } var thumbnail = 'imageMogr2/thumbnail/!112x64r/auto-orient/gravity/Center/crop/112x64'; %>
+                    </dl>
+                    <a class="pdt_img" href="<?=DOMAIN?>product/<%=temp.targetId||temp.productId%>.html#<%=temp.productAttr%>" target="_blank" title="<%=temp.productName%>">
+                        <img src="<%=temp.imgPath||DOMAIN.CLOUD%>?<%=thumbnail%>" alt="<%=temp.productName%>" />
+                    </a>
+                    <a class="pdt_name" href="<?=DOMAIN?>product/<%=temp.targetId||temp.productId%>.html#<%=temp.productAttr%>" target="_blank" title="<%=temp.productName%>">
+                        <%=temp.productName%>
+                    </a>
+                    <div class="pdt_attr ellipsis" title="<%=temp.productAttr%>">
+                        <%=temp.productAttr%>
+                    </div>
+                    <div class="pdt_info clearfix">
+                        <span class="pdt_price red"><%=temp.price?'￥'+RMB(temp.price):''%></span>
+                        <span class="pdt_num gray">数量：<%=temp.quantity?temp.quantity:''%></span>
+                        <span class="pdt_weight gray">
+                        <% if(temp.valuationMethod==3){ %>
+                        <%=temp.valuationValue>0?'个数：'+Number(temp.valuationValue)+'个':'&nbsp;'%>
+                        <% }else if(temp.valuationMethod==2){ %>
+                        <%=temp.valuationValue>0?'体积：约'+RMB(temp.valuationValue)+'m³':'&nbsp;'%>
+                        <% }else if(temp.valuationMethod==1){ %>
+                        <%=temp.valuationValue>0?'面积：约'+RMB(temp.valuationValue)+'㎡':'&nbsp;'%>
+                        <% }else{ %>
+                        <%=temp.valuationValue>0?'重量：约'+RMB(temp.valuationValue)+'kg':'&nbsp;'%>
+                        <% } %>
+                        </span>
+                        <% if(temp.delivery>0){ %>
+                        <span class="pdt_date gray">预计出货：<%=DeliveryDate('',temp.delivery,2)%></span>
+                        <% } %>
+                    </div>
+                </li>
+                <% }%>
+            </ul>
+        </div>
+        <% } } %>
+    </div>
+    <% } %>
+    <%if(serviceList && serviceList.length){%>
+    <div class="service_panel">
+        <div class="service_head">优惠：<span class="yellow">恭喜你获得以下优惠资格</span></div>
+        <ul class="service_list checkboxs">
+            <% for(var i=0; item = serviceList[i]; i++){ %>
+            <li class="service_item" data-id="<%=item.serviceId%>">
+                <span class="checkbox"><%=item.serviceDesc%></span>
+            </li>
+            <% } %>
+        </ul>
+    </div>
+    <% } %>
+</script>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>location.js?ininin=<?=VERSION?>"></script>
+<!--?php include(MODULES.'bmap.xhtml');?-->
+<script type="text/javascript" src="<?=SCRIPTS?>cart/ordering.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js?ininin=<?=VERSION?>"></script>
+<!--script type="text/javascript" src="<?=SCRIPTS?>jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>libs/utils.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>zh_cn.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tool.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>libs/location.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>modules/point.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>modules/ordering.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>cart/ordering.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=VybvSG3RqpGQzp6GwlzNOmiq"></script-->
+<?php include(MODULES.'linklogin.xhtml');?>
+</body>
+</html>

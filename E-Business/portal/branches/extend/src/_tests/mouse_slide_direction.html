@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标划入方向</title>
+    <style type="text/css">
+        .test {
+            width: 200px;
+            height: 400px;
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+<div id="test" class="test"></div>
+<script type="text/javascript" src="http://www.ininin.com/scripts/jquery.js"></script>
+<script type="text/javascript">
+    $("#test").on("mouseenter", function (e) {
+        console.log(T.getMouseDirection(e.target, e));
+    });
+
+    var T = {
+        preventDefault: function(e) {
+            if(e && e.preventDefault){
+                e.preventDefault()
+            }else if(window.event){
+                window.event.returnValue = false;
+            }
+        },
+        stopPropagation: function(e) {
+            if(e && e.stopPropagation){
+                e.stopPropagation()
+            }else if(window.event){
+                window.event.cancelBubble = true;
+            }
+        },
+        offset: function(el){
+            var coord = {x:0, y:0};
+            var recursion = function (o) {
+                if(o){
+                    coord.x += o.offsetLeft;
+                    coord.y += o.offsetTop;
+                    recursion(o.offsetParent);
+                }
+            };
+            return recursion(el), coord;
+        },
+        getEvent: function(){
+            if(window.event)return window.event;
+            var func = arguments.caller;
+            while(func!=null) {
+                var e = func.arguments[0];
+                if(e){
+                    if((e.constructor==Event||e.constructor==MouseEvent||e.constructor==KeyboardEvent)||(typeof e==="object"&&e.preventDefault&&e.stopPropagation)){
+                        return e;
+                    }
+                }
+                func = func.caller;
+            }
+            return null;
+        },
+        getSize: function(o){
+            if(o)return {
+                w: o.clientWidth||o.offsetWidth,
+                h: o.clientHeight||o.offsetHeight
+            };
+            return {
+                w: window.innerWidth||document.documentElement.clientWidth||document.body.offsetWidth,
+                h: window.innerHeight||document.documentElement.clientHeight||document.body.offsetHeight
+            };
+        },
+        getMousePoint: function(e){
+            var coord = {};
+            e = e||this.GetEvent();
+            if(e.pageX>=0 && e.pageY>=0){
+                coord.x = e.pageX;
+                coord.y = e.pageY;
+            }else if(document.documentElement&&!isNaN(e.clientX)&&!isNaN(document.documentElement.scrollTop)){
+                coord.x = e.clientX+document.documentElement.scrollLeft-document.documentElement.clientLeft;
+                coord.y = e.clientY+document.documentElement.scrollTop-document.documentElement.clientTop;
+            }else if(document.body&&!isNaN(e.clientX)&&!isNaN(document.body.scrollLeft)){
+                coord.x = e.clientX+document.body.scrollLeft-document.body.clientLeft;
+                coord.y = e.clientY+document.body.scrollTop-document.body.clientTop;
+            }
+            return coord;
+        },
+        getMouseDirection: function (el, e) {
+            var coord1 = this.offset(el); //获得元素在页面中的坐标
+            var coord2 = this.getMousePoint(e); //获得鼠标在页面中的坐标
+            //获得鼠标在元素中的坐标，相对于元素左上角的位置
+            var coord = {
+                x: coord2.x - coord1.x,
+                y: coord2.y - coord1.y
+            };
+            var size = this.getSize(el); //获得元素的大小（宽、高）
+            //移动坐标原点到矩形中心点后，鼠标位置，坐标平移（-w/2,-h/2），并翻转X轴（y=-y）
+            coord.x = coord.x - size.w/2;
+            coord.y = size.h/2 - coord.y;
+            var getAngle = function (x, y) {
+                return (Math.atan2(y, x)*180/Math.PI + 360) % 360
+            };
+            //鼠标位置和中心原点的弧度
+            var angle = getAngle(coord.x, coord.y);
+            //将4个扇形区边线的角度不重复的组成一个数组，并添加了当前鼠标的角度，从0~360度
+            //(w/2,h/2), (-w/2,h/2), (-w/2,-h/2), (w/2,-h/2)
+            var angles = [0, angle].concat(getAngle(size.w/2,size.h/2), getAngle(-size.w/2,size.h/2), getAngle(-size.w/2,-size.h/2), getAngle(size.w/2,-size.h/2));
+            //数组排序
+            angles.sort(function(a, b){
+                return a - b;
+            });
+            //获得当前鼠标位置角度在数组中的index值
+            var index = 0;
+            for(var i=0; i<6; i++){
+                if(angle==angles[i]){
+                    index = i;
+                    break;
+                }
+            }
+            //在右侧扇形区域被水平线分成了2个区，但是鼠标进入位置是同一个
+            if(index==1 || index==5){
+                index = 1;
+            }
+            var w = size.w, h = size.h;
+            var x = (e.pageX - el.offsetLeft - (w / 2)) * (w > h ? (h / w) : 1);
+            var y = (e.pageY - el.offsetTop - (h / 2)) * (h > w ? (w / h) : 1);
+            var direction = Math.round((((Math.atan2(y, x) * (180 / Math.PI)) + 180) / 90) + 3) % 4;
+            return direction;
+        },
+        getScrollPos: function(){
+            var ret = {
+                x: document.body.scrollLeft-document.body.clientLeft,
+                y: document.body.scrollTop-document.body.clientTop
+            };
+            if(document.documentElement){
+                ret.x = Math.max(document.documentElement.scrollLeft-document.documentElement.clientLeft, ret.x);
+                ret.y = Math.max(document.documentElement.scrollTop-document.documentElement.clientTop, ret.y);
+            }
+            return ret;
+        }
+    };
+</script>
+</body>
+</html>

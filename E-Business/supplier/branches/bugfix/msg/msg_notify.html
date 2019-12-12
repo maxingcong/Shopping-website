@@ -1,0 +1,78 @@
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<div class="panel-list">
+    <ol class="breadcrumb">
+        <li><a href="<?=DOMAIN?>home/index.html"><i class="fa fa-home"></i>首页</a></li>
+        <li class="active">消息通知</li>
+    </ol>
+    <!-- Nav tabs -->
+    <ul id="list_tabs" class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#" aria-controls="" role="tab" data-toggle="tab" data-list_type="noRead">未读消息</a></li>
+        <li role="presentation"><a href="#" aria-controls="" role="tab" data-toggle="tab" data-list_type="all">全部消息</a></li>
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content mt15">
+        <div id="list_tab_panel" role="tabpanel" class="tab-pane active">
+            <div id="template-msg_list-view" class="table-scroll"></div>
+            <a id="mark_readed_btn" role="button" href="#" class="btn btn-link">标记为已读</a>
+            <div class="pagination clearfix">
+                <div class="pull-left">
+                    <span>共 <b id="data-recordCount">0</b> 条，每页
+                    <select class="form-control" name="pageCount">
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                        <option value="40">40</option>
+                        <option value="50">50</option>
+                    </select> 条</span>
+                </div>
+                <div id="paginbar" class="pull-right paginbar"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script id="template-msg_list" type="text/template">
+    <table class="table table-hover">
+        <colgroup>
+            <col style="width: 50px">
+            <col style="width: 300px">
+            <col style="width: 20%">
+            <col style="width: 20%">
+            <col>
+        </colgroup>
+        <thead>
+        <tr>
+            <th>
+                <div class="checkbox">
+                    <label><input type="checkbox" name="checkbox_all"/><i class="fa fa-checkbox"></i></label>
+                </div>
+            </th>
+            <th>标题内容</th>
+            <th>消息类型</th>
+            <th>通知时间</th>
+            <th>状态</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{if notifictions&&notifictions.length>0}}
+            {{each notifictions as msg}}
+            <tr {{if msg.status=='未读'}}style="font-weight:bold;"{{/if}}>
+                <th scope="row">
+                    <div class="checkbox">
+                        <label><input data-msg_id="{{msg.id}}" type="checkbox" name="checkbox"/><i class="fa fa-checkbox"></i></label>
+                    </div>
+                </th>
+                <td><a href="<?=DOMAIN?>msg/msg_detail.html?msg_id={{msg.notificationId}}&id={{msg.id}}">{{msg.title}}</a></td>
+                <td>{{msg.type}}</td>
+                <td>{{msg.time}}</td>
+                <td>{{msg.status}}</td>
+            </tr>
+            {{/each}}
+            {{else}}
+            <tr>
+                <td colspan="5" class="text-center">未查询到相关记录</td>
+            </tr>
+        {{/if}}
+        </tbody>
+    </table>
+</script>
+<script type="text/javascript" src="<?=SCRIPTS?>msg/msg_notify.js"></script>

@@ -1,0 +1,366 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="积分商城" />
+    <meta name="description" content="" />
+    <meta name="author" content="${author}" />
+    <meta name="copyright" content="${copyright}" />
+    <title>积分商城</title>
+    <link href="<?=DOMAIN?>favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css"/>
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>integral.css"/>
+	<?php include(MODULES.'dns_prefetch.xhtml');?>
+</head>
+<body>
+<?php include(MODULES.'header.xhtml');?>
+<div class="main tegral"> 
+	<!--ul id="sitemap" class="sitemap clearfix">
+				<li><a href="<?=DOMAIN?>">首页</a></li>
+				<li><b>&gt;</b></li>
+				<li><span>积分商城</span></li>
+	   </ul-->
+	<div class="layout">
+		<div class="integral clearfix">
+			<div class="tegral_tit">
+				<div id="tegral_con" class="tegral_con">
+					<div id="user_not_login" class="integrals">
+						<img src="<?=IMAGES?>integral/108.jpg" alt="云印技术"/>
+						<a id="login_btn2" href="javascript:;" class="integral_btn">登录查看我的积分</a>
+					</div>
+					<div id="user_loged" class="tegral_msg">
+						<div class="grade_img" id="grade_img"></div>
+						<a class="user_name ellipsis" target="_blank" href="<?=DOMAIN?>member/index.html" id="data_user_name"></a>
+						<div class="row ellipsis">
+						<span class="grade">会员等级：</span><a href="<?=DOMAIN?>help/growth.html" target="_blank" class="grade_name red" id="data_level"></a>
+						</div>
+						<div class="row ellipsis">
+						<span class="grade">我的积分：</span><a href="<?=DOMAIN?>member/myintegral.html"  class="grade_name red" target="_blank" >
+						<span class="red ellipsis" id="data_all_my_coin" ><img class="doing_gif" src="<?=IMAGES?>loading.gif" width="16"/></span>分</a>
+						</div>
+					</div>
+				</div>
+				<div class="flow_exchange">
+					<p>兑换流程：</p>
+					<img src="<?=IMAGES?>integral/1122.png" alt="兑换流程"/>
+					<span class="light">挑选礼品</span><span>联系客服</span><span>兑换礼品</span>
+				</div>
+				<span class="new_tit blue-bg">关于积分</span>
+				<div class="flow">
+					<h3>一、积分兑换</h3>
+					<div class="contain">联系云印客服进行兑换</div>
+					<div class="contain red">QQ客服 4008601846</div>
+					<div class="contain red">电话客服 400-680-9111</div>
+					<h3>二、关于运费</h3>
+					<div class="contain">2000积分以上的礼品可包邮，7个工作日内安排发货；2000积分以下的礼品支持到云印门店自取，如需邮寄，运费自理；</div>
+					<h3>三、免责声明</h3>
+					<div class="contain">因采购批次不同，积分礼品与所示图片可能有会有所偏差，礼品以实物为 准，本积分商城规则由云印制定并保留所有解释权和修改权。</div>
+				</div>
+				<!--div class="tegral_b">
+			  		<span class="tit">兑换流程&关于积分 </span>
+			  		<div class="msg">
+						<span class="type"><img src="../resources/integral/113.png" alt="云印" /></span>
+						<div class="flow">
+							<h3>一、积分兑换</h3>
+							<div class="contain">联系云印客服进行兑换</div>
+							<div class="contain red">QQ客服 4008601846</div>
+							<div class="contain red">电话客服400-680-9111</div>
+							<h3>二、关于运费</h3>
+							<div class="contain">2000积分以上的礼品可包邮，7个工作日内安排发货；2000积分以下的礼品支持到云印门店自取，如需邮寄，运费自理；</div>
+							<h3>三、免责声明</h3>
+							<div class="contain">因采购批次不同，积分礼品与所示图片可能有会有所偏差，礼品以实物为 准，本积分商城规则由云印制定并保留所有解释权和修改权。</div>
+						</div>
+			  		</div>
+				</div-->
+			</div>
+			<dl class="int_con" id="template_integral_view">
+				<dt>积分商城礼品</dt>
+				<dd>
+					<div class="gift" title="Apple iPhone X (A1865) 64GB 深空灰色 移动联通电信4G手机">
+						<div class="img"><img src="<?=IMAGES?>integral/707.jpg" alt="Apple iPhone X (A1865) 64GB 深空灰色 移动联通电信4G手机"></div>
+						<div>Apple iPhone X</div>
+						<div><span>兑换价：</span><span class="red"><i class="red">1425960</i>积分</span></div>
+						<a class="submit integral_btn" href="javascript:;">兑换</a>
+					</div>
+				</dd>
+				<dd>
+					<div class="gift" title="13.3英寸笔记本电脑 银色(Core i7 处理器/8GB内存/128GB SSD闪存 Z0UU00022）">
+						<div class="img"><img src="<?=IMAGES?>integral/1.jpg" alt="13.3英寸笔记本电脑 银色(Core i7 处理器/8GB内存/128GB SSD闪存 Z0UU00022）"></div>
+						<div>Apple MacBook Air</div>
+						<div><span>兑换价：</span><span class="red"><i class="red">1262080</i>积分</span></div>
+						<a class="submit integral_btn" href="javascript:;">兑换</a>
+					</div>
+				</dd>
+				<dd>
+					<div class="gift" title="华为 Mate 10 Pro 全网通 6GB+128GB 银钻灰 移动联通电信4G手机 双卡双待">
+						<div class="img"><img src="<?=IMAGES?>integral/708.jpg" alt="华为 Mate 10 Pro 全网通 6GB+128GB 银钻灰 移动联通电信4G手机 双卡双待"></div>
+						<div>华为 Mate 10 Pro</div>
+						<div><span>兑换价：</span><span class="red"><i class="red">917830</i>积分</span></div>
+						<a class="submit integral_btn" href="javascript:;">兑换</a>
+					</div>
+				</dd>
+				<dd>
+					<div class="gift" title="9.7 英寸（32G WLAN版/A9X芯片/Retina显示屏/Multi-Touch技术MLMN2CH）深空灰色">
+						<div class="img"><img src="<?=IMAGES?>integral/4.jpg" alt="9.7 英寸（32G WLAN版/A9X芯片/Retina显示屏/Multi-Touch技术MLMN2CH）深空灰色"></div>
+						<div>Apple iPad</div>
+						<div><span>兑换价：</span><span class="red"><i class="red">635083</i>积分</span></div>
+						<a class="submit integral_btn" href="javascript:;">兑换</a>
+					</div>
+				</dd>
+				<dd>
+					<div class="gift" title="vivo X20 全面屏双摄拍照手机 6GB+64GB 黑金 移动联通电信全网通4G手机 双卡双待">
+						<div class="img"><img src="<?=IMAGES?>integral/709.jpg" alt="vivo X20 全面屏双摄拍照手机 6GB+64GB 黑金 移动联通电信全网通4G手机 双卡双待"></div>
+						<div>vivo X20</div>
+						<div><span>兑换价：</span><span class="red"><i class="red">577660</i>积分</span></div>
+						<a class="submit integral_btn" href="javascript:;">兑换</a>
+					</div>
+				</dd>
+				<dd>
+					<div class="gift" title="42毫米深空灰色铝金属表壳 黑色运动型表带 GPS 50米防水 MP062CH/A">
+						<div class="img"><img src="<?=IMAGES?>integral/5.jpg" alt="42毫米深空灰色铝金属表壳 黑色运动型表带 GPS 50米防水 MP062CH/A"></div>
+						<div>Apple Watch</div>
+						<div><span>兑换价：</span><span class="red"><i class="red">510080</i>积分</span></div>
+						<a class="submit integral_btn" href="javascript:;">兑换</a>
+					</div>
+				</dd>
+				<dd>
+					<div class="gift" title="小米 红米5 Plus 全面屏手机 全网通版 4GB+64GB 金色 移动联通电信4G手机 双卡双待">
+						<div class="img"><img src="<?=IMAGES?>integral/710.jpg" alt="小米 红米5 Plus 全面屏手机 全网通版 4GB+64GB 金色 移动联通电信4G手机 双卡双待"></div>
+						<div>小米 红米5 Plus</div>
+						<div><span>兑换价：</span><span class="red"><i class="red">220830</i>积分</span></div>
+						<a class="submit integral_btn" href="javascript:;">兑换</a>
+					</div>
+				</dd>
+				<dd>
+					<div class="gift" title="博之雅—维也纳之恋四件套">
+						<div class="img"><img src="<?=IMAGES?>integral/706.jpg" alt="博之雅—维也纳之恋四件套"></div>
+						<div>博之雅—维也纳之恋四件套</div>
+						<div><span>兑换价：</span><span class="red"><i class="red">82800</i>积分</span></div>
+						<a class="submit integral_btn" href="javascript:;">兑换</a>
+					</div>
+				</dd>
+				<dd>
+					<div class="gift" title="CK舒适被">
+						<div class="img"><img src="<?=IMAGES?>integral/705.jpg" alt="CK舒适被"></div>
+						<div>CK舒适被</div>
+						<div><span>兑换价：</span><span class="red"><i class="red">82440</i>积分</span></div>
+						<a class="submit integral_btn" href="javascript:;">兑换</a>
+					</div>
+				</dd>
+				<dd>
+					<div class="gift" title="EGRC1000 600W 3L">
+						<div class="img"><img src="<?=IMAGES?>integral/10.jpg" alt="EGRC1000 600W 3L"></div>
+						<div>伊莱克斯智能电饭煲</div>
+						<div><span>兑换价：</span><span class="red"><i class="red">49200</i>积分</span></div>
+						<a class="submit integral_btn" href="javascript:;">兑换</a>
+					</div>
+				</dd>
+				<dd>
+					<div class="gift" title="iData Pro  32GB">
+						<div class="img"><img src="<?=IMAGES?>integral/11.jpg" alt="iData Pro  32GB"></div>
+						<div>智能手机U盘</div>
+						<div><span>兑换价：</span><span class="red"><i class="red">43200</i>积分</span></div>
+						<a class="submit integral_btn" href="javascript:;">兑换</a>
+					</div>
+				</dd>
+				<dd>
+					<div class="gift" title="全自动臂式电子血压计">
+						<div class="img"><img src="<?=IMAGES?>integral/12.jpg" alt="全自动臂式电子血压计"></div>
+						<div>全自动臂式电子血压计</div>
+						<div><span>兑换价：</span><span class="red"><i class="red">42000</i>积分</span></div>
+						<a class="submit integral_btn" href="javascript:;">兑换</a>
+					</div>
+				</dd>
+				<dd>
+					<div class="gift" title="维仕蓝时尚撞色双肩包Young系列">
+						<div class="img"><img src="<?=IMAGES?>integral/13.jpg" alt="维仕蓝时尚撞色双肩包Young系列"></div>
+						<div>维仕蓝时尚撞色双肩包Young系列</div>
+						<div><span>兑换价：</span><span class="red"><i class="red">29040</i>积分</span></div>
+						<a class="submit integral_btn" href="javascript:;">兑换</a>
+					</div>
+				</dd>
+				<dd>
+					<div class="gift" title="电烤箱">
+						<div class="img"><img src="<?=IMAGES?>integral/704.jpg" alt="电烤箱"></div>
+						<div>电烤箱</div>
+						<div><span>兑换价：</span><span class="red"><i class="red">28560</i>积分</span></div>
+						<a class="submit integral_btn" href="javascript:;">兑换</a>
+					</div>
+				</dd>
+				<dd>
+					<div class="gift" title="移动电源">
+						<div class="img"><img src="<?=IMAGES?>integral/15.jpg" alt="移动电源"></div>
+						<div>移动电源</div>
+						<div><span>兑换价：</span><span class="red"><i class="red">12800</i>积分</span></div>
+						<a class="submit integral_btn" href="javascript:;">兑换</a>
+					</div>
+				</dd>
+				<dd>
+					<div class="gift" title="兰姿舒眠被">
+						<div class="img"><img src="<?=IMAGES?>integral/16.jpg" alt="兰姿舒眠被"></div>
+						<div>兰姿舒眠被</div>
+						<div><span>兑换价：</span><span class="red"><i class="red">12640</i>积分</span></div>
+						<a class="submit integral_btn" href="javascript:;">兑换</a>
+					</div>
+				</dd>
+				<dd>
+					<div class="gift" title="悦活电吹风">
+						<div class="img"><img src="<?=IMAGES?>integral/17.jpg" alt="悦活电吹风"></div>
+						<div>悦活电吹风</div>
+						<div><span>兑换价：</span><span class="red"><i class="red">7120</i>积分</span></div>
+						<a class="submit integral_btn" href="javascript:;">兑换</a>
+					</div>
+				</dd>
+				<dd>
+					<div class="gift" title="珊瑚色密封储物罐">
+						<div class="img"><img src="<?=IMAGES?>integral/702.jpg" alt="珊瑚色密封储物罐"></div>
+						<div>珊瑚色密封储物罐</div>
+						<div><span>兑换价：</span><span class="red"><i class="red">6560</i>积分</span></div>
+						<a class="submit integral_btn" href="javascript:;">兑换</a>
+					</div>
+				</dd>
+				<dd>
+					<div class="gift" title="摩尔真空保温瓶">
+						<div class="img"><img src="<?=IMAGES?>integral/703.jpg" alt="摩尔真空保温瓶"></div>
+						<div>摩尔真空保温瓶</div>
+						<div><span>兑换价：</span><span class="red"><i class="red">5920</i>积分</span></div>
+						<a class="submit integral_btn" href="javascript:;">兑换</a>
+					</div>
+				</dd>
+				<dd>
+					<div class="gift" title="双层保温餐桶">
+						<div class="img"><img src="<?=IMAGES?>integral/20.jpg" alt="双层保温餐桶"></div>
+						<div>双层保温餐桶</div>
+						<div><span>兑换价：</span><span class="red"><i class="red">4800</i>积分</span></div>
+						<a class="submit integral_btn" href="javascript:;">兑换</a>
+					</div>
+				</dd>
+				<dd>
+					<div class="gift" title="12.7*1.7*0.8cm 10g 防水">
+						<div class="img"><img src="<?=IMAGES?>integral/21.jpg" alt="12.7*1.7*0.8cm 10g 防水"></div>
+						<div>电子体温计</div>
+						<div><span>兑换价：</span><span class="red"><i class="red">4000</i>积分</span></div>
+						<a class="submit integral_btn" href="javascript:;">兑换</a>
+					</div>
+				</dd>
+				<dd>
+					<div class="gift" title="简约便当盒">
+						<div class="img"><img src="<?=IMAGES?>integral/23.jpg" alt="简约便当盒"></div>
+						<div>简约便当盒</div>
+						<div><span>兑换价：</span><span class="red"><i class="red">2560</i>积分</span></div>
+						<a class="submit integral_btn" href="javascript:;">兑换</a>
+					</div>
+				</dd>
+				<dd>
+					<div class="gift" title="储物盒">
+						<div class="img"><img src="<?=IMAGES?>integral/701.jpg" alt="储物盒"></div>
+						<div>储物盒</div>
+						<div><span>兑换价：</span><span class="red"><i class="red">2240</i>积分</span></div>
+						<a class="submit integral_btn" href="javascript:;">兑换</a>
+					</div>
+				</dd>
+				<!--<dd>
+					<div class="gift" title="128G 黑色 移动联通电信4G手机">
+						<div class="img"><img src="<?=IMAGES?>integral/2.jpg" alt="128G 黑色 移动联通电信4G手机"></div>
+						<div>Apple iPhone 7</div>
+						<div><span>兑换价：</span><span class="red"><i class="red">1055840</i>积分</span></div>
+						<a class="submit integral_btn" href="javascript:;">兑换</a> </div>
+				</dd>
+				<dd>
+					<div class="gift" title="琥珀金 移动联通电信4G手机 双卡双待">
+						<div class="img"><img src="<?=IMAGES?>integral/3.jpg" alt="琥珀金 移动联通电信4G手机 双卡双待"></div>
+						<div>华为 Mate 9 Pro</div>
+						<div><span>兑换价：</span><span class="red"><i class="red">847840</i>积分</span></div>
+						<a class="submit integral_btn" href="javascript:;">兑换</a> </div>
+				</dd>-->
+				<!--<dd>
+					<div class="gift" title="全网通 6GB+64GB 移动联通电信4G手机 双卡双待 金色">
+						<div class="img"><img src="<?=IMAGES?>integral/6.jpg" alt="全网通 6GB+64GB 移动联通电信4G手机 双卡双待 金色"></div>
+						<div>vivo X9</div>
+						<div><span>兑换价：</span><span class="red"><i class="red">479680</i>积分</span></div>
+						<a class="submit integral_btn" href="javascript:;">兑换</a> </div>
+				</dd>
+				<dd>
+					<div class="gift" title="3GB+32GB 全网通公开版 月光银 移动联通电信4G手机 双卡双待">
+						<div class="img"><img src="<?=IMAGES?>integral/7.jpg" alt="3GB+32GB 全网通公开版 月光银 移动联通电信4G手机 双卡双待"></div>
+						<div>魅族 魅蓝E</div>
+						<div><span>兑换价：</span><span class="red"><i class="red">207840</i>积分</span></div>
+						<a class="submit integral_btn" href="javascript:;">兑换</a> </div>
+				</dd>-->
+				<!--<dd>
+					<div class="gift" title="100%纯棉礼盒装">
+						<div class="img"><img src="<?=IMAGES?>integral/8.jpg" alt="100%纯棉礼盒装"></div>
+						<div>雅兰薰衣草床上四件套</div>
+						<div><span>兑换价：</span><span class="red"><i class="red">93600</i>积分</span></div>
+						<a class="submit integral_btn" href="javascript:;">兑换</a>
+					</div>
+				</dd>-->
+				<!--<dd>
+					<div class="gift" title="230*230cm  2KG  100%聚酯纤维">
+						<div class="img"><img src="<?=IMAGES?>integral/9.jpg" alt="230*230cm  2KG  100%聚酯纤维"></div>
+						<div>雅兰四孔被</div>
+						<div><span>兑换价：</span><span class="red"><i class="red">69000</i>积分</span></div>
+						<a class="submit integral_btn" href="javascript:;">兑换</a>
+					</div>
+				</dd>-->
+				<!--<dd>
+					<div class="gift" title="摩登休闲冰箱">
+						<div class="img"><img src="<?=IMAGES?>integral/14.jpg" alt="摩登休闲冰箱"></div>
+						<div>摩登休闲冰箱</div>
+						<div><span>兑换价：</span><span class="red"><i class="red">15680</i>积分</span></div>
+						<a class="submit integral_btn" href="javascript:;">兑换</a>
+					</div>
+				</dd>-->
+				<!--<dd>
+					<div class="gift" title="新天鹅堡三件套">
+						<div class="img"><img src="<?=IMAGES?>integral/18.jpg" alt="新天鹅堡三件套"></div>
+						<div>新天鹅堡三件套</div>
+						<div><span>兑换价：</span><span class="red"><i class="red">7040</i>积分</span></div>
+						<a class="submit integral_btn" href="javascript:;">兑换</a>
+					</div>
+				</dd>-->
+				<!--<dd>
+					<div class="gift" title="一壶两杯">
+						<div class="img"><img src="<?=IMAGES?>integral/19.jpg" alt="一壶两杯"></div>
+						<div>一壶两杯</div>
+						<div><span>兑换价：</span><span class="red"><i class="red">6240</i>积分</span></div>
+						<a class="submit integral_btn" href="javascript:;">兑换</a>
+					</div>
+				</dd>-->
+				<!--<dd>
+					<div class="gift" title="500m AH  100*100*310mm">
+						<div class="img"><img src="<?=IMAGES?>integral/22.jpg" alt="500m AH  100*100*310mm"></div>
+						<div>护眼台灯</div>
+						<div><span>兑换价：</span><span class="red"><i class="red">3600</i>积分</span></div>
+						<a class="submit integral_btn" href="javascript:;">兑换</a>
+					</div>
+				</dd>-->
+			</dl>
+		</div>
+	</div>
+</div>
+<?php include(MODULES.'footer.xhtml');?>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>integral/index.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>location.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js?ininin=<?=VERSION?>"></script>
+<!--script type="text/javascript" src="<?=SCRIPTS?>jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>template-native.js"></script> 
+<script type="text/javascript" src="<?=SCRIPTS?>zh_cn.js"></script> 
+<script type="text/javascript" src="<?=SCRIPTS?>tool.js"></script> 
+<script type="text/javascript" src="<?=SCRIPTS?>integral/index.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>libs/location.js"></script-->
+<?php include(MODULES.'linklogin.xhtml');?>
+</body>
+</html>

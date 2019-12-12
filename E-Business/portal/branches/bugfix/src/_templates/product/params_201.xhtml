@@ -1,0 +1,54 @@
+<script id="product_params" type="text/template">
+    {{each namesOrder as name i}}
+    {{if attrs[name].length}}
+    <div class="attr clearfix">
+        <div class="atr">{{name}}：</div>
+        <div class="vals clearfix {{name==qtyName?'p-num':''}}" data-name="{{name}}">
+            {{each attrs[name] as val k}}
+            {{if name!=qtyName}}
+            <a class="val {{attr[name]==val ? 'sel' : ''}}" href="javascript:;" data-imguri="{{paramImages[val]}}" data-value="{{val}}">
+                {{val}}
+                {{if val=='UV' || val=='烫金' || val=='烫银' || val=='击凸'}}
+                    {{include 'product-custom-size' customSize[name]}}
+                {{/if}}
+            </a>&nbsp;
+            {{/if}}
+            {{/each}}
+            {{if name==qtyName}}
+            <span class="counter counter-qty">
+                <a>-</a><input class="textbox" type="text" name="qty" value="{{qtyValue>=minQtyValue?qtyValue/qtyFlagValue:0}}" data-name="{{name}}"><b>+</b>
+            </span>
+            <span class="unit">{{qtyFlag}}</span>
+            <div class="alt">（200本起，按50本递增）</div>
+            {{/if}}
+            {{if name=='内文P数'}}
+            <span class="counter counter-qty2">
+                <a>-</a><input class="textbox" type="text" name="qty" value="{{attr[name]>=48?attr[name]:0}}" data-name="{{name}}"><b>+</b>
+            </span>
+            {{/if}}
+            {{if name=='成品尺寸'}}
+            <a class="val" href="javascript:;">
+                自定义{{include 'product-custom-size' customSize[name]}}
+            </a>
+            {{/if}}
+            {{if paramTips[name]}}
+            <a class="icon_help" href="javascript:;"  data-text="{{paramTips[name]}}"></a>
+            {{/if}}
+        </div>
+    </div>
+    {{/if}}
+    {{/each}}
+</script>
+<script id="product_params-values" type="text/template">
+{{each attrs[curAttrName] as val k}}
+    <a class="val {{attr[curAttrName]==val?'sel':''}}" href="javascript:;" data-imguri="{{paramImages[val]}}" data-value="{{val}}">{{val}}</a>&nbsp;
+    {{if paramTips[curAttrName]}}
+    <a class="icon_help" href="javascript:;"  data-text="{{paramTips[curAttrName]}}"></a>
+    {{/if}}
+{{/each}}
+</script>
+<script id="product-custom-size" type="text/template">
+<span class="custom-size">
+    <input name="x" type="text" value="{{x}}"/><span class="sign">mm×</span><input name="y" type="text" value="{{y}}"/><span class="sign">mm</span><span class="handle">ok</span>
+</span>
+</script>

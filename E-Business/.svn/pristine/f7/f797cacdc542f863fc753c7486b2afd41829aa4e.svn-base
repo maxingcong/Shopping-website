@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <title>云印官网</title>
+    <link rel="shortcut icon" type="image/x-icon" href="<?=DOMAIN?>favicon.ico"  />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>layout.css" />
+    <link rel="dns-prefetch" href="//action.ininin.com" />
+    <style type="text/css">
+        .forms .textbox {
+            width: 400px;
+        }
+        .forms textarea.textbox {
+            width: 850px;
+        }
+        .forms .form_item .to {
+            padding: 0 5px;
+            text-indent: 0;
+            line-height: 32px;
+        }
+        .forms button {
+            color: #fff;
+            font-size: 14px;
+            border: 0;
+        }
+    </style>
+</head>
+<body style="background: #fff">
+<ul id="oauth" class="layout forms">
+    <li class="form_item">
+        <span class="field">user_id：</span>
+        <input class="textbox" type="text" name="decode-user_id"/>
+        <b class="required to">=></b>
+        <input class="textbox" type="text" name="encode-user_id"/>
+        <b class="required">*</b>
+        <span class="alt">用户的唯一标记符</span>
+    </li>
+    <li class="form_item">
+        <span class="field">username：</span>
+        <input class="textbox" type="text" name="decode-username"/>
+        <b class="required to">=></b>
+        <input class="textbox" type="text" name="encode-username"/>
+        <b class="required">*</b>
+        <span class="alt">用户手机或者邮箱</span>
+    </li>
+    <li class="form_item">
+        <span class="field">name：</span>
+        <input class="textbox" type="text" name="decode-name"/>
+        <b class="required to">=></b>
+        <input class="textbox" type="text" name="encode-name"/>
+        <span class="alt">联系人</span>
+    </li>
+    <li class="form_item">
+        <span class="field">tel：</span>
+        <input class="textbox" type="text" name="decode-tel"/>
+        <b class="required to">=></b>
+        <input class="textbox" type="text" name="encode-el"/>
+        <span class="alt">固定电话</span>
+    </li>
+    <li class="form_item">
+        <span class="field">ent_address：</span>
+        <input class="textbox" type="text" name="decode-ent_address"/>
+        <b class="required to">=></b>
+        <input class="textbox" type="text" name="encode-ent_address"/>
+        <span class="alt">企业地址</span>
+    </li>
+    <li class="form_item">
+        <span class="field">ent_name：</span>
+        <input class="textbox" type="text" name="decode-ent_name"/>
+        <b class="required to">=></b>
+        <input class="textbox" type="text" name="encode-ent_name"/>
+        <span class="alt">企业名称</span>
+    </li>
+    <li class="form_item">
+        <span class="field">redirect_uri：</span>
+        <input class="textbox" type="text" name="decode-redirect_uri"/>
+        <b class="required to">=></b>
+        <input class="textbox" type="text" name="encode-redirect_uri"/>
+        <span class="alt">重定向URI</span>
+    </li>
+    <li class="form_item">
+        <span class="field">checkcode：</span>
+        <input class="textbox" type="text" name="checkcode"/>
+        <b class="required">*</b>
+        <span class="alt">校验码</span>
+    </li>
+    <li class="form_item">
+        <span class="field">result：</span>
+        <textarea class="textbox" name="result"></textarea>
+        <span class="alt">结果</span>
+    </li>
+    <li class="form_item">
+        <span class="field"></span>
+        <button class="btn-primary" name="encode">加密</button>
+        <b class="required to"></b>
+        <button class="btn-warning" name="decode">解密</button>
+        <b class="required to"></b>
+        <button class="btn-primary" name="encode_url">生成URL</button>
+        <b class="required to"></b>
+        <button class="btn-warning" name="decode_url">解析URL</button>
+    </li>
+</ul>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript">
+    require(["base", "tools"], function ($, T, OAuth) {
+        var $oauth = $("#oauth");
+        $oauth.on("click", "button[name='encode']", function(e){
+            $("input[name^='decode-']", $oauth).each(function(i, el){
+                var $el = $(el),
+                        val = $.trim($el.val());
+                $el.siblings("input[name]").val(T.Base64.encode(val));
+            });
+        });
+        $oauth.on("click", "button[name='decode']", function(e){
+            $("input[name^='encode-']", $oauth).each(function(i, el){
+                var $el = $(el),
+                        val = $.trim($el.val());
+                $el.siblings("input[name]").val(T.Base64.decode(val));
+            });
+        });
+        $oauth.on("click", "button[name='encode_url']", function(e){
+            var params = {}, checkCode = "";
+            $("input[name^='decode-']", $oauth).each(function(i, el){
+                var $el = $(el),
+                        name = $el.attr("name").replace(/^decode\-/, ""),
+                        val = $.trim($el.val());
+                params[name] = T.Base64.encode(val);
+                if(name!="redirect_uri"){
+                    checkCode += params[name];
+                }
+            });
+            params.checkcode = T.MD5((params.user_id||"") + (params.username||"") + (params.name||"") + (params.tel||"") + (params.ent_address||"") + (params.ent_name||""));
+            $("input[name='checkcode']", $oauth).val(params.checkcode);
+            $("textarea[name='result']", $oauth).val(T.Transfer.encodeHashString(params));
+        });
+        $oauth.on("click", "button[name='decode_url']", function(e){
+            var params = T.Transfer.decodeHashString($.trim($("textarea[name='result']", $oauth).val()));
+            $("input[name^='decode-']", $oauth).each(function(i, el){
+                var $el = $(el),
+                        name = $el.attr("name").replace(/^decode\-/, "");
+                $el.val(T.Base64.decode(params[name]));
+            });
+            $("input[name^='encode-']", $oauth).each(function(i, el){
+                var $el = $(el),
+                        name = $el.attr("name").replace(/^encode\-/, "");
+                $el.val(params[name]);
+            });
+            $("input[name='checkcode']", $oauth).val(params.checkcode);
+        });
+    });
+</script>
+</body>
+</html>

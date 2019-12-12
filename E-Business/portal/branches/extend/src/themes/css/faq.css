@@ -1,0 +1,38 @@
+@charset "utf-8";
+.faq .faqs .upanel{ min-height:723px; *min-height:723px; padding: 34px;}
+.faqs .headline{padding-bottom: 10px; margin-bottom: 20px;}
+.faqs .faq_msg{ padding-left:25px;}
+.faqs .faq_item{ margin:0 0 20px; overflow:hidden;}
+.faqs .faq_tit{ height:40px; line-height:40px; background:#fbfbfb url(../images/all.png?v=1) right -1840px no-repeat; border:1px solid #ccd5df;}
+.faq_item .faq_tit span{ display:block; border-left:2px solid #0487e2; margin:-1px 0; padding:1px 0 1px 16px; cursor:pointer;}
+.faqs .faq_contain { padding:15px 16px 10px 16px; position:relative; display:none;}
+.faqs .open { margin: 0; padding: 0 0 20px;}
+.open .faq_contain{ display:block;}
+.open .faq_contain div{ line-height:25px;}
+.open .faq_contain .str{ font-weight:bold;}
+.open .faq_contain img{ max-width: 100%; text-align:center; margin:5px 36px 10px;}
+.faqs .faq_item .bigimg { margin:5px 0 10px;}
+.open .faq_tit{ background:#fbfbfb url(../images/all.png?v=1) right -1880px no-repeat;}
+.faqs .order_type{ line-height:30px;}
+.faqs .order_flow{ line-height:20px; padding:5px 0;}
+.faqs .faq_close{ position:absolute; right:10px;}
+.faqs .faq_close{ _position:absolute;}
+.faq_contain table{ width:100%; border:1px solid #ccd5df; text-align:center;}
+.faq_contain table .title{ border:1px solid #ccd5df; height:30px; line-height:30px; border-bottom:none;}
+.faq_contain table .con_tit{ height:30px; line-height:30px; width:200px;}
+.faq_contain table .contain{ text-align:left; padding:10px;}
+.faq_table { width: 100%; table-layout: fixed;}
+.faq_table th, .faq_table td { font-size: 12px; padding:5px; line-height: 20px; font-weight: normal;}
+.faq_table th { background: #fbfbfb;}
+.faqs .block { margin: 10px 0 0; padding: 10px 0 0;}
+.faqs li.block { margin: 0; padding: 5px 0;}
+.faq .faq_contain .img { margin: 5px 0 0;}
+.faq .faq_contain .imgnum { text-align: center;}
+.their_list {
+    padding: 5px 0 15px;
+}
+.their_list .take_their {
+    padding: 12px 30px 12px 20px;
+    background: #fffbf2;
+    border: 1px solid #f6c788;
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="发票制度" />
+    <meta name="description" content="" />
+    <meta name="author" content="${author}" />
+    <meta name="copyright" content="${copyright}" />
+    <title>发票制度</title>
+    <link rel="shortcut icon" type="image/x-icon"  href="<?=DOMAIN?>favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>help.css" />
+	<?php include(MODULES.'dns_prefetch.xhtml');?>
+</head>
+<body>
+    <?php include(MODULES.'header.xhtml');?>
+    <div class="main helper">
+      	<div class="layout clearfix">
+	        <?php include(MODULES.'helpsidebar.xhtml');?>
+	        <div class="container">
+	          <div class="upanel">
+	            <h3 class="headline">发票制度</h3>
+	            <dl class="texts excursion">
+	              <dd>
+	                <p>为让客户享受到优惠的价格和优质的服务，云印的商品印刷及业务定价均为最低价格。如需开具发票的客户，请按如下操作： </p>
+	              </dd>
+	              <dd>
+	                <h4>1. 如何获得发票</h4>
+	                <div>在订单支付界面选择发票信息，系统会自动结算价税总额。</div>
+	              </dd>
+	              <dd>
+	                <h4>2. 发票抬头</h4>
+	                <div>发票抬头不能为空，您可填写个人或单位名称（暂只提供普通发票）。</div>
+	              </dd>
+	              <dd>
+	                <h4>3. 发票金额</h4>
+	                <div>发票金额将扣除礼品卡、优惠券、积分等非现金类金额及运费。</div>
+	              </dd>
+	              <dd>
+	                <h4>4. 发票寄送</h4>
+	                <div>一般情况下，发票会随货品一同派送；如果您后续反馈需要发票，云印也会为您开具并寄送，快递费需由您来承担。</div>
+	              </dd>
+	              <dd>
+	                <h4>5. 发票开具时效</h4>
+	                <div>云印可以为您开具自下单之日起30天内的发票；超出30天的订单，云印无法为您补开发票，由此带来的不便，敬请谅解。</div>
+	              </dd>
+	            </dl>
+	          </div>
+	        </div>
+		</div>
+    </div>
+	<?php include(MODULES.'footer.xhtml');?>
+    <script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>location.js?ininin=<?=VERSION?>"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>loaded.js?ininin=<?=VERSION?>"></script>
+    <!-- <script type="text/javascript" src="<?=SCRIPTS?>jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>template-native.js"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>zh_cn.js"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>tool.js"></script>
+	<script type="text/javascript" src="<?=SCRIPTS?>loaded.js"></script>
+	<script type="text/javascript" src="<?=SCRIPTS?>libs/location.js"></script> -->
+    <?php include(MODULES.'linklogin.xhtml');?>
+  </body>
+</html>

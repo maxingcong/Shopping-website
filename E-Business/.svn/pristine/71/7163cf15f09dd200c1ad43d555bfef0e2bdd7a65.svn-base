@@ -1,0 +1,120 @@
+.app {
+  .el-table {
+    border: none;
+    img {
+      vertical-align: middle;
+    }
+    &:after, &:before {
+      display: none;
+    }
+    th {
+      padding: 0;
+      height: 48px;
+      background: #fff;
+      .cell {
+        line-height: 24px;
+      }
+    }
+    td {
+      padding: 0;
+    }
+    &.multi-row th {
+      height: auto;
+      border: 0;
+      .cell {
+        padding: 0 5px;
+        line-height: 24px;
+      }
+    }
+    td {
+      height: 40px;
+      background: #f9fdfc;
+      border: none;
+      .cell {
+        line-height: 24px;
+      }
+      &.t-date {
+        .cell {
+          line-height: 18px;
+        }
+      }
+      .el-button--text {
+        white-space: normal;
+      }
+    }
+    .cell {
+      padding: 5px;
+      .el-button {
+        margin: 0 0 0 4px;
+      }
+    }
+  }
+  .el-table--striped {
+    .el-table__body {
+      .el-table__row--striped {
+        td {
+          background: #fff;
+        }
+      }
+    }
+  }
+
+  .el-cascader, .el-select {
+    width: 100%;
+  }
+
+  .el-table__expanded-cell {
+    padding: 15px;
+  }
+
+  .dialog-footer {
+    text-align: right;
+  }
+
+  .pagination {
+    .el-pagination {
+      margin: 10px 0 0;
+      float: right;
+    }
+    .action-bar {
+      margin: 10px 0 0;
+      overflow: hidden;
+    }
+  }
+
+  .el-tabs {
+    .el-tabs__item:nth-child(2) {
+      padding-left: 0;
+    }
+    .el-tabs__item:last-child {
+      padding-right: 0;
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 12px
+}
+
+div::-webkit-scrollbar {
+  width: 6px;
+  height: 10px
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f5f5
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 16px;
+  background: #bcbcbc
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+  background: #a8a8a8
+}
+
+::-webkit-scrollbar-thumb:vertical:active, ::-webkit-scrollbar-thumb:vertical:hover {
+  background-color: #a8a8a8
+}

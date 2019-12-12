@@ -1,0 +1,83 @@
+<script id="product_params" type="text/template">
+    {{each namesOrder as name i}}
+    {{if name=='数量'}}
+    <div class="attr clearfix">
+        <div class="atr">{{name}}：</div>
+        <span class="counter counter-qty">
+            <a>-</a><input class="textbox" type="text" name="qty" value="{{qtyValue||1}}" data-name="{{name}}"><b>+</b>
+        </span>
+        <span class="unit">{{qtyFlag}}</span>
+        {{if paramTips[name]}}
+        <a class="icon_help" href="javascript:;"  data-text="{{paramTips[name]}}"></a>
+        {{/if}}
+    </div>
+    {{else if (name=='成品尺寸' || name=='尺寸') && cfgSize.width && cfgSize.height}}
+    <div class="form_item clearfix">
+        <span class="field">{{name}}：</span><span class="input p_size done" data-name="{{name}}">
+            <span class="txt">自定义：</span><span class="tag">{{cfgSize.width.name}}</span>
+            {{if cfgSize.width.data}}
+            <select class="textbox" name="width" data-value="{{cfgSize.width.value}}" value="{{cfgSize.width.value}}">
+                {{each cfgSize.width.data as v k}}
+                <option value="{{v}}">{{v}}</option>
+                {{/each}}
+            </select>
+            {{else}}
+            <input class="textbox" type="text" name="width" data-value="{{cfgSize.width.value}}" value="{{cfgSize.width.value}}"/>
+            {{/if}}
+            <span class="sign">{{cfgSize.sign}}</span><span class="tag">{{cfgSize.height.name}}</span>
+            {{if cfgSize.height.data}}
+            <select class="textbox" name="height" data-value="{{cfgSize.height.value}}" value="{{cfgSize.height.value}}">
+                {{each cfgSize.height.data as v k}}
+                <option value="{{v}}">{{v}}</option>
+                {{/each}}
+            </select>
+            {{else}}
+            <input class="textbox" type="text" name="height" data-value="{{cfgSize.height.value}}" value="{{cfgSize.height.value}}"/>
+            {{/if}}
+            <span class="txt">{{cfgSize.height.unit}}</span>
+            <a class="btn" href="javascript:;">OK</a>
+        </span>
+        {{if paramTips[name]}}
+        <a class="icon_help" href="javascript:;" data-text="{{paramTips[name]}}"></a>
+        {{/if}}
+        {{if paramDesc[name]}}
+        <span class="alt yellow">{{paramDesc[name]}}</span>
+        {{/if}}
+    </div>
+    {{else if productId==200 && name=='白绳' && cfgSize.len}}
+    <div class="form_item clearfix">
+        <span class="field">{{name}}：</span><span class="input p_size done" data-name="{{name}}">
+            <span class="txt">自定义：</span>
+            {{if cfgSize.len.data}}
+            <select class="textbox" name="len" data-value="{{cfgSize.len.value}}" value="{{cfgSize.len.value}}">
+                {{each cfgSize.len.data as v k}}
+                <option value="{{v}}">{{v}}</option>
+                {{/each}}
+            </select>
+            {{else}}
+            <input class="textbox" type="text" name="len" data-value="{{cfgSize.len.value}}" value="{{cfgSize.len.value}}"/>
+            {{/if}}
+            <span class="txt">{{cfgSize.height.unit}}</span>
+            <a class="btn" href="javascript:;">OK</a>
+        </span>
+        {{if paramTips[name]}}
+        <a class="icon_help" href="javascript:;" data-text="{{paramTips[name]}}"></a>
+        {{/if}}
+    </div>
+    {{else if attrs[name].length}}
+    <div class="attr clearfix">
+        <div class="atr">{{name}}：</div>
+        <div class="vals clearfix" data-name="{{name}}">
+            {{each attrs[name] as val k}}
+            <a class="val {{attr[name]==val?'sel':''}}" href="javascript:;" data-imguri="{{paramImages[val]}}" data-value="{{val}}">{{val}}</a>&nbsp;
+            {{/each}}
+            {{if name=='拼接'}}
+            <a class="lnk" href="<?=DOMAIN?>faq/printing.html#30" data-text="{{paramTips[name]}}" target="_blank">什么是拼接？</a>
+            {{else if paramTips[name]}}
+            <a class="icon_help" href="javascript:;" data-text="{{paramTips[name]}}"></a>
+            {{/if}}
+        </div>
+    </div>
+    {{/if}}
+    {{/each}}
+</script>

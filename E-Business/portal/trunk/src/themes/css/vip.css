@@ -1,0 +1,24 @@
+@charset "utf-8";
+/*vip*/
+.customer_con{position:relative;}
+.customer_con img{ max-width:100%;}
+.customer_con .customer_btn{ position:absolute; display:block;bottom:110px; left:49.7%; width:116px; height:37px; background:url(../images/transparent.png?v=1); text-decoration:none;}
+
+
+/*hot*/
+.hot_con{ position:relative;line-height: 0; font-size: 0;}
+.hot_con img{ max-width:100%;}
+.hot_con .hot_btn{ position:absolute; width:226px; height:66px; text-decoration:none; right:25.7%; top:290px; background:url(../images/transparent.png?v=1); overflow:hidden; display:block;}
+
+/*activity*/
+.hot_con .understand{ position:absolute; width:250px; height:220px; top:785px; left:490px; background: url(../images/transparent.png?v=1); overflow:hidden; display:block;}
+.hot_con .order{ position:absolute; width:55px; height:22px; top:1086px; left:670px; background:url(../images/transparent.png?v=1); overflow:hidden; display:block;}
+.hot_con .design{ position:absolute; width:85px; height:22px; top:1110px; left:698px; background:url(../images/transparent.png?v=1); overflow:hidden; display:block;}
+.hot_con .store{ position:absolute; width:60px; height:22px; top:1134px; left:487px; background:url(../images/transparent.png?v=1); overflow:hidden; display:block;}
+
+
+
+
+
+
+ 

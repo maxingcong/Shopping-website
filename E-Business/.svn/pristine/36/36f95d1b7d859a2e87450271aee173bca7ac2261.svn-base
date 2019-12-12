@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="renderer" content="webkit|ie-stand"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="none"/>
+    <meta name="author" content="ininin.com">
+    <meta name="copyright" content="Copyright © 2014 ininin.com. All rights reserved.">
+    <title>供应商平台 - 设计“省”心，印刷“简”单！</title>
+    <link rel="apple-touch-icon" href="<?=IMAGES?>logo.png"/>
+    <link rel="icon" type="image/png" href="<?=IMAGES?>logo.png"/>
+    <link rel="shortcut icon" type="image/x-icon" href="<?=DOMAIN?>favicon.ico"/>
+
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>layout.css"/>
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>home.css">
+    <link rel="dns-prefetch" href="http://colud.ininin.com/">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="<?=SCRIPTS?>libs/html5shiv-3.7.2.min.js"></script>
+    <script src="<?=SCRIPTS?>libs/respond-1.4.2.min.js"></script>
+    <![endif]-->
+<body>
+<!-- Start Header -->
+<header id="bs-header" class="navbar navbar-fixed-top bs-header" role="banner">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+                <i class="fa fa-navicon"></i>
+            </button>
+            <div class="navbar-brand"><a href="http://www.ininin.com" target="_blank"><img src="<?=IMAGES?>logo.png" alt="ininin.com"/></a><a href="<?=DOMAIN?>"><img class="sys" src="<?=IMAGES?>sys.png" alt="供应商平台"/></a> </div>
+        </div>
+        <nav id="bs-navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a class="faq" href="<?=DOMAIN?>faq/index.html" target="_blank">常见问题</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<!-- End Header -->
+<!-- Start Container -->
+<div id="bs-container" class="container bs-container page-apply">
+    <div class="panel panel-default mt15">
+        <div class="panel-heading">
+            <ul class="list-inline clearfix">
+                <li class="current"><span class="circle">1</span>验证手机号</li>
+                <li><span class="circle">2</span>重设密码</li>
+                <li><span class="circle">3</span>设置成功 </li>
+            </ul>
+        </div>
+        <div class="panel-body">
+            <form class="form-horizontal" method="post" onsubmit="return false">
+                <div class="page">
+                    <div class="page-in">
+                        <!--验证手机号-->
+                        <div class="content content1 active">
+                            <div class="content-wrapper">
+                                <div class="form-group">
+                                    <label for="account_mobile" class="col-sm-3 text-right control-label">手机号<b class="light">*</b> ：</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" id="account_mobile" placeholder="请填写手机号" />
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <button type="button" id="sendCode" class="btn btn-primary">发送验证码</button>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="auth_code" class="col-sm-3 text-right control-label">验证码<b class="light">*</b> ：</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" id="auth_code" placeholder="请填写验证码" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bottom-btn">
+                                <button id="nextStep" type="button" class="btn btn-block btn-primary button-single">下一步</button>
+                            </div>
+                        </div>
+                        <!--重设密码-->
+                        <div class="content content2">
+                            <div class="content-wrapper">
+                                <div class="form-group">
+                                    <label for="password" class="col-sm-3 text-right control-label">新密码<b class="light">*</b> ：</label>
+                                    <div class="col-sm-4">
+                                        <input type="password" class="form-control" id="password" placeholder="请填写密码" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="repassword" class="col-sm-3 text-right control-label">重复密码<b class="light">*</b> ：</label>
+                                    <div class="col-sm-4">
+                                        <input type="password" class="form-control" id="repassword" placeholder="请再次填写密码" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bottom-btn">
+                                <button id="confirmApply" type="button" class="btn btn-block btn-primary button-single">确认提交</button>
+                            </div>
+                        </div>
+                        <!--密码设置成功-->
+                        <div class="content content3">
+                            <div class="content-wrapper">
+                                <div class="apply-process-ok text-left">
+                                    <h3 style="line-height: 64px;">恭喜您，密码设置成功！</h3>
+                                </div>
+                            </div>
+                            <div class="bottom-btn">
+                                <button id="goIndex" type="button" class="btn btn-block btn-primary button-single">返回首页</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- End Container -->
+<?php include(TEMPLATES.'footer.xhtml');?>
+<script type="text/javascript" src="<?=SCRIPTS?>libs/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>libs/bootstrap.min.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>libs/utils.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>config.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tool.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>forget/index.js"></script>
+</body>
+</html>

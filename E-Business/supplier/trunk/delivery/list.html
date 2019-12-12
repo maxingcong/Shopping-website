@@ -1,0 +1,22 @@
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<div id="delivery_list" class="delivery_list">
+    <ol class="breadcrumb">
+        <li><a href="<?=DOMAIN?>home/index.html"><i class="fa fa-home"></i>首页</a></li>
+        <li class="active">运费设置</li>
+    </ol>
+    <!-- Nav tabs -->
+    <ul id="delivery-tabs" class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#" data-index="0" role="tab" data-toggle="tab">发货给用户</a></li>
+        <li role="presentation"><a href="#" data-index="1" role="tab" data-toggle="tab">发货给云印仓储中心</a></li>
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="content1">
+            <section id="template-delivery_list-view" class="form-inline delivery-view load"></section>
+        </div>
+    </div>
+</div>
+<?php include(TEMPLATES.'delivery/mode_list.xhtml');?>
+<?php include(TEMPLATES.'delivery/template_list.xhtml');?>
+<?php include(TEMPLATES.'delivery/replace_point_list.xhtml');?>
+<script type="text/javascript" src="<?=SCRIPTS?>delivery/list.js"></script>

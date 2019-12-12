@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="renderer" content="webkit|ie-stand"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all"/>
+    <meta name="keywords" content="${keywords}"/>
+    <meta name="description" content="${description}"/>
+    <meta name="author" content="ininin.com"/>
+    <meta name="copyright" content="Copyright © 2015 ininin.com. All rights reserved."/>
+    <title>${title}</title>
+    <link href="<?=DOMAIN?>favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css?ininin=<?=VERSION?>"/>
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>package.css?ininin=<?=VERSION?>"/>
+    <?php include(MODULES.'dns_prefetch.xhtml');?>
+</head>
+<body>
+<?php include(MODULES.'header.xhtml');?>
+<div id="main" class="main pdetail">
+    <div class="layout">
+        <div id="sitemap" class="sitemap clearfix">
+            <a href="<?=DOMAIN?>">首页</a><b>&gt;</b>
+            <h1><a href="<?=DOMAIN?>package/index.html">账户充值</a></h1>
+        </div>
+        <div id="template_package_view" class="discount clearfix"></div>
+        <!--explain-->
+        <div class="ddetail">
+            <div class="probox explain clearfix">
+                <!--<div id="product_hotlist" class="hotlist explain_side">
+                    <h3 class="title">三大优惠</h3>
+                    <ul>
+                        <li class="privilege">
+                            <p class="img"><img src="<?=IMAGES?>package/wdrx.png" alt="无敌任性券"/></p>
+                            <p class="name">优惠一：赠送无敌任性券</p>
+                        </li>
+                        <li class="privilege">
+                            <p class="img"><img src="<?=IMAGES?>package/jfq.png" alt="高倍积分"/></p>
+                            <p class="name">优惠券二：赠送高倍积分</p>
+                        </li>
+                    </ul>
+                </div>-->
+                <div id="product_desc" class="pdesc">
+                    <ul class="ptabs desctab">
+                        <li class="sel" data-index="0"><a href="javascript:">购买流程</a></li>
+                        <li data-index="1"><a href="javascript:">充值介绍</a></li>
+                        <li data-index="2"><a href="javascript:">使用流程</a></li>
+                        <!--<li data-index="4"><a href="javascript:">关于积分</a></li>-->
+                        <li data-index="5"><a href="javascript:">关于消费</a></li>
+                        <li data-index="6"><a href="javascript:">关于提现</a></li>
+                    </ul>
+                    <ul class="p_contents">
+                        <li data-index="0">
+                            <h3 class="titleline">购买流程</h3>
+                            <img src="<?=IMAGES?>package/103.png?v=1" alt="购买流程"/>
+                        </li>
+                        <li data-index="1">
+                            <h3 class="titleline">充值介绍</h3>
+                            <div class="p-txt">
+                                <p>
+                                    账户充值是云印对于用户预存款的一项优惠措施，针对预付款的用户，可获得预存金额与实际支付的金额相同，支付成功后，预付款将立即返回到您的现金账户上<!--，同时云印赠送与充值金额相同的积分-->。
+                                </p>
+                                <!--<p>
+                                    购买云印平台上的账户充值，可获得与充值金额相同的积分，赠送的积分可用于兑换云印积分商城中的商品。
+                                </p>-->
+                                <p>
+                                    现金账户中的余额可以用于在本平台上进行消费。
+                                </p>
+                            </div>
+                            <!--<div class="tablebox">-->
+                                <!--<table class="table" cellpadding="0" cellspacing="0">-->
+                                    <!--<colgroup>-->
+                                        <!--<col style="width: 20%;"/>-->
+                                        <!--<col style="width: 20%;"/>-->
+                                        <!--<col/>-->
+                                    <!--</colgroup>-->
+                                    <!--<thead>-->
+                                    <!--<tr>-->
+                                        <!--<th colspan="2">充值金额</th>-->
+                                        <!--<th>赠送积分<p class="txt">（可在积分商城兑换礼品）</p></th>-->
+                                    <!--</tr>-->
+                                    <!--</thead>-->
+                                    <!--<tbody>-->
+                                    <!--<tr>-->
+                                        <!--<td colspan="2">1000元</td>-->
+                                        <!--<td>1000</td>-->
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                        <!--<td colspan="2">2000元</td>-->
+                                        <!--<td>2000</td>-->
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                        <!--<td colspan="2">5000元</td>-->
+                                        <!--<td>5000</td>-->
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                        <!--<td colspan="2">20000元</td>-->
+                                        <!--<td>20000</td>-->
+                                    <!--</tr>-->
+                                    <!--</tbody>-->
+                                <!--</table>-->
+                            <!--</div>-->
+                        </li>
+                        <li data-index="2">
+                            <h3 class="titleline">使用流程</h3>
+                            <img src="<?=IMAGES?>package/102.jpg?v=1" alt="使用流程"/>
+                        </li>
+                        <!--<li data-index="4">
+                            <h3 class="titleline">关于积分</h3>
+                            <div class="p-txt">
+                                <p>说明：账户充值将获赠与充值金额相同的积分，充值数额越大，获赠的积分越多。用户可以登录“<a
+                                        href="<?=DOMAIN?>member/index.html" target="_blank">个人中心</a>”&gt;“<a
+                                        href="<?=DOMAIN?>member/myintegral.html" target="_blank">我的积分</a>”查看当前积分数量。积分可以用在云印“<a
+                                        href="<?=DOMAIN?>integral/index.html" target="_blank">积分商城</a>”中兑换相应礼品。
+                                </p>
+                                <p>使用方法：当您的积分满足对应的条件的时候，需要您联系云印客服进行兑换，联系方式：QQ客服 4008601846&nbsp;&nbsp;电话客服400-680-9111，更多详情请点击“<a
+                                        href="<?=DOMAIN?>integral/index.html" target="_blank">积分商城</a>”。</p>
+                            </div>
+                        </li>-->
+                        <li data-index="5">
+                            <h3 class="titleline">关于消费</h3>
+                            <div class="p-txt">
+                                <p>
+                                    账户充值的金额（预存金额）将计入用户的"累计消费总额"；用现金账户进行消费时，消费金额将不再计入累计消费金额。累计消费总额将成为用户在本平台会员成长体系的重要判断依据；<br/>
+                                </p>
+                                <!--<p>2、账户充值将获赠与充值金额相同的积分；用现金账户进行消费时，不再累计积分。</p>-->
+                            </div>
+                        </li>
+
+                        <li data-index="6">
+                            <h3 class="titleline">关于提现</h3>
+                            <p class="p-txt-c">凡购买账户充值，一经使用，将不支持退换，充值金额也不可提现。</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--end explain-->
+    </div>
+</div>
+<?php include(MODULES.'footer.xhtml');?>
+<script id="template_package" type="text/template">
+    <div class="discount_pro">
+        <dl>
+            <dt><img src="<?=IMAGES?>package/discount.jpg" alt="账户充值"/></dt>
+            <dd>
+                <img src="<?=IMAGES?>package/discount_min.jpg" alt="账户充值"/>
+            </dd>
+        </dl>
+    </div>
+    <div class="discount_intro">
+        <div class="discount_name">账户充值<p class="desc">云印账户充值通道</p></div>
+        <form id="package" class="forms">
+            <div class="discount_package">
+                <!--span class="discount_desc">类型：</span-->
+                <div class="discount_set clearfix">
+                    <% for(var i=0; temp=recharge_list[i]; i++){
+                    var number=DEF_PID?(temp.id==DEF_PID ? "1": "0"):(recharge_list.length-1==i ? "1": "0");%>
+                    <div class="discount_attr"><span class="discount_type"><%=temp.recharge_name%></span><span
+                            class="counter"><a>-</a><input data-value="<%=temp.recharge_amount%>" class="textbox"
+                                                           type="text" name="package_<%=temp.id%>"
+                                                           value="<%=number%>"><b>+</b></span></div>
+                    <% }%>
+                </div>
+            </div>
+            <div class="discount_privilege" style="width: 240px">
+                <!--<span class="privilege_name clearfix"><a href="<?=DOMAIN?>faq/payment.html#11"
+                                                         target="_blank">如何使用积分？</a>恭喜您，您即将获得：</span>-->
+                <div class="privilege_intro">
+                    <div id="total_amount" class="privilege" style="width: auto; display: block">
+                        <span class="number">&nbsp;<img class="doing_gif"
+                                                                                              src="<?=IMAGES?>loading.gif"
+                                                                                              width="16"/>&nbsp;</span><span
+                            class="unit">元</span><span class="type">预存金额</span></div><!--
+                    <span id="total_integral" class="privilege"><span class="number">&nbsp;<img class="doing_gif"
+                                                                                                src="<?=IMAGES?>loading.gif"
+                                                                                                width="16"/>&nbsp;</span>
+                        &lt;!&ndash;span class="unit">万</span&ndash;&gt;<span class="type">积分</span></span>-->
+                </div>
+            </div>
+            <div class="couponsel">
+                <div class="row"><span class="total_txt">支付金额：</span><i id="total_price" class="yellow total_cash">
+                    &nbsp;<img class="doing_gif" src="<?=IMAGES?>loading.gif" width="16"/>&nbsp;</i> <span
+                        class="total_cash_unit">元</span>
+                </div>
+                <div class="checkboxs terms">
+                    <span class="form_item"><label class="checkbox sel"><input type="checkbox" name="agreement"
+                                                                               value="true"
+                                                                               checked="checked">我已阅读并接受 </label><a
+                            class="agreement_link" href="<?=DOMAIN?>agreement/discountpackage.html" target="_blank">《云印账户充值协议》</a></span>
+                    <!-- <span class="form_item"><label> <span class="field">推荐人：</span>
+                    <input class="textbox privilege_input" type="text" name="inviter" /><i class="msg"></i>
+                    </label>
+                    </span> -->
+                </div>
+                <div class="row"><a class="submit yellow-btn" href="javascript:;">立即购买<input
+                        onclick="_czc.push(['_trackEvent', '账户充值', '立即购买', '','','']);" value="" type="submit"></a>
+                </div>
+            </div>
+        </form>
+    </div>
+</script>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools_tpl.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>package/index_tpl.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>location_tpl.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded_tpl.js?ininin=<?=VERSION?>"></script>
+<!--script type="text/javascript" src="<?=SCRIPTS?>jquery-1.7.2.min.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>template-native.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>zh_cn.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tool_tpl.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>package/index_tpl.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded_tpl.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>libs/location_tpl.js?ininin=<?=VERSION?>"></script-->
+<script type="script_weibo"></script>
+<script type="script_linklogin"></script>
+<script type="script_cnzz"></script>
+</body>
+</html>

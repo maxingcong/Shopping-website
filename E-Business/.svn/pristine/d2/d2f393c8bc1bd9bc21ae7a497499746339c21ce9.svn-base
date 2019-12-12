@@ -1,0 +1,123 @@
+<div id="template-project_view-view" class="project-view zoom-out" style="height: 0px;"></div>
+<script id="template-project_view" type="text/template">
+    <div id="project_wrap" class="project-wrap">
+        <div id="project" class="project redbt4">
+            <div class="project-head">
+                <h3 class="project-title">{{caseName}}</h3>
+                <div class="project-info clearfix">
+                    <span class="count fr">
+                        <i class="pro-scan"></i><span>{{viewNumber}}</span>
+                        <i class="pro-thumb"></i><span>{{likeNumber||0}}</span>
+                        <i class="pro-star"></i><span>{{collectionNumber||0}}</span>
+                    </span>
+                    <a href="<?=DOMAIN_DESIGN?>category/{{designCategoryId}}.html?pid={{designProductId}}" class="fl" title="{{designProductName}}" target="_blank">{{designCategoryName}}-{{designProductName}}</a>
+                </div>
+                <p class="project-desc">{{digest}}</p>
+            </div>
+            <div id="project_body" class="project-body">
+                <div class="project-cont zoom-in">
+                    {{#caseBody}}
+                </div>
+            </div>
+            <div class="project-foot">
+                <div class="thumbbox"><a href="javascript:;" id="thumb" class="thumb {{isThumb}}">赞</a></div>
+                <div class="share-tool clearfix">
+                    <div class="fl">
+                        <span>分享至：</span>
+                        <div class="design-share bdsharebuttonbox" data-tag="share_1">
+                            <a href="javascript:;" class="bds_weixin" data-cmd="weixin" title="分享到朋友圈"></a>
+                            <a href="javascript:;" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+                            <!-- <a href="javascript:;" class="bds_wxf" data-cmd="weixin" title="分享给微信好友"></a> -->
+                            <a href="javascript:;" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+                        </div>
+                    </div>
+                    <a href="javascript:;" id="collect" class="collect fr {{isCollection}}" title="收藏"></a>
+                </div>
+            </div>
+        </div>
+        <div id="project_right" class="project-right">
+            <div id="designer_info" class="designer-info redbt4">
+                <div class="designer-brief">
+                    <h4 class="title">项目设计师</h4>
+                    <div class="designer">
+                        <a href="<?=DOMAIN_DESIGN?>designer/{{designerId}}.html" class="headimg fl" target="_blank">
+                            <i></i>
+                            <img src="{{personImage}}" alt="{{designerAlias}}头像">
+                        </a>
+                        <div class="designer-base">
+                            <p class="name"><a href="<?=DOMAIN_DESIGN?>designer/{{designerId}}.html" target="_blank">{{designerAlias}}</a></p>
+                            <p class="type">{{jobPosition}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="designer-intr">
+                    <p>{{honor||'暂无介绍'}}</p>
+                </div>
+            </div>
+            <!-- 相关设计服务 -->
+            {{if hasDesign || hasPrint}}
+            <div class="project-relate redbt4">
+                {{if hasDesign}}
+                    <div class="relatebox">
+                        <h4 class="title">相关设计服务</h4>
+                        <ul id="design_service">
+                            {{each designProductList as design i}}
+                                <li class="item">
+                                    <a class="fl" href="<?=DOMAIN_DESIGN?>category/{{design.designCategoryId}}.html?pid={{design.designProductId}}" target="_blank" title="{{design.designProductName}}"><img src="{{design.productImg}}?imageMogr2/thumbnail/!50x50r/auto-orient/gravity/Center/crop/50x50" class="item-img" alt="{{design.designProductName}}"></a>
+                                    <div class="item-desc">
+                                        <h5><a href="<?=DOMAIN_DESIGN?>category/{{design.designCategoryId}}.html?pid={{design.designProductId}}" target="_blank" title="{{design.designProductName}}">{{design.designProductName}}</a></h5>
+                                        <p>{{design.simpleDesc}}</p>
+                                    </div>
+                                </li>
+                            {{ /each }}
+                        </ul>
+                    </div>
+                {{ /if }}
+                {{if hasPrint}}
+                    {{if hasDesign }}
+                    <div class="relatebox pborder">
+                    {{else}}
+                    <div class="relatebox">
+                    {{/if}}
+                        <h4 class="title">相关印刷产品推荐</h4>
+                        <ul id="print_product">
+                            {{each printProductList as print i}}
+                                <li class="item">
+                                    <a class="fl" href="<?=DOMAIN?>product/{{print.productId}}.html" title="{{print.productName}}" data-id="{{print.productId}}" target="_blank"><img src="{{print.productImg}}?imageMogr2/thumbnail/!50x50r/auto-orient/gravity/Center/crop/50x50" class="item-img" alt="{{print.productName}}"></a>
+                                    <div class="item-desc">
+                                        <h5><a href="<?=DOMAIN?>product/{{print.productId}}.html" title="{{print.productName}}" data-id="{{print.productId}}" target="_blank">{{print.productName}}</a></h5>
+                                        <p>{{print.simpleDesc}}</p>
+                                    </div>
+                                </li>
+                            {{ /each }}
+                        </ul>
+                    </div>
+                </div>
+            {{ /if }}
+        </div>
+        {{ /if }}
+    </div>
+</script>
+<script id="template-zoom_box" type="text/template">
+    <div class="slide-panel" data-duration="300" data-interval="2500">
+        <ul class="slide-layer clearfix" style="width:{{_width}}; left: 0;">
+            {{each uris as uri i}}
+                <li class="slide-item">
+                    <img class="img" src="{{uri}}"/>
+                </li>
+            {{/each}}
+        </ul>
+        {{if uris.length > 1}}
+            <div class="slide-prev"></div>
+            <div class="slide-next"></div>
+        {{/if}}
+    </div>
+</script>
+<div id="zoom_view" class="zoom-view" style="z-index: 270; display: none;">
+    <div id="zoom_cont" class="zoom-cont">
+        <span class="close">X</span>
+        <div id="template-zoom_box-view" class="img-box">
+            
+        </div>
+    </div>
+</div>

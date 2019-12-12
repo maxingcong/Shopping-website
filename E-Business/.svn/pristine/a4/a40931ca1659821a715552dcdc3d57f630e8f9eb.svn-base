@@ -1,0 +1,65 @@
+<script id="template-product_info_columns" type="text/template">
+    <!-- quickPanelTwo -->
+    <a id="quickPanelTwo" class="quick-nav-link" href="#quickPanelTwo"></a>
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingTwo">
+            <h4 class="panel-title">
+                生产货期
+                <span class="light">（货期=基础货期+工艺属货期1+工艺属货期2……）</span>
+                    <span class="btn-excel hide">
+                        <a id="down_delivery_excel" class="btn btn-default btn-xs quote-excel">下载Excel模板</a>
+                        <!--<span class="btn btn-primary btn-xs upload-button"><input id="import_delivery_excel" type="file"/></span>-->
+                        <span id="import_delivery_excel-cont" class="up-cont">
+                            <a id="import_delivery_excel" class="up-btn btn-primary btn-xs" href="javascript:;" >
+                                <i class="fa fa-plus"></i>
+                                <span class="up-text"></span>
+                            </a>
+                            <span class="up-doing">正在上传...</span>
+                            <span class="up-forbid"></span>
+                        </span>
+                        <!--<div id="import_delivery_excel-info" class="upload-info"></div>-->
+                    </span>
+                <a class="pull-right" role="button" data-toggle="collapse" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fa fa-angle-double-down"></i>
+                    <i class="fa fa-angle-double-up"></i>
+                </a>
+                <span class="gray pull-right">（不填写表示该产品不可生产）&nbsp;&nbsp;</span>
+            </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+            <div id="template-product_delivery_table-view" class="panel-body"></div>
+        </div>
+    </div>
+    <!-- End quickPanelTwo -->
+    <!-- quickPanelThree -->
+    <a id="quickPanelThree" class="quick-nav-link" href="#quickPanelThree"></a>
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingThree">
+            <h4 class="panel-title">
+                供货价格
+                <span class="light">（供货价格=基础价格+工艺属性值1+工艺属性值2……）</span>
+                    <span class="btn-excel hide">
+                        <a id="down_price_excel" class="btn btn-default btn-xs quote-excel">下载Excel模板</a>
+                        <!--<span class="btn btn-primary btn-xs upload-button"><input id="import_price_excel" type="file"/></span>-->
+                        <span id="import_price_excel-cont" class="up-cont">
+                            <a id="import_price_excel" class="up-btn btn-primary btn-xs" href="javascript:;" >
+                                <i class="fa fa-plus"></i>
+                                <span class="up-text"></span>
+                            </a>
+                            <span class="up-doing">正在上传...</span>
+                            <span class="up-forbid"></span>
+                        </span>
+                        <!--<div id="import_price_excel-info" class="upload-info"></div>-->
+                    </span>
+                <a class="pull-right" role="button" data-toggle="collapse" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                    <i class="fa fa-angle-double-down"></i>
+                    <i class="fa fa-angle-double-up"></i>
+                </a>
+                <span class="gray pull-right">（不填写表示该产品不可供货）&nbsp;&nbsp;</span>
+            </h4>
+        </div>
+        <div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
+            <div id="template-product_price_table-view" class="panel-body"></div>
+        </div>
+    </div>
+</script>

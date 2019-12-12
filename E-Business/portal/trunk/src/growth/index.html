@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="会员体系" />
+    <meta name="description" content="" />
+    <meta name="author" content="${author}" />
+    <meta name="copyright" content="${copyright}" />
+    <title>会员体系</title>
+    <link href="<?=DOMAIN?>favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>layout.css" />
+    <?php include(MODULES.'dns_prefetch.xhtml');?>
+</head>
+<body>
+<?php include(MODULES.'header.xhtml');?>
+<div class="main hcenter">
+    <div class="layout" style="padding: 30px 0 70px;">
+        <div class="hcenter_box">
+            <dl class="growth">
+                <dd>
+                    <h1 class="tab_title">会员成长体系</h1>
+                    <table class="growth_table" cellpadding="0" cellspacing="0">
+                        <colgroup>
+                            <col width="15%">
+                            <col width="17%">
+                            <col width="17%">
+                            <col width="17%">
+                            <col width="17%">
+                            <col width="17%">
+                        </colgroup>
+                        <thead>
+                        <tr>
+                            <th colspan="6">会员等级</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td rowspan="2">会员等级</td>
+                            <td><i class="medal fe"></i></td>
+                            <td><i class="medal cu"></i></td>
+                            <td><i class="medal ag"></i></td>
+                            <td><i class="medal au"></i></td>
+                            <td><i class="medal c"></i></td>
+                        </tr>
+                        <tr>
+                            <td>铁牌</td>
+                            <td>铜牌</td>
+                            <td>银牌</td>
+                            <td>金牌</td>
+                            <td>钻石</td>
+                        </tr>
+                        <tr>
+                            <td>累计消费(元)</td>
+                            <td>—</td>
+                            <td>1000</td>
+                            <td>10000</td>
+                            <td>50000</td>
+                            <td>200000</td>
+                        </tr>
+                        <!--<tr>
+                            <td>积分倍数</td>
+                            <td>1倍</td>
+                            <td>2倍</td>
+                            <td>3倍</td>
+                            <td>4倍</td>
+                            <td>5倍</td>
+                        </tr>-->
+                        </tbody>
+                    </table>
+                    <img src="<?=IMAGES?>100.png" alt="会员体系" width="152" height="226" style="margin-left: 45px;">
+                </dd>
+                <dd><div class="hcenter_line"></div></dd>
+                <dd class="growth_con clearfix">
+                    <h3>1.什么是会员成长体系？</h3>
+                    <div>会员成长体系，或者会员等级，是云印平台针对会员不同的消费阶段而设定的等级体制。不同的会员等级享受不同的优惠内容，等级越高，所享受的优惠就越多。</div>
+                    <h3>2.会员等级是以什么标准划分的呢？</h3>
+                    <div>会员等级的划分是以累积消费金额为标准的，具体划分标准详见如上图。例如累积消费金额满足了1000元，则升级为铜牌会员，享受铜牌会员相应的优惠；不足1000元为铁牌会员，享受铁牌会员相应的优惠。</div>
+                    <h3>3.累积消费金额是如何计算的呢？</h3>
+                    <div>累积消费金额包含两个部分：第一，在我平台上购入账户充值，账户充值中包含的金额将会即时地、一次性计入累积消费金额中，后续使用账户充值金额进行消费时将不再次计入；第二，用支付宝支付在我平台上所购买产品，所消费金额计入累积消费金额中。 </div>
+                    <!--<h3>4.会员等级可享受的优惠内容是什么呢？</h3>
+                    <div>不同的会员等级可以享受不同的积分赠送倍数，详见上图。例如，作为铜牌会员，每消费1元则享受1倍积分的赠送，即1分；而金牌会员，每消费1元就可以享受5倍的积分赠送，即5分。积分是云印平台对客户的一种奖励机制，可用来兑换本平台积分商场下的各类礼品。</div>
+                    <h3>5.积分的使用方式？</h3>
+                    <div>
+                        积分可以用来兑换本平台积分商场下的各类礼品。为了保障积分的价值以及公平，积分不支持人民币充值，也不支持折算现金。<br/>
+                        您可以拨打云印全国统一热线<span>400-680-9111</span>，或者联系平台QQ客服进行兑换。目前平台暂时不支持用户在线自主进行兑换积分。
+                    </div>
+                    <h3>6.如何查询我的积分？</h3>
+                    <div>登录本网站后，在账户中心>我的积分中可以查看到您目前的积分状况</div>-->
+                </dd>
+            </dl>
+        </div>
+        <!--<img src="<?=IMAGES?>helper/100.png" alt="会员体系" />-->
+        <!--img src="<?=IMAGES?>helper/101.png" alt="云印技术" />
+        <img src="<?=IMAGES?>helper/102.png" alt="云印技术" /-->
+    </div>
+</div>
+<?php include(MODULES.'footer.xhtml');?>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>location.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js?ininin=<?=VERSION?>"></script>
+<!--script type="text/javascript" src="<?=SCRIPTS?>jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>template-native.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>zh_cn.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tool.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>libs/location.js"></script-->
+<?php include(MODULES.'linklogin.xhtml');?>
+</body>
+</html>

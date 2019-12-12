@@ -1,0 +1,40 @@
+<div class="head_logo clearfix">
+    <?php include 'h_logo.xhtml';?>
+    <div class="head_shop">
+        <!--div class="cart_tel"><img src="<?=IMAGES?>400.png" alt="400-680-9111" /></div-->
+    	<!--<div class="wxcode"><img src="<?=IMAGES?>wxcode.png" alt="云印官方微信"/><p>微信也能下单印名片啦！</p></div>-->
+        <dl class="cartbtn">
+            <dt class="dt"><a id="user_cart" onclick="_czc.push(['_trackEvent', '顶部', '购物车按钮', '','','user_cart']);" href="<?=DOMAIN?>cart/index.html" class="cart_login" ><b id="car_number">购物车</b></a></dt>
+            <dd id="template_cart_snap_view" class="cart_snap">
+                <div class="alt">您购物车暂时还没有任何商品，<a onclick="_czc.push(['_trackEvent', '顶部', '马上去选购', '','','']);" href="<?=DOMAIN?>">马上去选购～</a></div>
+            </dd>
+        </dl>
+    </div>
+</div>
+<script id="template_cart_snap" type="text/template">
+<% if(cartList&&cartList.length){ %>
+<div class="cart_panel">
+    <h3 class="tit">最近加入的商品：</h3>
+    <ul class="cart_list">
+        <% for(var j=0; temp = cartList[j]; j++){%>
+        <% if(j<3){%>
+        <li class="cart_item clearfix" data-cart_id="<%=temp.cartId%>" title="<%=temp.productName%>-<%=temp.productAttr%>">
+            <a class="img" href="<?=DOMAIN?>product/<%=temp.targetId||temp.productId%>.html#<%=temp.productAttr%>"><img src="<%=temp.productImg%>?imageMogr2/thumbnail/!67x38r/auto-orient/gravity/Center/crop/67x38" alt="<%=temp.productName%>"/></a>
+            <span class="price">￥<span class="red"><%=RMB(temp.price)%></span></span>
+            <div class="name ellipsis">
+                <a href="<?=DOMAIN?>product/<%=temp.targetId||temp.productId%>.html#<%=temp.productAttr%>"><%=temp.productName%></a>
+            </div>
+            <a class="del" href="javascript:;">删除</a>
+            <div class="attr ellipsis">
+                <a href="<?=DOMAIN?>product/<%=temp.targetId||temp.productId%>.html#<%=temp.productAttr%>"><%=temp.productAttr%></a>
+            </div>
+        </li>
+        <% } %>
+        <% } %>
+    </ul>
+    <div class="cbtm"><a class="btn" onclick="_czc.push(['_trackEvent', '顶部', '查看购物车', '','','']);" href="<?=DOMAIN?>cart/index.html">查看购物车</a></div>
+</div>
+<% }else{ %>
+<div class="alt">您购物车暂时还没有任何商品，<a onclick="_czc.push(['_trackEvent', '顶部', '购物车按钮', '','','user_cart']);" href="<?=DOMAIN?>">马上去选购～</a></div>
+<% } %>
+</script>

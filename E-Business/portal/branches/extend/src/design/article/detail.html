@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="${keywords}" />
+    <meta name="description" content="${description}" />
+    <meta name="author" content="ininin.com" />
+    <meta name="copyright" content="Copyright © 2015 ininin.com. All rights reserved." />
+    <title>${title}</title>
+    <link href="<?=DOMAIN?>favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css?ininin=<?=VERSION?>" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES_DESIGN?>layout.css?ininin=<?=VERSION?>" />
+    <?php include(MODULES.'dns_prefetch.xhtml');?>
+    <style type="text/css">.d-article .share-tool{border-top: 1px solid #ced1da; background-color: #fff;} 
+    .d-article .project-right .project-relate{margin-top: 0;}</style>
+</head>
+<body>
+<?php include(MODULES_DESIGN.'header.xhtml');?>
+
+<div id="main" class="main load">
+    <div class="layout clearfix">
+        <div id="template-article-view" class="d-article">
+            <!-- 文章详情 -->
+        </div>
+    </div>
+</div>
+
+<script id="template-article" type="text/template">
+    <div id="project_wrap" class="project-wrap">
+        <div id="project" class="project redbt4">
+            <div class="project-head">
+                <h3 class="project-title">{{articleTitle}}</h3>
+                <div class="project-info clearfix">
+                    <span class="count fr">
+                        <i class="pro-scan"></i><span>{{viewNumber||0}}</span>
+                        <i class="pro-thumb"></i><span>{{likesNumber||0}}</span>
+                        <!-- <i class="pro-star"></i><span>{{collectionNumber||0}}</span> -->
+                    </span>
+                    <span class="fl">
+                        <span>作者：</span>{{author}}
+                        <span class="ml10">发布时间：</span>{{createTime}}
+                    </span>
+                </div>
+                <p class="project-desc">{{digest}}</p>
+            </div>
+            <div id="project_body" class="project-body">
+                <div class="project-cont">
+                    {{#articleBody}}
+                </div>
+            </div>
+            <div class="project-foot">
+                <div class="thumbbox"><a href="javascript:;" id="thumb" class="thumb {{isThumb}}">赞</a></div>
+                <div class="share-tool clearfix">
+                    <div class="fl">
+                        <span>分享至：</span>
+                        <div class="design-share bdsharebuttonbox" data-tag="share_1">
+                            <a href="javascript:;" class="bds_weixin" data-cmd="weixin" title="分享到朋友圈"></a>
+                            <a href="javascript:;" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+                            <!-- <a href="javascript:;" class="bds_wxf" data-cmd="weixin" title="分享给微信好友"></a> -->
+                            <a href="javascript:;" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+                        </div>
+                    </div>
+                    <!-- <a href="javascript:;" id="collect" class="collect fr {{isCollection}}" title="收藏"></a> -->
+                </div>
+            </div>
+        </div>
+        <div id="project_right" class="project-right">
+            <!-- 相关文章推荐 -->
+            {{if hasRefer}}
+            <div class="project-relate redbt4">
+                <div class="relatebox">
+                    <h4 class="title">相关文章推荐</h4>
+                    <ul id="design_article">
+                        {{each refArticleInfoList as article i}}
+                            <li class="item">
+                                <a class="fl" href="<?=DOMAIN_DESIGN?>article/detail.html?aid={{article.articleId}}" target="_blank"><img src="{{article.coverImageUrl}}?imageMogr2/thumbnail/!50x50r/auto-orient/gravity/Center/crop/50x50" class="item-img" alt="{{article.articleTitle}}"></a>
+                                <div class="item-desc">
+                                    <h5><a href="<?=DOMAIN_DESIGN?>article/detail.html?aid={{article.articleId}}" target="_blank" title="{{article.articleTitle}}">{{article.articleTitle}}</a></h5>
+                                    <p>{{article.describe.substring(0,24)+'...'}}</p>
+                                </div>
+                            </li>
+                        {{ /each }}
+                    </ul>
+                </div>
+            </div>
+            {{/if}}
+        </div>
+    </div>
+</script>
+<?php include(MODULES_DESIGN.'footer.xhtml');?>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>location.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS_DESIGN?>article/detail.js?ininin=<?=VERSION?>"></script>
+
+<!--script type="text/javascript" src="<?=SCRIPTS?>jquery-1.7.2.min.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>template-native.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>zh_cn.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tool_tpl.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>design/list_tpl.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded_tpl.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>libs/location_tpl.js?ininin=<?=VERSION?>"></script-->
+<!-- <script type="script_weibo"></script>
+<script type="script_linklogin"></script>
+<script type="script_cnzz"></script> -->
+</body>
+</html>

@@ -1,0 +1,145 @@
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<div class="page-financial">
+    <ol class="breadcrumb">
+        <li><a href="<?=DOMAIN?>home/index.html"><i class="fa fa-home"></i>首页</a></li>
+        <li>信息维护</li>
+        <li class="active">财务信息</li>
+    </ol>
+    <div class="panel-group panel-quick" role="tablist" aria-multiselectable="true">
+        <!-- quickPanelOne -->
+        <a id="quickPanelOne" class="quick-nav-link" href="#quickPanelOne"></a>
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingOne">
+                <h4 class="panel-title">
+                    财务信息
+                    <a class="pull-right" role="button" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <i class="fa fa-angle-double-down"></i>
+                        <i class="fa fa-angle-double-up"></i>
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                <div id="template-financial_info-view" class="panel-body">
+                </div>
+            </div>
+        </div>
+        <!-- End quickPanelOne -->
+        </div>
+</div>
+<div class="modal fade cash-modal" id="checkPhone" role="dialog" aria-labelledby="checkPhoneLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="checkPhoneLabel">验证手机号码</h4>
+            </div>
+            <div class="modal-body">
+                <h5 style="padding-left: 50px;height: 30px;line-height: 30px;">为了您的财务安全，请您验证手机</h5>
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">手机号码：</label>
+                        <label id="user_mb" class="col-sm-3 control-label" style="text-align: left;"></label>
+                        <button id="sendCode" type="button" class="btn btn-primary">获取验证码</button>
+                    </div>
+                    <div class="form-group">
+                        <label for="fAuthCode" class="col-sm-3 control-label">验证码：</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" id="fAuthCode" placeholder="请输入验证码" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary md-btn">下一步</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script id="template-financial_info" type="text/template">
+    <table class="table-form">
+        <colgroup>
+            <col style="width: 120px"/>
+            <col/>
+        </colgroup>
+        <tr>
+            <th>银行账号<b class="light">*</b>：</th>
+            <td>{{bankAccount}}</td>
+        </tr>
+        <tr>
+            <th>开户名<b class="light">*</b>：</th>
+            <td>{{accountName}}</td>
+        </tr>
+        <tr>
+            <th>开户行<b class="light">*</b>：</th>
+            <td>{{bankName}}</td>
+        </tr>
+        <!--<tr>
+            <th>发票信息<b class="light">*</b>：</th>
+            <td>{{if issueInvoice==0}}不可开发票{{else}}可开发票{{/if}}</td>
+        </tr>-->
+        <tr>
+            <th>
+                <label class="control-label">账户名：</label>
+            </th>
+            <td>{{cellPhone}}</td>
+        </tr>
+        <tr>
+            <th>
+                <label class="control-label">注册时间：</label>
+            </th>
+            <td>{{dateCreated}}</td>
+        </tr>
+        <tr>
+            <th></th>
+            <td><button type="button" class="btn btn-primary md-btn" data-toggle="modal" data-target="#checkPhone">申请修改</button></td>
+        </tr>
+    </table>
+</script>
+<script id="template-financial_list" type="text/template">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">修改财务信息</h4>
+    </div>
+    <div class="modal-body">
+        <h5 style="padding-left: 50px;height: 30px;line-height: 30px;">请仔细核对并确认以下信息是否填写正确</h5>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="fBankAccount" class="col-sm-3 text-right control-label">银行账号<b class="light">*</b>：</label>
+                <div class="col-sm-6">
+                    <input type="text" id="fBankAccount" class="form-control" value="{{bankAccount}}" placeholder="请填写银行账号" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fAccountName" class="col-sm-3 text-right control-label">开户名<b class="light">*</b>：</label>
+                <div class="col-sm-6">
+                    <input type="text" id="fAccountName" class="form-control" value="{{accountName}}" placeholder="请填写开户名" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fBankName" class="col-sm-3 text-right control-label">开户行<b class="light">*</b>：</label>
+                <div class="col-sm-6">
+                    <input type="text" id="fBankName" class="form-control" value="{{bankName}}" placeholder="请填写开户行" />
+                </div>
+            </div>
+            <!--<div class="form-group">
+                <label class="col-sm-3 text-right control-label">发票信息<b class="light">*</b>：</label>
+                <div class="col-sm-6">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="invoice" {{if issueInvoice==1}}checked="checked"{{/if}} value="1" /><i class="fa fa-radio"></i>可开发票
+                        </label>
+                    </div>
+                    <div class="radio" style="margin-right: 0;">
+                        <label>
+                            <input type="radio" name="invoice" {{if issueInvoice==0}}checked="checked"{{/if}} value="0" /><i class="fa fa-radio"></i>不可开发票
+                        </label>
+                    </div>
+                </div>
+            </div>-->
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary save md-btn">确认无误，保存</button>
+    </div>
+</script>
+<script type="text/javascript" src="<?=SCRIPTS?>info/financial_info.js"></script>

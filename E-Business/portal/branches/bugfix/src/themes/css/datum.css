@@ -1,0 +1,142 @@
+@charset "utf-8";
+body{background-color: #fff;}/*暂时保留*/
+.datum {border:1px solid #ccd5df; overflow: hidden;}
+.datum .datum_left { width: 350px; padding-top: 300px; padding-bottom: 20px; background: url(../images/datum.png?v=1) center 30px no-repeat; overflow: hidden; float: left;}
+.datum .datum_left p { font-size: 16px; line-height: 32px; padding-left: 70px;}
+.datum .datum_right {border-left:1px solid #ccd5df; min-height: 408px; padding: 20px 30px; overflow: hidden;}
+.datum .title { font-size: 24px; line-height: 32px; font-weight: normal; padding: 0 0 10px;}
+.datum .forms .field { width: auto; font-size: 16px; line-height: 36px;}
+.datum .forms .textbox {/* height: 28px; line-height: 28px;*/}
+/*.datum .forms select { height: 32px; line-height: 32px;}*/
+.datum .forms .textbox, .datum .forms textarea, .datum .forms .text { font-size: 16px; line-height: 28px;}
+.datum .forms .alt { font-size: 14px;}
+.datum .forms textarea { width: 740px; height: 240px; overflow-y: scroll;}
+.datum .forms .form_btm { padding-top: 15px;}
+.datum .forms .submit { font-size: 24px; line-height: 44px; width: 220px; height: 44px;}
+.datum .forms .textbox { width: 242px;}
+.datum .forms .textbox, .datum .forms .textarea, .datum .forms select { border-color: #bababa;}
+.datum .forms .focus .textbox, .datum .forms .focus .textarea { border-color: #bababa;}
+.datum .line { margin: 25px 0 0; height: 25px; border-top: 2px dotted #cfcfcf;}
+.datum .fl { padding-right: 60px; float: left;}
+.uploader, .datum .option, .upload_con .browse_yun{ width: 140px; /*line-height: 30px;*/ display: inline-block; vertical-align: middle; cursor: pointer;}
+.datum .option { /*padding: 0;*/ margin-right: 24px;}
+.datum .option input { cursor: pointer;}
+.datum .option.sel { border-color: #0487e2;}
+
+/*上传修正*/
+.datum .upload_con{font-size: 12px; line-height: 1.5;}
+.datum .up-cont:hover{text-decoration: none;}/*IE7*/
+.datum .file_btn { width: 130px; font-size: 12px; overflow: hidden;}
+.datum .upload-info{margin-bottom: 15px;}
+.datum .upload-info .file-remove{margin-left: 10px; color: #666;}
+.upload_con .disabled{background-color: #afafaf; color: #fff; cursor: default;}/*禁用样式*/
+.upload_con .exhibit_file, .upload_con .exhibit_file .gray{font-size: 12px; line-height: 18px;}
+.upload_con .exhibit_file .del{margin-left: 10px; color: #666;}
+
+/*new add 文件上传*/
+.up-cont {
+    position: relative;
+    height: 28px;
+    line-height: 28px;
+    font-size: 12px;
+    text-align: center;
+    overflow: hidden;
+    cursor: default;
+    display: inline-block;
+    vertical-align: middle;
+}
+.up-cont .up-btn {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    cursor: pointer;
+}
+.up-cont .up-text {
+    cursor: pointer;
+}
+.up-cont .up-doing, .up-cont .up-forbid {
+    display: none;
+}
+.up-ing .up-doing, .up-dis .up-forbid {
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    background: #afafaf;
+    display: inline-block;
+}
+.upload-info {
+    text-align: left;
+}
+.upload-info .file-size {
+    display: none;
+}
+.upload-info .progress {
+    width: 128px;
+    overflow: hidden;
+    height: 16px;
+    line-height: 0;
+    font-size: 0;
+    background-color: #e7e7e7;
+    display: inline-block;
+    vertical-align: middle;
+}
+.upload-info .progress-bar {
+    width: 0;
+    height: 100%;
+    font-size: 12px;
+    line-height: 16px;
+    color: #ff0000;
+    text-align: right;
+    background-color: #0487e2;
+    display: inline-block;
+}
+.upload-info .file-cancel {
+    color: #0487e2;
+    line-height: 16px;
+    font-weight: bold;
+    margin: 0 0 0 5px;
+    display: inline-block;
+    vertical-align: middle;
+    text-decoration: none;
+}
+.upload-info .file-cancel:hover {
+    color: #036ad8;
+}
+
+/*file_view*/
+.change_files { padding: 10px 25px 25px;}
+.change_files .card_list { margin: 25px 0 0; }
+.change_files .template_list { margin: 25px 0 0; }
+.change_files .file_list { margin: 25px 0 0; }
+.change_files .table_view thead { background: #fbfbfb;}
+.change_files .paginbar { margin: 25px 0 0 0; padding: 0; border-top: none;}
+.change_files .btm_btns { margin: 25px 0 0; text-align: center; }
+.change_files .checkbox, .change_files .radio { width: 20px; height: 20px; margin: 0; padding: 0; cursor: pointer;}
+.change_files .file_upload { text-align: center; padding: 25px 0 0;}
+.change_files .file_icon { min-height: 150px; vertical-align: middle; display: inline-block; *display: inline; *zoom:1}
+.change_files .filename { max-width: 200px; padding: 10px 0 0; line-height: 24px; display: block;}
+.change_files .file_up { text-align: left; margin: 0 25px; vertical-align: middle; display: inline-block; *display: inline; *zoom:1}
+.change_files .upload_button { margin: 0;}
+.change_files .progressbar { margin: 10px 0 0;}
+.change_files .network { margin: 10px 0 0;}
+.change_files .network span { display: block;}
+.change_files .order_btn { width:100%}
+.change_files .hid .btm_btns { display: none;}
+.change_files .uping .btm_btns { display: none;}
+.file_upload_notice { color: #808080; text-align: left; line-height: 24px; border-bottom: 1px solid #ccd5df; padding: 20px 0}
+.change_files .file_upload .btm_btns { margin-top: 15px;}
+.change_files .button_list .comfirm{border: 1px solid #0093dd; background-color: #0093dd;color: #fff;}
+.change_files .button_list .closebox{border: 1px solid #999; background-color: #999;color: #000;}
+/*ofilter部分*/
+.ofilter { border-bottom: 1px solid #ccd5df;}
+.ofilter ul { white-space: nowrap; font-size: 0; line-height: 0;}
+.ofilter li { font-size: 14px; line-height: 24px; vertical-align: middle;  display: inline-block; *display: inline; *zoom: 1;}
+.ofilter li.vline { width: 1px; height: 14px; background: #ccd5df; overflow: hidden;}
+.ofilter li a { color: #808080; font-size: 16px; line-height: 52px; height: 52px; padding: 1px 21px; display: inline-block; margin: -1px;}
+.ofilter li:first-child a { padding-left: 0;}
+.ofilter li a:hover, .ofilter li a.sel { color: #0487e2; padding-bottom: 0; border-bottom: 1px solid #0487e2; text-decoration: none;}
+.ofilter .searchbar { margin: 12px 0 0;}

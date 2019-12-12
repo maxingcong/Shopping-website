@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="设计案例" />
+    <meta name="description" content="" />
+    <meta name="author" content="${author}" />
+    <meta name="copyright" content="${copyright}" />
+    <title>设计案例</title>
+    <link rel="shortcut icon" type="image/x-icon" href="<?=DOMAIN?>favicon.ico"  />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css?ininin=<?=VERSION?>" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES_DESIGN?>layout.css?ininin=<?=VERSION?>" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES_DESIGN?>index.css?ininin=<?=VERSION?>" />
+    <?php include(MODULES.'dns_prefetch.xhtml');?>
+</head>
+<body>
+<?php include(MODULES_DESIGN.'header.xhtml');?>
+<div class="main">
+    <div class="layout clearfix">
+        <div id="template-filter_list-view" class="filter-list"></div>
+        <div class="filter-bar">
+            <a href="javascript:;" class="sel" data-order_by="">全部</a>
+            <a href="javascript:;" data-order_by="update_time">更新时间</a>
+            <a href="javascript:;" data-order_by="view_number">浏览最多</a>
+            <a href="javascript:;" data-order_by="collection_number">收藏最多</a>
+            <a class="last" href="javascript:;" data-order_by="like_number">点赞最多</a>
+        </div>
+        <div id="template-case_list-view" class="recommend-cases"></div>
+    </div>
+</div>
+<?php include(MODULES_DESIGN.'footer.xhtml');?>
+<script id="template-filter_list" type="text/template">
+    <dl class="line">
+        <dt>设计类型：</dt>
+        <dd class="design">
+            <a class="sel" href="javascript:;" data-category_id="">全部</a>
+            {{each designCategoryList as designCategory}}
+            {{if designCategory.categoryId!='109'&&designCategory.categoryId!='112'}}
+            <a class="ellipsis" href="javascript:;" data-category_id="{{designCategory.categoryId}}">{{designCategory.categoryName}}</a>
+            {{/if}}
+            {{/each}}
+        </dd>
+    </dl>
+    <dl>
+        <dt>所属行业：</dt>
+        <dd class="industry">
+            <a class="sel" href="javascript:;" data-industry_id="">全部</a>
+            {{each industryList as industry}}
+            <a class="ellipsis" href="javascript:;" data-industry_id="{{industry.industryId}}">{{industry.industryName}}</a>
+            {{/each}}
+        </dd>
+    </dl>
+</script>
+<?php include(TEMPLATES_DESIGN.'case_list.xhtml');?>
+<?php include(MODULES_DESIGN.'project_view.xhtml');?>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools_tpl.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS_DESIGN?>case/index_tpl.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>location_tpl.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded_tpl.js?ininin=<?=VERSION?>"></script>
+<script type="script_weibo"></script>
+<script type="script_linklogin"></script>
+<script type="script_cnzz"></script>
+</body>
+</html>

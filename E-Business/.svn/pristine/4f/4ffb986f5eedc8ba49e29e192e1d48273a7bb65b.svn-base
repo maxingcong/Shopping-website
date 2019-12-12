@@ -1,0 +1,26 @@
+<script id="template-replace_point_list" type="text/template">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">选择仓储中心</h4>
+    </div>
+    <div class="modal-body">
+    {{if replaceDeliveryPointList&&replaceDeliveryPointList.length}}
+        <div class="info-block" style="height: 400px; overflow-y: auto;">
+            {{each replaceDeliveryPointList as point}}
+            <div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="replacePoint" {{if replacePoint}}{{if replacePoint.id==point.id}}checked="checked"{{/if}}{{/if}} value="{{point.id}}" />
+                        <i class="fa fa-radio"></i><b>{{point.name}}</b><br />{{point.address.replace(/\^/g,'')}}<br />联系电话：{{point.contactPhone}}
+                    </label>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    {{/if}}
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary save md-btn">保存</button>
+        <button type="button" class="btn btn-default md-btn" data-dismiss="modal">关闭</button>
+    </div>
+</script>

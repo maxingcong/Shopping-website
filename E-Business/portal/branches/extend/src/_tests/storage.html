@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>layout.css" />
+</head>
+<body>
+<a id="test1" class="btn btn-primary" href="javascript:;">添加</a>
+<a id="test2" class="btn btn-primary" href="javascript:;">获取</a>
+<a id="test3" class="btn btn-primary" href="javascript:;">存在</a>
+<a id="test4" class="btn btn-primary" href="javascript:;">删除</a>
+<script type="text/javascript" src="/scripts/jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="/scripts/tools.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript">
+    require(["base", "tools"], function ($, T) {
+        var storage = T.Storage({
+            key: "test"
+        });
+        $("#test1").click(function(e){
+            storage.add(new Date().getDate());
+            storage.add(new Date().getTime());
+        });
+        $("#test2").click(function(e){
+            alert(storage.get());
+        });
+        $("#test3").click(function(e){
+            alert(storage.has(new Date().getDate()));
+        });
+        $("#test4").click(function(e){
+            storage.remove(new Date().getDate());
+            alert(storage.get());
+        });
+    });
+</script>
+</body>
+</html>

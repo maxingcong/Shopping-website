@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<?php
+if(!defined("WWW"))define("WWW", isset($_REQUEST["w"])?$_REQUEST["w"]:"www");
+$ver = time();
+?>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>template-native.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>zh_cn.js?v=<?=$ver?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tool_tpl.js?v=<?=$ver?>"></script>
+<script type="text/javascript">
+    var productIds = T.GetQueryString('pid');
+    productIds = productIds?productIds.split(','):[];
+    T.GET({
+        action: CFG_DS.product.get_category,
+        params: {
+            category_ids: CFG_DB.PCFG.VNAV
+        },
+        success: function(data) {
+            if (data && data.categoryList && data.categoryList.length) {
+                T.Each(data.categoryList, function(k, category) {
+                    T.Each(category.products, function(k2, v) {
+                        if (v.standardType==1||v.standardType==2){//standardType:0=标准,1=非标准,2=安装类
+                            productIds.push(v.productId);
+                        }
+                    });
+                });
+                if(productIds.length){
+                    sessionStorage["maker_pages_ids"] = T.JSON.stringify(productIds);
+                    sessionStorage["maker_pages_lnks"] = "";
+                    location.href = "/portal/"+productIds[0]+"_tpl.html?w=<?php echo WWW ?>&v=<?php echo $ver ?>";
+                    console.log("MAKER.data=", T.JSON.stringify(productIds));
+                }else{
+                    top.T.alt("没有可生成的页面！");
+                }
+            }
+        },
+        failure: function(data, params) {},
+        error: function(data, params) {}
+    }, function(data) {}, function(data) {});
+</script>
+</body>
+</html>

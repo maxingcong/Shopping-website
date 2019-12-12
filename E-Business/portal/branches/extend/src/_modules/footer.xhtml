@@ -1,0 +1,92 @@
+<?php $pageId = isset($pageId)?$pageId:0;?>
+<?php include(MODULES.'login_form.xhtml');?>
+<div id="footer" class="footer">
+    <?php if($pageId==0){?>
+    <div class="pagebar">
+        <div class="layout clearfix">
+            <ul class="commit clearfix">
+                <li  class="col1">
+                    <div><span>闪电速度</span><span>专人配送</span></div>
+                </li>
+                <li class="col2">
+                    <div><span>品质保证</span><span>无条件退换</span></div>
+                </li>
+                <li class="col3">
+                    <div><span>实体店铺</span><span>信用保证</span></div>
+                </li>
+                <li  class="col4">
+                    <div><span>无忧售后</span><span>全程客服</span></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="layout clearfix">
+        <ul class="links clearfix">
+            <li class="foot_help">
+                <h3>帮助中心</h3>
+                <p><a href="<?=DOMAIN?>faq/distribution.html" target="_blank">配送方式及费用</a></p>
+                <p><a href="<?=DOMAIN?>help/index.html" target="_blank">订购流程</a></p>
+                <p><a href="<?=DOMAIN?>help/returns.html" target="_blank">退换货说明</a></p>
+                <p><a href="<?=DOMAIN?>faq/index.html" target="_blank">常见问题</a></p>
+                <p><a href="http://m.kuaidi100.com" target="_blank" rel="nofollow">快递100</a></p>
+				<p><a href="<?=DOMAIN?>help/guide.html" target="_blank">新手指南</a></p>
+            </li>
+            <li class="foot_line"></li>
+            <li class="foot_print">
+                <h3>印刷知识</h3>
+                <p><a href="<?=DOMAIN?>help/upload.html" target="_blank">上传文件须知</a></p>
+                <p><a href="<?=DOMAIN?>help/chromatism.html" target="_blank">关于色差</a></p>
+                <p><a href="<?=DOMAIN?>help/download.html" target="_blank">空白模板下载</a></p>
+            </li>
+            <li class="foot_line"></li>
+            <li class="foot_vip">
+                <h3>会员体系</h3>
+                <p><a href="<?=DOMAIN?>growth/index.html" target="_blank">会员成长体系</a></p>
+                <p><a href="<?=DOMAIN?>package/index.html" target="_blank">账户充值</a></p>
+                <!--<p><a href="<?=DOMAIN?>integral/index.html" target="_blank">积分商城</a></p>-->
+                <p><a href="<?=DOMAIN?>vip/index.html" target="_blank">大客户专区</a></p>
+            </li>
+            <li class="foot_line"></li>
+            <li class="foot_service">
+                <p class="tel">400-680-9111</p>
+                <p class="time">周一至周六 9:00-20:00</p>
+                <a id="online_service" class="btn" href="javascript:;" rel="nofollow" target="_blank">在线客服</a>
+            </li>
+        </ul>
+    </div>
+    <?php }?>
+    <ul class="about_us clearfix">
+        <li><a href="<?=DOMAIN?>about/index.html" target="_blank">公司简介</a></li>
+        <li class="foot_line"></li>
+        <li><a href="<?=DOMAIN?>about/contactus.html" target="_blank">联系我们</a></li>
+        <li class="foot_line"></li>
+        <li><a href="<?=DOMAIN?>about/service_point.html" target="_blank">云印服务点</a></li>
+        <li class="foot_line"></li>
+        <li><a href="<?=DOMAIN?>about/services.html" target="_blank">服务声明</a></li>
+        <li class="foot_line"></li>
+        <li><a href="<?=DOMAIN?>about/job.html" target="_blank">招聘信息</a></li>
+        <li class="foot_line"></li>
+        <li><a href="<?=DOMAIN?>about/media.html" target="_blank">媒体报道</a></li>
+        <li class="foot_line"></li>
+        <li><a href="http://supplier.ininin.com/" target="_blank">供应商招募</a></li>
+    </ul>
+    <div class="copyright">
+        <a href="http://www.miitbeian.gov.cn/" target="_blank" rel="nofollow">粤ICP备13078924号</a><span> | 版权所有©2015云印技术（深圳）有限公司 <!-- 增值电信业务经营许可证：粤B2-20130069 --> </span><span id="cnzz_stat_icon_1253317095" class="foot_cnzz"></span>
+    </div>
+    <?php if(isset($isHome) && $isHome) {?>
+    <div class="authentication">
+        <script type="script_ebsgovicon"></script>
+    </div>
+    <?php }?>
+</div>
+<div id="toolbar" class="toolbar">
+    <?=isset($tnowbuy)?$tnowbuy:"";?>
+    <a id="tservice" class="tservice" href="javascript:;" rel="nofollow" target="_blank">业务咨询</a>
+    <a id="tmember" class="tmember" href="javascript:;" rel="nofollow" target="_blank">会员服务</a>
+    <a id="twxcode" class="twxcode" href="javascript:;" title="官方微信">官方微信<span id="wxcode" class="wxcode"><span class="img"><img src="<?=IMAGES?>wxcode.jpg" alt="官方微信" />关注送优惠券！</span><span class="arrow"></span></span></a>
+    <?php if($pageId>0){?>
+        <a id="thome" class="thome" href="<?=DOMAIN?>" target="_blank">返回官网</a>
+    <?php }?>
+    <a id="tbacktop" class="backtop" href="javascript:;">返回顶部</a>
+</div>
+<?php include(TEMPLATES.'slider_list.xhtml');?>

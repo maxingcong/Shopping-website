@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+	<meta name="robots" content="all" />
+	<meta name="keywords" content="云印服务点" />
+	<meta name="description" content="" />
+	<meta name="author" content="${author}" />
+	<meta name="copyright" content="${copyright}" />
+	<title>云印服务点</title>
+    <link rel="shortcut icon" type="image/x-icon"  href="<?=DOMAIN?>favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>about.css" />
+    <?php include(MODULES.'dns_prefetch.xhtml');?>
+</head>
+<body>
+	<?php include(MODULES.'header.xhtml');?>
+	<div class="main uabout">
+		<div class="layout clearfix">
+			<?php include(MODULES.'aboutsidebar.xhtml');?>
+			<div class="container">
+                <div id="contactus" class="about">
+                    <h3 class="headline about_tit">云印服务点简介</h3>
+                    <div class="about_intr">
+                        <p>云印是新一代O2O互联网印刷设计服务平台，服务点是其在您身边的线下实体服务店面，帮助您一站式解决印刷和设计需求，让您真正体验到设计“省”心，印刷“简”单。
+                        </p>
+                        <br />
+                        <ul>
+                            <li>1、您可以去咨询了解产品服务，查看实体样品；</li>
+                            <li>2、您可以在线下单后选择去服务点提货，节省运费还能赚积分；</li>
+                            <li>3、您也可以联系服务点人员就近上门服务；</li>
+                            <li>4、我们的服务点小伙伴们将成为您工作的好帮手； </li>
+    				    </ul>
+                    </div>
+                    <div class="cartoon_qr">
+                        <span class="cartoon_ps">扫码下载云印设计APP，随时随地查看服务点，随时跟踪订单现状。</span>
+                    </div>
+					<h3 class="headline about_tit">云印服务点</h3>
+					<div id="template-take_address_list-view" class="about_text">
+                        
+                    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?php include(MODULES.'footer.xhtml');?>
+	<script id="template-take_address_list" type="text/template">
+        <div class="point_filter">
+            <select id="pid-take_address" name="province">
+                <!-- <option value="" selected="selected">全国</option> -->
+            </select>
+            <select id="cid-take_address" name="city">
+                <!-- <option value="" selected="selected">全部城市</option> -->
+            </select>
+            <select id="did-take_address" name="area" data-mode="1">
+                <option value="" selected="selected">全部区域</option>
+            </select>
+            <input id="pcd-take_address" name="take_pcd" type="hidden" value="" />
+            <!-- <span class="search_box">
+                <input type="text" id="point_name" class="textbox" name="pointname" placeholder="服务点名称/收货地址" />
+                <a href="javascript:;" id="search_point" class="btn btn-default">搜 索</a>
+            </span> -->
+        </div>
+        <div class="point_list_box">
+            <ul id="template-point_list-view" class="point_list radios radios_mini">
+                <% include('template-point_list') %>
+            </ul>
+        </div>
+        <div class="bd_map">
+            <div id="baidumap" class="point_map"></div>
+        </div>
+	</script>
+    <script id="template-point_list" type="text/template">
+        <% if(addressList&&addressList.length){ %>
+        <% for(var k=0; temp = addressList[k]; k++){ %>
+        <li id="take_address_item-<%=temp.addressId%>" class="item" data-address_id="<%=temp.addressId%>" data-coord="<%=temp.addressCoordinate%>">
+            <b class="name radio"><%=temp.addressName%></b>
+            <div class="txt"><%=temp.address.replace(/\^/gi,"")%></div>
+        </li>
+        <% } %>
+        <% }else{ %>
+        <li class="empty">该城市暂无服务点</li>
+        <% } %>
+    </script>
+    <script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+    <!--<script type="text/javascript" src="<?=SCRIPTS?>modules/point.js?ininin=<?=VERSION?>"></script>-->
+    <script type="text/javascript" src="<?=SCRIPTS?>other/service_point.js?ininin=<?=VERSION?>"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>location.js?ininin=<?=VERSION?>"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>loaded.js?ininin=<?=VERSION?>"></script>
+	<!--script type="text/javascript" src="<?=SCRIPTS?>jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="<?=SCRIPTS?>libs/utils.js"></script>
+	<script type="text/javascript" src="<?=SCRIPTS?>zh_cn.js"></script>
+	<script type="text/javascript" src="<?=SCRIPTS?>tool.js"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>libs/location.js"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>modules/point.js"></script>
+	<script type="text/javascript" src="<?=SCRIPTS?>other/contactus.js"></script>
+	<script type="text/javascript" src="<?=SCRIPTS?>loaded.js"></script-->
+	<!--script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=VybvSG3RqpGQzp6GwlzNOmiq"></script-->
+    <?php include(MODULES.'linklogin.xhtml');?>
+</body>
+</html>

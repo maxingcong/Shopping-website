@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="开通/绑定账号" />
+    <meta name="description" content="" />
+    <meta name="author" content="${author}" />
+    <meta name="copyright" content="${copyright}" />
+    <title>开通/绑定账号</title>
+    <link rel="shortcut icon" type="image/x-icon" href="<?=DOMAIN?>favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>layout.css" />
+    <?php include(MODULES.'dns_prefetch.xhtml');?>
+</head>
+<body>
+<?php include(MODULES.'header.xhtml');?>
+<div class="main ubind">
+    <div class="layout">
+        <fieldset id="register" class="register reg_type_user">
+            <ul id="comtext" class="comtext">
+                <li>欢迎您！</li>
+            </ul>
+            <ul id="regtabs" class="regtabs clearfix">
+                <li>
+                    <span class="sel" name="reg_type_user">注册账户</span>
+                </li>
+                <li>
+                    <span name="reg_type_bind">已有帐户，直接绑定</span>
+                </li>
+            </ul>
+            <form id="register_user" class="forms reg_user">
+                <input type="hidden" name="user_type" value="0" />
+                <div class="form_item icon_person">
+                    <label>
+                        <input id="account" class="textbox" type="text" name="username" />
+                        <i class="msg"></i>
+                    </label>
+                </div>
+                <div class="form_item form_code hide">
+                    <label>
+                        <input class="textbox" type="text" name="code" maxlength="6" />
+                    </label>
+                    <a id="sendCode" class="btn">发送验证码</a>
+                    <i class="msg"></i>
+                </div>
+                <div class="form_item icon_lock">
+                    <label>
+                        <input class="textbox" type="password" name="password" maxlength="20" autocomplete="off" />
+                        <i class="msg"></i>
+                    </label>
+                </div>
+                <div class="form_item">
+                    <div class="checkboxs">
+                        <label class="checkbox">
+                            <input type="checkbox" name="agreement" value="true" checked="checked" />我已阅读并接受
+                        </label>
+                        <a class="agreement_link" href="<?=DOMAIN?>agreement/account.html">《云印服务协议》</a>
+                    </div>
+                </div>
+                <div class="form_item icon_inviter mt20">
+                    <label>
+                        <input class="textbox" type="text" name="inviter" />
+                        <a class="icon_help" href="<?=DOMAIN?>faq/#2" title="商务经理是什么？" target="_blank"></a>
+                        <i class="msg"></i>
+                    </label>
+                </div>
+                <div class="form_item form_btm">
+                    <a class="submit" href="javascript:;">
+                        开通个人账户<input type="submit" value="" />
+                    </a>
+                </div>
+            </form>
+            <form id="login_bind" class="forms reg_bind">
+                <div class="form_item icon_person">
+                    <label>
+                        <input class="textbox" type="text" name="username" />
+                        <i class="msg"></i>
+                    </label>
+                    <p class="ico"></p>
+                </div>
+                <div class="form_item icon_lock">
+                    <label>
+                        <input class="textbox" type="password" name="password" maxlength="20" autocomplete="off" />
+                        <i class="msg"></i>
+                    </label>
+                    <p class="ico"></p>
+                </div>
+                <div class="form_item">
+                    <div class="checkboxs">
+                        <a class="forget" href="forget.html">忘记密码</a>
+                        <label class="checkbox">
+                            <input type="checkbox" name="remember" value="1" checked="checked" />记住我
+                        </label>
+                    </div>
+                </div>
+                <div id="captcha" class="form_item captcha hide">
+                    <label>
+                        <input class="textbox" type="text" name="captcha" /><img class="img" src=""/><a class="refresh" href="javascript:;">看不清楚<br/>换一张</a>
+                        <i class="msg"></i>
+                    </label>
+                </div>
+                <div class="form_item form_btm">
+                    <a class="submit" href="javascript:;">
+                        绑定账户<input type="submit" value="" />
+                    </a>
+                </div>
+            </form>
+        </fieldset>
+    </div>
+</div>
+<?php include(MODULES.'footer.xhtml');?>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>passport/bind.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>location.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js?ininin=<?=VERSION?>"></script>
+<!--<script type="text/javascript" src="<?=SCRIPTS?>jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>template-native.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>zh_cn.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tool.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>passport/bind.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>libs/location.js"></script>-->
+<?php include(MODULES.'linklogin.xhtml');?>
+</body>
+</html>

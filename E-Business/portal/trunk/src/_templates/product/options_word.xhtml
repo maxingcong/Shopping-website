@@ -1,0 +1,23 @@
+<div class="options options-{{productId}}">
+    <fieldset class="product_detail">
+        <div id="form_details" class="forms forms_border">
+            <div class="pro_title">
+                <?php include(TEMPLATES.'product/headline.xhtml');?>
+                <?php include(TEMPLATES.'product/gift_score.xhtml');?>
+            </div>
+            <div id="product_params-{{productId}}" class="attrs"></div>
+            <?php include(TEMPLATES.'product/preferntial_info.xhtml');?>
+            <div class="pro_attr">
+                <?php include(TEMPLATES.'product/weight.xhtml');?>
+                <?php include(TEMPLATES.'product/delivery_day.xhtml');?>
+            </div>
+            <?php include(TEMPLATES.'product/address.xhtml');?>
+            <?php include(TEMPLATES.'product/price.xhtml');?>
+            <div class="attr p-install clearfix">
+                <div class="atr">安装服务：</div>
+                <div class="itr">如需对应的安装服务，请点击 <a href="<?=DOMAIN?>product/1003.html" target="_blank">广告字安装</a></div>
+            </div>
+            <?php include(TEMPLATES.'product/form_btm.xhtml');?>
+        </div>
+    </fieldset>
+</div>

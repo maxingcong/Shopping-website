@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="${keywords}" />
+    <meta name="description" content="${description}" />
+    <meta name="author" content="ininin.com" />
+    <meta name="copyright" content="Copyright © 2015 ininin.com. All rights reserved." />
+    <title>${title}</title>
+    <link href="<?=DOMAIN?>favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css?ininin=<?=VERSION?>" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>layout.css?ininin=<?=VERSION?>" />
+	<?php include(MODULES.'dns_prefetch.xhtml');?>
+</head>
+<body>
+<?php include(MODULES.'header.xhtml');?>
+<div id="main" class="main pdetail">
+    <div id="template_product_attrs_view" class="layout details"></div>
+    <div class="layout">
+        <?php include(TEMPLATES.'product/detail_desc.xhtml');?>
+    </div>
+</div>
+<?php include(MODULES.'footer.xhtml');?>
+<script id="template_product_attrs" type="text/template">
+    <?php include(TEMPLATES.'product/detail_sitemap.xhtml');?>
+    <div class="dpanel clearfix" id="dpanel">
+        <div class="dupload">
+            <dl class="images">
+                <dt id="proimg" class="zoomimg">
+                    <a href="<?=DOMAIN?>product/<%=productId%>.html" title="<%=productName%>"><img data-imguri="<%=productImg0%>" src="<%=productImg0%>" alt="<%=productName%>" /></a>
+                </dt>
+                <dd>
+                    <ul id="imglist">
+                        <% for(var j=0; img=pImages[j]; j++){ %>
+                        <li data-imguri="<%=img%>"><a href="javascript:;"><img src="<%=img%>?imageMogr2/thumbnail/!60x60r/auto-orient/gravity/Center/crop/60x60" alt="<%=productName%>"/></a></li>
+                        <% } %>
+                    </ul>
+                </dd>
+            </dl>
+        </div>
+        <div class="options options-200003">
+            <fieldset class="product_detail">
+                <form id="form_details" class="forms forms_border_left">
+                    <div class="pro_title">
+                        <h1 class="headline"><a href="<?=DOMAIN?>product/<%=productId%>.html" title="<%=productName%>"><%=productName%></a>
+                            <p class="mark"><%=simpleDesc%></p></h1>
+                    </div>
+                    <div class="attr clearfix">
+                    	<span class="atr">中/英文：</span><span class="vals" data-name="中/英文"><a class="val sel" href="javascript:;">中文</a>&nbsp;<a class="val" href="javascript:;">英文</a></span>
+                    </div>
+                    <div class="form_item">
+                    	<span class="field">颜色（选填）：</span><span class="input done" data-name="颜色"><span class="txt">自定义：</span><input id="color" class="textbox" type="text" name="颜色" data-value="" value="" maxlength="100"><span class="txt"></span><a id="color_ok" class="btn" href="javascript:;">OK</a></span><i class="msg"></i><span class="alt">可联系客服提供颜色图片</span>
+                    </div>
+                    <div class="form_item">
+                    	<span class="field">CMYK色值（选填）：</span><span id="cmyk" class="input multi done" data-name="CMYK色值"><span class="txt">自定义：</span><span class="txt">C值</span><input class="textbox" type="text" name="c" data-unit="%" data-value="" value=""><span class="sign">%</span><span class="txt">M值</span><input class="textbox" type="text" name="m" data-unit="%" data-value="" value=""><span class="sign">%</span><span class="txt">Y值</span><input class="textbox" type="text" name="y" data-unit="%" data-value="" value=""><span class="sign">%</span><span class="txt">K值</span><input class="textbox" type="text" name="k" data-unit="%" data-value="" value=""><span class="sign">%</span><a class="btn" href="javascript:;">OK</a></span><i class="msg"></i><span class="alt"></span>
+                    </div>
+                    <div class="form_item">
+                    	<span class="field">最长边长度：</span><span id="maxwidth" class="input done" data-name="最长边长度"><span class="txt">自定义：</span><input class="textbox" type="text" name="maxwidth" data-unit="毫米" data-value="200" value="200"><span class="txt">毫米</span><a class="btn" href="javascript:;">OK</a></span><b class="required">*</b><i class="msg"></i><span class="alt">必须大于0，可以为小数</span>
+                    </div>
+                    <div class="form_item">
+                    	<span class="field">数量：</span><span id="quantity" class="input done" data-name="数量"><span class="txt">自定义：</span><input class="textbox" type="text" name="quantity" data-unit="个" data-value="2" value="2"><span class="txt">个</span><a class="btn" href="javascript:;">OK</a></span><b class="required">*</b><i class="msg"></i><span class="alt">数量最少为1个，必须为整数</span>
+                    </div>
+                    <div class="pro_attr">
+                        <% if(HAS_WEIGHT){ %>
+                        <div class="attr weight">
+                            <span class="atr">预估净重：</span><span class="vals"><b id="weight_<%=productId%>" class="yellow">...</b> <span>千克</span></span>
+                        </div>
+                        <% } %>
+                        <% if(HAS_DELIVERY_DAY){ %>
+                        <div class="attr day">
+                            <span class="atr">生产周期：</span><span class="vals"><b id="delivery_day_<%=productId%>" class="yellow">...</b> <span>天</span><span id="delivery_date_<%=productId%>" class="delivery_date"></span></span>
+                        </div>
+                        <% } %>
+                    </div>
+                    <?php include(TEMPLATES.'delivery_address.xhtml');?>
+                    <div id="product_price_<%=productId%>" class="pprice"></div>
+                    <div class="attr attach">
+                        <span class="atr">安装服务：</span><span class="vals"><span>如需安装服务，请点击<a href="<?=DOMAIN?>product/1003.html" title="广告字安装" target="_blank">广告字安装</a></span></span>
+                    </div>
+                    <div class="attr form_btm">
+                        <span class="atr"></span><a class="submit buynow yellow-box" href="javascript:;">立即购买<input onclick="_czc.push(['_trackEvent', '<%=productName%>', '立即购买', '','','']);" value="" type="submit" /><span class="doing"><span>计算中...</span></span></a><a class="submit addcart yellow-btn s2" href="javascript:;">加入购物车<input onclick="_czc.push(['_trackEvent', '<%=productName%>', '加入购物车', '','','']);" value="" type="submit" /><span class="doing"><span>计算中...</span></span></a>
+                    </div>
+                </form>
+            </fieldset>
+        </div>
+    </div>
+    <?php include(TEMPLATES.'product/detail_desc.xhtml');?>
+</script>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools_tpl.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>location_tpl.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>portal/200003_tpl.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>portal/detail_tpl.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded_tpl.js?ininin=<?=VERSION?>"></script>
+<!--<script type="text/javascript" src="<?=SCRIPTS?>jquery-1.7.2.min.js?ininin=<?=VERSION?>"></script>-->
+<!--<script type="text/javascript" src="<?=SCRIPTS?>template-native.js?ininin=<?=VERSION?>"></script>-->
+<!--<script type="text/javascript" src="<?=SCRIPTS?>zh_cn.js?ininin=<?=VERSION?>"></script>-->
+<!--<script type="text/javascript" src="<?=SCRIPTS?>tool_tpl.js?ininin=<?=VERSION?>"></script>-->
+<!--<script type="text/javascript" src="<?=SCRIPTS?>image-zoom_tpl.js?ininin=<?=VERSION?>"></script>-->
+<!--<script type="text/javascript" src="<?=SCRIPTS?>libs/location_tpl.js?ininin=<?=VERSION?>"></script>-->
+<!--<script type="text/javascript" src="<?=SCRIPTS?>portal/detail_tpl.js?ininin=<?=VERSION?>"></script>-->
+<!--<script type="text/javascript" src="<?=SCRIPTS?>portal/200003_tpl.js?ininin=<?=VERSION?>"></script>-->
+<!--<script type="text/javascript" src="<?=SCRIPTS?>loaded_tpl.js?ininin=<?=VERSION?>"></script>-->
+<script type="script_weibo"></script>
+<script type="script_linklogin"></script>
+<script type="script_cnzz"></script>
+</body>
+</html>

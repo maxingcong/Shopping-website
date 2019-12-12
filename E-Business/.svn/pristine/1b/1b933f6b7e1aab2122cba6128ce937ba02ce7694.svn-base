@@ -1,0 +1,351 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+	<meta name="robots" content="all" />
+	<meta name="keywords" content="招聘信息" />
+	<meta name="description" content="" />
+	<meta name="author" content="${author}" />
+	<meta name="copyright" content="${copyright}" />
+	<title>招聘信息</title>
+    <link rel="shortcut icon" type="image/x-icon"  href="<?=DOMAIN?>favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>about.css" />
+	<?php include(MODULES.'dns_prefetch.xhtml');?>
+</head>
+<body>
+<?php include(MODULES.'header.xhtml');?>
+<div class="main uabout">
+	<div class="layout clearfix">
+		<?php include(MODULES.'aboutsidebar.xhtml');?>
+		<div class="container">
+			<div class="hrinfo">
+				<div class="hrpic"><img src="<?=IMAGES?>about/job.jpg" alt="云印技术" /> </div>
+				<div id="hrlist" class="hrlist">
+					<dl class="dlist hr1">
+						<dt> 
+							<!--<span class="jober_desc"><span class="jober_ch">产品类</span><span class="jober_en">&lt;Product Department&gt;</span></span>--> 
+							<span class="shadetabs"><a href="javascript:;">产品经理</a><a href="javascript:;">运营经理</a></span> </dt>
+						<dd class="tabcontent"> <span> <img src="<?=IMAGES?>job/101.png" alt="云印技术"/> </span>
+							<div class="jober_intro">
+								<h3>我们需要您：</h3>
+								<p>1、根据公司和产品发展策略，制定产品开发目标及规划；</p>
+								<p>2、编写产品需求书及产品原型，协助开发团队理解和掌握需求；</p>
+								<p>3、对用户需求、交互体验有很好的判断力，不断优化产品，提升产品质量，提高用户活跃度；</p>
+								<p>4、协调产品上线前后的产品文档整理、商务推广、市场宣传等配合工作。</p>
+								<h3>您的特质：</h3>
+								<p>1、85后，有激情，酷爱产品工作，曾经独立负责过某款互联网产品；</p>
+								<p>2、乐于钻研，对于现在互联网新鲜事物始终保持热情，同时对于事物有自己的分析和判断标准；</p>
+								<p>3、一流的沟通能力，沟通方式包括但不限于：语言、文字、眼神、肢体动作，以及意念；</p>
+								<p>4、有志于从事互联网重度垂直O2O领域，有超强的学习领悟能力；</p>
+								<p>5、对于图像色彩设计有一定了解；</p>
+								<p>6、愿意与创业团队一起成长。</p>
+								<div> 性别：不限<i></i>年龄：24-28岁<i></i>学历：本科<i></i>工作经验：2年<i></i>招聘人数：2人 </div>
+							</div>
+						</dd>
+						<dd class="tabcontent"> <span> <img src="<?=IMAGES?>job/101.png" alt="云印技术" /> </span>
+							<div class="jober_intro">
+								<h3>我们需要您：</h3>
+								<p>1、负责Web/Mobile端产品整体运营，制定运营策略、方案和计划，并组织执行；</p>
+								<p>2、监控各项运营数据，及时发现问题并解决；推动业务发展，与各功能模块协调，提升整体运营效率；</p>
+								<p>3、通过分析线上产品收入、用户活跃度等关键运营数据，提高转化率，跟踪并提出产品优化意见。</p>
+								<h3>您的特质：</h3>
+								<p>1、热爱互联网行业，熟悉互联网生态，具有强烈的创新激情和愿望，有独特的产品运营感觉和策划实施的实践经验；</p>
+								<p>2、思维敏捷，逻辑清晰，具备较强的分析问题和解决问题能力；</p>
+								<p>3、愿意与创业团队一起成长。</p>
+								<div> 性别：不限<i></i>年龄：24-28岁<i></i>学历：本科<i></i>工作经验：2年<i></i>招聘人数：2人 </div>
+							</div>
+						</dd>
+					</dl>
+					<dl class="dlist hr2">
+						<dt> 
+							<!--<span class="jober_desc"><span class="jober_ch">开发类</span><span class="jober_en">&lt;Development Department&gt;</span></span>--> 
+							<span class="shadetabs"><a href="javascript:;">Java运营数据后台工程师</a><a href="javascript:;">Java电商平台工程师</a><a href="javascript:;">Web前端开发师</a></span> </dt>
+						<dd  class="tabcontent"> <span> <img src="<?=IMAGES?>job/102.png" alt="云印技术" /> </span>
+							<div class="jober_intro">
+								<h3>我们需要您：</h3>
+								<p>1、负责大规模数据存储平台的系统架构设计以及开发工作；</p>
+								<p>2、参与电商数据的统计、分析与运营工作；</p>
+								<p>3、为公司运营决策、产品方向和营销策略提供数据分析支持。</p>
+								<h3>您的特质：</h3>
+								<p>1、本科以上学历，两年以上工作经验，有大型互联网行业从业经验优先；</p>
+								<p>2、熟悉大数据量的分布式处理、了解分布式计算模型、分布式存储和分布式系统的设计原理；</p>
+								<p>3、熟悉Unix或Linux操作系统，精通网络编程；</p>
+								<p>4、精通java程序设计和开发，熟悉java开发环境和工具；</p>
+								<p>5、有敏锐的技术洞察力，并具有较强的综合分析能力；</p>
+								<p>6、熟悉阿里云等大规模云平台系统者优先；</p>
+								<p>7、深入理解面向对象编程，具备架构设计能力，熟悉常用设计模式；</p>
+								<p>8、至少熟悉一门脚本语言，包括但不限于shell/python/perl；</p>
+								<p>9、有集群/大规模并发后台开发经验者优先；</p>
+								<p>10、较强的沟通表达能力、团队合作精神。</p>
+								<div> 性别：不限<i></i>年龄：24-28岁<i></i>学历：本科及以上<i></i>工作经验：2年<i></i>招聘人数：2人 </div>
+							</div>
+						</dd>
+						<dd class="tabcontent"> <span> <img src="<?=IMAGES?>job/102.png" alt="云印技术" /> </span>
+							<div class="jober_intro">
+								<h3>我们需要您：</h3>
+								<p>1、负责大规模电商平台系统架构设计以及开发工作；</p>
+								<p>2、协助公司完成整体技术架构规划；</p>
+								<p>3、保障电商平台的正常运营。</p>
+								<h3>您的特质：</h3>
+								<p>1、本科以上学历，两年以上工作经验，有大型互联网行业从业经验优先；</p>
+								<p>2、熟悉高并发后台服务的分布式处理、了解分布式计算模型、分布式存储和分布式系统的设计原理；</p>
+								<p>3、熟悉Unix或Linux操作系统，精通网络编程；</p>
+								<p>4、精通java程序设计和开发，熟悉java开发环境和工具；</p>
+								<p>5、有敏锐的技术洞察力，并具有较强的综合分析能力；</p>
+								<p>6、熟悉阿里云等大规模云平台系统者优先；</p>
+								<p>7、深入理解面向对象编程，具备架构设计能力，熟悉常用设计模式；</p>
+								<p>8、有集群/大规模并发后台开发经验者优先；</p>
+								<p>9、较强的沟通表达能力、团队合作精神。</p>
+								<div> 性别：不限<i></i>年龄：24-28岁<i></i>学历：本科及以上<i></i>工作经验：3年<i></i>招聘人数：2人 </div>
+							</div>
+						</dd>
+						<dd class="tabcontent"> <span> <img src="<?=IMAGES?>job/102.png" alt="云印技术" /> </span>
+							<div class="jober_intro">
+								<h3>我们需要您：</h3>
+								<p>1、web前端表现层及与后端交互的架构设计和开发，实现动态、交互的用户界面；</p>
+								<p>2、JavaScript程序模块开发，通用类库、框架编写；</p>
+								<p>3、符合W3C规范高保真原型页面制作；</p>
+								<p>4、利用界面技术开发、模拟具有丰富体验的产品；</p>
+								<p>5、配合后台开发人员实现前台端功能的衔接，优化前台页面执行效率。</p>
+								<h3>您的特质：</h3>
+								<p>1、计算机或相关专业本科以上学历，二年以上从事软件设计和开发工作；</p>
+								<p>2、熟悉W3C相关规范及各种浏览器特性并能处理兼容性问题；</p>
+								<p>3、精通HTML5、XML、CSS、Javascript；</p>
+								<p>4、熟悉Jquery，熟悉web2.0标准；</p>
+								<p>5、熟练使用photoshop工具进行切图处理；</p>
+								<p>6、良好的沟通意识和服务态度，团队意识强，对用户体验、交互操作流程、用户需求有深入理解；</p>
+								<p>7、对技术有着执着的追求，熟悉各种前端技术。</p>
+								<div> 性别：不限<i></i>年龄：24-28岁<i></i>学历：本科<i></i>工作经验：2年<i></i>招聘人数：2人 </div>
+							</div>
+						</dd>
+					</dl>
+					<dl class="dlist hr3">
+						<dt> 
+							<!--<span class="jober_desc"><span class="jober_ch">设计类</span><span class="jober_en">&lt;Design Department&gt;</span></span>--> 
+							<span class="shadetabs"><a href="javascript:;">UI设计师</a><a href="javascript:;">平面设计师（招聘实习生)</a></span> </dt>
+						<dd class="tabcontent"> <span> <img src="<?=IMAGES?>job/103.png" alt="云印技术" /> </span>
+							<div class="jober_intro">
+								<h3>我们需要您：</h3>
+								<p>1、负责产品及应用的视觉设计工作，配合产品设计独立完成界面视觉设计；</p>
+								<p>2、结合可用性测试结果和交互设计原型，完成界面视觉设计的准确表达与优化提升，进一步提高产品的易用性；</p>
+								<p>3、关注自己负责产品的同类型设计方向，进行分析和研究；</p>
+								<p>4、对现有产品的视觉设计提出改进方案，持续优化产品的视觉呈现方式；</p>
+								<p>5、结合产品线，负责建立、维护和更新视觉设计标准和规范，并执行实施；</p>
+								<p>6、参与产品设计部工作流程的完善和优化工作。</p>
+								<h3>您的特质：</h3>
+								<p>1、85后， 两年以上的综合 Web 应用产品视觉设计经验；</p>
+								<p>2、有较好的原型理解、分析能力，熟悉UCD方法和工作流程；</p>
+								<p>3、熟练掌视觉设计的相应设计软件，了解 Web 前端技术基本应用；</p>
+								<p>4、有丰富的视觉设计理论知识基础和成熟高效的实现应用能力、经验、技法和图形原创能力；</p>
+								<p>5、能够从专业角度提出合理的建议和视觉呈现解决方案；</p>
+								<p>6、一流的沟通能力，沟通方式包括但不限于：语言、文字、眼神、肢体动作，以及意念；</p>
+								<p>7、有志于从事互联网重度垂直O2O领域，有超强的学习领悟能力；</p>
+								<p>8、愿意与创业团队一起成长。</p>
+								<div> 性别：不限<i></i>年龄：22-28岁<i></i>学历：本科<i></i>工作经验：2年<i></i>招聘人数：2人 </div>
+							</div>
+						</dd>
+						<dd class="tabcontent"> <span> <img src="<?=IMAGES?>job/103.png" alt="云印技术"/> </span>
+							<div class="jober_intro">
+								<h3>我们需要您：</h3>
+								<p>1、公司VI及SI体系构建，企业形象视觉设计；</p>
+								<p>2、负责公司专题活动页面、广告宣传等美术设计制作；</p>
+								<p>3、印刷产品样品设计工作；</p>
+								<p>4、印刷产品设计开发。</p>
+								<h3>您的特质：</h3>
+								<p>1、专业院校设计相关专业；</p>
+								<p>2、一年设计工作经验，有成熟案例作品， 具有清晰的策略思考能力，具备品牌策略观念，创作视野开阔；</p>
+								<p>3、有杂志排版、企业VI、样本画册、物资、海报、展会等设计经验为佳；</p>
+								<p>4、精通photoshop、indesign、illustrator、coreldraw、pagemaker等平面设计排版软件；</p>
+								<p>5、熟悉设计输出、印刷等后期制作工艺流程；</p>
+								<p>6、有4A广告公司经验者优先；</p>
+								<p>7、一流的沟通能力，沟通方式包括但不限于：语言、文字、眼神、肢体动作，以及意念；</p>
+								<p>8、有志于从事互联网重度垂直O2O领域，有超强的学习领悟能力；</p>
+								<p>9、愿意与创业团队一起成长。</p>
+								<p>* 优秀毕业生亦可考虑 *</p>
+								<div> 性别：不限<i></i>年龄：22-28岁<i></i>学历：大专及以上<i></i>工作经验：1年<i></i>招聘人数：10人 </div>
+							</div>
+						</dd>
+					</dl>
+					<dl class="dlist hr4">
+						<dt> 
+							<!-- <span class="jober_desc"><span class="jober_ch">销售类</span><span class="jober_en">&lt;Sales Department&gt;</span></span>--> 
+							<span class="shadetabs"><a href="javascript:;">BD经理</a><a href="javascript:;">BD经理（招聘实习生）</a></span> </dt>
+						<dd class="tabcontent"> <span> <img src="<?=IMAGES?>job/104.png" alt="云印技术" /> </span>
+							<div class="jober_intro">
+								<h3>我们需要您：</h3>
+								<p>1、负责公司产品与品牌的推广，拓展潜在客户；</p>
+								<p>2、负责拓展合作渠道以及相关的商务谈判；</p>
+								<p>3、收集整理客户资料，并进行有效跟踪和拓展；</p>
+								<p>4、负责开拓优质大客户，并进行大客户管理，包括客户的接洽、谈判和追踪以及客户的签约。</p>
+								<h3>您的特质：</h3>
+								<p>1、85后，专科及以上学历；</p>
+								<p>2、有较强的商务拓展和沟通能力、良好的团队协作能力、项目协调能力和执行能力；</p>
+								<p>3、优秀的学习能力，极强的敬业精神和优秀的心里素质，能承担高负荷工作压力；</p>
+								<p>4、有团购网BD经理经验者优先考虑。</p>
+								<div> 性别：不限<i></i>年龄：20-30岁<i></i>学历：不限<i></i>工作经验：1年<i></i>招聘人数：10人 </div>
+							</div>
+						</dd>
+						<dd class="tabcontent"> <span> <img src="<?=IMAGES?>job/104.png" alt="云印技术" /> </span>
+							<div class="jober_intro">
+								<h3>我们需要您：</h3>
+								<p>1、负责公司产品与品牌的推广，拓展潜在客户；</p>
+								<p>2、负责拓展合作渠道以及相关的商务谈判；</p>
+								<p>3、收集整理客户资料，并进行有效跟踪和拓展；</p>
+								<p>4、负责开拓优质大客户，并进行大客户管理，包括客户的接洽、谈判和追踪以及客户的签约。</p>
+								<h3>您的特质：</h3>
+								<p>1、85后，学历不限；</p>
+								<p>2、有较强的商务拓展和沟通能力、良好的团队协作能力、项目协调能力和执行能力；</p>
+								<p>3、优秀的学习能力，极强的敬业精神和优秀的心里素质，能承担高负荷工作压力；</p>
+								<p>4、有团购网BD经理经验者优先考虑。</p>
+								<div> 性别：不限<i></i>年龄：20-30岁<i></i>学历：不限<i></i>工作经验：1年<i></i>招聘人数：10人 </div>
+							</div>
+						</dd>
+					</dl>
+					<dl class="dlist hr5">
+						<dt> 
+							<!-- <span class="jober_desc"><span class="jober_ch">生产类</span><span class="jober_en">&lt;Produce Department&gt;</span></span> --> 
+							<span class="shadetabs"><a href="javascript:;">体验店店长</a><a href="javascript:;">体验店店员（招聘实习生）</a></span> </dt>
+						<dd class="tabcontent"> <span> <img src="<?=IMAGES?>job/105.png" alt="云印技术" /> </span>
+							<div class="jober_intro">
+								<h3>我们需要您：</h3>
+								<p>1、负责接待客户，了解客户所需，指导客户体验并使用电商平台；</p>
+								<p>2、门店产品的陈列、样品及礼品的发放与保管；</p>
+								<p>3、协助BD运营客户；</p>
+								<p>4、协助客服人员做好售后工作。</p>
+								<h3>您的特质：</h3>
+								<p>1、专科及以上学历，印刷、市场营销、电子商务等相关专业；</p>
+								<p>2、90后，有激情，酷爱互联网产品；</p>
+								<p>3、乐于钻研，对于互联网新鲜事物始终保持热情；</p>
+								<p>4、一流的沟通能力，沟通方式包括但不限于：语言、文字、眼神、肢体动作，以及意念；</p>
+								<p>5、有志于从事互联网重度垂直O2O领域，有超强的学习领悟能力；</p>
+								<p>6、愿意与创业团队一起成长。</p>
+								<div> 性别：不限<i></i>年龄：20-25岁<i></i>学历：不限<i></i>工作经验：1年<i></i>招聘人数：10人 </div>
+							</div>
+						</dd>
+						<dd class="tabcontent"> <span> <img src="<?=IMAGES?>job/105.png" alt="云印技术" /> </span>
+							<div class="jober_intro">
+								<h3>我们需要您：</h3>
+								<p>1、知晓文印业务内容、作业流程；</p>
+								<p>2、负责售前产品的讲解和售后客户的维护，并及时处理客户疑惑；</p>
+								<p>3、负责门店产品的陈列、样品和礼品的保管；</p>
+								<p>4、具有带领团队的能力和协调沟通能力。</p>
+								<h3>您的特质：</h3>
+								<p>1、男女不限，中专以上学历，2年印前、客服类相关工作经验；</p>
+								<p>2、优秀的服务意识和沟通表达能力，热情外向，亲和力佳；</p>
+								<p>3、从事过印刷行业或者店长经验者优先；</p>
+								<p>4、工作责任心强，良好的抗压能力，有强烈的工作激情和上进心。</p>
+								<div> 性别：不限<i></i>年龄：22-30岁<i></i>学历：不限<i></i>工作经验：1年<i></i>招聘人数：5人 </div>
+							</div>
+						</dd>
+					</dl>
+					<dl class="dlist hr6">
+						<dt> 
+							<!-- <span class="jober_desc"><span class="jober_ch">生产类</span><span class="jober_en">&lt;Produce Department&gt;</span></span> --> 
+							<span class="shadetabs"><a href="javascript:;">印前经理</a></span> </dt>
+						<dd class="tabcontent"> <span> <img src="<?=IMAGES?>job/106.png" alt="云印技术" /> </span>
+							<div class="jober_intro">
+								<h3>我们需要您：</h3>
+								<p>1、负责梳理印前工作各个岗位，建立标准作业流程，培新新员工；</p>
+								<p>2、统筹公司投产后的印前制作工作；</p>
+								<p>3、与合作工厂的印刷做对接，做好质量控制计划及流程；</p>
+								<p>4、协助公司系统开发人员开发、测试印前处理流程。</p>
+								<h3>您的特质：</h3>
+								<p>1、大专以上学历，具备良好的普通话水平，5年以上大型印刷企业工作经验和3年以上CTP部门管理经验；</p>
+								<p>2、熟悉印刷工艺、书刊，彩盒工艺；</p>
+								<p>3、精通CTP制作及印前、印后的工作流程，数码打样、CIP3、色彩管理软件及相关测量仪器﹑印刷流程管理软件﹑熟练使用电脑排版及拼大版软件，懂矫色工作；</p>
+								<p>4、有良好的部门建设与管理能力，较强的统筹规划能力，擅长沟通协调。</p>
+								<div> 性别：不限<i></i>年龄：25-35岁<i></i>学历：大专及以上<i></i>工作经验：3年<i></i>招聘人数：2人 </div>
+							</div>
+						</dd>
+					</dl>
+					<dl class="dlist hr7">
+						<dt> 
+							<!--<span class="jober_desc"><span class="jober_ch">客服类</span><span class="jober_en">&lt;Service Department&gt;</span></span>--> 
+							<span class="shadetabs"><a href="javascript:;">客服专员</a></span> </dt>
+						<dd class="tabcontent"> <span> <img src="<?=IMAGES?>job/107.png" alt="云印技术"/> </span>
+							<div class="jober_intro">
+								<h3>我们需要您：</h3>
+								<p>1、与客户沟通、接单；</p>
+								<p>2、检查简单的文件问题；</p>
+								<p>3、解答客户咨询的问题，如：产品报价等；</p>
+								<p>4、与工厂联系发送订单。</p>
+								<h3>您的特质：</h3>
+								<p>1、中专以上学历，数码快印、图文输出、客服相关工作经验1年以上，懂报价者、操作过ERP系统者优先考虑；</p>
+								<p>2、懂简单的图形图像软件操作，能检查简单的客户文件问题；</p>
+								<p>3、有较好的语言表达能力，形象气质佳，服务态度好，有责任心、亲和力和沟通力；</p>
+								<p>4、踏实勤奋，团队合作好，具有良好的心理素质，能承受一定的工作压力；</p>
+								<p>5、熟练运用Word、Excel等办公操作软件，文字录入速度较快。</p>
+								<div> 性别：不限<i></i>年龄：20-28岁<i></i>学历：不限<i></i>工作经验：1年<i></i>招聘人数：2人 </div>
+							</div>
+						</dd>
+					</dl>
+					<!--<dl class="company_indro">
+						<dd>
+							<ul>
+								<li><img src="<?=IMAGES?>themes/default/images/company_actity.jpg" alt="ininin" />
+								<span>每天下午茶</span>
+								</li>
+								<li> <img src="<?=IMAGES?>themes/default/images/company_actity.jpg" alt="ininin" /></li>
+								<li> <img src="<?=IMAGES?>themes/default/images/company_actity.jpg" alt="ininin" />  </li>
+								<li> <img src="<?=IMAGES?>themes/default/images/company_actity.jpg" alt="ininin" /> </li>
+							</ul>
+						</dd>
+					</dl>-->
+					<dl class="hrbtm">
+						<dt><img src="<?=IMAGES?>about/job_2.jpg" alt="云印技术" /></dt>
+						<dd class="clearfix">
+							<p>发送简历：<a href="mailto:join@ininin.com?subject=">join@ininin.com</a> </p>
+							<p>简历标题：<span>"岗位名称"+"姓名"</span></p>
+							<p>联系人：<span>李小姐</span></p>
+							<p>联系电话：<span>0755-86700810</span></p>
+							<p>面试地点：<span>深圳市南山区粤海街道科技南十二路2号金蝶软件园B栋南座206</span></p>
+						</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<?php include(MODULES.'footer.xhtml');?>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>other/job.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>location.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js?ininin=<?=VERSION?>"></script>
+<!--script type="text/javascript" src="<?=SCRIPTS?>jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>template-native.js"></script> 
+<script type="text/javascript" src="<?=SCRIPTS?>zh_cn.js"></script> 
+<script type="text/javascript" src="<?=SCRIPTS?>tool.js"></script> 
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>libs/location.js"></script>
+<script type="text/javascript">
+$("#hrlist").delegate(".shadetabs a","click", function(e){
+	/*var index = $(this).index();
+    $("#hrlist .shadetabs a").removeClass("sel");
+	$(this).addClass("sel");
+    $("#hrlist .tabcontent").hide();
+	$(".tabcontent:eq("+index+")" ,$(this).closest("dl")).show();*/
+    var index = $(this).index();
+    $(this).addClass("sel").siblings("a").removeClass("sel");
+    $(".tabcontent:eq("+index+")" ,$(this).closest("dl")).show().siblings(".tabcontent").hide();
+});
+$("#hrlist .dlist:eq(0) .shadetabs a:eq(0)").click();
+$("#hrlist .dlist:eq(1) .shadetabs a:eq(0)").click();
+$("#hrlist .dlist:eq(2) .shadetabs a:eq(0)").click();
+$("#hrlist .dlist:eq(3) .shadetabs a:eq(0)").click();
+$("#hrlist .dlist:eq(4) .shadetabs a:eq(0)").click();
+$("#hrlist .dlist:eq(5) .shadetabs a:eq(0)").click();
+$("#hrlist .dlist:eq(6) .shadetabs a:eq(0)").click();
+</script-->
+<?php include(MODULES.'linklogin.xhtml');?>
+</body>
+</html>

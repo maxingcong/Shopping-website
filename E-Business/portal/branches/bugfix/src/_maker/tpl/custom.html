@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<?php
+if(!defined("WWW"))define("WWW", isset($_REQUEST["w"])?$_REQUEST["w"]:"www");
+$ver = time();
+?>
+<!--<script type="text/javascript" src="<?=SCRIPTS?>jquery-1.7.2.min.js"></script>-->
+<!--<script type="text/javascript" src="<?=SCRIPTS?>template-native.js"></script>-->
+<!--<script type="text/javascript" src="<?=SCRIPTS?>zh_cn.js?v=<?=$ver?>"></script>-->
+<!--<script type="text/javascript" src="<?=SCRIPTS?>tool_tpl.js?v=<?=$ver?>"></script>-->
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools_tpl.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript">
+    require(["base", "tools"], function ($, T) {
+        var productIds = [199999, 200000, 200001, 200002, 200003, 200004, 200005, 200030, 200031];
+        sessionStorage["maker_pages_ids"] = T.JSON.stringify(productIds);
+        sessionStorage["maker_pages_lnks"] = "";
+        location.href = "/portal/"+productIds[0]+"_tpl.html?w=<?php echo WWW ?>&v=<?php echo $ver ?>";
+        console.log("MAKER.data=", T.JSON.stringify(productIds));
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,419 @@
+<script id="template-supplier_info" type="text/template">
+    <form id="apply_form" class="form-horizontal">
+        {{if accessType=='register'}}
+        <!--账号注册-->
+        <div class="content content1 active">
+            <div class="content-wrapper">
+                <div class="form-group">
+                    <label for="account_mobile" class="col-sm-3 text-right control-label">手机号<b class="light">*</b> ：</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="account_mobile" placeholder="请填写手机号" />
+                    </div>
+                    <div class="col-sm-3">
+                        <button type="button" id="sendCode" class="btn btn-primary">发送验证码</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="auth_code" class="col-sm-3 text-right control-label">验证码<b class="light">*</b> ：</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="auth_code" placeholder="请填写验证码" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="col-sm-3 text-right control-label">密码<b class="light">*</b> ：</label>
+                    <div class="col-sm-4">
+                        <input type="password" class="form-control" id="password" placeholder="请填写密码" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 sr-onlyl"></label>
+                    <div class="col-sm-9">
+                        <div class="checkbox">
+                            <label><input type="checkbox" id="accept_agreement" name="checkbox_all"><i class="fa fa-checkbox"></i>我已阅读并接受<a href="#" data-toggle="modal" data-target="#service">《云印供应商服务协议》</a></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 sr-onlyl"></label>
+                    <div class="col-sm-9">
+                        <label>已有账号？返回<a href="<?=DOMAIN?>">首页</a>登录</label>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-btn">
+                <button type="button" data-index="2" data-direction="R" class="btn btn-block btn-primary button-single">下一步</button>
+            </div>
+        </div>
+        {{else}}
+        <!--审核结果-->
+        <div class="content content1 active">
+            <div class="content-wrapper">
+                <div class="text-left">
+                    <h3>很遗憾，您的申请加盟信息未审核通过</h3>
+                    <p>原因：{{notPassReason}}</p>
+                </div>
+            </div>
+            <div class="bottom-btn">
+                <button type="button" data-index="2" data-direction="R" class="btn btn-block btn-primary button-single">去修改</button>
+            </div>
+        </div>
+        {{/if}}
+        <!--公司基本信息-->
+        <div class="content content2">
+            <div class="content-wrapper">
+                <div class="form-group">
+                    <p class="col-sm-7 text-center">请您认真填写，以便增加您的审核通过率。</p>
+                </div>
+                <div class="form-group">
+                    <label for="company_name" class="col-sm-3 text-right control-label">公司名称<b class="light">*</b> ：</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" value="{{companyName}}" id="company_name" placeholder="请填写公司名称" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="legal_person" class="col-sm-3 text-right control-label">法人代表<b class="light">*</b> ：</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" value="{{corporateRep}}" id="legal_person" placeholder="请填写法人代表" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="legal_person_mb" class="col-sm-3 text-right control-label">法人代表联系方式 ：</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" value="{{corporateRepCellphone}}" id="legal_person_mb" placeholder="请填写法人代表联系方式" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="tel_phone" class="col-sm-3 text-right control-label">固定电话 ：</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" value="{{corporateRepTelephone}}" id="tel_phone" placeholder="请填写固定电话" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="company_fax" class="col-sm-3 text-right control-label">公司传真 ：</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" value="{{companyFax}}" id="company_fax" placeholder="请填写公司传真" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="web_site" class="col-sm-3 text-right control-label">公司网址 ：</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" value="{{companyWebsite}}" id="web_site" placeholder="请填写公司网址" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="year_output" class="col-sm-3 text-right control-label">公司年产值 ：</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" value="{{annualOutputValue}}" id="year_output" placeholder="请填写公司年产值" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="person_number" class="col-sm-3 text-right control-label">公司人数 ：</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" value="{{companyNumber}}" id="person_number" placeholder="请填写公司人数" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="factory_area" class="col-sm-3 text-right control-label">厂房面积 ：</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" value="{{factoryArea}}" id="factory_area" placeholder="请填写厂房面积" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="build_time" class="col-sm-3 text-right control-label">建厂时间 ：</label>
+                    <div class="col-sm-4">
+                        <div class="input-group">
+                            <input id="build_time" size="16" type="text" data-font-awesome="true" value="" readonly class="form_datetime form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="factory_machine" class="col-sm-3 text-right control-label">公司设备 ：</label>
+                    <div class="col-sm-6">
+                        <textarea rows="5" class="form-control" id="factory_machine" placeholder="请填写公司设备">{{supplierEquipment}}</textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="address" class="col-sm-3 text-right control-label">公司地址<b class="light">*</b> ：</label>
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <div class="col-xs-4"><select class="form-control" id="pid-a" data-mode="" name="province"></select></div>
+                            <div class="col-xs-4"><select class="form-control" id="cid-a" name="city"></select></div>
+                            <div class="col-xs-4"><select class="form-control" id="did-a" name="district"></select></div>
+                        </div>
+                        <input id="addressAreaID" name="areaID" type="hidden" value="">
+                        <input id="addressAreaCode" name="areaCode" type="hidden" value="">
+                        <input id="pcd-a" name="areaName" type="hidden" value="广东省^深圳市^南山区">
+                        <input type="text" class="form-control mt15" id="address" placeholder="请填写详细地址" />
+                        <div id="baidumap" style="height: 200px; margin-top: 10px;"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 text-right control-label">是否有车送货 ：</label>
+                    <div class="col-sm-3">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" {{if carDelivery==1}}checked="checked"{{/if}} name="delivery" value="1" /><i class="fa fa-radio"></i>是
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" {{if accessType=='register'}}checked="checked"{{/if}}{{if carDelivery==0}}checked="checked"{{/if}} name="delivery" value="0" /><i class="fa fa-radio"></i>否
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div id="delivery_range_wrap" class="form-group hide">
+                    <label for="link_man" class="col-sm-3 text-right control-label">配送范围 ：</label>
+                    <div class="col-sm-4">
+                        <input id="delivery_range" type="text" value="{{distributionRange}}" class="form-control" placeholder="请填写配送范围" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="advantage" class="col-sm-3 text-right control-label">优势说明 ：</label>
+                    <div class="col-sm-6">
+                        <textarea rows="5" class="form-control" id="advantage" placeholder="说一下申请加盟云印供应商的原因，以及企业优势，可以增加审核的通过率。">{{advantageDescription}}</textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="link_man" class="col-sm-3 text-right control-label">联系人姓名 ：</label>
+                    <div class="col-sm-4">
+                        <input type="text" value="{{contactsName}}" class="form-control" id="link_man" placeholder="请填写联系人姓名" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 text-right control-label">性别 ：</label>
+                    <div class="col-sm-9">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" {{if accessType=='register'}}checked="checked"{{/if}}{{if contactsSex==0}}checked="checked"{{/if}} name="sex" value="0" /><i class="fa fa-radio"></i>男
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" {{if contactsSex==1}}checked="checked"{{/if}} name="sex" value="1" /><i class="fa fa-radio"></i>女
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="col-sm-3 text-right control-label">联系人邮箱 ：</label>
+                    <div class="col-sm-4">
+                        <input type="text" value="{{contactsEmail}}" class="form-control" id="email" placeholder="请填写联系人邮箱" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="link_mobile" class="col-sm-3 text-right control-label">联系人手机号 ：</label>
+                    <div class="col-sm-4">
+                        <input type="text" value="{{contactsCellphone}}" class="form-control" id="link_mobile" placeholder="请填写联系人手机号" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="link_position" class="col-sm-3 text-right control-label">职位 ：</label>
+                    <div class="col-sm-4">
+                        <input type="text" value="{{contactsPosition}}" class="form-control" id="link_position" placeholder="请填写职位" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="link_qq" class="col-sm-3 text-right control-label">联系人QQ ：</label>
+                    <div class="col-sm-4">
+                        <input type="text" value="{{contactsQq}}" class="form-control" id="link_qq" placeholder="请填写联系人QQ" />
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-btn">
+                <div class="clearfix btn-wrapper">
+                    <button type="button" data-index="1" data-direction="L" class="btn btn-primary pull-left mr15">上一步</button>
+                    <button type="button" data-index="3" data-direction="R" class="btn btn-primary pull-left">下一步</button>
+                </div>
+            </div>
+        </div>
+        <!--相关证件上传-->
+        <div class="content content3">
+            <div class="content-wrapper">
+                <div class="form-group">
+                    <p class="text-center col-sm-7">证件的审核，有助于我们验您的身份真实性，以便审核通过</p>
+                </div>
+                <div class="form-group">
+                    <label for="bs_license" class="col-sm-3 text-right control-label">营业执照号<b class="light">*</b> ：</label>
+                    <div class="col-sm-4">
+                        <input type="text" value="{{businessLicenseNumber}}" class="form-control" id="bs_license" placeholder="请填写营业执照编号" />
+                    </div>
+                    <div class="col-sm-2">
+                        <span id="upl_bsLicense-cont" class="up-cont">
+                            <a id="upl_bsLicense" class="up-btn btn-primary" href="javascript:;" >
+                                <span class="up-text"></span>
+                            </a>
+                            <span class="up-doing">正在上传...</span>
+                            <span class="up-forbid"></span>
+                        </span>
+                        <a class="upload-info ellipsis" title="" href="{{if businessLicensePath}}{{businessLicensePath}}{{else}}javascript:;{{/if}}" target="_blank">
+                            {{if businessLicensePath}}查看营业执照{{/if}}
+                        </a>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="id_number" class="col-sm-3 text-right control-label">法人身份证号<!--<b class="light">*</b>--> ：</label>
+                    <div class="col-sm-4">
+                        <input type="text" value="{{corporateIdCard}}" class="form-control" id="id_number" placeholder="请填写法人身份证号" />
+                    </div>
+                    <div class="col-sm-2">
+                        <span id="upl_frontalView-cont" class="up-cont">
+                            <a id="upl_frontalView" class="up-btn btn-primary" href="javascript:;" >
+                                <span class="up-text"></span>
+                            </a>
+                            <span class="up-doing">正在上传...</span>
+                            <span class="up-forbid"></span>
+                        </span>
+                        <a class="upload-info ellipsis" title="" href="{{if corporateIdForwardSide}}{{corporateIdForwardSide}}{{else}}javascript:;{{/if}}" target="_blank">
+                            {{if corporateIdForwardSide}}查看正面照{{/if}}
+                        </a>
+                    </div>
+                    <div class="col-sm-2">
+                        <span id="upl_reverseView-cont" class="up-cont">
+                            <a id="upl_reverseView" class="up-btn btn-success" href="javascript:;" >
+                                <span class="up-text"></span>
+                            </a>
+                            <span class="up-doing">正在上传...</span>
+                            <span class="up-forbid"></span>
+                        </span>
+                        <a class="upload-info ellipsis" title="" href="{{if corporateIdBackSide}}{{corporateIdBackSide}}{{else}}javascript:;{{/if}}" target="_blank">
+                            {{if corporateIdBackSide}}查看反面照{{/if}}
+                        </a>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="org_number" class="col-sm-3 text-right control-label">组织机构代码证号 ：</label>
+                    <div class="col-sm-4">
+                        <input type="text" value="{{organizationCode}}" class="form-control" id="org_number" placeholder="请填写组织机构代码证号" />
+                    </div>
+                    <div class="col-sm-2">
+                        <span id="upl_orgNumber-cont" class="up-cont">
+                            <a id="upl_orgNumber" class="up-btn btn-primary" href="javascript:;" >
+                                <span class="up-text"></span>
+                            </a>
+                            <span class="up-doing">正在上传...</span>
+                            <span class="up-forbid"></span>
+                        </span>
+                        <a class="upload-info ellipsis" title="" href="{{if organizationCodePath}}{{organizationCodePath}}{{else}}javascript:;{{/if}}" target="_blank">
+                            {{if organizationCodePath}}查看{{/if}}
+                        </a>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="tax_id" class="col-sm-3 text-right control-label">税务登记证号 ：</label>
+                    <div class="col-sm-4">
+                        <input type="text" value="{{taxRegistrationNumber}}" class="form-control" id="tax_id" placeholder="请填写税务登记证号" />
+                    </div>
+                    <div class="col-sm-2">
+                        <span id="upl_taxId-cont" class="up-cont">
+                            <a id="upl_taxId" class="up-btn btn-primary" href="javascript:;" >
+                                <span class="up-text"></span>
+                            </a>
+                            <span class="up-doing">正在上传...</span>
+                            <span class="up-forbid"></span>
+                        </span>
+                        <a class="upload-info ellipsis" title="" href="{{if taxRegistrationNumberPath}}{{taxRegistrationNumberPath}}{{else}}javascript:;{{/if}}" target="_blank">
+                            {{if taxRegistrationNumberPath}}查看{{/if}}
+                        </a>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 text-right control-label">厂房、设备照片 ：</label>
+                    <div class="col-sm-2">
+                        <span id="upl_factoryPhoto-cont" class="up-cont">
+                            <a id="upl_factoryPhoto" class="up-btn btn-primary" href="javascript:;" >
+                                <span class="up-text"></span>
+                            </a>
+                            <span class="up-doing">正在上传...</span>
+                            <span class="up-forbid"></span>
+                        </span>
+                        <a class="upload-info ellipsis" title="" href="{{if facEquipmentPath}}{{facEquipmentPath}}{{else}}javascript:;{{/if}}" target="_blank">
+                            {{if facEquipmentPath}}查看{{/if}}
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-btn">
+                <div class="clearfix btn-wrapper">
+                    <button type="button" data-index="2" data-direction="L" class="btn btn-primary pull-left mr15">上一步</button>
+                    <button type="button" data-index="4" data-direction="R" class="btn btn-primary pull-left">下一步</button>
+                </div>
+            </div>
+        </div>
+        <!--银行账号信息-->
+        <div class="content content4">
+            <div class="content-wrapper">
+                <div class="form-group">
+                    <p class="text-center col-sm-7"><b>财务信息及证件信息</b></p>
+                </div>
+                <div class="form-group">
+                    <label for="bank_account" class="col-sm-3 text-right control-label">银行账号<b class="light">*</b> ：</label>
+                    <div class="col-sm-4">
+                        <input id="bank_account" value="{{bankAccount}}" type="text" class="form-control" placeholder="请填写银行账号" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="account_name" class="col-sm-3 text-right control-label">开户名<b class="light">*</b> ：</label>
+                    <div class="col-sm-4">
+                        <input id="account_name" value="{{accountName}}" type="text" class="form-control" placeholder="请填写开户名" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="account_bank" class="col-sm-3 text-right control-label">开户行<b class="light">*</b> ：</label>
+                    <div class="col-sm-4">
+                        <input type="text" value="{{bankName}}" id="account_bank" class="form-control" placeholder="如：招商银行海淀支行" />
+                    </div>
+                </div>
+                <!--<div class="form-group">
+                    <label class="col-sm-3 text-right control-label">发票信息<b class="light">*</b> ：</label>
+                    <div class="col-sm-9">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" {{if issueInvoice ==1}}checked="checked"{{/if}} name="invoice" value="1" /><i class="fa fa-radio"></i>可开发票
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" {{if issueInvoice ==0}}checked="checked"{{/if}} name="invoice" value="0" /><i class="fa fa-radio"></i>不可开发票
+                            </label>
+                        </div>
+                    </div>
+                </div>-->
+            </div>
+            <div class="bottom-btn">
+                <div class="clearfix btn-wrapper">
+                    <button type="button" data-index="3" data-direction="L" class="btn btn-primary pull-left mr15">上一步</button>
+                    <button type="button" data-index="5" data-direction="R" class="btn btn-primary pull-left">下一步</button>
+                </div>
+            </div>
+        </div>
+        <!--产品选择-->
+        <div class="content content5">
+            <div class="content-wrapper">
+                <h5><b>可生产产品种类：</b></h5>
+                <p>请填写你可以生产哪些产品。</p>
+                <div class="table-scroll table-product-price" id="template-products-view" style="margin: 0;"> </div>
+            </div>
+            <div class="bottom-btn">
+                <div class="clearfix btn-wrapper">
+                    <button type="button" data-index="4" data-direction="L" class="btn btn-primary pull-left mr15">上一步</button>
+                    <button type="button" data-index="applyForJoin" data-direction="R" class="btn btn-primary pull-left">确认申请</button>
+                </div>
+            </div>
+        </div>
+        <!--提交成功-->
+        <div class="content content6">
+            <div class="content-wrapper">
+                <div class="apply-process-ok text-left">
+                    <h3>您的申请加盟信息已经成功提交</h3>
+                    <p>我们的工作人员将在10个工作日内与您联系，请您保持电话畅通。</p>
+                    <p>如超过10个工作日没有与您联系，表明您的资质暂不符合我们的要求或我们暂无合作意向！</p>
+                </div>
+            </div>
+            <div class="bottom-btn">
+                <button type="button" data-index="index" data-direction="L" class="btn btn-block btn-primary button-single">返回首页</button>
+            </div>
+        </div>
+    </form>
+</script>

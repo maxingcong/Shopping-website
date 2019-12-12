@@ -1,0 +1,110 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*discount pages*/
+.discount{ min-height:378px; background: #fff;}
+.discount .total_cash{ font-size:20px; font-weight: bold; vertical-align: middle;}
+.discount .total_txt, .discount .total_cash_unit{ vertical-align: middle;}
+.discount_pro{  overflow:hidden; float:left;}
+.discount_pro dt{width:330px;height:330px;padding:10px 10px 0 10px; }
+.discount_pro dt img { width: 100%; height: 100%;}
+.discount_pro dd{ padding:10px;}
+.discount_intro{ color: #666; min-height:400px; overflow: hidden; padding-left:60px; padding-top:20px;}
+.discount_intro .discount_name{ font-size:24px;}
+.discount_name .desc { color: #ff7800; font-size: 16px; line-height: 30px; margin-bottom: 10px;}
+.discount_desc{ width:6%; line-height: 28px; float:left;}
+.discount_line{ padding-top:30px; border-bottom:1px solid #ccd5df;}
+.discount_package .discount_set{width: 520px; overflow:hidden;}
+.discount_package .discount_attr{ float:left; overflow:hidden; line-height:20px; width: 49%; /*width:32%;*/ margin-bottom:16px;}
+.discount_attr .discount_type{vertical-align:middle; width: 90px;line-height: 20px;text-align:left;display: inline-block;}
+.discount_attr .discount_type{ *display:inline;}
+.discount_attr .counter { vertical-align: middle;/* border:1px solid #ccd5df;*/}
+.discount .couponsel{ padding:20px 0 0;}
+.discount .couponsel .row{ line-height:28px; padding-bottom:15px;}
+.discount .couponsel .row:first-child { padding: 0;}
+.terms .checkbox { margin: 0;}
+.terms .form_item { display: inline-block; vertical-align: middle;}
+.agreement_link { font-size: 14px; line-height: 24px; vertical-align: middle; margin-right: 25px;}
+.discount .form_item .field { width: auto; margin-right: 0px;}
+.discount_privilege { width: 356px; overflow: hidden;}
+.discount .privilege_input{ width:120px;}
+.discount .privilege_name{ color: #6d6d6d; font-size:16px; line-height: 30px; padding: 0 0 5px; display: block;}
+.discount .privilege_name a { font-size: 14px; line-height: 24px; margin: 5px 0 0; float: right;}
+.discount .privilege_intro{ line-height: 0; font-size: 0; white-space: nowrap; background: #fffbf2; border: 1px solid #ff7800; overflow: hidden;}
+.discount .privilege { width:156px; height:52px; padding:10px; text-align: center; border-left: 1px solid #ff7800; display: inline-block; vertical-align: middle; overflow:hidden;}
+.discount .privilege:first-child { border-left: none;}
+.discount .privilege .number, .discount .privilege .unit { color:#ff7800; font-size:24px; height:30px; font-weight:bold; line-height:32px; display:inline-block; vertical-align: middle;}
+.discount .privilege .number{ overflow:hidden;}
+.discount .privilege .type{font-weight: bold; font-size:14px; line-height: 24px; display: block;}
+.discount .privilege .unit { font-weight: normal; padding: 0 0 0 3px;}
+/*package/index.html*/
+.explain .explain_side, .explain .explain_main { overflow: hidden;}
+.explain .explain_side {float: left; width: 220px; min-height: 1603px; font-size: 14px; background-color: #fff; color: #666;}
+.explain .explain_main { color: #666; padding: 0 0 0 10px;}
+.explain .explain_body {min-height: 749px; background: #fff;}
+.explain .explain_main .explain_body { background: #fbfbfb; min-height: 752px; border-top: none;}
+.explain .explain_content { padding-bottom: 20px;}
+.explain .title {height: 35px; font-weight: bold; line-height: 33px; padding-left: 10px; border-bottom: 1px solid #ccd5df; background-color: #e2eeff;}
+.explain .privilege { padding: 20px 10px 0; min-height: 107px; background-color: #fff;}
+.explain .privilege .img { min-height: 107px;}
+.explain .privilege img { max-width: 100%;}
+.explain .privilege .name {line-height: 24px; margin: 10px 0 0;}
+.explain .privilege .name span { overflow: hidden;}
+.explain .privilege .price { float: right;}
+.explain .p_contents .titleline{ font-size: 28px; line-height: 40px; font-weight: normal; padding: 15px 0 10px}
+.explain .p_contents .p-txt{ text-align: left; text-indent: 28px;}
+.explain .p_contents .p-txt-c { padding: 15px 0;}
+.explain .p_contents li{padding: 30px 0 40px;  border-top: 1px solid #ccd5df;}
+.explain .p_contents li:first-child { border: 0}
+
+.ddetail .pdesc {
+    padding: 0;
+}
+.ddetail .desctab {
+    width: 1220px;
+}
+.p_contents {
+    padding: 0 110px 200px;
+    text-align: center;
+}
+
+/*.pdetail .discount_line{ margin:10px 0; border-bottom:1px solid #ccd5df;}
+.discount_contian{ margin-top:20px; min-height:712px;}
+.discount_contian .dis_left{ float:left; width:341px; margin-right:10px;min-height:712px;}
+.discount_contian .dis_left .dis_tit{ display:block; width:341px; height:38px; font-size:24px; color:#fff; text-align:center; background:#ec008c; line-height:38px;}
+.dis_left .conpon{ display:block; border:1px solid #ccd5df; border-top:none; text-align:center; width:340px; border-top:none;}
+.dis_left .type{ display:block; background:#fbfbfb; border-bottom:1px solid #ccd5df;width:314px; height:104px; margin:0 auto; padding:30px 13px;}
+.discount_contian .dis_left .privilege{ display:block; padding:22px 0 0; height:}
+.discount_contian .dis_left .privilege img{ overflow:hidden;}
+.discount_contian .dis_left .type img{ overflow:hidden; width:100%; height:100%;}
+.discount_contian .dis_left .conpon .title{ display:block; font-size:14px; color:#6d6d6d; padding:2px 0 9px;}
+.discount_contian .dis_left .conpon:first-child{ margin-top:22px;}
+.discount_contian .dis_right{ overflow:hidden; display:block; *min-height:690px;}
+.discount_contian .dis_right{*display:black;}
+.dis_right table tr, td{ color:#6d6d6d; text-align:center;}
+.dis_right table{ display:block;border:none; position:relative;}
+.dis_right .title{ background:#959797; color:#fff; font-size:24px; text-align:center; }
+.dis_right .title .indro{ position:absolute; top:8px; font-size:14px; display:block; right:15px;}
+.conpon .last{ margin-bottom:7px;}
+.dis_right .contain{ height:43px; font-size:16px;}
+.dis_right .contain .con_name{ width:216px; background:#fbfbfb; color:#3b3b3b;}
+.dis_right .contain .con_cash{ width:216px; background:#fbfbfb; color:#3b3b3b;}
+.dis_right .contain .con_conpon{ width:216px; background:#fbfbfb; color:#3b3b3b;}
+.dis_right .contain .con_integral{ width:214px; background:#fbfbfb; color:#3b3b3b;}
+
+
+.dis_right .contain .num{ height:41px; width:51px; background:#fbfbfb; color:#3b3b3b;}
+.dis_right .contain .order_cash{ width:170px;background:#fbfbfb; color:#3b3b3b;}
+.dis_right .contain .dis_type{width:86px;  background:#fbfbfb; color:#3b3b3b;}
+.dis_right .contain .tab_col{ background:#fbfbfb; color:#3b3b3b;}
+.dis_right .product{padding:5px 0 4px 10px;text-align:left;}
+.dis_right .product span{display:inline-block; margin-right:4px; line-height:16px;}
+.dis_right .product span{*display:inline;}
+.design_line{ width:100%; height:15px; border-top:1px solid #959595; margin-top:30px; background:#e8e8e8;}
+*/
+/*.introduce{ margin-top:15px; padding-bottom:30px;}
+.introduce h3{ padding:15px 0 10px; font-size:18px; color:#6d6d6d;}
+.introduce div{ color:#6d6d6d;}
+.introduce .statement{ text-align:right; color:#ec008c;}*/
+
+

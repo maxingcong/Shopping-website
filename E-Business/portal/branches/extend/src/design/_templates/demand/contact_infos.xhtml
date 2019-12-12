@@ -1,0 +1,24 @@
+<div class="contact_info contact_more">
+    <h3 class="d-caption"><b class="red">*</b>请填写设计稿确认负责人联系方式</h3>
+    <p class="d-mark">我们的资深设计顾问将在您<span class="red">下单支付完成10分钟内</span>与您联系沟通具体的设计需求，请保持手机畅通</p>
+    <p class="line"></p>
+    <div class="d-contact">
+        <label class="item"><span class="field"><b class="red">*</b>联系人：</span><input class="textbox" type="text" name="contact" value="{{userContact}}" autocomplete="off" /></label>
+        <label class="item"><span class="field"><b class="red">*</b>手机号：</span><input class="textbox" type="text" name="phone" value="{{userPhone}}" autocomplete="off" /></label>
+        <label class="item"><span class="field">QQ号：</span><input class="textbox" type="text" name="qq" value="{{userQQ}}" autocomplete="off" /></label>
+        <label class="item remark"><textarea class="textarea" name="更多联系信息">{{demandParamsInfo['更多联系信息']}}</textarea></label>
+        <label class="item dm_list clearfix">
+            <span class="field">联系时间：</span>
+            <a class="radio {{contactTime=='下单后立即联系'?'sel':''}}" href="javascript:;" data-value="下单后立即联系"><i></i>下单后立即联系</a>
+            <a class="radio {{contactTime!='下单后立即联系'?'sel':''}}" href="javascript:;" data-value="{{contactTime=='下单后立即联系'?'':contactTime}}"><i></i>指定时间联系</a>
+        </label>
+    </div>
+    <div class="checkboxs">
+        <label class="checkbox design_agreement sel">我已阅读并接受 </label><a class="agreement_link" href="<?=DOMAIN?>agreement/designservice.html" target="_blank">《云印设计服务协议》</a>
+    </div>
+</div>
+{{if isUpdate}}
+    <a class="btn btn btn-primary btn-lg submit" href="javascript:;" onclick="_czc.push(['_trackEvent', '设计服务', '修改设计需求', '','','']);">保存修改</a>
+{{else}}
+    <p class="btmline"></p>
+{{/if}}

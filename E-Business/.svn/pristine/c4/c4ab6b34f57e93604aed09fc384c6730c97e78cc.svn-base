@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="小in带您选展架，撑起您最精致的宣传" />
+    <meta name="description" content="小in带您选展架，撑起您最精致的宣传" />
+    <meta name="author" content="${author}" />
+    <meta name="copyright" content="${copyright}" />
+    <title>小in带您选展架</title>
+    <link href="<?=DOMAIN?>favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>topic.css" />
+    <?php include(MODULES.'dns_prefetch.xhtml');?>
+</head>
+<body>
+<?php include(MODULES.'header.xhtml');?>
+<div class="main topic">
+    <div class="full-page">
+        <div class="full-layout topic-bg">
+            <img src="<?=IMAGES?>topic/1_1.jpg?v=1" width="100%" height="408px" alt="小in带您选展架" />
+            <div class="section mt45">
+                <h2 class="t-blue">如何选购展架</h2>
+                <div class="top-p">展架主要用于展会、活动、地推、培训等，使用场景丰富</div>
+                <ul class="desc-ul clearfix">
+                    <li>
+                        <img src="<?=IMAGES?>topic/1_2.jpg?v=1" width="100%" alt="画幅"/>
+                        <div class="bg-box desc-bg"></div>
+                        <div class="txt">
+                            <h3 class="title t-blue">画幅</h3>
+                            <p>画幅可通过覆膜来保护画面，哑膜雅致高档，光膜光亮炫目。</p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="<?=IMAGES?>topic/1_3.jpg?v=1" width="100%" alt="重量"/>
+                        <div class="bg-box desc-bg"></div>
+                        <div class="txt">
+                            <h3 class="title t-blue">重量</h3>
+                            <p>重量轻的防风性能较差，但携带方便；重量大的防风好，但携带不便。</p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="<?=IMAGES?>topic/1_4.jpg?v=1" width="100%" alt="样式"/>
+                        <div class="bg-box desc-bg"></div>
+                        <div class="txt">
+                            <h3 class="title t-blue">样式</h3>
+                            <p>不同的样式对于携带、耐用性和具体使用的地方都有区别，需要不同场合不同选择。</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="section mt35">
+                <div class="head pt10">
+                    <i class="icons"></i>
+                    <h2 class="t-blue">X展架</h2>
+                    <div class="relative mt10">
+                        <div class="blue-box desc-bg"></div>
+                        <div class="txt">
+                            <p>可更换画幅，画幅通常采用覆膜工艺保护画面，光膜反光性好，哑膜有磨砂效果，更加高档。X展架顾名思义展开呈X形，<span class="t-blue">通过三脚支架站立，适合摆放在拐角处。重量较轻，方便携带，但防风性能较弱。</span></p>
+                        </div>
+                    </div>
+                </div>
+                <ul class="pro-ul clearfix">
+                    <li>
+                        <a href="http://www.ininin.com/product/149.html#经典X展架+画幅_1个_60cm*160cm-覆哑膜" target="_blank" onclick="_czc.push(['_trackEvent', '普通X展架', '小in带您选展架', '','','']);">
+                            <img src="<?=IMAGES?>topic/1_5.png" width="100%" height="210" alt="普通X展架"/>
+                        </a><!-- 兼容IE789 -->
+                        <a class="a-block blue-block" href="http://www.ininin.com/product/149.html#经典X展架+画幅_1个_60cm*160cm-覆哑膜" target="_blank" onclick="_czc.push(['_trackEvent', '普通X展架', '小in带您选展架', '','','']);">
+                            <div class="fl pro-cont t-blue-bg">
+                                <h3 class="a-title">普通X展架</h3>
+                                <p class="a-desc">价格便宜，高度不可调，适合短期使用。</p>
+                                <span class="a-btn"><strong>￥68.00</strong>/套起</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.ininin.com/product/200030.html#PVC%E6%9D%90%E8%B4%A8_1%E5%A5%97_80cm*180cm-%E5%B1%95%E6%9E%B6%2B%E7%94%BB%E5%B9%85%2B%E8%AE%BE%E8%AE%A1" title="旋转X展架" target="_blank" onclick="_czc.push(['_trackEvent', '旋转X展架', '小in带您选展架', '','','']);">
+                            <img src="<?=IMAGES?>topic/1_6.png" width="100%" height="210" alt="旋转X展架"/>
+                        </a>
+                        <a class="a-block blue-block" href="http://www.ininin.com/product/200030.html#PVC%E6%9D%90%E8%B4%A8_1%E5%A5%97_80cm*180cm-%E5%B1%95%E6%9E%B6%2B%E7%94%BB%E5%B9%85%2B%E8%AE%BE%E8%AE%A1" title="旋转X展架" target="_blank" onclick="_czc.push(['_trackEvent', '旋转X展架', '小in带您选展架', '','','']);">
+                            <div class="fl pro-cont t-blue-bg">
+                                <h3 class="a-title">旋转X展架</h3>
+                                <p class="a-desc">底座支架角度可调节，可适应一定起伏的地形，下方可悬挂沙袋，稳定性更好。</p>
+                                <span class="a-btn"><strong>￥68.00</strong>/套起</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.ininin.com/product/156.html#韩式可调X展架_1个_60cm*160cm-覆哑膜" title="韩式可调X展架" target="_blank" onclick="_czc.push(['_trackEvent', '韩式可调X展架', '小in带您选展架', '','','']);">
+                            <img src="<?=IMAGES?>topic/1_7.png" width="100%" height="210" alt="韩式可调X展架"/>
+                        </a>
+                        <a class="a-block blue-block" href="http://www.ininin.com/product/156.html#韩式可调X展架_1个_60cm*160cm-覆哑膜" title="韩式可调X展架" target="_blank" onclick="_czc.push(['_trackEvent', '韩式可调X展架', '小in带您选展架', '','','']);">
+                            <div class="fl pro-cont t-blue-bg">
+                                <h3 class="a-title">韩式可调X展架</h3>
+                                <p class="a-desc">高度可调，通过调节高度，一个架子可以适应多种尺寸画幅。</p>
+                                <span class="a-btn"><strong>￥85.00</strong>/套起</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- 门型展架 -->
+            <div class="section mt35">
+                <div class="head pt10">
+                    <i class="icons icon2"></i>
+                    <h2 class="t-green">门型展架</h2>
+                    <div class="relative mt10">
+                        <div class="green-box desc-bg"></div>
+                        <div class="txt">
+                            <p>可更换画幅，画幅通常采用覆膜工艺保护画面，光膜反光性好，哑膜有磨砂效果，更加高档。<span class="t-green">占地面积小，可以贴于墙面摆放，多个并排摆放气势非凡。比较重，防风能力较强，适合长期摆放。</span></p>
+                        </div>
+                    </div>
+                </div>
+                <ul class="pro-ul clearfix">
+                    <li>
+                        <a href="http://www.ininin.com/product/151.html#铁座门型展架_1个_60cm*160cm-覆哑膜" title="铁质喷漆门型展架" target="_blank" onclick="_czc.push(['_trackEvent', '铁质喷漆门型展架', '小in带您选展架', '','','']);">
+                            <img src="<?=IMAGES?>topic/1_8.png" width="100%" height="210" alt="铁质喷漆门型展架"/>
+                        </a>
+                        <a class="a-block green-block" href="http://www.ininin.com/product/151.html#铁座门型展架_1个_60cm*160cm-覆哑膜" title="铁质喷漆门型展架" target="_blank" onclick="_czc.push(['_trackEvent', '铁质喷漆门型展架', '小in带您选展架', '','','']);">
+                            <div class="fl pro-cont t-green-bg">
+                                <h3 class="a-title">铁质喷漆门型展架</h3>
+                                <p class="a-desc">比较重，抗风能力较强，整体简洁大方，适合户外大型展示广告促销，可以抵抗一定风力。</p>
+                                <span class="a-btn"><strong>￥98.00</strong>/套起</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.ininin.com/product/151.html#注水门型展架_1个_60cm*160cm-覆哑膜" title="注水门型展架" target="_blank" onclick="_czc.push(['_trackEvent', '注水门型展架', '小in带您选展架', '','','']);">
+                            <img src="<?=IMAGES?>topic/1_9.png" width="100%" height="210" alt="注水门型展架"/>
+                        </a>
+                        <a class="a-block green-block" href="http://www.ininin.com/product/151.html#注水门型展架_1个_60cm*160cm-覆哑膜" title="注水门型展架" target="_blank" onclick="_czc.push(['_trackEvent', '注水门型展架', '小in带您选展架', '','','']);">
+                            <div class="fl pro-cont t-green-bg">
+                                <h3 class="a-title">注水门型展架</h3>
+                                <p class="a-desc">本身材质比铁质门型展架轻，注水或沙后抗风能力更强，适合户内外使用。</p>
+                                <span class="a-btn"><strong>￥170.00</strong>/套起</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- 易拉宝 -->
+            <div class="section mt35">
+                <div class="head pt10">
+                    <i class="icons icon3"></i>
+                    <h2 class="t-red">易拉宝</h2>
+                    <div class="relative mt10">
+                        <div class="red-box desc-bg"></div>
+                        <div class="txt">
+                            <p>不可更换画幅，画幅通常采用覆膜工艺保护画面，光膜反光性好，哑膜有磨砂效果，更加高档。<span class="t-red">画幅可直接收入底座，十分便于携带，适合多地巡回使用，占地面积小，可以贴于墙面摆放。</span></p>
+                        </div>
+                    </div>
+                </div>
+                <ul class="pro-ul clearfix">
+                    <li>
+                        <a href="http://www.ininin.com/product/150.html#经典易拉宝_1个_60cm*160cm-覆哑膜" title="普通易拉宝" target="_blank" onclick="_czc.push(['_trackEvent', '普通易拉宝', '小in带您选展架', '','','']);">
+                            <img src="<?=IMAGES?>topic/1_10.png" width="100%" height="210" alt="普通易拉宝"/>
+                        </a>
+                        <a class="a-block red-block" href="http://www.ininin.com/product/150.html#经典易拉宝_1个_60cm*160cm-覆哑膜" title="普通易拉宝" target="_blank" onclick="_czc.push(['_trackEvent', '普通易拉宝', '小in带您选展架', '','','']);">
+                            <div class="fl pro-cont t-red-bg">
+                                <h3 class="a-title">普通易拉宝</h3>
+                                <p class="a-desc">塑钢材料，刚性中等，性价比高。</p>
+                                <span class="a-btn"><strong>￥90.00</strong>/套起</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.ininin.com/product/155.html#全铝易拉宝_1个_80cm*200cm-覆哑膜" title="全铝易拉宝" target="_blank" onclick="_czc.push(['_trackEvent', '全铝易拉宝', '小in带您选展架', '','','']);">
+                            <img src="<?=IMAGES?>topic/1_11.png" width="100%" height="210" alt="全铝易拉宝"/>
+                        </a>
+                        <a class="a-block red-block" href="http://www.ininin.com/product/155.html#全铝易拉宝_1个_80cm*200cm-覆哑膜" title="全铝易拉宝" target="_blank" onclick="_czc.push(['_trackEvent', '全铝易拉宝', '小in带您选展架', '','','']);">
+                            <div class="fl pro-cont t-red-bg">
+                                <h3 class="a-title">全铝易拉宝</h3>
+                                <p class="a-desc">铝合金材料，耐用性和韧性更强，加厚铝支撑脚，更稳定。</p>
+                                <span class="a-btn"><strong>￥155.00</strong>/套起</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.ininin.com/product/155.html#豪华易拉宝_1个_80cm*200cm-覆哑膜" title="豪华易拉宝" target="_blank" onclick="_czc.push(['_trackEvent', '豪华易拉宝', '小in带您选展架', '','','']);">
+                            <img src="<?=IMAGES?>topic/1_12.png" width="100%" height="210" alt="豪华易拉宝"/>
+                        </a>
+                        <a class="a-block red-block" href="http://www.ininin.com/product/155.html#豪华易拉宝_1个_80cm*200cm-覆哑膜" title="豪华易拉宝" target="_blank" onclick="_czc.push(['_trackEvent', '豪华易拉宝', '小in带您选展架', '','','']);">
+                            <div class="fl pro-cont t-red-bg">
+                                <h3 class="a-title">豪华易拉宝</h3>
+                                <p class="a-desc">铝合金材料，耐用性和韧性更强，加粗铝质三节杆，水滴形铝盖底座，视觉上更加高档。</p>
+                                <span class="a-btn"><strong>￥215.00</strong>/套起</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<?php include(MODULES.'footer.xhtml');?>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>location.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js?ininin=<?=VERSION?>"></script>
+<!--script type="text/javascript" src="<?=SCRIPTS?>jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>template-native.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>zh_cn.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tool.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>activity/detail.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>libs/location.js"></script-->
+<?php include(MODULES.'linklogin.xhtml');?>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="在线对稿" />
+    <meta name="description" content="" />
+    <meta name="author" content="${author}" />
+    <meta name="copyright" content="${copyright}" />
+    <title>在线对稿</title>
+    <link rel="shortcut icon" type="image/x-icon" href="<?=DOMAIN?>favicon.ico"  />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>layout.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>todraft.css" />
+    <?php include(MODULES.'dns_prefetch.xhtml');?>
+</head>
+<body class="todraft_page">
+<div id="todraft_panel" class="todraft_panel"><a id="login_btn"></a></div>
+<div id="todraft_dom_mp" class="hide">
+	<div class="todraft_opacity"></div>
+    <form class="todraft_mp forms">
+        <div class="thead">
+            <b>当前版本</b>：<b id="todraft_version" class="red"></b><a id="todraft_mp_vers" class="vers" href="javascript:;">查看对稿记录</a>
+        </div>
+        <div id="template_todraft_view"></div>
+    </form>
+</div>
+<div class="hide">
+    <fieldset id="login_form" class="login">
+        <form id="login" class="forms">
+            <div class="form_item icon_person">
+                <label><input id="accountLogin" class="textbox" type="text" name="username" /><i class="msg"></i></label><a id="loginChange" class="change">使用验证码登录</a>
+            </div>
+            <div id="loginPwd" class="form_item icon_lock">
+                <label><input class="textbox" type="password" name="password" maxlength="20" autocomplete="off" /><i class="msg"></i></label>
+            </div>
+            <div id="loginCode" class="form_item login_code hide">
+                <label><input class="textbox" type="text" name="code" maxlength="6" /></label><a id="sendCodeLogin" class="btn">发送验证码</a><i class="msg"></i>
+            </div>
+            <div class="form_item">
+                <div class="checkboxs">
+                    <a class="forget" href="<?=DOMAIN?>passport/forget.html">忘记密码</a><label class="checkbox"><input type="checkbox" name="remember" value="true" />记住我 </label>
+                </div>
+            </div>
+            <div class="form_item form_btm">
+                <a class="submit" href="javascript:;">登 录<input onclick="_czc.push(['_trackEvent', '通用', '登录', '会员帐号','','']);" type="submit" value="" /></a>
+            </div>
+        </form>
+        <div class="comlogin">
+            <div class="txt">使用其它账号登录：</div>
+            <a id="popregisterurl" name="registerurl" class="comereg" onclick="_czc.push(['_trackEvent', '顶部', '去注册', '注册','','popregisterurl']);" href="<?=DOMAIN?>passport/index.html">立即注册</a>
+            <div class="logins"><a id="sina_login_btn" onclick="_czc.push(['_trackEvent', '通用', '登录', '微博帐号','','sina_login_btn']);" href="javascript:;" class="lsina"></a><a id="qq_login_btn" onclick="_czc.push(['_trackEvent', '通用', '登录', 'QQ帐号','','qq_login_btn']);" href="javascript:;" class="ltencent"></a></div>
+        </div>
+    </fieldset>
+</div>
+<script id="template_version_list" type="text/template">
+    <% for(var k=0; temp = version_list[k]; k++){ if(temp.image_path){ %>
+    <dd id="item<%=temp.id%>" class="item">
+        <span class="radio<%=(DFVER?DFVER==temp.no:k==0)?' sel':''%>" data-version="<%=temp.version%>" data-no="<%=temp.no%>">V<%=temp.no%>&nbsp;&nbsp;&nbsp;&nbsp;<%=temp.record_time%></span>
+    </dd>
+    <% }} %>
+</script>
+<script id="template_todraft" type="text/template">
+    <div class="tbody">
+        <h3 class="headline">1.定稿文件图片</h3>
+        <% for(var i=0; _images.length>i; i++){ %>
+        <div class="image">
+            <span class="img"><img id="todraft_mp_image_<%=i%>" src="<%=_images[i]%>" /></span>
+            <% if(_images.length<=2&&2>i){ %>
+            <h3 class="dname"><%=['正面','反面'][i]%></h3>
+            <%}%>
+        </div><%}%><!--div class="image">
+            <span class="img"><img id="todraft_mp_image_1" src="<?=IMAGES?>loading.gif" /></span>
+            <h3 class="dname">反面</h3>
+        </div-->
+        <div class="relation">
+            <h3 class="headline">2.关联印刷订单<b class="red">【重要】</b></h3>
+            <div><span class="big">本设计服务关联的印刷订单：</span>
+                <%if(relationOrderCode){%>
+                <a class="big" href="<?=DOMAIN?>member/odetail.html?o=<%=relationOrderCode%>&t=0" target="_blank"><%=relation%>（查看详情）</a>
+                <p>（1）如果有关联印刷订单，则定稿文件将<b class="red">自动安排至该订单进行印刷</b>，请确保关联正确！</p>
+                <p>（2）如果没有关联印刷订单，则定稿文件将<b class="red">不会安排印刷</b>。</p>
+                <p class="small">如果需要重新关联，请<a id="tservice" class="tservice" href="javascript:;' rel="nofollow" target="_blank">联系客服</a>处理。</p>
+                <%}else{%>
+                无
+                <%}%>
+            </div>
+            <%if(product_attr){%>
+            <div><%=product_attr%></div>
+            <%}%>
+        </div>
+        <%if(finalization_str&&!enabled){%>
+        <div class="relation">
+            <h3 class="headline">3.定稿方式及证明资料</h3>
+            <div class="imgs">定稿方式：<%=finalization_str%></div>
+            <%if(finalization_img_url){%>
+                <p>定稿确认记录：</p>
+                <% var imgs=finalization_img_url.split(',');
+                for(var i=0; i<imgs.length; i++){%>
+                <p><img src="<%=imgs[i]%>" alt="" /></p>
+                <%}%>
+            <%}%>
+        </div>
+        <%}%>
+        <%if(enabled){%>
+            <ul class="upddraft radios">
+                <li class="form_item"><span class="radio" data-type="smt">我已确认设计稿件无误，并且<b class="red">可以安排至关联的印刷订单进行印刷</b></span></li>
+                <li class="form_item"><span class="radio" data-type="good">设计稿件不满足要求，需要继续修改</span></li>
+                <li class="form_item" style=" padding: 0 8px; display: none">
+                    <div class="field"><b>稿件修改需求</b>：（请您仔细核对姓名、电话号码等信息）</div>
+                    <label>
+                        <textarea id="change_request" class="textbox" readonly="readonly"></textarea>
+                    </label>
+                </li>
+                <li class="alt_text">
+                    <p>尊敬的客户您好，您的设计稿已经完成，请认真核对您的稿件：</p>
+                    <p>1：logo是否正确，颜色、位置及大小是否合适；</p>
+                    <p>2：公司名及相关信息是否正确；</p>
+                    <p>3：各种英文拼写是否正确，大小写是否规范；</p>
+                    <p>4：联系人、地址信息、公司邮箱及网址是否正确；</p>
+                    <p>5：其他文字是否正确；</p>
+                    <p>6：二维码是否能扫，扫出来是否正确；</p>
+                    <p>7：图片素材是否清晰；</p>
+                    <p>8：设计板式是否满意；</p>
+                    <p>9：成品尺寸是否正确</p>
+                </li>
+            </ul>
+            <div class="tfoot">
+                <div class="form_btm">
+                    <a class="file_btn" href="javascript:;">确认</a>
+                </div>
+            </div>
+        <%}%>
+    </div>
+</script>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>order/todraft.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js?ininin=<?=VERSION?>"></script>
+<!--script type="text/javascript" src="<?=SCRIPTS?>jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>template-native.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tool.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>order/todraft.js"></script-->
+</body>
+</html>

@@ -1,0 +1,75 @@
+<script id="template-address_multi_select" type="text/template">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">{{TITLE}}</h4>
+    </div>
+    <div class="modal-body">
+        <!-- Start bs-tree -->
+        <div id="address_multi_select" class="bs-tree bs-tree-multi clearfix">
+            <div class="bs-tree-body pull-left">
+                <div class="caption">可选省、市、区</div>
+                <div id="template-address_tree_source-view" class="bs-tree-scroll"></div>
+            </div>
+            <div class="bs-tree-body bs-tree-push pull-right">
+                <div class="caption">已选省、市、区</div>
+                <div id="template-address_tree_target-view" class="bs-tree-scroll"></div>
+            </div>
+            <div class="btns text-center">
+                <a class="bs-tree-add" href="#"><i class="fa fa-arrow-circle-right fa-2x"></i></a>
+            </div>
+        </div>
+        <!-- End bs-tree -->
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default md-btn" data-dismiss="modal">关闭</button>
+        <button type="button" class="btn btn-primary save md-btn">保存</button>
+    </div>
+</script>
+<script id="template-address_tree_source" type="text/template">
+{{if nodeList&&nodeList.length}}
+<ul class="nav">
+    {{each nodeList as node i}}
+    {{if node.active>0||node.choosable>0}}
+    <li class="{{node.className}} {{if node.state==2}}active{{/if}}" data-key="{{node.key}}" data-val="{{node.value}}" data-level="{{node.level}}" data-target="0">
+        {{if node.nodeList&&node.nodeList.length>0}}
+        <i class="fa fa-plus-square-o"></i>
+        {{else}}
+        <i class="fa fa-angle-right"></i>
+        {{/if}}
+        <a href="#" data-key="{{node.key}}" data-val="{{node.value}}" data-level="{{node.level}}">{{node.value}}</a>
+        <i class="del">&times;</i>
+        {{if node.className=='open'}}
+        {{include 'template-address_tree_source' node}}
+        {{/if}}
+    </li>
+    {{else if 1>node.level}}
+    <li class="text-center gray no-data" style="padding-left: 0">没有可选省、市、区</li>
+    {{/if}}
+    {{/each}}
+</ul>
+{{/if}}
+</script>
+<script id="template-address_tree_target" type="text/template">
+{{if nodeList&&nodeList.length}}
+<ul class="nav">
+    {{each nodeList as node i}}
+    {{if node.checked>0}}
+    <li class="{{node.className}}" data-key="{{node.key}}" data-val="{{node.value}}" data-level="{{node.level}}" data-target="1">
+        {{if node.nodeList&&node.nodeList.length>0}}
+        <i class="fa fa-plus-square-o"></i>
+        {{else}}
+        <i class="fa fa-angle-right"></i>
+        {{/if}}
+        <a href="#" data-key="{{node.key}}" data-val="{{node.value}}" data-level="{{node.level}}">{{node.value}}</a>
+        <i class="del">&times;</i>
+        {{if node.className=='open'}}
+        {{include 'template-address_tree_target' node}}
+        {{/if}}
+    </li>
+    {{else if 1>node.level}}
+    <li class="text-center gray no-data" style="padding-left: 0">没有已选省、市、区</li>
+    {{/if}}
+    {{/each}}
+</ul>
+{{/if}}
+</script>

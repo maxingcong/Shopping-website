@@ -1,0 +1,37 @@
+<div class="alt">
+    <span class="red">温馨提示：</span>1.优惠券不支持抵扣运费；2.订单结算后优惠券失效；3.优惠券分为可叠加使用和不可叠加使用两种，请留意每种券使用规则。
+</div>
+<ul class="coupon_list checkboxs checkboxs_mini clearfix">
+    {{ if couponList && couponList.length>0 }}
+    {{ each couponList as item k }}
+    <li class="node  cs{{couponStatus}} t{{item.couponType}} {{item.useType==1?'multi':'single'}} {{item.CHECKED==1?'sel':(item.CHECKED==2?'dis':'')}} clearfix" title="{{item.couponName}}" data-index="{{k}}" data-code="{{item.usable}}">
+        <div class="checkbox {{item.CHECKED==1?'sel':''}}"></div>
+        <?php include(TEMPLATES.'coupon_item.xhtml');?>
+        <div class="filter"></div>
+    </li>
+    {{ /each }}
+    {{ /if }}
+    <li class="insert">
+        <div class="checkbox"></div>
+        <div class="img">
+            <label><input id="record_code_input" class="textbox" type="text" name="record_code" autocomplete="off" /></label>
+            <a id="redeemed_coupon" class="addbtn" href="javascript:;">兑 换</a>
+        </div>
+    </li>
+    <!--<li title="我有优惠券兑换码" class="addnode">
+        <div class="checkbox"></div>
+        <div class="img">
+            <div class="addbg"></div>
+            <div class="addsign"></div>
+            <div class="addtxt">我有优惠券兑换码</div>
+        </div>
+    </li>-->
+    <li class="clear"></li>
+</ul>
+{{if couponList&&couponList.length>7}}
+    {{if _collapsed}}
+    <div class="shwmore"><a class="showmore" href="javascript:;">展开全部</a></div>
+    {{else}}
+    <div class="shwmore"><a class="hidemore" href="javascript:;">收起全部</a></div>
+    {{/if}}
+{{/if}}

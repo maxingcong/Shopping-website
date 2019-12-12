@@ -1,0 +1,24 @@
+<script id="template-product_delivery_table" type="text/template">
+    <table class="table-form form-inline">
+        <colgroup>
+            <col style="width: 120px"/>
+            <col/>
+        </colgroup>
+        <tr>
+            <th>
+                <label class="control-label">平均货期：</label>
+            </th>
+            <td>
+                {{if showMode==0}}
+                {{if aveDeliveryTime<0}}
+                未填写
+                {{else}}
+                {{aveDeliveryTime}} 天
+                {{/if}}
+                {{else}}
+                <input id="aveDeliveryTime" type="text" class="form-control" style="width: 150px;" value="{{if showMode==1&&aveDeliveryTime>=0}}{{aveDeliveryTime}}{{/if}}"/> 天
+                {{/if}}
+            </td>
+        </tr>
+    </table>
+</script>

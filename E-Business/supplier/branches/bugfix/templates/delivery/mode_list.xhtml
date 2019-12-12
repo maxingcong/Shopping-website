@@ -1,0 +1,66 @@
+<script id="template-delivery_list" type="text/template">
+    <div class="info-box mb15 mt15">{{if receiver=='User'}}以下价格为发货给用户的价格{{else}}所有发送给云印仓储中心的价格，需免费送货至云印仓储中心或线下进行结算{{/if}}<br/>注：所有物流模板审核通过之后才会生效</div>
+    {{if receiver=='In'}}
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading clearfix">
+                    仓储中心：
+                    <div class="form-group pull-right">
+                        <button type="button" id="selReplace" class="btn btn-primary btn-xs">{{if replacePoint}}重新选择{{else}}点击选择{{/if}}</button>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    {{if replacePoint}}
+                    <div><b>{{replacePoint.name}}</b></div>
+                    <div>{{replacePoint.address.replace(/\^/g,'')}}</div>
+                    <div>联系电话：{{replacePoint.contact_phone}}</div>
+                    {{else}}
+                    <p class="text-center">暂未选择仓储中心</p>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/if}}
+    <table class="table table-hover table-center">
+        <thead>
+        <tr>
+            <th>配送方式</th>
+            <th>收货人</th>
+            <th>关联产品个数</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        {{if eliveryModeResult&&eliveryModeResult.length}}
+        <tbody>
+        {{each eliveryModeResult as delivery i}}
+        <tr class="table-gap" style="display: none">
+            <th colspan="4"></th>
+        </tr>
+        <tr data-delivery_id="{{delivery.delivery_id}}" data-delivery_mode_id="{{delivery.id}}">
+            <td>{{delivery.name}}</td>
+            <td>{{receiverStr}}</td>
+            <td>{{delivery.productNum||'未关联产品'}}</td>
+            <td><a class="shwhid" href="#"><i class="fa fa-angle-double-down"></i> <span>展开</span></a></td>
+        </tr>
+        <tr class="show_table" style="display: none">
+            <td colspan="4" class="info-block">
+                <div id="template-mode_template_list-{{delivery.id}}-view">
+                    {{include 'template-mode_template_list'}}
+                </div>
+            </td>
+        </tr>
+        {{/each}}
+        </tbody>
+        {{else}}
+        <tfoot>
+        <tr>
+            <td colspan="4">
+                <div class="text-left gray no-data">您还没有可用配送方式</div>
+            </td>
+        </tr>
+        </tfoot>
+        {{/if}}
+    </table>
+</script>

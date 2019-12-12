@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="renderer" content="webkit|ie-stand"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="none"/>
+    <meta name="author" content="ininin.com">
+    <meta name="copyright" content="Copyright © 2014 ininin.com. All rights reserved.">
+    <title>供应商平台 - 设计“省”心，印刷“简”单！</title>
+    <link rel="apple-touch-icon" href="<?=IMAGES?>logo.png"/>
+    <link rel="icon" type="image/png" href="<?=IMAGES?>logo.png"/>
+    <link rel="shortcut icon" type="image/x-icon" href="<?=DOMAIN?>favicon.ico"/>
+
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>font-awesome.min.css"/>
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>bootstrap-datetimepicker.css"/>
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>layout.css"/>
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>home.css">
+    <link rel="dns-prefetch" href="http://colud.ininin.com/">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="<?=SCRIPTS?>libs/html5shiv-3.7.2.min.js"></script>
+    <script src="<?=SCRIPTS?>libs/respond-1.4.2.min.js"></script>
+    <![endif]-->
+<body>
+<!-- Start Header -->
+<header id="bs-header" class="navbar navbar-fixed-top bs-header" role="banner">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+                <i class="fa fa-navicon"></i>
+            </button>
+            <div class="navbar-brand"><a href="http://www.ininin.com" target="_blank"><img src="<?=IMAGES?>logo.png" alt="ininin.com"/></a><a id="supplierLogo" href="<?=DOMAIN?>"><img class="sys" src="<?=IMAGES?>sys.png" alt="供应商平台"/></a> </div>
+        </div>
+        <nav id="bs-navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a class="faq" href="<?=DOMAIN?>faq/index.html" target="_blank">常见问题</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<!-- End Header -->
+<!-- Start Container -->
+<div id="bs-container" class="container bs-container page-apply">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <ul class="list-inline clearfix">
+                <li class="current"><span class="circle">1</span><span id="step_name"></span></li>
+                <li><span class="circle">2</span>公司基本信息</li>
+                <li><span class="circle">3</span>相关证件上传</li>
+                <li><span class="circle">4</span>银行账号信息</li>
+                <li><span class="circle">5</span>产品选择</li>
+                <li><span class="circle">6</span>等待审核</li>
+            </ul>
+        </div>
+        <div class="panel-body" id="template-supplier_info-view">
+        </div>
+    </div>
+</div>
+<!-- End Container -->
+<?php include(TEMPLATES.'footer.xhtml');?>
+<div class="modal fade" id="addProducts" tabindex="-1" role="dialog" aria-labelledby="addProductsLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="addProductsLabel">请选择可生产产品</h4>
+            </div>
+            <div class="modal-body" id="template-category-view" style="height:400px;overflow-y:auto;"></div>
+            <div class="modal-footer">
+                <button type="button" id="add_products_btn" class="btn btn-primary save md-btn">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="service" tabindex="-1" role="dialog" aria-labelledby="serviceLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="serviceLabel">云印供应商加盟协议</h4>
+            </div>
+            <div class="modal-body">
+                <div id="ininin_agreement" class="ininin-agreement">
+                    <p>为了保护甲、乙双方的合法权益，根据国家相关法律法规的规定，本着平等互利、共同发展、共担风险的原则，甲方依照本协议向乙方采购商品，乙方同意依本协议供应商品给甲方。乙方注册申请成为甲方供应商，获得云印的供应商账号和密码，即视为乙方与云印达成《云印供应商合作协议》，乙方接受本协议以下全部条款和内容。</p>
+                    <p>采购方(甲方)：深圳市云印电子商务有限公司（简称“云印”）</p>
+                    <p>地址：</p>
+                    <p>法定代表人：</p>
+                    <p>供应商(乙方)：</p>
+                    <p>住所：</p>
+                    <p>法定代表人：</p>
+                    <h3 class="text-center">协议内容</h3>
+                    <h3>一、目的与范围</h3>
+                    <p>1.1 本协议所规定的条款框架内，甲方从乙方订购的商品包括但不限于甲方电商网站（www.ininin.com）所售的各类印刷品；</p>
+                    <p>1.2 本协议规定的合作范围仅限于甲方委托乙方生产加工甲方客户的各类印刷产品；</p>
+                    <h3>二、定义</h3>
+                    <p>2.1 协议中“商品”是指乙方提供给甲方的加工产品。</p>
+                    <p>2.2 本协议中“最终用户或最终客户”是指协议中最终使用商品的用户。</p>
+                    <p>2.3 专有件：指专由甲方或最终客户的设计、图样和/或规格而由乙方制造、销售给甲方的定制化产品。</p>
+                    <p>2.4 标准件：指乙方依本合同所供应除前款所称专有件以外的其他产品。</p>
+                    <h3>三、商品的销售权及责任</h3>
+                    <p>3.1 甲方享有乙方受甲方委托生产、加工或交付给甲方产品的全部销售权。</p>
+                    <p>3.2 乙方按照双方确认的价格和实际收货数及付款周期向甲方收取货款。</p>
+                    <h3>四、商品的订购和责任</h3>
+                    <p>4.1 甲方可按本协议向乙方规定接单时间发出订单，乙方应在收到甲方订单时及时处理订单，乙方按约定时间进行生产加工履行生产加工义务。</p>
+                    <p>4.2 依据乙方指定的网络平台上传文件进行下单，上传成功即视为甲方向乙方下达订单，对双方具有约束力，订单内容以网络平台上成功上传文件为准。</p>
+                    <p>4.3 甲方所发出的订单，标准品按照约定的交货期交货，非标品按照双方协定的交货交货期。</p>
+                    <p>4.4 如甲方需要可通知乙方延期交付，或解除部分或全部订单。若甲方解除部分系属甲方专有件，并经乙方提出经甲方确认的证据，足以证明乙方确实已经有原材料成本支出，且在需要证明在客观上无法在相对期限内处理该解除的部分的产品，或证明无法以其他措施处理该产品者，乙方可以于甲方发出解除通知后三十天内，向甲方请求偿还上述被解除订单而受影响的直接原材料成本，如果乙方无法在上述期限内提供举证并向甲方提出具体求偿，乙方即可不再向甲方提出请求。若属于对标准件的解除订单，乙方同意不向甲方请求任何形式的补偿、损失和价款。</p>
+                    <p>4.5 未经过甲方书面同意，乙方同意不向最终用户直接或间接的提供双方在协议期内交易的产品。</p>
+                    <h3>五、商品的价格</h3>
+                    <p>5.1 商品价格依双方确认最新报价单为准。</p>
+                    <p>5.2 乙方应保证提供最优惠价格给甲方（在乙方同一阶段同等规模的客户中），在个别订单中，若双方有协议变更价格或乙方降低价格的，则该新价格适用于变更或降低日起甲方所发出的所有订单，但经双方同意的，也适用于变更或降低日前已采购的或尚未交付的商品。</p>
+                    <p>5.3 乙方应本着诚实信用与长期合作的原则合理报价，若有弄虚作假，或报价与合理价格严重不符而牟取暴利的情况，甲方有权要求返回差价。</p>
+                    <h3>六、商品的包装及标识</h3>
+                    <p>6.1 商品的外包装应充分根据产品的自身特点、运输过程、储存特点等因素合理设计进行包装，每个标准包装的商品都应检验合格，以及基本的标识，包括：商品名称、生产单号、料号、生产日期、单位、数量等。</p>
+                    <p>6.2 如甲方对商品的外包装有其他要求的，乙方应按甲方要求执行。</p>
+                    <h3>七、商品的质量保证</h3>
+                    <p>7.1 乙方应建立自己企业的质量及环境管理体系保证商品生产过程中的质量保证活动（ISO9001、ISO14001），并且应该符合最新的版本。</p>
+                    <p>7.2 乙方提供的商品应符合甲方的技术要求和质量要求，如甲方认为乙方商品质量要求无法满足甲方的要求，经过改良依然无法满足，甲方可以终止双方业务关系。</p>
+                    <p>7.3 甲方派品质及技术人员去乙方生产进行产品生产监督与指导，乙方应按照甲方对于生产监督指导意见执行。</p>
+                    <p>7.4 根据甲方需要，乙方应按甲方要求（至少一年一次）提供经双方认可的第三方检测机构出具的相关产品的质量检测报告，包括但不限于ROHS、REACH指令、邻本二甲酸酯、卤素等指令规定。</p>
+                    <h3>八、商品交付</h3>
+                    <p>8.1 商品交付日期或地点以约定的交货期为准。且甲方可以对连续应交付的订单商品制定交付时间表。</p>
+                    <p>8.2 乙方若无法在确定的交付日期交付产品，或在已确定的交付日期不能交付指定的数量给甲方，乙方应立即通知甲方，甲方若提出任何的指示或应变措施，乙方应无条件配合，乙方并应赔偿甲方因此产生的所有直接和间接损失。</p>
+                    <p>8.3 乙方应依据商业惯例、甲方的要求规格、政府法令进行对产品包装、处理，使产品在运输及仓储免受损害。若因包装造成的损失（包括政府视为违法的包装运输的处罚）乙方应承担相应的损害赔偿责任。</p>
+                    <p>8.4 乙方应按照双方协定的交货地址进行交付，一般分为上门自提、       乙方送货到指定地址、乙方代甲方发货等。</p>
+                    <h3>九、商品检验与验收</h3>
+                    <p>9.1 乙方应在本协议履行期限完成本合同质量标准的商品并送到甲方指定验收地点，并通知甲方依本协议约定进行不同阶段的验收，包括但不限于有样品验收、出厂验收、收货验收。</p>
+                    <p>9.2 甲方派商品检验人员在乙方进行检验，并按双方确认的质量标准、图纸及双方确认的技术要求进行验收。</p>
+                    <p>9.3 甲方验收时，乙方应积极协助、协同配合，包括但不限于回答提问、解释疑义、提供图纸或检验工作项目明细（包括但不限于材料名称、规格、品牌、数量、成本、费用、利润等一切甲方所欲知悉信息）、提供检验说明、演示操作等甲方要求的文件。</p>
+                    <p>9.4 甲方对乙方商品初验、生产现场检验或最终检验不合格，将及时通知乙方，乙方在收到通知后的一个工作日内给予回复解决信息；甲方可要求乙方在限期内交付同等数量的合格商品更换或进行不合格商品的返修或进行退回不再换货。</p>
+                    <p>9.5 乙方应就任何不合格规定的产品当日向甲方提出书面的改善措施报告，报告格式应按甲方要求提交。乙方应采取所有改善、补救措施至符合甲方标准要求。</p>
+                    <h3>十、结算和支付</h3>
+                    <p>10.1 双方应定期的对发生交易的商品进行对账，双方确认后乙方按甲方要求开具收据或发票，并及时交给甲方相关人员。</p>
+                    <p>10.2 在双方约定的结算周期内，甲方可预先支付乙方83%的货款，当甲方在收到乙方发票验证合格后，按双方约定的账期向乙方支付剩余17%的到期货款，结算周期与约定账期内甲方不就此承担任何利息。支付方式为：电汇至乙方指定账户。</p>
+                    <p>10.3 乙方提供增值税一般纳税人资格证、税号、帐号和银行信息等财务信息，如有变更，应立即书面通知甲方，否则相关责任由乙方承担。</p>
+                    <p>10.4 乙方应提供收款账户信息并指定专门人员负责收款业务，如有变更，应立即书面通知甲方，否则相关责任由乙方承担。甲方按乙方预留或指定账户信息支付货款，如因乙方原因造成相应的货款损失的，甲方不承担任何责任。</p>
+                    <h3>十一、分包</h3>
+                    <p>11.1 乙方因暂时的产能不足或技术限制，乙方有权在不影响产品质量及供货周期前提下将该产品的某些生产环节委托给分包商，但应事先通知甲方并获得甲方书面同意。</p>
+                    <p>11.2 乙方必须以本协议一致的条件与每一位分包商签订分包协议及保密协议，并对分包商所有义务承担连带保证责任。</p>
+                    <h3>十二、标识使用</h3>
+                    <p>12.1 乙方在执行本合同所述产品或工作项目过程中如需要使用甲方或最终客户标识，应依甲方最新版本的标识使用规则和/或甲方要求在该产品或工作项目范围内正确、妥当使用甲方标识。</p>
+                    <p>12.2 除本协议第12.1条所述的使用约定外，乙方并未取得甲方标识任何许可、转让和实施，乙方不得自己使用或允许第三人以任何形式在任何领域直接或间接使用甲方或最终用户标识。</p>
+                    <p>12.3 经甲方确认乙方使用甲方或最终用户的标识不符合或违反甲方或最终用户最新版本的标识规则和/或甲方要求者，乙方应停止使用项目。</p>
+                    <p>12.4 本协议所述的产品或工作项目经乙方完全履行后，乙方应以自己费用去除据以产生该产品或工作项目的材料、模具、样品、半成品、废料上的甲方标识，若该标识不能去除者，乙方应销毁以产生该产品或工作项目的材料、样品、模具、印版、半成品、废料等。</p>
+                    <h3>十三、知识产权</h3>
+                    <p>13.1 除双方另有约定的情形外，乙方履行本协议所产生的知识产权均归甲方所有，乙方并应及时协同甲方或最终用户取得该知识产权并签署相关的法律文件。</p>
+                    <p>13.2 在任何情况下，非经甲方书面认可，不能转让实施、不得自己使用或允许第三人以任何形式在任何领域直接或间接使用甲方享有的知识产权。</p>
+                    <p>13.3 如乙方提供给甲方的产品或服务,有任何侵犯第三方知识产权的,包括但不限于商标\品牌\专利等等,一经知识产权权利人或相关权威机关确认,乙方将承担由此造成的一切法律责任和后果,同时甲方保持进一步追诉相关损失的权利。</p>
+                    <h3>十四、甲方财产</h3>
+                    <p>14.1 乙方有责任对甲方的财产妥善保管和维护。</p>
+                    <p>14.2 因乙方原因造成甲方财产的损坏，乙方应责任相应的损害赔偿。</p>
+                    <p>14.3 甲方有权随时收回属于甲方的财产，乙方应无条件的归还（不管这些财产由乙方或分包商使用）。</p>
+                    <h3>十五、不可抗力</h3>
+                    <p>15.1 如果本协议的任何一方由于不可抗力而不能履行本协议，受不可抗力影响的一方应毫不迟疑地书面通知另一方，并在不可抗力发生后的15天内书面提供可以证明不可抗力事件的官方文件，以说明不能全部或部分履行协议，或延迟履行协议的理由。不可抗力包括但不限于以下事件：地震、台风、洪水、水灾、战争、骚乱、叛乱、恐怖行动、暴乱、恶性流行性疾病或其他不可预见的事件，这些事件的发生或结果是不可克服、不可避免的，并且会直接影响并不利本协议的履行。</p>
+                    <h3>十六、保密</h3>
+                    <p>16.1 在本协议有效期内及以后，非因中国法律要求，乙方应将与甲方业务或产品相关的信息作为机密信息保管和维护，不得泄露给任何第三方，并签订保密协议。</p>
+                    <p>16.2 此类信息包括但不限于：价格/成本、包装设计、图纸、模型、产品或样品、技术数据、专有技术、创意及其他知识产权或业务信息等（“机密信息”）。乙方应采取一切手段防止上述机密信息的泄露，并督促其董事、高级管理人员、技术人员、其他雇员和乙方的分包商防止这些机密信息的泄露或被用于任何可能损害甲方利益的途径。在本协议的有效期内及以后，上述相关人员或实体应绝对保守上述机密信息。任何相关人员或实体被发现在与甲方合作范围之外散布或利用这些机密信息，都将可能被甲方提起民事或刑事诉讼。</p>
+                    <h3>十七、非竞争</h3>
+                    <p>17.1 协议期间（双方交易期间）乙方应遵守基本的商业道德，未经过甲方同意不得擅自单方以任何理由与协议中商品的最终客户进行业务来往(包括邮件来往)，或进行同样产品的贸易加工。</p>
+                    <h3>十八、生效及期限</h3>
+                    <p>18.1 本合同有效期为一年，自双方签署之日起生效到次年对应日终止。</p>
+                    <h3>十九、终止协议</h3>
+                    <p>19.1 在本协议有效期内，如果任何一方违反本协议的任何条款，守约一方有权以书面形式通知违约一方，并要求即时终止协议。终止协议不影响守约一方依据本协议享有的任何正当权利，首先是与被损害、获得赔偿相关的权利。</p>
+                    <p>19.2 在本协议有效期内，如乙方股权结构或经营战略发生变化等，乙方应通知甲方；甲方认为该等变化会对基于本协议开展的合作模式产生影响时，有权解除本协议。</p>
+                    <p>19.3 任何一方因自身因素需要终止协议的履行，应在三个月前以书面方式提出给协议另一方。否则，终止协议一方赔偿给协议另一方因此带来的所有损失。</p>
+                    <h3>二十、违约与索赔</h3>
+                    <p>20.1 乙方应按约定的交期及时交货，如果商品发生迟延交付情况，逾期五天视为不能供应货，乙方应承担由此给甲方造成的停产、客户赔偿等一切直接与间接损失，损失金额按最终用户的索赔金额计算。同时，甲方有权立即解除合同，并追究乙方的违约责任。</p>
+                    <p>20.2 若甲方或最终用户因乙方商品发生质量问题或因使用乙方商品造成的任何损害或被第三方索赔时，经甲方所指定的鉴定机构认定是乙方的责任，则乙方应承担赔偿甲方所因此带来的一切直接与间接损失（包括但不限于甲方及其最终用户支付给第三方的赔偿金额、鉴定费用、调查费用、律师费用、诉讼费用等）。</p>
+                    <p>20.3 甲方或最终用户发现乙方商品不良时，将及时通知乙方。甲方将以书面或邮件方式通知乙方,有权暂不支付给乙方相应不良品的货款。乙方接到通知后有疑义的，3个工作日内书面反馈并经过确认解决完毕。逾期未提出疑义的将视为接受甲方的意见。此条不免除乙方的违约责任。如果乙方的商品在甲方生产过程中造成甲方相关产品的损坏、报废，甲方有权按照实际损失要求乙方赔偿。乙方同意甲方有权直接从应付乙方货款中扣除该笔费用。</p>
+                    <p>20.4 如果乙方所供应的商品同一质量问题经甲方书面提示后重复发生，视为乙方没有采取措施来预防此问题的发生或有意将不良品混入甲方的生产现场，应按甲方实际损失金额赔偿，且甲方有权取消其供应资格并且可以解除部分或全部订单。</p>
+                    <p>20.5 乙方违反本协议第十七条，甲方可以随时临时终止协议，并要求乙方支付10万元以上违约金。</p>
+                    <h3>二十一、争议的解决</h3>
+                    <p>21.1 由于本协议产生或与本协议相关的争议或纠纷，双方首先应试着通过友好协商解决。如上述争议或纠纷在其发生后60天内不能通过双方友好协商解决的，任何一方可向甲方所在地人民法院提起诉讼。</p>
+                    <p>21.2 尽管有上述条款，对于涉及知识产权的争议或纠纷，双方保留根据可适用的法律、法规而享有的权利、补救方法以及诉讼。</p>
+                    <h3>二十二、其他</h3>
+                    <p>22.1 如本协议的任何条文被认为无效，这种无效不影响本协议其他部分的效力，其他部分继续完全有效。</p>
+                    <p>22.2 未经甲方的事先许可，乙方不得转让本协议，即使在乙方营业转让或股东变更时也不得转让本协议。</p>
+                    <p>22.3 本协议及其附件构成双方就本协议合作事项达成的完全共识，并取代以前就相同合作事项达成的任何协议。</p>
+                </div>
+                <div class="modal-footer">
+                    <button id="i_agreement" type="button" class="btn btn-primary md-btn">我同意</button>
+                    <button id="i_disagreement" type="button" class="btn btn-default md-btn">我不同意</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php include(TEMPLATES.'info/supplier_info.xhtml');?>
+<?php include(TEMPLATES.'info/products.xhtml');?>
+<script type="text/javascript" src="<?=SCRIPTS?>libs/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>libs/bootstrap.min.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>libs/utils/md5.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>libs/bootstrap-datetimepicker.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>uploader/plupload.full.min.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>uploader/qiniu-sdk.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>uploader/main.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>libs/location.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>libs/utils.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>config.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tool.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>common.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=BfQkidZSIR9VpvE39M4LdRje"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>recruit.js"></script>
+</body>
+</html>

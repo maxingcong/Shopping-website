@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="订购流程" />
+    <meta name="description" content="" />
+    <meta name="author" content="${author}" />
+    <meta name="copyright" content="${copyright}" />
+    <title>订购流程</title>
+    <link rel="shortcut icon" type="image/x-icon"  href="<?=DOMAIN?>favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>help.css" />
+    <?php include(MODULES.'dns_prefetch.xhtml');?>
+</head>
+<body>
+<?php include(MODULES.'header.xhtml');?>
+<div class="main helper">
+    <div class="layout clearfix">
+        <?php include(MODULES.'helpsidebar.xhtml');?>
+        <div class="container">
+            <div class="upanel">
+                <h3 class="headline chromatism">订购流程</h3>
+                <dl class="texts">
+                    <dd>
+                        <p class="imgs">
+                            <img src="<?=IMAGES?>helper/helper013.jpg" alt="云印技术"/>
+                        </p>
+                    </dd>
+                    <dd>
+                        <p class="order_flow">1. <a href="<?=DOMAIN?>passport/index.html" target="_blank">注册登录</a>云印官网，在<a href="<?=DOMAIN?>" target="_blank">首页</a>中找到自己所要印刷的产品，查看产品信息，并点击"查看详情"</p>
+                        <p class="imgs">
+                            <img src="<?=IMAGES?>helper/201.png" alt="云印技术" />
+                        </p>
+                    </dd>
+                    <dd>
+                        <p class="order_flow">2. 进入产品页面，按步骤确定印刷属性及数量，设置好点击"立即购买"</p>
+                        <p class="imgs">
+                            <img src="<?=IMAGES?>helper/202.jpg" alt="云印技术" />
+                        </p><p class="order_flow">3. 进入订单页面，按步骤填写收货信息，提交成功后进入支付页面完成</p>
+                        <p class="imgs">
+                            <img src="<?=IMAGES?>helper/203.jpg" alt="云印技术"/>
+                            <img src="<?=IMAGES?>helper/204.jpg" alt="云印技术"/>
+                            <img src="<?=IMAGES?>helper/205.jpg" alt="云印技术"/>
+                        </p>
+                    </dd>
+                    <dd>
+                        <p class="order_flow">4. 下单付款后到我的订单，点击上传文件，上传OK后，云印客服审稿安排印刷，如有问题，会联系您</p>
+                        <p class="imgs">
+                            <img src="<?=IMAGES?>helper/206.jpg" alt="云印技术" />
+                        </p><p class="order_flow">5. 印制完成后，我们就会将印品送到您手上</p>
+                        <p class="imgs">
+                            <img src="<?=IMAGES?>helper/207.png" alt="云印技术" />
+                        </p>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+	</div>
+</div>
+<?php include(MODULES.'footer.xhtml');?>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>location.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js?ininin=<?=VERSION?>"></script>
+<!-- <script type="text/javascript" src="<?=SCRIPTS?>jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>template-native.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>zh_cn.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tool.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>libs/location.js"></script> -->
+<?php include(MODULES.'linklogin.xhtml');?>
+</body>
+</html>

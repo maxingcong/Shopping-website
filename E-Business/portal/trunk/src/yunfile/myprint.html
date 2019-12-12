@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="我的印刷PDF" />
+    <meta name="description" content="" />
+    <meta name="author" content="${author}" />
+    <meta name="copyright" content="${copyright}" />
+    <title>我的印刷PDF</title>
+    <link rel="shortcut icon" type="image/x-icon" href="<?=DOMAIN?>favicon.ico"  />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>jquery.datetimepicker.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>layout.css" />
+    <?php include(MODULES.'dns_prefetch.xhtml');?>
+</head>
+<body>
+<?php include(MODULES.'header.xhtml');?>
+<div class="main ucenter">
+    <div class="layout clearfix">
+        <?php include(MODULES.'usersidebar.xhtml');?>
+        <div class="container">
+            <div class="upanel">
+                <h3 class="headline">我的云盘</h3>
+                <div class="files">
+                    <ul class="nav-sub clearfix">
+                        <li><a href="<?=DOMAIN?>yunfile/index.html">我的资料</a></li>
+                        <li><a href="<?=DOMAIN?>yunfile/mydesign.html">我的设计文件</a></li>
+                        <li class="active"><a href="javascript:;">我的印刷PDF</a></li>
+                    </ul>
+                    <div id="yfilter" class="yfilter clearfix">
+                        <div class="form-group">
+                            <label>印刷订单号</label>
+                            <div class="text-wrapper">
+                                <input id="orderCode" class="textbox placeholder" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group ml10">
+                            <label>产品类型</label>
+                            <div class="text-wrapper">
+                                <input id="fileName" class="textbox placeholder" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="ml10">下单时间</label>
+                            <input id="startTime" class="textbox text_center" readonly type="text">
+                            <span> 到 </span>
+                            <input id="endTime" class="textbox text_center" readonly type="text">
+                        </div>
+                        <a class="submit btn-right" href="javascript:;">筛选</a>
+                    </div>
+                    <div id="template_file_list_view"></div>
+                    <div id="paginbar" class="paginbar hide"></div>
+                </div>
+            </div>
+        </div>
+        <p class="hrline"></p>
+    </div>
+</div>
+<?php include(MODULES.'footer.xhtml');?>
+<?php include(TEMPLATES.'previewer.xhtml');?>
+<script id="template_file_list" type="text/template">
+    <table class="table_view" cellpadding="0" cellspacing="0">
+        <colgroup>
+            <col width="20%"/>
+            <col width="18%"/>
+            <col width="16%"/>
+            <col width="16%"/>
+            <col width="18%"/>
+            <col/>
+        </colgroup>
+        <thead>
+        <tr>
+            <th class="col1"><div>订单-产品号</div></th>
+            <th class="col2"><div><span id="orderByTime" class="order-by-default <% if(orderByFlag==1){ %>order-by-up<% } %><% if(orderByFlag==2){ %>order-by-down<% } %>">下单时间</span></div></th>
+            <th class="col3"><div>文件</div></th>
+            <th class="col4"><div>关联设计订单号</div></th>
+            <th class="col5"><div><span id="orderByProduct" class="order-by-default <% if(orderByFlag==3){ %>order-by-up<% } %><% if(orderByFlag==4){ %>order-by-down<% } %>">关联产品类型</span></div></th>
+            <th class="col6"><div>操作</div></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% for(var k=0; temp = file_list[k]; k++){ %>
+        <tr>
+            <td class="col1">
+                <% if(temp.order_code){ %>
+                <div><span title="<%=temp.order_code%>-<%=temp.serial_number%>" class="ellipsis fname"><a href="<?=DOMAIN?>member/odetail.html?o=<%=temp.order_code%>" target="_blank"><%=temp.order_code%></a>-<%=temp.serial_number%></span></div>
+                <% } %>
+            </td>
+            <td class="col2"><div><%=temp.record_time%></div></td>
+            <td class="col3">
+                <div>
+                    <% var filetype1=/.+\.pdf$/i.test(temp.file_src);%>
+                    <% var filetype2=/.+\.zip$/i.test(temp.file_src);%>
+                    <% var filetype3=/.+\.7z$/i.test(temp.file_src);%>
+                    <% var filetype4=/.+\.rar$/i.test(temp.file_src);%>
+                    <% if(filetype1&&temp.preview_path){ %>
+                    <a href="javascript:;" data-urls="<%=temp.preview_path%>" class="previewer">
+                        <img class="preview-img" src="<%=temp.preview_path.split(',')[0]%>?imageMogr2/thumbnail/!124x70r/auto-orient/gravity/Center/crop/124x70" alt="PDF缩略图" />
+                    </a>
+                    <% } else if(filetype1) { %>
+                    <img class="preview-img" src="<?=IMAGES?>replaceimg/PDF.jpg" alt="PDF" />
+                    <% } else if(filetype2) { %>
+                    <img class="preview-img" src="<?=IMAGES?>replaceimg/ZIP.jpg" alt="ZIP" />
+                    <% } else if(filetype3) { %>
+                    <img class="preview-img" src="<?=IMAGES?>replaceimg/7Z.jpg" alt="7Z" />
+                    <% } else if(filetype4) { %>
+                    <img class="preview-img" src="<?=IMAGES?>replaceimg/RAR.jpg" alt="RAR" />
+                    <% } else { %>
+                    <img class="preview-img" src="<?=IMAGES?>replaceimg/DEF.jpg" alt="DEF" />
+                    <% } %>
+                </div>
+            </td>
+            <td class="col4">
+                <% if(temp.design_order_code){ %>
+                <div title="<%=temp.design_order_code%>"><a class="ellipsis fname" href="<?=DOMAIN?>member/odetail.html?o=<%=temp.design_order_code%>" target="_blank"><%=temp.design_order_code%></a></div>
+                <% } %>
+            </td>
+            <td class="col5">
+                <% if(temp.product_list){ %>
+                <% for(var j=0; product = temp.product_list[j]; j++){ %>
+                <div title="<%=product.product_name%>"><a class="ellipsis fname" href="<?=DOMAIN?>product/<%=product.product_id%>.html" target="_blank"><%=product.product_name%></a></div>
+                <% } %>
+                <% } %>
+            </td>
+            <td class="col6">
+                <% if(temp.order_code){ %>
+                <a data-order_serial_number="<%=temp.order_code%>_<%=temp.serial_number%>" class="reorder" href="javascript:;">再次印刷</a>
+                <% } %>
+            </td>
+        </tr>
+        <% } %>
+        <% if(!file_list||!file_list.length){ %>
+        <tr>
+            <td class="col1" colspan="6">
+                <div class="empty"><dl class="vertical_middle"><dt class="vm_left"></dt><dd class="vm_right">暂无数据</dd></dl></div>
+            </td>
+        </tr>
+        <% } %>
+        </tbody>
+    </table>
+</script>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>yunfile/myprint.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>location.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js?ininin=<?=VERSION?>"></script>
+<?php include(MODULES.'linklogin.xhtml');?>
+</body>
+</html>

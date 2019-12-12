@@ -1,0 +1,1063 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="一站式办公套餐" />
+    <meta name="description" content="一站式办公套餐，轻松一点，购齐所有" />
+    <meta name="author" content="${author}" />
+    <meta name="copyright" content="${copyright}" />
+    <title>一站式办公套餐</title>
+    <link href="<?=DOMAIN?>favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>activity.css" />
+    <?php include(MODULES.'dns_prefetch.xhtml');?>
+    <style type="text/css">
+        .pt35{padding-top: 35px;} .pb30{padding-bottom: 30px;}
+        .floor-nav{ margin-left: -670px; background-color: transparent;}
+        .floor-nav .nav-item{width: 44px; height: 44px; overflow: hidden; margin: 0 0 1px; background: #fff url(../resources/stationary/afloor.png?v=1) 0 0 no-repeat;}
+        .floor-nav .nav-item.sel, .floor-nav .nav-item:hover{background-color: #efb1bc;}
+        .floor-nav .floor1{background-position: 7px 10px;} .floor-nav .floor2{background-position: 7px -36px;} .floor-nav .floor3{background-position: 7px -82px;} .floor-nav .floor4{background-position: 7px -126px;} .floor-nav .floor5{background-position: 7px -171px;} 
+        .floor-nav .floor6{background-position: 7px -215px;} .floor-nav .floor7{background-position: 7px -261px;} .floor-nav .floor8{background-position: 7px -305px;} .floor-nav .floor9{background-position: 7px -350px;} .floor-nav .floor10{background-position: 7px -396px;} .floor-nav .floor11{background-position: 7px -440px;} .floor-nav .floor12{background-position: 7px -486px;} .floor-nav .floor13{background-position: 7px -530px;}
+        .floor-nav .floor14{background-position: 7px -575px;} .floor-nav .floor15{background-position: 7px -619px;}
+        .floor-nav .cut-line{height: 0; visibility: hidden;}
+        .floor-nav .nav-item a, .floor-nav .nav-item a:hover { width: 100%; height: 100%; background: transparent; padding: 0; line-height: 0; font-size: 0; color: #d42646;}
+        .floor-nav .nav-item.sel a, .floor-nav .nav-item a:hover{line-height: 0; font-size: 0; /*background-color: #efb1bc; color: #d42646;*/}
+        .non_pad{padding-bottom: 0;} .footer{display: none;}
+        .full_page{position: relative; min-height: 11266px; overflow: hidden;}
+        .full_page .act_main, .full_page .act_body{width: 1920px; position: absolute; left: 50%; margin-left: -960px; overflow: hidden;}
+        .full_page .act_main .pos a{position: absolute; top: 105px; width: 152px; height: 22px; line-height: 22px; font-size: 14px; background-color: #eb1f44; color: #fff; text-decoration: none; text-align: center;}
+        .full_page .act_main .pos a:hover{background-color: #d10329;}
+        .full_page .act_main .pos .posbtn1{left: 767px;}
+        .full_page .act_main .pos .posbtn2{left: 1000px;}
+        .full_page .act_body{margin-top: 850px;}/*1004-850*/
+        .full_page .section{width: 100%; color: #fff;}
+        .full_page .act_body .bg1{height: 2950px; background: url(../resources/stationary/a27_2.png?v=1) left 0 repeat;}
+        .full_page .act_body .bg2{height: 2264px; background: url(../resources/stationary/a27_3.png?v=1) left 0 repeat;}
+        .full_page .act_body .bg3{height: 5232px; background: url(../resources/stationary/a27_4.png?v=1) left 0 repeat;}
+        .act_body .floor_bg{width: 1220px; height: 618px; margin: 0 auto; background: url(../resources/stationary/a27_8.png?v=1) center bottom no-repeat;}
+        .act_body .fcontain{height: 100%; padding: 0 40px;}
+        .act_body .ftitle{padding-top: 45px;}
+        .act_body .ftitle .title{display: inline-block; position: relative; font-size: 36px; line-height: 54px; color: #fef127;}
+        .act_body .ftitle .hotsale{position: absolute; top: -45px; right: -110px; width: 95px; height: 95px;background: url(../resources/stationary/a27_6.png?v=1) 0 0 no-repeat;}
+        .act_body .ftitle p{font-size: 18px; padding-bottom: 4px;}
+        .act_body .floor_bg .fimg{position: relative; float: left;}
+        .act_body .floor_bg .save{position: absolute; top: -18px; right: 18px; display: inline-block; width: 100px; height: 110px; background: url(../resources/stationary/a27_6.png?v=1) -222px 0 no-repeat; color: #fef127; font-size: 36px; line-height: 96px; text-align: center; font-weight: bold;}
+        .act_body .productlist{width: 392px; margin-left: 748px;margin-top: -2px;}
+        .act_body .protable{width: 100%; border: none; border-spacing: 2px; border-collapse: separate; border-color: transparent; background-color: transparent;}
+        .act_body .protable th{font-size: 18px; line-height: 32px; color: #cb0d31;}
+        .act_body .protable th,.act_body .protable td{border: none; background-color: #fff;}
+        .act_body .protable td{font-size: 18px; color: #444;} .act_body .protable td:first-child{padding-left: 16px;}
+        .line66{line-height: 66px;} .line32{line-height: 32px;}
+        .act_body .productlist .buybox{width: 100%; height: 65px; background-color: #b60424;}
+        .act_body .productlist .buylink{display: block; width: 100%; height: 100%; text-decoration: none;}
+        .act_body .productlist .buyicon{float: right; width: 65px; height: 65px; background: url(../resources/stationary/a27_6.png?v=1) 0 -148px no-repeat;}
+        .act_body .productlist span.line{margin: 0 12px 0 16px; font-size: 18px; color: #fff; text-decoration:line-through;}
+        .act_body .productlist span.price{font-size: 28px; color: #fef127;}
+        .act_body .productlist .price strong{font-size: 36px;}
+    </style>
+</head>
+<body>
+<?php include(MODULES.'header.xhtml');?>
+<div class="main active non_pad">
+    <div class="full_page">
+        <div class="act_main">
+            <img src="<?=IMAGES?>stationary/a27.jpg?v=2" width="100%" height="683px" alt="一站式办公套餐" />
+            <div class="top_txt"></div>
+            <div id="getCoupon" class="pos">
+                <img usemap="#mapa27_1" border="0" src="<?=IMAGES?>stationary/a27_1.png?v=2" height="167px" alt="一站式办公套餐，多重优惠等着你">
+                <map name="mapa27_1" id="mapa27_1">
+                    <area shape="rect" coords="734,44,958,160" href="javascript:;" class="get" data-id="199" title="订单满100元即可使用">
+                    <area shape="rect" coords="964,44,1188,160" href="javascript:;" class="get" data-id="200" title="订单满200元即可使用">
+                </map>
+                <a href="javascript:;" class="get posbtn1" data-id="199" title="订单满100元即可使用">点击领取</a>
+                <a href="javascript:;" class="get posbtn2" data-id="200" title="订单满200元即可使用">点击领取</a>
+            </div>
+        </div>
+        <div id="floor_content" class="act_body">
+            <div class="section bg1">
+                <div class="floor-item floor_bg pt35" data-nav_idx="1" style="height: 583px;">
+                    <div class="fcontain">
+                        <div class="ftitle">
+                            <h2 class="title"><i class="hotsale"></i>书写工具超值套装</h2>
+                            <p>最常用的办公文具超值套装，打包购买，给您想不到的低价。</p>
+                        </div>
+                        <div class="fimg">
+                            <a href="<?=DOMAIN?>product/200271.html#书写工具超值套装_1套_标准版" title="点击购买" target="_blank">
+                                <span class="save">40</span>
+                                <img src="<?=IMAGES?>stationary/a27_9.jpg" width="708px" height="370px" alt="书写工具超值套装" />
+                            </a>
+                        </div>
+                        <div class="productlist">
+                            <table class="protable"  border="0" cellspacing="2">
+                                <thead>
+                                    <tr align="center">
+                                        <th>办公用品</th>
+                                        <th>批量</th>
+                                    </tr>
+                                </thead>
+                                <tbody align="left" class="line66">
+                                    <tr>
+                                        <td>中性笔0.5mm黑色</td>
+                                        <td align="center">8盒</td>
+                                    </tr>
+                                    <tr>
+                                        <td>中性笔0.5mm蓝色</td>
+                                        <td align="center">4盒</td>
+                                    </tr>
+                                    <tr>
+                                        <td>中性笔0.5mm红色</td>
+                                        <td align="center">2盒</td>
+                                    </tr>
+                                    <tr>
+                                        <td>薄本</td>
+                                        <td align="center">30本</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="buybox">
+                                <a href="<?=DOMAIN?>product/200271.html#书写工具超值套装_1套_标准版" class="buylink" title="点击购买" target="_blank">
+                                    <span class="buyicon"></span>
+                                    <div>
+                                        <span class="line">零售价169元</span>
+                                        <span class="price">套餐价<strong>129</strong>元</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="floor-item floor_bg" data-nav_idx="2" style="height: 515px;margin-top: -20px;">
+                    <div class="fcontain">
+                        <div class="ftitle">
+                            <h2 class="title"><i class="hotsale"></i>白板笔超值套装</h2>
+                            <p>最常用的办公文具超值套装，打包购买，给您想不到的低价。</p>
+                        </div>
+                        <div class="fimg">
+                            <a href="<?=DOMAIN?>product/200272.html#白板笔超值套装_1套_标准版" title="点击购买" target="_blank">
+                                <span class="save">3</span>
+                                <img src="<?=IMAGES?>stationary/a27_10.jpg" width="708px" height="302px" alt="白板笔超值套装" />
+                            </a>
+                        </div>
+                        <div class="productlist">
+                            <table class="protable"  border="0" cellspacing="2">
+                                <thead>
+                                    <tr align="center">
+                                        <th>办公用品</th>
+                                        <th>批量</th>
+                                    </tr>
+                                </thead>
+                                <tbody align="left" class="line66">
+                                    <tr>
+                                        <td>白板笔黑色</td>
+                                        <td align="center">8盒</td>
+                                    </tr>
+                                    <tr>
+                                        <td>白板笔红色</td>
+                                        <td align="center">2盒</td>
+                                    </tr>
+                                    <tr>
+                                        <td>白板笔蓝色</td>
+                                        <td align="center">5盒</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="buybox">
+                                <a href="<?=DOMAIN?>product/200272.html#白板笔超值套装_1套_标准版" class="buylink" title="点击购买" target="_blank">
+                                    <span class="buyicon"></span>
+                                    <div>
+                                        <span class="line">零售价162元</span>
+                                        <span class="price">套餐价<strong>159</strong>元</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="floor-item floor_bg" data-nav_idx="3" style="height: 515px; margin-top: -20px;">
+                    <div class="fcontain">
+                        <div class="ftitle">
+                            <h2 class="title"><i class="hotsale"></i>中性笔超值套装</h2>
+                            <p>最常用的办公文具超值套装，打包购买，给您想不到的低价。</p>
+                        </div>
+                        <div class="fimg">
+                            <a href="<?=DOMAIN?>product/200273.html#中性笔超值套装_1套_标准版" title="点击购买" target="_blank">
+                            <span class="save">24</span>
+                            <img src="<?=IMAGES?>stationary/a27_11.jpg" width="708px" height="302px" alt="中性笔超值套装" />
+                            </a>
+                        </div>
+                        <div class="productlist">
+                            <table class="protable"  border="0" cellspacing="2">
+                                <thead>
+                                    <tr align="center">
+                                        <th>办公用品</th>
+                                        <th>批量</th>
+                                    </tr>
+                                </thead>
+                                <tbody align="left" class="line66">
+                                    <tr>
+                                        <td>中性笔0.5mm黑色</td>
+                                        <td align="center">8盒</td>
+                                    </tr>
+                                    <tr>
+                                        <td>中性笔0.5mm蓝色</td>
+                                        <td align="center">4盒</td>
+                                    </tr>
+                                    <tr>
+                                        <td>中性笔0.5mm红色</td>
+                                        <td align="center">2盒</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="buybox">
+                                <a href="<?=DOMAIN?>product/200273.html#中性笔超值套装_1套_标准版" class="buylink" title="点击购买" target="_blank">
+                                    <span class="buyicon"></span>
+                                    <div>
+                                        <span class="line">零售价123元</span>
+                                        <span class="price">套餐价<strong>99</strong>元</span>
+                                    </div></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="floor-item floor_bg" data-nav_idx="4" style="height: 613px;margin-top: -20px;">
+                    <div class="fcontain">
+                        <div class="ftitle pb30">
+                            <h2 class="title"><i class="hotsale"></i>小微企业日常办公套装（10-20人）</h2>
+                            <p>小微企业套装主要用于满足10-20人的公司日常消耗，按月采购，可满足企业的基本需求。</p>
+                        </div>
+                        <div class="fimg">
+                            <a href="<?=DOMAIN?>product/200259.html#小微企业日常办公套装_1套_月度" title="点击购买" target="_blank">
+                                <span class="save">11</span>
+                                <img src="<?=IMAGES?>stationary/a27_12.jpg" width="708px" height="370px" alt="小微企业日常办公套装（10-20人）" />
+                            </a>
+                        </div>
+                        <div class="productlist">
+                            <table class="protable"  border="0" cellspacing="2">
+                                <thead>
+                                    <tr align="center">
+                                        <th>办公用品</th>
+                                        <th>批量</th>
+                                    </tr>
+                                </thead>
+                                <tbody align="left" class="line32">
+                                    <tr>
+                                        <td>中性笔0.5mm黑色</td>
+                                        <td align="center">2盒</td>
+                                    </tr>
+                                    <tr>
+                                        <td>中性笔0.5mm红色</td>
+                                        <td align="center">1盒</td>
+                                    </tr>
+                                    <tr>
+                                        <td>白板笔 黑色</td>
+                                        <td align="center">1盒</td>
+                                    </tr>
+                                    <tr>
+                                        <td>白板笔 红色</td>
+                                        <td align="center">1盒</td>
+                                    </tr>
+                                    <tr>
+                                        <td>白板笔 蓝色</td>
+                                        <td align="center">1盒</td>
+                                    </tr>
+                                    <tr>
+                                        <td>皮质本</td>
+                                        <td align="center">5本</td>
+                                    </tr>
+                                    <tr>
+                                        <td>卷纸</td>
+                                        <td align="center">2提</td>
+                                    </tr>
+                                    <tr>
+                                        <td>垃圾袋（30袋）</td>
+                                        <td align="center">3包</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="buybox">
+                                <a href="<?=DOMAIN?>product/200259.html#小微企业日常办公套装_1套_月度" class="buylink" title="点击购买" target="_blank">
+                                    <span class="buyicon"></span>
+                                    <div>
+                                        <span class="line">零售价150元</span>
+                                        <span class="price">套餐价<strong>139</strong>元</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="floor-item floor_bg" data-nav_idx="5" style="height: 783px;margin-top: -20px;">
+                    <div class="fcontain">
+                        <div class="ftitle pb30">
+                            <h2 class="title"><i class="hotsale"></i>小型企业日常办公套装（20-50人）</h2>
+                            <p>小型企业套装主要用于满足20-50人的公司日常消耗，按月采购，可满足企业的基本需求。</p>
+                        </div>
+                        <div class="fimg">
+                            <a href="<?=DOMAIN?>product/200260.html#小型企业日常办公套装_1套_月度" title="点击购买" target="_blank">
+                                <span class="save">4</span>
+                                <img src="<?=IMAGES?>stationary/a27_13.jpg" width="708px" height="540px" alt="小型企业日常办公套装（20-50人）" />
+                            </a>
+                        </div>
+                        <div class="productlist">
+                            <table class="protable"  border="0" cellspacing="2">
+                                <thead>
+                                    <tr align="center">
+                                        <th>办公用品</th>
+                                        <th>批量</th>
+                                    </tr>
+                                </thead>
+                                <tbody align="left" class="line32">
+                                    <tr>
+                                        <td>中性笔0.5mm黑色</td>
+                                        <td align="center">5盒</td>
+                                    </tr>
+                                    <tr>
+                                        <td>中性笔0.5mm蓝色</td>
+                                        <td align="center">2盒</td>
+                                    </tr>
+                                    <tr>
+                                        <td>中性笔0.5mm红色</td>
+                                        <td align="center">1盒</td>
+                                    </tr>
+                                    <tr>
+                                        <td>铅笔2B（12支）</td>
+                                        <td align="center">1盒</td>
+                                    </tr>
+                                    <tr>
+                                        <td>白板笔 黑色</td>
+                                        <td align="center">2盒</td>
+                                    </tr>
+                                    <tr>
+                                        <td>白板笔 红色</td>
+                                        <td align="center">1盒</td>
+                                    </tr>
+                                    <tr>
+                                        <td>白板笔 蓝色</td>
+                                        <td align="center">1盒</td>
+                                    </tr>
+                                    <tr>
+                                        <td>皮质本</td>
+                                        <td align="center">10本</td>
+                                    </tr>
+                                    <tr>
+                                        <td>薄本</td>
+                                        <td align="center">10本</td>
+                                    </tr>
+                                    <tr>
+                                        <td>订书针</td>
+                                        <td align="center">3盒</td>
+                                    </tr>
+                                    <tr>
+                                        <td>卷纸</td>
+                                        <td align="center">4提</td>
+                                    </tr>
+                                    <tr>
+                                        <td>纸杯（50个）</td>
+                                        <td align="center">4包</td>
+                                    </tr>
+                                    <tr>
+                                        <td>垃圾袋（30袋）</td>
+                                        <td align="center">10包</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="buybox">
+                                <a href="<?=DOMAIN?>product/200260.html#小型企业日常办公套装_1套_月度" class="buylink" title="点击购买" target="_blank"><span class="buyicon"></span>
+                                <div>
+                                    <span class="line">零售价373元</span>
+                                    <span class="price">套餐价<strong>369</strong>元</span>
+                                </div></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section bg2">
+                <div class="floor-item floor_bg" data-nav_idx="6" style="height: 851px;">
+                    <div class="fcontain">
+                        <div class="ftitle pb30">
+                            <h2 class="title"><i class="hotsale"></i>中型企业日常办公常备套装 （50-100人）</h2>
+                            <p>中型企业套装主要用于满足50-100人的公司日常消耗，按月采购，可满足企业的基本需求。</p>
+                        </div>
+                        <div class="fimg">
+                            <a href="<?=DOMAIN?>product/200261.html#中型企业日常办公套装_1套_月度"  title="点击购买" target="_blank">
+                                <span class="save">19</span>
+                                <img src="<?=IMAGES?>stationary/a27_14.jpg" width="708px" height="608px" alt="中型企业日常办公常备套装 （50-100人）" />
+                            </a>
+                        </div>
+                        <div class="productlist">
+                            <table class="protable"  border="0" cellspacing="2">
+                                <thead>
+                                    <tr align="center">
+                                        <th>办公用品</th>
+                                        <th>批量</th>
+                                    </tr>
+                                </thead>
+                                <tbody align="left" class="line32">
+                                    <tr>
+                                        <td>中性笔0.5mm黑色</td>
+                                        <td align="center">10盒</td>
+                                    </tr>
+                                    <tr>
+                                        <td>中性笔0.5mm蓝色</td>
+                                        <td align="center">5盒</td>
+                                    </tr>
+                                    <tr>
+                                        <td>中性笔0.5mm红色</td>
+                                        <td align="center">2盒</td>
+                                    </tr>
+                                    <tr>
+                                        <td>铅笔2B（12支）</td>
+                                        <td align="center">2盒</td>
+                                    </tr>
+                                    <tr>
+                                        <td>白板笔 黑色</td>
+                                        <td align="center">3盒</td>
+                                    </tr>
+                                    <tr>
+                                        <td>白板笔 红色</td>
+                                        <td align="center">2盒</td>
+                                    </tr>
+                                    <tr>
+                                        <td>白板笔 蓝色</td>
+                                        <td align="center">2盒</td>
+                                    </tr>
+                                    <tr>
+                                        <td>皮质本</td>
+                                        <td align="center">20本</td>
+                                    </tr>
+                                    <tr>
+                                        <td>薄本</td>
+                                        <td align="center">10本</td>
+                                    </tr>
+                                    <tr>
+                                        <td>订书针</td>
+                                        <td align="center">5盒</td>
+                                    </tr>
+                                    <tr>
+                                        <td>卷纸</td>
+                                        <td align="center">5提</td>
+                                    </tr>
+                                    <tr>
+                                        <td>纸杯</td>
+                                        <td align="center">5包</td>
+                                    </tr>
+                                    <tr>
+                                        <td>垃圾袋（30袋）</td>
+                                        <td align="center">20包</td>
+                                    </tr>
+                                    <tr>
+                                        <td>回形针</td>
+                                        <td align="center">2盒</td>
+                                    </tr>
+                                    <tr>
+                                        <td>胶水</td>
+                                        <td align="center">5个</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="buybox">
+                                <a href="<?=DOMAIN?>product/200261.html#中型企业日常办公套装_1套_月度" class="buylink" title="点击购买" target="_blank">
+                                <span class="buyicon"></span>
+                                <div>
+                                    <span class="line">零售价658元</span>
+                                    <span class="price">套餐价<strong>639</strong>元</span>
+                                </div></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="floor-item floor_bg" data-nav_idx="7" style="height: 681px; margin-top: -20px;">
+                    <div class="fcontain">
+                        <div class="ftitle">
+                            <h2 class="title"><i class="hotsale"></i>雏鹰飞翔入职套装（10人）</h2>
+                            <p>入职套装针对公司新增员工而搭配，适合10人以下新人入职时一次性采购，套装虽小，但处处体现出公司的细心，又不会浪费，您可根据公司新人数量增减套包总量。</p>
+                        </div>
+                        <div class="fimg">
+                            <a href="<?=DOMAIN?>product/200262.html#雏鹰飞翔入职套装_1套_10人装" title="点击购买" target="_blank">
+                                <span class="save">71</span>
+                                <img src="<?=IMAGES?>stationary/a27_15.jpg" width="708px" height="438px" alt="雏鹰飞翔入职套装（10人）" />
+                            </a>
+                        </div>
+                        <div class="productlist">
+                            <table class="protable"  border="0" cellspacing="2">
+                                <thead>
+                                    <tr align="center">
+                                        <th>办公用品</th>
+                                        <th>批量</th>
+                                    </tr>
+                                </thead>
+                                <tbody align="left" class="line66">
+                                    <tr>
+                                        <td>中性笔0.5mm黑色</td>
+                                        <td align="center">2盒</td>
+                                    </tr>
+                                    <tr>
+                                        <td>薄本</td>
+                                        <td align="center">10本</td>
+                                    </tr>
+                                    <tr>
+                                        <td>文件筐</td>
+                                        <td align="center">10个</td>
+                                    </tr>
+                                    <tr>
+                                        <td>资料册</td>
+                                        <td align="center">10个</td>
+                                    </tr>
+                                    <tr>
+                                        <td>便利贴</td>
+                                        <td align="center">10个</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="buybox">
+                                <a href="<?=DOMAIN?>product/200262.html#雏鹰飞翔入职套装_1套_10人装" class="buylink" title="点击购买" target="_blank">
+                                    <span class="buyicon"></span>
+                                <div>
+                                    <span class="line">零售价340元</span>
+                                    <span class="price">套餐价<strong>269</strong>元</span>
+                                </div></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="floor-item floor_bg" data-nav_idx="8" style="height: 783px;margin-top: -20px;">
+                    <div class="fcontain">
+                        <div class="ftitle">
+                            <h2 class="title"><i class="hotsale"></i>前台套装</h2>
+                            <p>公司前台就像一个百宝箱，应该是公司基础桌面工具最齐全的地方。本套装针对前台的日常工作场景为您搭配了最常用的前台物料，一键购买，轻松搞定。</p>
+                        </div>
+                        <div class="fimg">
+                            <a href="<?=DOMAIN?>product/200263.html#前台套装_1套_标准版"  title="点击购买" target="_blank">
+                            <span class="save">11</span>
+                            <img src="<?=IMAGES?>stationary/a27_16.jpg" width="708px" height="540px" alt="前台套装" />
+                            </a>
+                        </div>
+                        <div class="productlist">
+                            <table class="protable"  border="0" cellspacing="2">
+                                <thead>
+                                    <tr align="center">
+                                        <th>办公用品</th>
+                                        <th>批量</th>
+                                    </tr>
+                                </thead>
+                                <tbody align="left" class="line32">
+                                    <tr>
+                                        <td>粘台笔</td>
+                                        <td align="center">5支</td>
+                                    </tr>
+                                    <tr>
+                                        <td>橡皮</td>
+                                        <td align="center">1个</td>
+                                    </tr>
+                                    <tr>
+                                        <td>订书机</td>
+                                        <td align="center">1个</td>
+                                    </tr>
+                                    <tr>
+                                        <td>订书针</td>
+                                        <td align="center">5盒</td>
+                                    </tr>
+                                    <tr>
+                                        <td>起钉器</td>
+                                        <td align="center">1个</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>铅笔2B（12支）</td>
+                                        <td align="center">1盒</td>
+                                    </tr>
+                                    <tr>
+                                        <td>回形针</td>
+                                        <td align="center">2盒</td>
+                                    </tr>
+                                    <tr>
+                                        <td>剪刀</td>
+                                        <td align="center">1个</td>
+                                    </tr>
+                                    <tr>
+                                        <td>美工刀</td>
+                                        <td align="center">1个</td>
+                                    </tr>
+                                    <tr>
+                                        <td>胶水</td>
+                                        <td align="center">1个</td>
+                                    </tr>
+                                    <tr>
+                                        <td>透明胶</td>
+                                        <td align="center">1筒</td>
+                                    </tr>
+                                    <tr>
+                                        <td>长尾夹（中型）</td>
+                                        <td align="center">1盒</td>
+                                    </tr>
+                                     <tr>
+                                        <td>中性笔0.5mm黑色</td>
+                                        <td align="center">1盒</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="buybox">
+                                <a href="<?=DOMAIN?>product/200263.html#前台套装_1套_标准版" class="buylink" title="点击购买" target="_blank">
+                                    <span class="buyicon"></span>
+                                <div>
+                                    <span class="line">零售价110元</span>
+                                    <span class="price">套餐价<strong>99</strong>元</span>
+                                </div></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section bg3">
+                <div class="floor-item floor_bg" data-nav_idx="9" style="height: 749px;">
+                    <div class="fcontain">
+                        <div class="ftitle pb30">
+                            <h2 class="title"><i class="hotsale"></i>会议室灵感套装A</h2>
+                            <p>白板是公司灵感迸发的试验场，多少伟大的想法都离不开一块神奇的白板。云印白板套装A，提供完备的灵感组合。</p>
+                        </div>
+                        <div class="fimg">
+                            <a href="<?=DOMAIN?>product/200264.html#会议室灵感套装A_1套_基础版" title="点击购买" target="_blank">
+                            <span class="save">25</span>
+                            <img src="<?=IMAGES?>stationary/a27_17.jpg" width="708px" height="506px" alt="会议室灵感套装A" />
+                            </a>
+                        </div>
+                        <div class="productlist">
+                            <table class="protable"  border="0" cellspacing="2">
+                                <thead>
+                                    <tr align="center">
+                                        <th>办公用品</th>
+                                        <th>批量</th>
+                                    </tr>
+                                </thead>
+                                <tbody align="left" class="line66">
+                                    <tr>
+                                        <td>通用白板</td>
+                                        <td align="center">1个</td>
+                                    </tr>
+                                    <tr>
+                                        <td>白板擦</td>
+                                        <td align="center">1个</td>
+                                    </tr>
+                                    <tr>
+                                        <td>白板磁铁</td>
+                                        <td align="center">1套</td>
+                                    </tr>
+                                    <tr>
+                                        <td>白板笔黑色</td>
+                                        <td align="center">2盒</td>
+                                    </tr>
+                                    <tr>
+                                        <td>白板笔蓝色</td>
+                                        <td align="center">1盒</td>
+                                    </tr>
+                                    <tr>
+                                        <td>白板笔红色</td>
+                                        <td align="center">1盒</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="buybox">
+                                <a href="<?=DOMAIN?>product/200264.html#会议室灵感套装A_1套_基础版" class="buylink" title="点击购买" target="_blank">
+                                    <span class="buyicon"></span>
+                                    <div>
+                                        <span class="line">零售价244元</span>
+                                        <span class="price">套餐价<strong>199</strong>元</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="floor-item floor_bg" data-nav_idx="10" style="height: 753px;margin-top: -20px;">
+                    <div class="fcontain">
+                        <div class="ftitle pb30">
+                            <h2 class="title"><i class="hotsale"></i>会议室灵感套装B</h2>
+                            <p>白板是公司灵感迸发的试验场，多少伟大的想法都离不开一块神奇的白板。云印白板套装B，配备可移动白板，保证您的灵感肆意游走。</p>
+                        </div>
+                        <div class="fimg">
+                            <a href="<?=DOMAIN?>product/200265.html#会议室灵感套装B_1套_加强版" title="点击购买" target="_blank">
+                            <span class="save">134</span>
+                            <img src="<?=IMAGES?>stationary/a27_18.jpg" width="708px" height="506px" alt="会议室灵感套装B" />
+                            </a>
+                        </div>
+                        <div class="productlist">
+                            <table class="protable"  border="0" cellspacing="2">
+                                <thead>
+                                    <tr align="center">
+                                        <th>办公用品</th>
+                                        <th>批量</th>
+                                    </tr>
+                                </thead>
+                                <tbody align="left" class="line66">
+                                    <tr>
+                                        <td>可动白板</td>
+                                        <td align="center">1个</td>
+                                    </tr>
+                                    <tr>
+                                        <td>白板擦</td>
+                                        <td align="center">1个</td>
+                                    </tr>
+                                    <tr>
+                                        <td>白板磁铁</td>
+                                        <td align="center">1套</td>
+                                    </tr>
+                                    <tr>
+                                        <td>白板笔黑色</td>
+                                        <td align="center">2盒</td>
+                                    </tr>
+                                    <tr>
+                                        <td>白板笔蓝色</td>
+                                        <td align="center">1盒</td>
+                                    </tr>
+                                    <tr>
+                                        <td>白板笔红色</td>
+                                        <td align="center">1盒</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="buybox">
+                                <a href="<?=DOMAIN?>product/200265.html#会议室灵感套装B_1套_加强版" class="buylink" title="点击购买" target="_blank">
+                                    <span class="buyicon"></span>
+                                    <div>
+                                        <span class="line">零售价733元</span>
+                                        <span class="price">套餐价<strong>599</strong>元</span>
+                                    </div></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="floor-item floor_bg" data-nav_idx="11" style="height: 718px;margin-top: -20px;">
+                    <div class="fcontain">
+                        <div class="ftitle pb30">
+                            <h2 class="title"><i class="hotsale"></i>创业起航套装(10-20人）</h2>
+                            <p>创业起航套装，包含企业创业初期必需的办公文具，适合10-20人公司使用，满足企业办公基本需求。</p>
+                        </div>
+                        <div class="fimg">
+                            <a href="<?=DOMAIN?>product/200266.html#创业起航套装_1套_标准版" title="点击购买" target="_blank">
+                            <span class="save">19</span>
+                            <img src="<?=IMAGES?>stationary/a27_19.jpg" width="708px" height="472px" alt="创业起航套装(10-20人）" />
+                            </a>
+                        </div>
+                        <div class="productlist">
+                            <table class="protable"  border="0" cellspacing="2">
+                                <thead>
+                                    <tr align="center">
+                                        <th>办公用品</th>
+                                        <th>批量</th>
+                                    </tr>
+                                </thead>
+                                <tbody align="left" class="line32">
+                                    <tr>
+                                        <td>中性笔0.5mm黑色</td>
+                                        <td align="center">3盒</td>
+                                    </tr>
+                                    <tr>
+                                        <td>中性笔0.5mm红色</td>
+                                        <td align="center">1盒</td>
+                                    </tr>
+                                    <tr>
+                                        <td>皮质本</td>
+                                        <td align="center">10本</td>
+                                    </tr>
+                                    <tr>
+                                        <td>计算器</td>
+                                        <td align="center">1个</td>
+                                    </tr>
+                                    <tr>
+                                        <td>订书机</td>
+                                        <td align="center">1个</td>
+                                    </tr>
+                                    <tr>
+                                        <td>订书针</td>
+                                        <td align="center">3盒</td>
+                                    </tr>
+                                    <tr>
+                                        <td>起钉器</td>
+                                        <td align="center">1个</td>
+                                    </tr>
+                                    <tr>
+                                        <td>回形针</td>
+                                        <td align="center">2盒</td>
+                                    </tr>
+                                    <tr>
+                                        <td>剪刀</td>
+                                        <td align="center">1把</td>
+                                    </tr>
+                                    <tr>
+                                        <td>美工刀</td>
+                                        <td align="center">1个</td>
+                                    </tr>
+                                    <tr>
+                                        <td>长尾夹（中型）</td>
+                                        <td align="center">1盒</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="buybox">
+                                <a href="<?=DOMAIN?>product/200266.html#创业起航套装_1套_标准版" class="buylink" title="点击购买" target="_blank">
+                                    <span class="buyicon"></span>
+                                <div>
+                                    <span class="line">零售价158元</span>
+                                    <span class="price">套餐价<strong>139</strong>元</span>
+                                </div></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="floor-item floor_bg" data-nav_idx="12" style="height: 613px;margin-top: -20px;">
+                    <div class="fcontain">
+                        <div class="ftitle pb30">
+                            <h2 class="title"><i class="hotsale"></i>文件管理专家套装</h2>
+                            <p>小型企业文管套装，多种文管物料搭配，满足综合管理、财务部门多种场景的使用。</p>
+                        </div>
+                        <div class="fimg">
+                            <a href="<?=DOMAIN?>product/200267.html#文件管理专家套装_1套_标准版" title="点击购买" target="_blank">
+                            <span class="save">23</span>
+                            <img src="<?=IMAGES?>stationary/a27_20.jpg" width="708px" height="370px" alt="文件管理专家套装" />
+                            </a>
+                        </div>
+                        <div class="productlist">
+                            <table class="protable"  border="0" cellspacing="2">
+                                <thead>
+                                    <tr align="center">
+                                        <th>办公用品</th>
+                                        <th>批量</th>
+                                    </tr>
+                                </thead>
+                                <tbody align="left" class="line66">
+                                    <tr>
+                                        <td>档案袋</td>
+                                        <td align="center">9个</td>
+                                    </tr>
+                                    <tr>
+                                        <td>轻便夹</td>
+                                        <td align="center">5个</td>
+                                    </tr>
+                                    <tr>
+                                        <td>资料册</td>
+                                        <td align="center">10个</td>
+                                    </tr>
+                                    <tr>
+                                        <td>按扣文件袋</td>
+                                        <td align="center">10个</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="buybox">
+                                <a href="<?=DOMAIN?>product/200267.html#文件管理专家套装_1套_标准版" class="buylink" title="点击购买" target="_blank">
+                                    <span class="buyicon"></span>
+                                    <div>
+                                        <span class="line">零售价212元</span>
+                                        <span class="price">套餐价<strong>189</strong>元</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="floor-item floor_bg" data-nav_idx="13" style="height: 545px;margin-top: -20px;">
+                    <div class="fcontain">
+                        <div class="ftitle pb30">
+                            <h2 class="title"><i class="hotsale"></i>生活消耗品套装</h2>
+                            <p>日常工作中卷纸与垃圾袋可以给员工带来更多的便利，纸杯可用于客户接待与员工日常消耗。生活用品套装适合10-20人公司月度采购。</p>
+                        </div>
+                        <div class="fimg">
+                            <a href="<?=DOMAIN?>product/200268.html#生活消耗品套装_1套_标准版" title="点击购买" target="_blank">
+                            <span class="save">8</span>
+                            <img src="<?=IMAGES?>stationary/a27_21.jpg" width="708px" height="302px" alt="生活消耗品套装" />
+                            </a>
+                        </div>
+                        <div class="productlist">
+                            <table class="protable"  border="0" cellspacing="2">
+                                <thead>
+                                    <tr align="center">
+                                        <th>办公用品</th>
+                                        <th>批量</th>
+                                    </tr>
+                                </thead>
+                                <tbody align="left" class="line66">
+                                    <tr>
+                                        <td>卷纸</td>
+                                        <td align="center">2提</td>
+                                    </tr>
+                                    <tr>
+                                        <td>垃圾袋（30袋）</td>
+                                        <td align="center">3包</td>
+                                    </tr>
+                                    <tr>
+                                        <td>纸杯</td>
+                                        <td align="center">5包</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="buybox">
+                                <a href="<?=DOMAIN?>product/200268.html#生活消耗品套装_1套_标准版" class="buylink" title="点击购买" target="_blank">
+                                    <span class="buyicon"></span>
+                                    <div>
+                                        <span class="line">零售价97元</span>
+                                        <span class="price">套餐价<strong>89</strong>元</span>
+                                    </div></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="floor-item floor_bg" data-nav_idx="14" style="height: 753px;margin-top: -20px;">
+                    <div class="fcontain">
+                        <div class="ftitle pb30">
+                            <h2 class="title"><i class="hotsale"></i>物流套装</h2>
+                            <p>小型企业文管套装，多种文管物料搭配，满足综合管理、财务部门多种场景的使用。</p>
+                        </div>
+                        <div class="fimg">
+                            <a href="<?=DOMAIN?>product/200269.html#物流套装_1套_标准版" title="点击购买" target="_blank">
+                            <span class="save">7</span>
+                            <img src="<?=IMAGES?>stationary/a27_22.jpg" width="708px" height="506px" alt="物流套装" />
+                            </a>
+                        </div>
+                        <div class="productlist">
+                            <table class="protable"  border="0" cellspacing="2">
+                                <thead>
+                                    <tr align="center">
+                                        <th>办公用品</th>
+                                        <th>批量</th>
+                                    </tr>
+                                </thead>
+                                <tbody align="left" class="line66">
+                                    <tr>
+                                        <td>剪刀</td>
+                                        <td align="center">1把</td>
+                                    </tr>
+                                    <tr>
+                                        <td>中性笔0.5mm黑色</td>
+                                        <td align="center">1盒</td>
+                                    </tr>
+                                    <tr>
+                                        <td>美工刀</td>
+                                        <td align="center">1个</td>
+                                    </tr>
+                                    <tr>
+                                        <td>记号笔黑色</td>
+                                        <td align="center">1盒</td>
+                                    </tr>
+                                    <tr>
+                                        <td>记号笔蓝色</td>
+                                        <td align="center">1盒</td>
+                                    </tr>
+                                    <tr>
+                                        <td>胶带</td>
+                                        <td align="center">1筒</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="buybox">
+                                <a href="<?=DOMAIN?>product/200269.html#物流套装_1套_标准版" class="buylink" title="点击购买" target="_blank">
+                                    <span class="buyicon"></span>
+                                    <div>
+                                        <span class="line">零售价66元</span>
+                                        <span class="price">套餐价<strong>59</strong>元</span>
+                                    </div></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="floor-item floor_bg" data-nav_idx="15" style="height: 613px;margin-top: -20px;">
+                    <div class="fcontain">
+                        <div class="ftitle pb30">
+                            <h2 class="title"><i class="hotsale"></i>管理精英套装</h2>
+                            <p>管理精英套装，配备更加舒适办公用品，为管理人员提供更加舒适的办公体验。</p>
+                        </div>
+                        <div class="fimg">
+                            <a href="<?=DOMAIN?>product/200270.html#管理精英套装_1套_标准版" title="点击购买" target="_blank">
+                            <span class="save">40</span>
+                            <img src="<?=IMAGES?>stationary/a27_23.jpg" width="708px" height="370px" alt="管理精英套装" />
+                            </a>
+                        </div>
+                        <div class="productlist">
+                            <table class="protable"  border="0" cellspacing="2">
+                                <thead>
+                                    <tr align="center">
+                                        <th>办公用品</th>
+                                        <th>批量</th>
+                                    </tr>
+                                </thead>
+                                <tbody align="left" class="line32">
+                                    <tr>
+                                        <td>中性笔</td>
+                                        <td align="center">1盒</td>
+                                    </tr>
+                                    <tr>
+                                        <td>计算器</td>
+                                        <td align="center">1个</td>
+                                    </tr>
+                                     <tr>
+                                        <td>皮质本</td>
+                                        <td align="center">5本</td>
+                                    </tr>
+                                    <tr>
+                                        <td>订书机</td>
+                                        <td align="center">1个</td>
+                                    </tr>
+                                    <tr>
+                                        <td>订书针</td>
+                                        <td align="center">3盒</td>
+                                    </tr>
+                                   
+                                    <tr>
+                                        <td>档案盒</td>
+                                        <td align="center">9个</td>
+                                    </tr>
+                                    <tr>
+                                        <td>名片夹</td>
+                                        <td align="center">1个</td>
+                                    </tr>
+                                    <tr>
+                                        <td>资料册</td>
+                                        <td align="center">5个</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="buybox">
+                                <a href="<?=DOMAIN?>product/200270.html#管理精英套装_1套_标准版" class="buylink" title="点击购买" target="_blank">
+                                    <span class="buyicon"></span>
+                                    <div>
+                                        <span class="line">零售价299元</span>
+                                        <span class="price">套餐价<strong>259</strong>元</span>
+                                    </div></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 20px;">
+                    <img src="<?=IMAGES?>stationary/a27_24.png" width="100%" height="465px" alt="下单流程">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<ul id="template-floor_nav-view" class="floor-nav"></ul>
+<?php include(MODULES.'footer.xhtml');?>
+<?php include(TEMPLATES.'floor_nav.xhtml');?>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>stationery/index.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>location.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js?ininin=<?=VERSION?>"></script>
+<!--script type="text/javascript" src="<?=SCRIPTS?>jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>template-native.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>zh_cn.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tool.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>stationary/detail.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>libs/location.js"></script-->
+<?php include(MODULES.'linklogin.xhtml');?>
+</body>
+</html>

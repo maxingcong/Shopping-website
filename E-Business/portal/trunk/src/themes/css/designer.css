@@ -1,0 +1,331 @@
+@charset "utf-8";
+/* CSS Document */
+/*.file_btn { position: relative; min-width: 128px; height: 30px; margin: 0 0 0 10px; padding: 0; color: #fff; font-size: 14px; line-height: 30px; text-align: center; background: #ff2ea1; border-bottom: 2px solid #cc2581; display: inline-block; overflow: hidden; vertical-align: middle; border-radius: 3px;}
+.file_btn:hover { background: #ec008c; text-decoration: none;}*/
+.file_btn .upload_btn { text-align: center; line-height: 30px; margin: 0; background: transparent;}
+.file_btn .uploadify { text-align: left;}
+.uping .uploadify { position: absolute; top: 150%; left: 150%;}
+.uping .doing { position: absolute; top: 0; left: 0; height: 100%; width: 100%; cursor: default; }
+.designer .file_btn { width: 128px; vertical-align: top; overflow: hidden;}
+.designer .file_btns { padding: 0 0 10px; overflow: hidden;}
+.designer .file_btns .file_btn { margin: 0 10px 0 0; float: left;}
+/*设计器*/
+.designer {
+	width: 1200px;
+	margin: 0 auto;
+	padding: 10px 0 25px;
+	background: #fff;
+}
+.designer .dedit {
+	width: 600px;
+	padding: 0 10px 10px 10px;
+	text-align: left;
+	overflow: hidden;
+	border: 1px solid #ccd5df;
+	float: right;
+}
+.designer .dview {
+	padding: 0 0 10px;
+	min-height: 400px;
+	text-align: center;
+	overflow: hidden;
+}
+.designer .dfoot {
+	padding: 15px 0 0;
+	text-align: center;
+}
+.designer .dfoot .btn {
+	margin: 0 5px;
+}
+/*设计页*/
+
+.designer .dpage {
+	margin: 10px 10px 0;
+	vertical-align: bottom;
+	display: inline-block;
+	*display: inline;
+	*zoom:1;
+}
+.designer .hid {
+	display: none;
+}
+.designer .dcont {
+	/*padding: 3px;
+	border: 3px dotted #e7e7e7;*/
+	border: 5px solid #ccd4df;
+}
+.designer .dpage_focus .dcont {
+	border-color: #0487e2;
+}
+.designer .dname {
+	color: #666;
+	font-size: 16px;
+	line-height: 30px;
+}
+/*设计页内容区*/
+
+.designer .dcanvas {
+	position: relative;
+	overflow: hidden;
+	cursor: pointer;
+	line-height: 0;
+	font-size: 0;
+}
+.designer_load .dedit .dtexts, .designer_load .save {
+	display: none;
+}
+.designer .d-alt { text-align: center}
+/*输入区*/
+.designer .dtab {
+	font-size: 16px;
+	line-height: 32px;
+	padding: 0 30px;
+	background: #ccd4df;
+	cursor: pointer;
+	display: inline-block;
+	*display: inline;
+	*zoom:1;
+}
+.designer .dtab.sel {
+	color: #fff;
+	background: #0487e2;
+}
+.designer .dtab_content {
+	clear: both;
+	position: relative;
+	overflow-x: hidden;
+	overflow-y: auto;
+	display: none;
+}
+.designer .dtab_content.show {
+	display: block;
+}
+.designer .ditem {
+	margin: 10px 0 0;
+}
+.designer .ddel {
+	padding: 0 6px;
+	line-height: 30px;
+	float: right;
+}
+.designer .dtexts {
+	padding: 10px 0 0;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+.designer .dtext {
+	overflow: hidden;
+	display: block;
+}
+.designer .dfield {
+	width: 128px;
+	height: 28px;
+	line-height: 28px;
+	text-align: center;
+	border: 1px solid #ccd5df;
+	cursor: pointer;
+	float: left;
+}
+.designer .dinput {
+	padding:  5px 20px;
+	overflow: hidden;
+}
+.designer .dtext textarea {
+	position: relative;
+	width: 100%;
+	height: 20px;
+	margin: -5px -10px;
+	padding: 4px 9px;
+	font-size: 14px;
+	line-height: 20px;
+	border: 1px solid #ccd5df;
+	border-radius: 0;
+	outline: none;
+	resize: none;
+	overflow-y: visible;
+}
+.designer .dfocus textarea {
+	/*padding: 3px 8px;
+	border: 2px solid #ec008c;*/
+	border-color: #0487e2;
+	outline: none;
+}
+/*标签*/
+.designer .dtags {
+}
+.designer .dtag {
+	position: absolute;
+	padding: 0 3px;
+	cursor: pointer;
+}
+/*圆角预览*/
+
+.designer .circles {
+	position: absolute;
+	z-index: 10000;
+	width: 12px;
+	height: 12px;
+	background: url(../images/designer.png) 0 0 no-repeat;
+	display: none;
+}
+.designer .circle_lt {
+	left: -1px;
+	top: -1px;
+	background-position: 0 0;
+}
+.designer .circle_lb {
+	left: -1px;
+	bottom: -1px;
+	background-position: 0 -48px;
+}
+.designer .circle_rt {
+	right: -1px;
+	top: -1px;
+	background-position: -48px 0;
+}
+.designer .circle_rb {
+	right: -1px;
+	bottom: -1px;
+	background-position: -48px -48px;
+}
+/*标签项获得焦点*/
+.designer .dtags .sel {
+	margin: -1px;
+	border: 1px dotted #0487e2;
+}
+.designer .dtag_focus {
+	position: absolute;
+	top: 100%;
+	left: 100%;
+	margin: 0;
+	padding: 3px;
+	display: block;
+}
+.designer .dtag_focus .dtag {
+	position: static;
+	border: 1px dotted #0487e2;
+}
+.designer .dtag_focus .dot {
+	position: absolute;
+	width: 3px;
+	height: 3px;
+	background: #0487e2;
+	display: block;
+}
+.designer .dtag_focus .lt {
+	top: 0;
+	left: 0;
+}
+.designer .dtag_focus .lb {
+	bottom: 0;
+	left: 0;
+}
+.designer .dtag_focus .rt {
+	top: 0;
+	right: 0;
+}
+.designer .dtag_focus .rb {
+	bottom: 0;
+	right: 0;
+}
+/*工具条*/
+.designer .dtoolbar {
+	padding: 10px 0 0;
+}
+.designer .dtoolbar a {
+	min-width: 10px;
+	margin: 0 0 0 6px;
+	text-align: center;
+	display: inline-block;
+	vertical-align: middle;
+}
+.designer .dtoolbar .sel {
+	color: #fff;
+	background: #0487e2;
+}
+/*颜色选择器*/
+.drop_panel {
+	position: absolute;
+	z-index: 99;
+	background: #fff;
+}
+.color_picker {
+	width: 340px;
+	padding: 5px;
+	background: #fff;
+	border: 1px solid #0487e2;
+}
+.color_picker .colorbar {
+	padding: 2px 0 0;
+	text-align: right;
+	overflow: hidden;
+	float: right;
+}
+.color_picker .value {
+	width: 45px;
+	height: 28px;
+	margin-right: 8px;
+	display: inline-block;
+}
+.color_picker dd {
+	float: left;
+}
+.color_picker .cell {
+	margin: 8px 5px 0 0;
+}
+.color_picker .textbox {
+	width: 32px;
+	margin:0 3px;
+	padding: 0;
+	text-align: center;
+	border-radius: 0;
+}
+.color_picker .btn {
+	margin: 14px 7px 0 0;
+}
+.color_picker .colors {
+	width: 209px;
+	overflow: hidden;
+}
+.color_picker .color {
+	width: 15px;
+	height: 15px;
+	display: inline-block;
+	border: 2px solid #fff;
+	cursor: pointer;
+}
+.color_picker .color:hover, .color_picker .color.sel {
+	border-color: #0487e2;
+}
+/*Region*/
+.region {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 0;
+	height: 0;
+	border: 1px dotted #0487e2;
+	overflow: hidden;
+}
+/*check_fields*/
+.check_fields {
+	padding: 10px;
+	list-style: none;
+	border: 1px solid #ccd5df;
+}
+.check_fields li {
+	line-height: 20px;
+}
+.check_fields li:first-child {
+	border-bottom: 1px solid #ccd5df;
+}
+.check_fields label span {
+	vertical-align: middle;
+}
+.check_fields input {
+	margin: -1px 3px 0 0;
+	vertical-align: middle;
+}
+.check_fields .file_btn {
+	margin: 10px 0 0;
+}

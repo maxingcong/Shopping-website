@@ -1,0 +1,180 @@
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<ol class="breadcrumb">
+    <li><a href="<?=DOMAIN?>home/index.html"><i class="fa fa-home"></i>首页</a></li>
+    <li class="active">产品管理</li>
+</ol>
+<!-- Nav tabs -->
+<ul id="product-tabs" class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#" aria-controls="" role="tab" data-toggle="tab" data-audit_status="Pass">审核已通过</a></li>
+    <li role="presentation"><a href="#" aria-controls="" role="tab" data-toggle="tab" data-audit_status="Draft">审核中</a></li>
+    <li role="presentation"><a href="#" aria-controls="" role="tab" data-toggle="tab" data-audit_status="NotPass">审核未通过</a></li>
+</ul>
+<!-- Tab panes -->
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="">
+        <div class="product-view" style="margin-top: 0;">
+            <div id="product-list" class="product-list">
+                <!-- Start Filter -->
+                <div class="panel form-inline panel-filter">
+                    <div class="panel-collapse collapse in" role="tabpanel">
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <button id="batchChangeOrderStatus" type="button" class="btn btn-success dis">批量更改接单状态</button>
+                                <a href="<?=DOMAIN?>product/detail.html" class="btn btn-primary"><i class="fa fa-plus"></i> 申请新增可供应产品</a>
+                            </div>
+                            <div class="pull-right">
+                                <div class="form-group">
+                                    <label class="sr-only">产品名称</label>
+                                    <select class="form-control" name="orderStatus">
+                                        <option value="">接单状态</option>
+                                        <option value="normal">正在接单中</option>
+                                        <option value="suspend">已停止接单</option>
+                                    </select>
+                                </div>
+                                <!--div class="form-group">
+                                    <label class="sr-only" for="keywords">产品名称</label>
+                                    <div class="input-group">
+                                        <input id="keywords" type="text" class="form-control" placeholder="产品名称" />
+                                <span class="input-group-btn">
+                                    <button id="search" class="btn btn-primary" type="button">
+                                        <i class="fa fa-search"></i> 搜索
+                                    </button>
+                                </span>
+                                    </div>
+                                </div-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Filter -->
+                <section id="template-product_list-view" class="table-scroll load">
+                    <!--table class="table table-hover">
+                        <colgroup>
+                            <col style="width: 30px">
+                            <col style="width: 80px">
+                            <col>
+                            <col style="width: 10%">
+                            <col style="width: 20%">
+                            <col style="width: 12%">
+                            <col style="width: 10%">
+                            <col style="width: 100px">
+                        </colgroup>
+                        <thead>
+                        <tr>
+                            <th>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" name="checkbox_all"/><i class="fa fa-checkbox"></i></label>
+                                </div>
+                            </th>
+                            <th>序号</th>
+                            <th>产品名称</th>
+                            <th>产品分类</th>
+                            <th>配送方式</th>
+                            <th>审核状态</th>
+                            <th>接单状态</th>
+                            <th class="text-center">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">
+                                <div class="checkbox">
+                                    <label><input type="checkbox" name="checkbox"/><i class="fa fa-checkbox"></i></label>
+                                </div>
+                            </th>
+                            <td>1</td>
+                            <td>喷绘产品</td>
+                            <td>背胶类</td>
+                            <td>普通快递</td>
+                            <td>审核已通过</td>
+                            <td><button class="btn btn-primary btn-xs">接单中</button> </td>
+                            <td class="text-center">
+                                <a href="<?=DOMAIN?>product/detail.html">查看</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                <div class="checkbox">
+                                    <label><input type="checkbox" name="checkbox"/><i class="fa fa-checkbox"></i></label>
+                                </div>
+                            </th>
+                            <td>2</td>
+                            <td>画册产品</td>
+                            <td>大型喷绘类</td>
+                            <td>加急快递、专车配送、工厂取货</td>
+                            <td>审核已通过</td>
+                            <td><button class="btn btn-danger btn-xs">停止接单</button> </td>
+                            <td class="text-center">
+                                <a href="<?=DOMAIN?>product/detail.html">查看</a>
+                            </td>
+                        </tr><tr>
+                            <th scope="row">
+                                <div class="checkbox">
+                                    <label><input type="checkbox" name="checkbox"/><i class="fa fa-checkbox"></i></label>
+                                </div>
+                            </th>
+                            <td>3</td>
+                            <td>宣传单页产品</td>
+                            <td>A4单页</td>
+                            <td>加急快递、专车配送、工厂取货</td>
+                            <td>审核已通过</td>
+                            <td><button class="btn btn-primary btn-xs">接单中</button> </td>
+                            <td class="text-center">
+                                <a href="<?=DOMAIN?>product/detail.html">查看</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table-->
+                </section>
+                <div class="pagination clearfix">
+                    <div class="pull-left">
+                        <span>共 <b id="data-recordCount">0</b> 条，每页
+                        <select class="form-control" name="pageCount">
+                            <option value="10">10</option>
+                            <option value="20">20</option>
+                            <option value="30">30</option>
+                            <option value="40">40</option>
+                            <option value="50">50</option>
+                        </select> 条</span>
+                    </div>
+                    <div id="paginbar" class="pull-right paginbar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modal-batchChangeOrderStatus" tabindex="-1" role="dialog" aria-labelledby="batchChangeOrderStatusLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="batchChangeOrderStatusLabel">批量更改接单状态</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">接单状态<b class="light">*</b>：</label>
+                        <div class="col-md-9">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="orderStatus" value="normal" /><i class="fa fa-radio"></i>接单中
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="orderStatus" value="suspend" /><i class="fa fa-radio"></i>停止接单
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default md-btn" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary save md-btn">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+<?php include(TEMPLATES.'product/list.xhtml');?>
+<script type="text/javascript" src="<?=SCRIPTS?>product/list.js"></script>

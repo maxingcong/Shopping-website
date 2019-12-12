@@ -1,0 +1,299 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="常见问题-设计类" />
+    <meta name="description" content="" />
+    <meta name="author" content="${author}" />
+    <meta name="copyright" content="${copyright}" />
+    <title>常见问题-设计类</title>
+    <link rel="shortcut icon" type="image/x-icon"  href="<?=DOMAIN?>favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>faq.css" />
+	<?php include(MODULES.'dns_prefetch.xhtml');?>
+</head>
+<body>
+<?php include(MODULES.'header.xhtml');?>
+<div class="main faq">
+	<div class="layout clearfix">
+		<?php include(MODULES.'helpsidebar.xhtml');?>
+		<div class="container faqs">
+			<div class="upanel">
+				<h3 class="headline">设计需求问题</h3>
+				<dl class="faq_item">
+					<dt class="faq_tit"><span>1．什么是普通设计？</span></dt>
+					<dd class="faq_contain">
+						<div>普通设计是指设计师根据您提供的参考物进行设计。</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<dl class="faq_item">
+					<dt class="faq_tit"><span>2．什么原创设计？</span></dt>
+					<dd class="faq_contain">
+						<div>原创设计是指根据您提出的设计需求（或者您对设计想要呈现的效果），然后由云印设计师进行设计。所以请您准确描述您的具体需求，并填写需求表格，否则因表述不清造成的各种问题是需要由您自己承担的哦。</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<dl class="faq_item">
+					<dt class="faq_tit"><span>3．设计稿件能加急吗？</span></dt>
+					<dd class="faq_contain">
+						<div>云印提供加急设计服务，加急订单加收50%加急费，订单初稿时间比常规时间快50%，首次修改时间比常规时间快50%。</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<!--dl class="faq_item">
+					<dt class="faq_tit"><span>4．为什么普通设计需要您自己提供素材？</span></dt>
+					<dd class="faq_contain">
+						<div>因为普通设计是要根据您提供的参照物进行模仿的，参照物的图片、logo等素材如果您无法提供，我们无法找到一模一样的图片，这样会降低普通设计的还原效果。</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl-->
+				<dl class="faq_item">
+					<dt class="faq_tit"><span>4．为什么原创设计也需要您自己提供素材？</span></dt>
+					<dd class="faq_contain">
+						<div>您自己提供的素材一定是符合您的审美及设计需求的，这样设计出来的稿件更能符合您的心里预期。如您无法提供任何素材，设计师会根据自己的专业素养和理解来寻找素材，由于审美差异的问题可能会造成您对设计稿件的不满意，所以为了您的稿件能更让您满意，我们建议您能提供相关素材。</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<!--dl class="faq_item">
+					<dt class="faq_tit"><span>6．套餐上设计次数是什么意思？</span></dt>
+					<dd class="faq_contain">
+						<div>您购买套餐赠送的均为原创设计；根据购买的套餐内容，赠送的原创设计范围与次数也都不同；1次原创设计是指单个产品的单个版式设计，例如：您使用1次原创设计的名片，就只能设计一个版式的名片而不是多个。普通设计同样可以用赠送的原创设计来抵扣哦。</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl-->
+					<!--dl class="faq_item">
+					<dt class="faq_tit"><span>7．如何使用赠送设计服务</span></dt>
+					<dd class="faq_contain">
+					<div>使用赠送设计服务总体流程：</div>
+					<div class="str">选择赠送设计》选择设计服务产品》填写需求表单</div>
+					<div>1.登录账号后，进入个人中心-<a href="<?=DOMAIN?>member/designservice.html" target="_blank">赠送设计</a>页面，选择需要使用的赠送设计，点击"去设计"按钮。</div>
+					<img src="<?=IMAGES?>faq/faq39.jpg" alt="赠送设计" />
+					<div>2.选择需要设计的服务后，点击"立即使用"。</div>
+					<img src="<?=IMAGES?>faq/faq40.jpg" alt="赠送设计" />
+					<div>3.使用设计服务后，需要提交您的设计需求。</div>
+					<img src="<?=IMAGES?>faq/faq41.jpg" alt="赠送设计" />
+					<img src="<?=IMAGES?>faq/faq42.jpg" alt="赠送设计" />
+					<div>4.若您暂未提交需求，后续也可以在订单中心-<a href="<?=DOMAIN?>order/design.html" target="_blank">设计服务订单</a>页面中，点击"提交设计需求"。</div>
+					<img src="<?=IMAGES?>faq/faq43.jpg" alt="赠送设计" />
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl-->
+				
+				
+				
+				<dl class="faq_item">
+					<dt class="faq_tit"><span>5．提供什么样的素材能够有效使用？</span></dt>
+					<dd class="faq_contain">
+						<div>将您能找到的最清晰的素材发给设计客服后，会由设计师审核您的素材是否可以有效使用；如果审核发现您的素材清晰度不够，便无法有效使用，这将严重影响您的印刷出品质量。为了您的出品着想，建议您提供清晰有效的素材。</div>
+						<img src="<?=IMAGES?>faq/faq37.jpg" alt="提供什么样的素材能够有效使用" />
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<dl class="faq_item">
+					<dt class="faq_tit"><span>6．名片稿件只更换文字信息需要收费吗？</span></dt>
+					<dd class="faq_contain">
+						<div>如您只是想替换设计文件中的少量文字信息，而不针对图片、版式等进行调整，云印可提供免费修改服务。（仅限名片这一产品）</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<dl class="faq_item">
+					<dt class="faq_tit"><span>7.  自己提供设计文件需要什么样的格式？</span></dt>
+					<dd class="faq_contain">
+						<div>如您自己提供设计文件，请注意应与我司产品尺寸相符的标准设计文件，格式应为PDF、Cdr、AI；不能是单独一张JPG图片，必须是可编辑的设计文件。</div>
+						<img src="<?=IMAGES?>faq/faq38.jpg" alt="自己提供设计文件需要什么样的格式" />
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<!--dl class="faq_item">
+					<dt class="faq_tit"><span>11.套餐内赠送的设计服务使用范围。</span></dt>
+					<dd class="faq_contain">
+						<div>套餐内赠送的设计服务是不包含logo设计、画册设计服务的（logo设计包含仿制和原创两种）；如您在使用套餐内赠送的原创设计服务时还有关于logo方面的设计需求，则需另外付费，不便之处，敬请谅解。</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl-->
+				<dl class="faq_item">
+					<dt class="faq_tit"><span>8.LOGO设计收费是怎么回事？</span></dt>
+					<dd class="faq_contain">
+						<div>LOGO的设计包含仿制和原创，如果您能够提供AI、CDR等标准格式的文件，我们非常乐意帮您进行其它产品的设计，如您无法提供，那么不论是仿制LOGO，还是原创LOGO，都是需要按照我们的LOGO设计服务标准来收费的。</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<dl class="faq_item">
+					<dt class="faq_tit"><span>9.如果我的设计稿中出现多个LOGO如何收费？</span></dt>
+					<dd class="faq_contain">
+						<div>如您需要设计稿中出现多个LOGO，最好由您自己提供LOGO设计文件，如您不能提供，需要我们仿制的，则需按照仿制LOGO的标准价格来收费；如果是在网络上可以搜索下载的logo，我们将收取您10元/个的搜索下载费用，不便之处，敬请谅解。</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<dl class="faq_item">
+					<dt class="faq_tit"><span>10.如何购买设计服务？</span></dt>
+					<dd class="faq_contain">
+						<div>您可以登录网站<a href="<?=DOMAIN?>" target="_new">www.ininin.com</a>里的设计服务板块，可以直接购买相应的设计服务。</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<!--dl class="faq_item">
+					<dt class="faq_tit"><span>15.套餐赠送的设计服务有使用期限吗？</span></dt>
+					<dd class="faq_contain">
+						<div>套餐赠送的原创设计服务，限三个月内使用完，超过三个月云印的系统将全部清零，不便之处，敬请谅解。</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl-->
+				<dl class="faq_item">
+					<dt class="faq_tit"><span>11.如何提出设计需求呢？</span></dt>
+					<dd class="faq_contain">
+						<div>您可以通过填写设计需求表，来提出自己的设计需求，所有的设计需求都将经过设计客服的梳理与审核才能到达设计师的手上，如果您直接联系设计师，设计师还是要将您的需求交由设计客服审核，再由客服来安排设计。这样会扰乱云印设计服务的标准流程，也会延误您宝贵的时间。</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<dl class="faq_item">
+					<dt class="faq_tit"><span>12.为什么要填写设计信息需求表？</span></dt>
+					<dd class="faq_contain">
+						<div>只有将您自己的设计需求清晰准确的填写在设计需求表上，我们的设计客服才能更快的审核您的需求，我们的设计师才能更好更快的理解您的需求，大大减少整个设计周期，从而为您节省大量的时间，传统的口头描述或者语音沟通都较为耗时，一旦出现双方理解上的偏差就容易产生问题，填写好设计表格能够更好的为您提供设计服务。</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<dl class="faq_item">
+					<dt class="faq_tit"><span>13.关于二维码：</span></dt>
+					<dd class="faq_contain">
+						<div>如需印刷二维码，二维码需由您自己提供。</div>
+						<div>二维码图片尺寸须≥2cm×2cm，且分辨率≥300像素。</div>
+						<div>图片尺寸过小、过密或者分辨率不足都可能导致印刷后的二维码无法正常扫描。</div>
+						<div>如果因您自己提供的二维码本身问题导致印刷后无法正常扫描，云印不承担任何责任。</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<h3 class="headline">设计中</h3>
+				<dl class="faq_item">
+					<dt class="faq_tit"><span>14.设计出稿时间是怎样的？</span></dt>
+					<dd class="faq_contain">
+						<div>所有的设计出稿时间是从设计需求审核通过开始计算，名片与会员卡从确定设计需求到初稿完成时间完成为5个小时，单页、海报、折页类的设计初稿完成时间为1天，画册类为1天5P，logo为4天（不含下单当天），如果遇到设计单量较多，时间可能延后。</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<dl class="faq_item">
+					<dt class="faq_tit"><span>15.为什么不允许临时修改设计需求？</span></dt>
+					<dd class="faq_contain">
+						<div>如果已进入设计流程，您是不能修改设计需求的，因为所有的设计需求确定后才会敲定具体出稿时间，如您临时修改了需求，会导致您的需求将重新定义，这样会浪费您更多的时间，所以在确定需求之前，麻烦您慎重的考虑清楚，不便之处，敬请谅解。</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<dl class="faq_item">
+					<dt class="faq_tit"><span>16.为什么设计需求不明确会导致时间延长？</span></dt>
+					<dd class="faq_contain">
+						<div>设计稿中需要的信息您没有一次性提供到位，这样会浪费大量沟通成本，从而延误您的整个设计出稿时间，对您来说这是巨大的损失，所以请您一次性的明确的提供清楚设计需求。</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<dl class="faq_item">
+					<dt class="faq_tit"><span>17.关于设计稿件修改的时间。</span></dt>
+					<dd class="faq_contain">
+						<div>稿件修改是指设计师完成方案后，您对稿件提出的修改意见；因为修改属超出正常设计时间范围之内的，若需修改，则要重新安排时间，名片与会员卡首次修改时间为3小时/次，后续修改时间为5小时/次，除名片与会员卡以外的修改时间为5小时/次起，视难度而定。</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<h3 class="headline">对稿</h3>
+				<dl class="faq_item">
+					<dt class="faq_tit"><span>18.对稿时稿件为什么会有色差？</span></dt>
+					<dd class="faq_contain">
+						<div>因为您在电脑上看到的是RGB的颜色，而设计稿采用的是CMYK颜色，所以您在电脑上看到的和实际印刷出来的颜色是有差异的，且因为每台电脑的显示效果不同，同一张设计稿在不同电脑上显示出的颜色效果也会存在一定差异，现有的技术是无法保证100%的还原颜色的，在±10%之内的颜色误差都是正常的，如果您对颜色要求很高，可以将需求的CMYK的颜色色值发给我们，这样可以最大程度做到接近您要求的颜色，或者还可以选择追色或者专版印刷，这样色彩也会更加有保证。</div>
+						<img src="<?=IMAGES?>faq/faq35.jpg" alt="对稿时稿件为什么会有色差" />
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<dl class="faq_item">
+					<dt class="faq_tit"><span>19.关于修改次数。</span></dt>
+					<dd class="faq_contain">
+						<div>所有稿件的修改次数为2次，每次不得超过3处；</div>
+						<div>例如错误填写您提供的信息，类似这样的问题不计算在修改次数范围内；</div>
+						<div>修改的范围只包含字体、字号、字距、色彩、信息位置等微调；一旦涉及到版式或设计风格的调整，就等同于重新设计，不属于修改的范围内，不便之处，敬请谅解。</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<dl class="faq_item">
+					<dt class="faq_tit"><span>20.如果稿件超出修改次数怎么办?</span></dt>
+					<dd class="faq_contain">
+						<div>如果您的设计稿件超出了云印标准的修改次数，需要您支付每次10元的修改费用，并且是先支付后修改。因为设计稿件的审美因人而异，审美也是相对主观的一种感官，不便之处，敬请谅解。</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<dl class="faq_item">
+					<dt class="faq_tit"><span>21.如果对设计稿件不满意怎么办?</span></dt>
+					<dd class="faq_contain">
+						<div>我们的设计师会根据您的具体需求，提供相应的修改(所有的设计服务均只提供一套设计方案，允许修改2次，每次不得超过3处）确保您能满意。另外，我们建立了设计师等级管理机制，对设计师有着系统的管理，所有设计师的出品都经过严格审核。</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<dl class="faq_item">
+					<dt class="faq_tit"><span>22.如果设计不满意如何退款？</span></dt>
+					<dd class="faq_contain">
+						<div>如果您不满意我们的设计服务，可以申请退款；鉴于在整个设计服务中云印付出了相应的人力时间成本，所以需要收取整体费用的70%，不便之处，敬请谅解。</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<dl class="faq_item">
+					<dt class="faq_tit"><span>23.信息核对很重要？</span></dt>
+					<dd class="faq_contain">
+						<div>您提供的信息将原封不动的复制到设计文件中，云印没有权限对您提供的信息进行二次编辑，如您提供的信息本身有误，请您在对稿时及时告知我们，如因您自身检查不当造成的损失，云印无法承担任何责任，不便之处，敬请谅解。</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<dl class="faq_item">
+					<dt class="faq_tit"><span>24.为什么要跟您确认稿件才能下单？</span></dt>
+					<dd class="faq_contain">
+						<div>与您确认稿件，主要是为了核对图文信息是否有误，一旦您确认定稿，我们才有权限帮您下单印刷。成品做好后，如果因为对设计不满意，或者是图文信息有错的状况，云印有权不承担任何责任，因为在最终下单印刷前的稿件是跟您确认过的，所以您在对稿的时候要格外注意，如有不便，敬请谅解；但如果是因为印刷本身质量的问题，可视具体情况联系我们的印刷客服，申请重印或者办理退货。</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<dl class="faq_item">
+					<dt class="faq_tit"><span>25.有哪些内容涉及到版权问题？</span></dt>
+					<dd class="faq_contain">
+						<div>所有的设计稿都是按照您的需求进行设计的，所使用的素材也是由您提供的，包括您委托云印帮您找到的图文素材，所以最终的设计稿如果与第三方有版权纠纷都是需要您自己承担的，不便之处，敬请谅解。</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<dl class="faq_item">
+					<dt class="faq_tit"><span>26.设计对稿完成后是否可以修改？</span></dt>
+					<dd class="faq_contain">
+						<div>因为设计稿件您一旦确认后，云印将第一时间安排下单印刷，是无法再返回修改的，所以请您在对稿的环节中，就一次性确定清楚，一旦下单之后需要修改所带来的损失由您自己承担，不便之处，敬请谅解。</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<h3 class="headline">印刷与设计</h3>
+				<dl class="faq_item">
+					<dt class="faq_tit"><span>27.设计时间和印刷时间的区别？</span></dt>
+					<dd class="faq_contain">
+						<div>设计时间是指您的需求确认到出稿的时间；印刷时间指下单完成（下单完成指已经支付并且已经上传了设计文件）到成品出货的时间，这两者的时间是需要严格的区分。我们告诉您成品的货期是指印刷时间，是不包含设计时间的，不便之处，敬请谅解。</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+</div>
+<?php include(MODULES.'footer.xhtml');?>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>other/faq.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>location.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js?ininin=<?=VERSION?>"></script>
+<!--<script type="text/javascript" src="<?=SCRIPTS?>jquery-1.7.2.min.js"></script> -->
+<!--<script type="text/javascript" src="<?=SCRIPTS?>template-native.js"></script> -->
+<!--<script type="text/javascript" src="<?=SCRIPTS?>zh_cn.js"></script> -->
+<!--<script type="text/javascript" src="<?=SCRIPTS?>tool.js"></script> -->
+<!--<script type="text/javascript" src="<?=SCRIPTS?>other/faq.js"></script>-->
+<!--<script type="text/javascript" src="<?=SCRIPTS?>loaded.js"></script>-->
+<!--<script type="text/javascript" src="<?=SCRIPTS?>libs/location.js"></script>-->
+<?php include(MODULES.'linklogin.xhtml');?>
+</body>
+</html>

@@ -1,0 +1,333 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="云印，云印优品" />
+    <meta name="description" content="&quot;云印优品&quot;" />
+    <meta name="author" content="${author}" />
+    <meta name="copyright" content="${copyright}" />
+    <title>云印优品</title>
+    <link href="<?=DOMAIN?>favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>new.css" />
+	<?php include(MODULES.'dns_prefetch.xhtml');?>
+    <style type="text/css">body{background-color: #f5f5f5;}</style>
+</head>
+<body>
+<?php include(MODULES.'header.xhtml');?>
+<div id="slider_list_superior" class="full-banner"></div>
+<div class="main">
+    <div class="newall">
+    	<div class="slide">
+    		<h3 class="theme">&quot;新&quot;名片</h3>
+    		<div class="slide_body clearfix">
+    			<div class="vercard blue-bg fl">
+    				<i class="staquote"></i>
+    				<strong>小in说</strong>
+    				<p>新名片是云印尝试颠覆印刷行业价格体系的一款经典产品，您可以用更低的价格获得更高质量的名片，适用于各类商务社交、销售推广等，大大降低企业名片印制成本。</p>
+    				<i class="endquote"></i>
+    			</div>
+    			<div class="square ml10"><a href="<?=DOMAIN?>new/200475.html" title="&quot;新&quot;名片" target="_blank"><img src="<?=IMAGES?>new/new-101.jpg" /></a></div>
+    			<div class="square ml10"><a href="<?=DOMAIN?>new/200475.html" title="&quot;新&quot;名片" target="_blank"><img src="<?=IMAGES?>new/new-102.jpg" /></a></div>
+    			<div class="horcard ml10">
+    				<h3 class="title clearfix">
+    					<a href="<?=DOMAIN?>new/200475.html" title="&quot;新&quot;名片" target="_blank"><span class="name">&quot;新&quot;名片</span></a>
+    					<span class="price">低至3.8元/盒</span>
+    				</h3>
+    				<div class="cont">
+    					<p class="desc">300g铜版纸名片，覆哑膜工艺，是案头常备的优质名片之选</p>
+    				</div>
+    				<div class="foot clearfix">
+    					<a href="<?=DOMAIN?>new/200475.html" class="knowmore" title="了解详情" target="_blank">了解详情&gt;&gt;</a>
+    					<a href="<?=DOMAIN?>product/200475.html" class="submit yellow-btn fr" onclick="_czc.push(['_trackEvent', '&quot;新&quot;名片', '立即购买', '','','']);">立即购买</a>
+    				</div>
+    			</div>
+    			<div class="horcard ml10">
+    				<h3 class="title clearfix">
+    					<a href="<?=DOMAIN?>new/200022.html" title="&quot;新&quot;名片Pro" target="_blank"><span class="name">&quot;新&quot;名片Pro</span></a>
+    					<span class="price">低至6.8元/盒</span>
+    				</h3>
+    				<div class="cont">
+    					<p class="desc">布纹纸、荷兰白纸、刚古纸三种材质名片，各具特色的纹理，是彰显身份的质感名片之选</p>
+    				</div>
+    				<div class="foot clearfix">
+    					<a href="<?=DOMAIN?>new/200022.html" class="knowmore" title="了解详情" target="_blank">了解详情&gt;&gt;</a>
+    					<a href="<?=DOMAIN?>product/200022.html#布纹纸_2盒_90mm*54mm-直角" class="submit yellow-btn fr" onclick="_czc.push(['_trackEvent', '&quot;新&quot;名片Pro', '立即购买', '','','']);">立即购买</a>
+    				</div>
+    			</div>
+    			<div class="square ml10"><a href="<?=DOMAIN?>new/200022.html" title="&quot;新&quot;名片Pro" target="_blank"><img src="<?=IMAGES?>new/new3.jpg" /></a></div>
+    			<div class="square ml10"><a href="<?=DOMAIN?>new/200022.html" title="&quot;新&quot;名片Pro" target="_blank"><img src="<?=IMAGES?>new/new4.jpg" /></a></div>
+    		</div>
+    	</div>
+    	<!-- 单页 -->
+    	<div class="slide danye">
+    		<h3 class="theme">&quot;新&quot;单页</h3>
+    		<div class="slide_body clearfix">
+    			<div class="square"><a href="<?=DOMAIN?>new/200032.html" title="&quot;新&quot;单页" target="_blank"><img src="<?=IMAGES?>new/new5.jpg" /></a></div>
+    			<div class="square ml10"><a href="<?=DOMAIN?>new/200032.html" title="&quot;新&quot;单页" target="_blank"><img src="<?=IMAGES?>new/new6.jpg" /></a></div>
+    			<div class="horcard ml10">
+    				<h3 class="title clearfix">
+    					<a href="<?=DOMAIN?>new/200032.html" title="&quot;新&quot;单页" target="_blank"><span class="name">&quot;新&quot;单页</span></a>
+    					<span class="price">99元/500张起</span>
+    				</h3>
+    				<div class="cont">
+    					<p class="desc">157g铜版纸宣传单页，高品质环保油墨，色彩鲜艳，色调细腻，是低成本的推广神器</p>
+    				</div>
+    				<div class="foot clearfix">
+    					<a href="<?=DOMAIN?>new/200032.html" class="knowmore" title="了解详情" target="_blank">了解详情&gt;&gt;</a>
+    					<a href="<?=DOMAIN?>product/200032.html#157g铜版纸_500_A5(140mm*210mm）" class="submit yellow-btn fr" onclick="_czc.push(['_trackEvent', '&quot;新&quot;单页', '立即购买', '','','']);">立即购买</a>
+    				</div>
+    			</div>
+    			<div class="vercard ml10 fr">
+    				<i class="staquote"></i>
+    				<strong>小in说</strong>
+    				<p>宣传单是企业宣传推广、产品介绍必不可少的宣传物料，云印新单页，全国包邮，大大降低您的宣传成本。</p>
+    				<i class="endquote"></i>
+    			</div>
+    			<div class="square"><a href="<?=DOMAIN?>new/200033.html" title="&quot;新&quot;单页Pro" target="_blank"><img src="<?=IMAGES?>new/new7.jpg" /></a></div>
+    			<div class="square ml10"><a href="<?=DOMAIN?>new/200033.html" title="&quot;新&quot;单页Pro" target="_blank"><img src="<?=IMAGES?>new/new8.jpg" /></a></div>
+    			<div class="horcard ml10">
+    				<h3 class="title clearfix">
+    					<a href="<?=DOMAIN?>new/200033.html" title="&quot;新&quot;单页Pro" target="_blank"><span class="name">&quot;新&quot;单页Pro</span></a>
+    					<span class="price">199元/500张起</span>
+    				</h3>
+    				<div class="cont">
+    					<p class="desc">名片同等质量的300g铜版纸宣传单页，双面覆哑膜，顶级UV油墨，是客户舍不得丢弃的收藏级宣传页</p>
+    				</div>
+    				<div class="foot clearfix">
+    					<a href="<?=DOMAIN?>new/200033.html" class="knowmore" title="了解详情" target="_blank">了解详情&gt;&gt;</a>
+    					<a href="<?=DOMAIN?>product/200033.html#157g铜版纸_500_A5(140mm*210mm）" class="submit yellow-btn fr" onclick="_czc.push(['_trackEvent', '&quot;新&quot;单页Pro', '立即购买', '','','']);">立即购买</a>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    	<!-- 展架 -->
+    	<div class="slide zhanjia">
+    		<h3 class="theme">&quot;新&quot;展架</h3>
+    		<div class="slide_body clearfix">
+    			<div class="vercard fl">
+    				<i class="staquote"></i>
+    				<strong>小in说</strong>
+    				<p>展架是企业宣传的排头兵，无论是会展宣传还是门店产品展示，展架都能提供良好的用户体验。云印新展架，全国包邮，为您提供最具质量的性价比的展示设备。</p>
+    				<i class="endquote"></i>
+    			</div>
+    			<div class="square ml10"><a href="<?=DOMAIN?>new/200030.html" title="&quot;新&quot;展架" target="_blank"><img src="<?=IMAGES?>new/new9.jpg" /></a></div>
+    			<div class="square ml10"><a href="<?=DOMAIN?>new/200030.html" title="&quot;新&quot;展架" target="_blank"><img src="<?=IMAGES?>new/new10.jpg" /></a></div>
+    			<div class="horcard ml10">
+    				<h3 class="title clearfix">
+    					<a href="<?=DOMAIN?>new/200030.html" title="&quot;新&quot;展架" target="_blank"><span class="name">&quot;新&quot;展架</span></a>
+    					<span class="price">68元/个起</span>
+    				</h3>
+    				<div class="cont">
+    					<p class="desc">全新工艺铁质X型展架，1.8m高品质画幅，独特旋转螺丝设计，让你随意调节角度，拆装更方便，携带更轻松</p>
+    				</div>
+    				<div class="foot clearfix">
+    					<a href="<?=DOMAIN?>new/200030.html" class="knowmore" title="了解详情" target="_blank">了解详情&gt;&gt;</a>
+    					<a href="<?=DOMAIN?>product/200030.html#PVC材质_1套_80cm*180cm-展架+画幅" class="submit yellow-btn fr" onclick="_czc.push(['_trackEvent', '&quot;新&quot;展架', '立即购买', '','','']);">立即购买</a>
+    				</div>
+    			</div>
+    			<div class="horcard ml10">
+    				<h3 class="title clearfix">
+    					<a href="<?=DOMAIN?>new/200031.html" title="&quot;新&quot;展架Pro" target="_blank"><span class="name">&quot;新&quot;展架Pro</span></a>
+    					<span class="price">98元/个起</span>
+    				</h3>
+    				<div class="cont">
+    					<p class="desc">全新工艺铁质门型展架，1.8m高品质画幅，精选1mm厚优质铁管,配以白色烤漆工艺，更加稳定，更小空间</p>
+    				</div>
+    				<div class="foot clearfix">
+    					<a href="<?=DOMAIN?>new/200031.html" class="knowmore" title="了解详情" target="_blank">了解详情&gt;&gt;</a>
+    					<a href="<?=DOMAIN?>product/200031.html#PVC材质_1套_80cm*180cm-展架+画幅" class="submit yellow-btn fr" onclick="_czc.push(['_trackEvent', '&quot;新&quot;展架Pro', '立即购买', '','','']);">立即购买</a>
+    				</div>
+    			</div>
+    			<div class="square ml10"><a href="<?=DOMAIN?>new/200031.html" title="&quot;新&quot;展架Pro" target="_blank"><img src="<?=IMAGES?>new/new11.jpg" /></a></div>
+    			<div class="square ml10"><a href="<?=DOMAIN?>new/200031.html" title="&quot;新&quot;展架Pro" target="_blank"><img src="<?=IMAGES?>new/new12.jpg" /></a></div>
+    		</div>
+    	</div>
+    	<!-- 折页 -->
+    	<div class="slide zheye">
+    		<h3 class="theme">&quot;新&quot;折页</h3>
+    		<div class="slide_body clearfix">
+    			<div class="horcard_lg"><a href="<?=DOMAIN?>new/200054.html" title="&quot;新&quot;折页" target="_blank"><img src="<?=IMAGES?>new/new13.jpg" /></a></div>
+    			<div class="horcard dif ml10">
+    				<i class="staquote"></i>
+    				<strong>小in说</strong>
+    				<p>折页是企业宣传推广、产品介绍中可以承载更多的信息，云印新折页，提供标准化的折页解决方案，降低企业宣传成本。</p>
+    				<i class="endquote"></i>
+    			</div>
+    			<div class="square"><a href="<?=DOMAIN?>new/200054.html" title="&quot;新&quot;折页" target="_blank"><img src="<?=IMAGES?>new/new14.jpg" /></a></div>
+    			<div class="square ml10"><a href="<?=DOMAIN?>new/200054.html" title="&quot;新&quot;折页" target="_blank"><img src="<?=IMAGES?>new/new15.jpg" /></a></div>
+    			<div class="square ml10"><a href="<?=DOMAIN?>new/200054.html" title="&quot;新&quot;折页" target="_blank"><img src="<?=IMAGES?>new/new16.jpg" /></a></div>
+    			<div class="horcard ml10">
+    				<h3 class="title clearfix">
+    					<a href="<?=DOMAIN?>new/200054.html" title="&quot;新&quot;折页" target="_blank"><span class="name">&quot;新&quot;折页</span></a>
+    					<span class="price">149元/500张起</span>
+    				</h3>
+    				<div class="cont">
+    					<p class="desc">二折页、三折页、四折页，折页方式有讲究，云印提供全面设计指引，为您制作让客户主动带走的宣传折页</p>
+    				</div>
+    				<div class="foot clearfix">
+    					<a href="<?=DOMAIN?>new/200054.html" class="knowmore" title="了解详情" target="_blank">了解详情&gt;&gt;</a>
+    					<a href="<?=DOMAIN?>product/200054.html#157g铜版纸不覆膜_500_210mm*95mm-三折页_荷包折" class="submit yellow-btn fr" onclick="_czc.push(['_trackEvent', '&quot;新&quot;折页', '立即购买', '','','']);">立即购买</a>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    	<!-- 不干胶 -->
+    	<div class="slide buganjiao">
+    		<h3 class="theme">&quot;新&quot;不干胶</h3>
+    		<div class="slide_body clearfix">
+    			<div class="vercard fl">
+    				<i class="staquote"></i>
+    				<strong>小in说</strong>
+    				<p>不干胶因其小巧易于粘贴的特点，广泛用于产品标贴、活动宣传贴、指示贴、办公用品区分贴、错误修正贴等，是企业推广宣传、会展布置、物流包装不可或缺的宣传物料，云印新不干胶，更低印量，满足各类企业小批量的个性需求。</p>
+    				<i class="endquote"></i>
+    			</div>
+    			<div class="square ml10"><a href="<?=DOMAIN?>new/200053.html" title="&quot;新&quot;不干胶" target="_blank"><img src="<?=IMAGES?>new/new17.jpg" /></a></div>
+    			<div class="square ml10"><a href="<?=DOMAIN?>new/200053.html" title="&quot;新&quot;不干胶" target="_blank"><img src="<?=IMAGES?>new/new18.jpg" /></a></div>
+    			<div class="horcard ml10">
+    				<h3 class="title clearfix">
+    					<a href="<?=DOMAIN?>new/200053.html" title="&quot;新&quot;不干胶" target="_blank"><span class="name">&quot;新&quot;不干胶</span></a>
+    					<span class="price">69元/500张起</span>
+    				</h3>
+    				<div class="cont">
+    					<p class="desc">80g铜版纸材质不干胶贴纸，可灵活运用于销售、办公、活动、会议等各种场合，提升宣传效果</p>
+    				</div>
+    				<div class="foot clearfix">
+    					<a href="<?=DOMAIN?>new/200053.html" class="knowmore" title="了解详情" target="_blank">了解详情&gt;&gt;</a>
+    					<a href="<?=DOMAIN?>product/200053.html" class="submit yellow-btn fr" onclick="_czc.push(['_trackEvent', '&quot;新&quot;不干胶', '立即购买', '','','']);">立即购买</a>
+    				</div>
+    			</div>
+    			<div class="square ml10"><a href="<?=DOMAIN?>new/200053.html" title="&quot;新&quot;不干胶Pro" target="_blank"><img src="<?=IMAGES?>new/new19.jpg" /></a></div>
+    			<div class="square ml10"><a href="<?=DOMAIN?>new/200053.html" title="&quot;新&quot;不干胶Pro" target="_blank"><img src="<?=IMAGES?>new/new20.jpg" /></a></div>
+    			<div class="horcard ml10">
+    				<h3 class="title clearfix">
+    					<a href="<?=DOMAIN?>new/200053.html" title="&quot;新&quot;不干胶" target="_blank"><span class="name">&quot;新&quot;不干胶&nbsp;个性版</span></a>
+    					<span class="price">25元/2张起</span>
+    				</h3>
+    				<div class="cont">
+    					<p class="desc">A4大小，80g铜版纸材质不干胶贴纸，任意形状，随心排布，可灵活运用于销售、办公、活动、会议等各种场合</p>
+    				</div>
+    				<div class="foot clearfix">
+    					<a href="<?=DOMAIN?>new/200053.html" class="knowmore" title="了解详情" target="_blank">了解详情&gt;&gt;</a>
+    					<a href="<?=DOMAIN?>product/200059.html" class="submit yellow-btn fr" onclick="_czc.push(['_trackEvent', '&quot;新&quot;不干胶&nbsp;个性版', '立即购买', '','','']);">立即购买</a>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+
+    	<!-- 新画册 -->
+    	<div class="slide huace">
+    		<h3 class="theme">&quot;新&quot;画册</h3>
+    		<div class="slide_body clearfix">
+    			<div class="horcard_lg"><a href="<?=DOMAIN?>new/200476.html" title="&quot;新&quot;画册" target="_blank"><img src="<?=IMAGES?>new/new21.jpg" /></a></div>
+    			<div class="horcard dif ml10">
+    				<i class="staquote"></i>
+    				<strong>小in说</strong>
+    				<p>画册作为承载信息量巨大的宣传资料，被广泛用于企业产品册、纪念册、促销刊物、培训手册等，然而画册纸张搭配最为繁琐，云印凭借行业经验及电商大数据分析，为您精选四种黄金搭配打造云印新画册，满足各类企业画册宣传需要。</p>
+    				<i class="endquote"></i>
+    			</div>
+    			<div class="square"><a href="<?=DOMAIN?>new/200476.html" title="&quot;新&quot;画册" target="_blank"><img src="<?=IMAGES?>new/new-103.jpg" /></a></div>
+    			<div class="square ml10"><a href="<?=DOMAIN?>new/200476.html" title="&quot;新&quot;画册" target="_blank"><img src="<?=IMAGES?>new/new-104.jpg" /></a></div>
+    			<div class="square ml10"><a href="<?=DOMAIN?>new/200476.html" title="&quot;新&quot;画册" target="_blank"><img src="<?=IMAGES?>new/new-105.jpg" /></a></div>
+    			<div class="horcard ml10">
+    				<h3 class="title clearfix">
+    					<a href="<?=DOMAIN?>new/200476.html" title="&quot;新&quot;画册" target="_blank"><span class="name">&quot;新&quot;画册</span></a>
+    					<span class="price">1.3元/本起</span>
+    				</h3>
+    				<div class="cont">
+    					<p class="desc">画册纸张搭配最为繁琐，云印凭借行业经验以及电商大数据分析，为您精选四种黄金搭配，您只需专注内容，印刷的事，云印包了。</p>
+    				</div>
+    				<div class="foot clearfix">
+    					<a href="<?=DOMAIN?>new/200476.html" class="knowmore" title="了解详情" target="_blank">了解详情&gt;&gt;</a>
+    					<a href="<?=DOMAIN?>new/200476.html" class="submit yellow-btn fr" onclick="_czc.push(['_trackEvent', '&quot;新&quot;画册', '立即购买', '','','']);">立即购买</a>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+
+    	<!-- 手提袋 -->
+    	<div class="slide shoutidai">
+    		<h3 class="theme">&quot;新&quot;手提袋</h3>
+    		<div class="slide_body clearfix">
+    			<div class="horcard blue-bg">
+    				<i class="staquote"></i>
+    				<strong>小in说</strong>
+    				<p>手提袋因为方便携带且展示在外的特点，被各类企业用作宣传物料，让每个客户随身携带时都成为自己的流动广告，营销效果好，成本低。云印新手提袋，更低印量，更低价格，帮助各类企业解决宣传需求。</p>
+    				<i class="endquote"></i>
+    			</div>
+    			<div class="horcard_lg ml10"><a href="<?=DOMAIN?>new/200069.html" title="&quot;新&quot;手提袋" target="_blank"><img src="<?=IMAGES?>new/new25.jpg" /></a></div>
+    			<div class="horcard">
+    				<h3 class="title clearfix">
+    					<a href="<?=DOMAIN?>new/200069.html" title="&quot;新&quot;手提袋" target="_blank"><span class="name">&quot;新&quot;手提袋</span></a>
+    					<span class="price">1.73元/个起</span>
+    				</h3>
+    				<div class="cont">
+    					<p class="desc">250g白卡纸手提袋，可个性印制品牌信息，适用于展会、销售、培训等多种场合，让每个人都成为您的流动广告</p>
+    				</div>
+    				<div class="foot clearfix">
+    					<a href="<?=DOMAIN?>new/200069.html" class="knowmore" title="了解详情" target="_blank">了解详情&gt;&gt;</a>
+    					<a href="<?=DOMAIN?>product/200069.html#250g白卡纸_10000_高340mm*宽260mm*侧边80mm-覆光膜_白色" class="submit yellow-btn fr" onclick="_czc.push(['_trackEvent', '&quot;新&quot;手提袋', '立即购买', '','','']);">立即购买</a>
+    				</div>
+    			</div>
+    			<div class="square ml10"><a href="<?=DOMAIN?>new/200069.html" title="&quot;新&quot;手提袋" target="_blank"><img src="<?=IMAGES?>new/new26.jpg" /></a></div>
+    			<div class="square ml10"><a href="<?=DOMAIN?>new/200069.html" title="&quot;新&quot;手提袋" target="_blank"><img src="<?=IMAGES?>new/new27.jpg" /></a></div>
+    			<div class="square ml10"><a href="<?=DOMAIN?>new/200069.html" title="&quot;新&quot;手提袋" target="_blank"><img src="<?=IMAGES?>new/new28.jpg" /></a></div>
+    		</div>
+    	</div>
+
+    	<!-- 优惠券 -->
+    	<div class="slide youhuiq">
+    		<h3 class="theme">&quot;新&quot;优惠券</h3>
+    		<div class="slide_body clearfix">
+    			<div class="horcard_lg"><a href="<?=DOMAIN?>new/200070.html" title="&quot;新&quot;优惠券" target="_blank"><img src="<?=IMAGES?>new/new29.jpg" /></a></div>
+    			<div class="horcard dif ml10">
+    				<i class="staquote"></i>
+    				<strong>小in说</strong>
+    				<p>优惠券的玩法多种多样，代金券可以帮助门店增加回头率，入场券可以增加客户参与的仪式感并且方便管理，抽奖券总是各类活动嗨翻全场的秘密武器，云印新优惠券，更低印量，更低价格，帮助各类企业满足活动宣传需求</p>
+    				<i class="endquote"></i>
+    			</div>
+    			<div class="square"><a href="<?=DOMAIN?>new/200070.html" title="&quot;新&quot;优惠券" target="_blank"><img src="<?=IMAGES?>new/new30.jpg" /></a></div>
+    			<div class="square ml10"><a href="<?=DOMAIN?>new/200070.html" title="&quot;新&quot;优惠券" target="_blank"><img src="<?=IMAGES?>new/new31.jpg" /></a></div>
+    			<div class="square ml10"><a href="<?=DOMAIN?>new/200070.html" title="&quot;新&quot;优惠券" target="_blank"><img src="<?=IMAGES?>new/new32.jpg" /></a></div>
+    			<div class="horcard ml10">
+    				<h3 class="title clearfix">
+    					<a href="<?=DOMAIN?>new/200070.html" title="&quot;新&quot;优惠券" target="_blank"><span class="name">&quot;新&quot;优惠券</span></a>
+    					<span class="price">30元/100张起</span>
+    				</h3>
+    				<div class="cont">
+    					<p class="desc">300g铜版纸材质，可做代金券、促销券、门票、入场券、抽奖券等，适用于各类销售提升、活动参与等场景。</p>
+    				</div>
+    				<div class="foot clearfix">
+    					<a href="<?=DOMAIN?>new/200070.html" class="knowmore" title="了解详情" target="_blank">了解详情&gt;&gt;</a>
+    					<a href="<?=DOMAIN?>product/200070.html#300g铜版纸不覆膜_100_180mm*54mm-不打流水号_不打针孔" class="submit yellow-btn fr" onclick="_czc.push(['_trackEvent', '&quot;新&quot;优惠券', '立即购买', '','','']);">立即购买</a>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+</div>
+<?php include(MODULES.'footer.xhtml');?>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+
+<script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+<!--script type="text/javascript" src="<?=SCRIPTS?>new/index.js?ininin=<?=VERSION?>"></script-->
+<script type="text/javascript" src="<?=SCRIPTS?>location.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js?ininin=<?=VERSION?>"></script>
+<!--<script type="text/javascript" src="<?=SCRIPTS?>jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>template-native.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>zh_cn.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tool.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>other/new.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js"></script>-->
+<?php include(MODULES.'linklogin.xhtml');?>
+</body>
+</html>

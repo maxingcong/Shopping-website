@@ -1,0 +1,172 @@
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<div class="panel-list page-home">
+    <!--<ul class="row">
+        <li class="col-md-8">-->
+            <ul class="row header-btns">
+                <li class="col-sm-4">
+                    <a href="<?=DOMAIN?>order/order.html?type=2" class="btn btn-primary">
+                        <h2 id="data-noProduceCount">0</h2>
+                        <h4>今日待生产订单</h4>
+                    </a>
+                </li>
+                <li class="col-sm-4">
+                    <a href="<?=DOMAIN?>order/order.html?type=120" class="btn btn-success">
+                        <h2 id="data-noShipCount">0</h2>
+                        <h4>今日应发货订单</h4>
+                    </a>
+                </li>
+                <li class="col-sm-4">
+                    <a href="<?=DOMAIN?>order/order.html?type=121" class="btn btn-danger">
+                        <h2 id="data-shipExpired">0</h2>
+                        <h4>发货逾期订单</h4>
+                    </a>
+                </li>
+            </ul>
+        <!--</li>
+        <ul class="col-md-4">
+            <div class="info-box">
+                <p>当前为您服务的生产拓展经理为：张三丰，如有问题，请您及时联系生产拓展经理，如有其它问题，请拨打投诉电话</p>
+                <dl class="dl-horizontal">
+                    <dt>姓名：</dt>
+                    <dd>张三丰</dd>
+                    <dt>邮箱：</dt>
+                    <dd>szzhangsanfeng@ininin.com</dd>
+                    <dt>电话：</dt>
+                    <dd>18611114202</dd>
+                    <dt>投诉电话：</dt>
+                    <dd>400-680-9111</dd>
+                </dl>
+            </div>
+        </ul>
+
+    </ul>-->
+    <ul class="row mt15">
+        <li class="col-md-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <button type="button" id="cash_btn" class="btn btn-primary dis">申请提现</button>
+                    <a href="<?=DOMAIN?>cash/cash_account.html" class="btn btn-link pull-right">查看交易流水</a>
+                </div>
+                <div class="panel-body" style="padding: 0;">
+                    <ul class="row">
+                        <li class="col-sm-6 text-center left-item">
+                            <h4 class="vt-md">
+                                现金账户：<a id="data-totalAmount" href="<?=DOMAIN?>cash/cash_account.html">0.00</a>元
+                            </h4>
+                        </li>
+                        <li class="col-sm-6 text-center">
+                            <h4 class="vt-md">
+                                待入账金额：<a id="data-waitAmount" href="<?=DOMAIN?>cash/cash_account.html">0.00</a>元
+                            </h4>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+        <li class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading clearfix">
+                    <div>
+                        <a href="<?=DOMAIN?>order/order.html" class="btn btn-link pull-right">查看订单管理</a>
+                    </div>
+                </div>
+                <div class="panel-body" style="padding: 0;">
+                    <ul class="row" style="margin: 0;">
+                        <li class="col-sm-6 text-center left-item li-item">
+                            <h4><a href="<?=DOMAIN?>total/data_stat.html" id="data-monthMoneyCount"></a>元</h4>
+                            <h4>本月接单总金额</h4>
+                        </li>
+                        <li class="col-sm-6 text-center li-item">
+                            <h4><a href="<?=DOMAIN?>total/data_stat.html" id="data-monthOrderCount"></a></h4>
+                            <h4>本月共接单</h4>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <ul class="toolbar">
+        <li><div class="contact-mobile"><p>稿件相关：</p><p>13699756047</p></div><a href="javascript:;">稿件相关</a></li>
+        <li><div class="contact-mobile"><p>业务相关：</p><p id="business_mobile">暂无</p></div><a href="javascript:;">业务相关</a></li>
+    </ul>
+</div>
+<div class="modal fade cash-modal" id="applyForCash" tabindex="-1" role="dialog" aria-labelledby="applyForCashLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="applyForCashLabel">申请提现</h4>
+            </div>
+            <div class="modal-body">
+                <div id="template-apply_for_cash-view"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary save md-btn">确认申请</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script id="template-apply_for_cash" type="text/template">
+    <form class="form-inline">
+        <table class="table-form">
+            <colgroup>
+                <col style="width: 150px">
+                <col>
+            </colgroup>
+            <tbody>
+            <tr>
+                <td>现金账户：</td>
+                <td>{{RMB(totalAmount)}} 元 {{if freezeAmount>0}}（{{RMB(freezeAmount)}} 元由于未收到发票暂时被锁定）{{/if}}</td>
+            </tr>
+            <tr>
+                <td>可提现金额：</td>
+                <td>{{RMB(cashAmount)}} 元</td>
+            </tr>
+            <tr>
+                <td>申请提现金额<b class="light">*</b>：</td>
+                <td><input type="text" class="form-control" id="cashAmount" placeholder="请填写金额" /> 元</td>
+            </tr>
+            <!--{{if issueInvoice==0}}
+            <tr>
+                <td>实际结算金额：</td>
+                <td><span id="discountAmount"></span>元（由于您无法及时提供发票，云印需帮您代缴一定的税点）</td>
+            </tr>
+            {{else}}-->
+            {{if invoiceAmount>0}}
+            <tr>
+                <td>待开发票额度：</td>
+                <td>{{RMB(invoiceAmount)}} 元</td>
+            </tr>
+            <tr>
+                <td>本次寄送发票额度：</td>
+                <td><input type="text" class="form-control" id="invoiceAmount" placeholder="请填写金额" /> 元</td>
+            </tr>
+            <tr>
+                <td>发票寄送信息：</td>
+                <td>
+                    <select id="deliverySelect" class="form-control"></select>
+                    <input type="text" class="form-control hide" id="deliveryInput" placeholder="请填写物流公司" />
+                    <input type="text" class="form-control" id="sendInfo" placeholder="请填写快递单号" />
+                </td>
+            </tr>
+            {{/if}}
+            <!--{{/if}}-->
+            </tbody></table>
+    </form>
+    {{if invoiceAmount>0}}
+    <div class="info-box">
+        <!--{{if issueInvoice==0}}
+        如有疑问，请咨询云印财务电话：0755-86700810
+        {{else}}-->
+        <p><b>注意：</b></p>
+        <p><b>请开具相关的增值税发票，相关信息如下：</b></p>
+        <p><span style="padding-right: 28px;">名</span>称：深圳市云印电子商务有限公司</p>
+        <p>发票内容：XXXXXX</p>
+        <p>纳税人识别号：9144030035982214XQ</p>
+        <p>地 址、电 话：深圳市前海深港合作区前湾一路1号A栋201室 0755-86700810</p>
+        <p>开户行及账号：招商银行源兴支行 755928935310801</p>
+        <!--{{/if}}-->
+    </div>
+    {{/if}}
+</script>
+<script type="text/javascript" src="<?=SCRIPTS?>/home/index.js"></script>

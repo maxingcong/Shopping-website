@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="${keywords}" />
+    <meta name="description" content="${description}" />
+    <meta name="author" content="ininin.com" />
+    <meta name="copyright" content="Copyright © 2015 ininin.com. All rights reserved." />
+    <title>${title}</title>
+    <link href="<?=DOMAIN?>favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css?ininin=<?=VERSION?>" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>layout.css?ininin=<?=VERSION?>" />
+	<?php include(MODULES.'dns_prefetch.xhtml');?>
+</head>
+<body>
+<?php include(MODULES.'header.xhtml');?>
+<div id="main" class="main plist">
+    <div id="sitemap" class="sitemap clearfix">
+        <a href="<?=DOMAIN?>">首页</a><b>&gt;</b><h1><a href="<?=DOMAIN?>all.html">全部商品分类</a></h1>
+    </div>
+    <div class="layout">
+        <ul id="template-all_category-view" class="all_list"></ul>
+    </div>
+</div>
+<?php include(MODULES.'footer.xhtml');?>
+<script id="template-all_category" type="text/template">
+    {{each categoryList as category i}}
+    <li class="floor-item" data-nav_idx="{{if category.categoryType!='design'}}{{category.categoryId}}{{else}}design{{/if}}">
+        <h3>{{category.categoryName}}</h3>
+        {{each category.categorys as item j}}
+        <dl class="clearfix">
+            <dt>
+                {{if category.categoryType!='design'}}
+                <a href="<?=DOMAIN?>search.html#keyword={{item.categoryName}}&type=8" title="{{item.categoryName}}" target="_blank">{{item.categoryName}}<em class="yellow">{{item.sellPriceDescription?'（'+item.sellPriceDescription+'）':''}}</em></a>
+                {{else}}
+                {{item.categoryName}}<em class="yellow">{{item.sellPriceDescription?'（'+item.sellPriceDescription+'）':''}}</em>
+                {{/if}}
+            </dt>
+            <dd>
+                {{each item.products as o k}}
+                {{if o.productId && o.targetId>0 && o.productId!=o.targetId}}
+                <a class="icon{{o.listShowIcon}}" href="<?=DOMAIN?>product/{{o.targetId}}.html?pid={{o.productId}}" title="{{o.productName}}" target="_blank">{{o.productName}}</a>&nbsp;
+                {{else if o.productId}}
+                <a class="icon{{o.listShowIcon}}" href="<?=DOMAIN?>product/{{o.productId}}.html" title="{{o.productName}}" target="_blank">{{o.productName}}</a>&nbsp;
+                {{/if}}
+                {{/each}}
+                {{each item.categorys as o k}}
+                {{if o.categoryId}}
+                {{if category.categoryType=='design'}}
+                <a href="<?=DOMAIN_DESIGN?>category/{{o.categoryId}}.html" title="{{o.categoryName}}" target="_blank">{{o.categoryName}}</a>&nbsp;
+                {{else}}
+                <a href="<?=DOMAIN?>search.html#keyword={{o.categoryName}}&type=9" title="{{o.categoryName}}" target="_blank">{{o.categoryName}}</a>&nbsp;
+                {{/if}}
+                {{/if}}
+                {{/each}}
+            </dd>
+        </dl>
+        {{/each}}
+    </li>
+    {{/each}}
+    <li id="template-all_package-view" class="floor-item" data-nav_idx="package"></li>
+</script>
+<script id="template-all_package" type="text/template">
+    <!--<h3>账户充值</h3>
+    <dl class="clearfix">
+        <dt>账户充值</dt>
+        <dd>
+            {{each rechargeList as o k}}
+            <a href="<?=DOMAIN?>package/index.html#pid={{o.id}}" title="{{o.rechargeName}}" target="_blank">{{o.rechargeName}}</a>&nbsp;
+            {{/each}}
+        </dd>
+    </dl>-->
+</script>
+<?php include(TEMPLATES.'floor_nav.xhtml');?>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools_tpl.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>portal/all_tpl.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>location_tpl.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded_tpl.js?ininin=<?=VERSION?>"></script>
+<!--<script type="text/javascript" src="<?=SCRIPTS?>jquery-1.7.2.min.js?ininin=<?=VERSION?>"></script>-->
+<!--<script type="text/javascript" src="<?=SCRIPTS?>template-native.js?ininin=<?=VERSION?>"></script>-->
+<!--<script type="text/javascript" src="<?=SCRIPTS?>zh_cn.js?ininin=<?=VERSION?>"></script>-->
+<!--<script type="text/javascript" src="<?=SCRIPTS?>tool_tpl.js?ininin=<?=VERSION?>"></script>-->
+<!--<script type="text/javascript" src="<?=SCRIPTS?>portal/all_tpl.js?ininin=<?=VERSION?>"></script>-->
+<!--<script type="text/javascript" src="<?=SCRIPTS?>loaded_tpl.js?ininin=<?=VERSION?>"></script>-->
+<!--<script type="text/javascript" src="<?=SCRIPTS?>libs/location_tpl.js?ininin=<?=VERSION?>"></script>-->
+<script type="script_weibo"></script>
+<script type="script_linklogin"></script>
+<script type="script_cnzz"></script>
+</body>
+</html>

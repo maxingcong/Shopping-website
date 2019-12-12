@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="我的设计文件" />
+    <meta name="description" content="" />
+    <meta name="author" content="${author}" />
+    <meta name="copyright" content="${copyright}" />
+    <title>我的设计文件</title>
+    <link rel="shortcut icon" type="image/x-icon" href="<?=DOMAIN?>favicon.ico"  />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>jquery.datetimepicker.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>layout.css" />
+    <?php include(MODULES.'dns_prefetch.xhtml');?>
+</head>
+<body>
+<?php include(MODULES.'header.xhtml');?>
+<div class="main ucenter">
+    <div class="layout clearfix">
+        <?php include(MODULES.'usersidebar.xhtml');?>
+        <div class="container">
+            <div class="upanel">
+                <h3 class="headline">我的云盘</h3>
+                <div class="files">
+                    <ul class="nav-sub clearfix">
+                        <li><a href="<?=DOMAIN?>yunfile/index.html">我的资料</a></li>
+                        <li class="active"><a href="javascript:;">我的设计文件</a></li>
+                        <li><a href="<?=DOMAIN?>yunfile/myprint.html">我的印刷PDF</a></li>
+                    </ul>
+                    <div id="yfilter" class="yfilter clearfix">
+                        <div class="form-group">
+                            <label>订单编号</label>
+                            <div class="text-wrapper">
+                                <input id="orderCode" class="textbox placeholder" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="ml10">定稿时间</label>
+                            <input id="startTime" class="textbox text_center" readonly type="text">
+                            <span> 到 </span>
+                            <input id="endTime" class="textbox text_center" readonly type="text">
+                        </div>
+                        <a class="submit" href="javascript:;">筛选</a>
+                    </div>
+                    <div id="template_file_list_view"></div>
+                    <div id="paginbar" class="paginbar hide"></div>
+                </div>
+            </div>
+        </div>
+        <p class="hrline"></p>
+    </div>
+</div>
+<?php include(MODULES.'footer.xhtml');?>
+<?php include(TEMPLATES.'previewer.xhtml');?>
+<script id="template_file_list" type="text/template">
+    <table class="table_view" cellpadding="0" cellspacing="0">
+        <colgroup>
+            <col width="20%"/>
+            <col width="16%"/>
+            <col width="20%"/>
+            <col width="20%"/>
+            <!--<col width="16%"/>-->
+            <col/>
+        </colgroup>
+        <thead>
+        <tr>
+            <th class="col1"><div>订单号</div></th>
+            <th class="col2"><div>预览</div></th>
+            <th class="col2"><div><span id="orderByTime" class="order-by-default <% if(orderByFlag==1){ %>order-by-up<% } %><% if(orderByFlag==2){ %>order-by-down<% } %>">定稿时间</span></div></th>
+            <th class="col4"><div>关联印刷订单记录</div></th>
+            <!--<th class="col5"><div>关联产品类型</div></th>-->
+            <th class="col6"><div>操作</div></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% for(var k=0; temp = user_design_file_list[k]; k++){ %>
+        <tr>
+            <td class="col1"><div title="<%=temp.order_code%>"><a class="ellipsis fname" href="<?=DOMAIN?>member/odetail.html?o=<%=temp.order_code%>" target="_blank"><%=temp.order_code%></a></div></td>
+            <td class="col2">
+                <div>
+                    <% var filetype1=/.+\.pdf$/i.test(temp.pdf_path);%>
+                    <% var filetype2=/.+\.zip$/i.test(temp.pdf_path);%>
+                    <% var filetype3=/.+\.7z$/i.test(temp.pdf_path);%>
+                    <% var filetype4=/.+\.rar$/i.test(temp.pdf_path);%>
+                    <% if(filetype1&&temp.pdf_preview_path){ %>
+                        <a href="javascript:;" data-urls="<%=temp.pdf_preview_path%>" class="previewer">
+                            <img class="preview-img" src="<%=temp.pdf_preview_path.split(',')[0]%>?imageMogr2/thumbnail/!124x70r/auto-orient/gravity/Center/crop/124x70" alt="PDF缩略图" />
+                        </a>
+                    <% } else if(filetype1) { %>
+                        <img class="preview-img" src="<?=IMAGES?>replaceimg/PDF.jpg" alt="PDF" />
+                    <% } else if(filetype2) { %>
+                        <img class="preview-img" src="<?=IMAGES?>replaceimg/ZIP.jpg" alt="ZIP" />
+                    <% } else if(filetype3) { %>
+                        <img class="preview-img" src="<?=IMAGES?>replaceimg/7Z.jpg" alt="7Z" />
+                    <% } else if(filetype4) { %>
+                        <img class="preview-img" src="<?=IMAGES?>replaceimg/RAR.jpg" alt="RAR" />
+                    <% } else { %>
+                        <img class="preview-img" src="<?=IMAGES?>replaceimg/DEF.jpg" alt="DEF" />
+                    <% } %>
+                </div>
+            </td>
+            <td class="col3"><div><%=temp.record_time%></div></td>
+            <td class="col4"><div><a class="look" data-file_id="<%=temp.file_id%>" href="javascript:;">查看</a></div></td>
+            <!--<td class="col5">
+                <% if(temp.product_list){ %>
+                <% for(var j=0; order = temp.product_list[j]; j++){ %>
+                <% if(order.order_type == 0){ %>
+                <div title="<%=order.product_name%>"><div class="ellipsis"><a href="<?=DOMAIN?>product/<%=order.product_id%>.html" target="_blank"><%=order.product_name%></a></div>
+                <% } %>
+                <% } %>
+                <% } %>
+            </td>-->
+            <td class="col6">
+                <% if(temp.pdf_path || temp.source_file_path){ %>
+                <div>
+                    <a class="download" href="javascript:;" data-pdf_path="<%=temp.pdf_path%>" data-source_file_path="<%=temp.source_file_path%>">下载</a>
+                    <!--<span>|</span>
+                    <a class="change" href="javascript:;" data-file_name="<%=temp.file_name%>" data-file_id="<%=temp.fileId%>">修改稿件</a>-->
+                </div>
+                <% } %>
+            </td>
+        </tr>
+        <% } %>
+        <% if(!user_design_file_list||!user_design_file_list.length){ %>
+        <tr>
+            <td class="col1" colspan="5">
+                <div class="empty"><dl class="vertical_middle"><dt class="vm_left"></dt><dd class="vm_right">暂无数据</dd></dl></div>
+            </td>
+        </tr>
+        <% } %>
+        </tbody>
+    </table>
+</script>
+<script id="template_order_list" type="text/template">
+    <div class="title"><span class="text">历史订单数量：<b class="red"><%=order_count%></b></span><!--<span class="text">商品总数量：<b class="red"><%=quantity_total%></b></span>--></div>
+    <table class="table_view" cellpadding="0" cellspacing="0">
+        <colgroup>
+            <col width="12%"/>
+            <col width="20%"/>
+            <col width="35%"/>
+            <!--<col width="10%"/>-->
+            <col width="15%"/>
+            <col/>
+        </colgroup>
+        <thead>
+        <tr>
+            <th class="col1"><div>订单编号</div></th>
+            <th class="col2"><div>商品名称</div></th>
+            <th class="col3"><div>商品信息</div></th>
+            <!--<th class="col4"><div>数量</div></th>-->
+            <th class="col5"><div>下单时间</div></th>
+            <th class="col6"><div>操作</div></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% for(var k=0; temp = order_list[k]; k++){ %>
+        <tr>
+            <td class="col1"><div><a href="<?=DOMAIN?>member/odetail.html?o=<%=temp.order_code%>"><%=temp.order_code%></a></div></td>
+            <td class="col2"><div><div class="ellipsis"><a href="<?=DOMAIN?>product/<%=temp.product_id%>.html#<%=temp.product_att%>" target="_blank" title="<%=temp.product_name%>"><%=temp.product_name%></a></div></div></td>
+            <td class="col3"><div><div class="ellipsis"><%=temp.product_att%></div></div></td>
+            <!--<td class="col4"><div><%=temp.quantity%></div></td>-->
+            <td class="col5"><div><%=temp.order_time%></div></td>
+            <td class="col6">
+                <div><a data-order_product_id="<%=temp.order_code+'_'+temp.product_id%>" class="reorder" href="javascript:;">再次下单</a></div>
+            </td>
+        </tr>
+        <% } %>
+        <% if(!order_list||!order_list.length){ %>
+        <tr>
+            <td class="col1" colspan="5">
+                <div class="empty"><dl class="vertical_middle"><dt class="vm_left"></dt><dd class="vm_right">暂无数据</dd></dl></div>
+            </td>
+        </tr>
+        <% } %>
+        </tbody>
+    </table>
+    <div id="paginbar_order_list" class="paginbar hide"></div>
+</script>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>yunfile/mydesign.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>location.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js?ininin=<?=VERSION?>"></script>
+<?php include(MODULES.'linklogin.xhtml');?>
+</body>
+</html>

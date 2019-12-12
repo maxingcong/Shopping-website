@@ -1,0 +1,44 @@
+<script id="template-product_detail" type="text/template">
+    <table class="table-form">
+        <colgroup>
+            <col style="width: 120px"/>
+            <col/>
+        </colgroup>
+        <tr>
+            <th>
+                <label class="control-label">产品分类<b class="light">*</b>：</label>
+            </th>
+            <td>
+                {{if showMode==2}}
+                <select id="selectProductCategory" class="form-control" name="productCategory">
+                    <option value="">请选择产品分类</option>
+                </select>
+                {{else}}
+                {{supplierProduct.categoryName}}
+                {{/if}}
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <label class="control-label">具体产品<b class="light">*</b>：</label>
+            </th>
+            <td>
+                {{if showMode==2}}
+                <select id="selectProduct" class="form-control" name="product">
+                    <option value="">请选择具体产品</option>
+                </select>
+                {{else}}
+                {{supplierProduct.productName}}
+                {{/if}}
+            </td>
+        </tr>
+        <tr id="product_attrs">
+            <th>
+                <label class="control-label">产品属性：</label>
+            </th>
+            <td>
+                <div id="template-product_params-view" class="product_options clearfix"></div>
+            </td>
+        </tr>
+    </table>
+</script>

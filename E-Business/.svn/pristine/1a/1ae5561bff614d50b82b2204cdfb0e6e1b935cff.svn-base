@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="${keywords}" />
+    <meta name="description" content="${description}" />
+    <meta name="author" content="ininin.com">
+    <meta name="copyright" content="Copyright © 2015 ininin.com. All rights reserved.">
+    <title>${title}</title>
+    <link href="<?=DOMAIN?>favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css?ininin=<?=VERSION?>" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES_DESIGN?>layout.css?ininin=<?=VERSION?>" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES_DESIGN?>product.css?ininin=<?=VERSION?>" />
+    <?php include(MODULES.'dns_prefetch.xhtml');?>
+</head>
+<body>
+<?php include(MODULES_DESIGN.'header.xhtml');?>
+<div class="main">
+    <div id="wrapper" class="layout clearfix">
+        <div id="template-product_list-view"></div>
+        <div id="template-product_options-view" class="p-options clearfix"></div>
+        <div id="template-product_desc-view" class="p-detail"></div>
+    </div>
+</div>
+<?php include(MODULES_DESIGN.'footer.xhtml');?>
+<?php include(TEMPLATES_DESIGN.'product_list.xhtml');?>
+<?php include(TEMPLATES_DESIGN.'product_options.xhtml');?>
+<script id="product_options" type="text/template">
+    <h2 class="p-name red">{{designProductName}}</h2>
+    <p class="p-desc yellow">{{simpleDesc}}</p>
+    <div id="template-product_params-view"></div>
+    {{if generalState>0 && agentScale && agentScale.serviceValue>0}}
+    <dl class="attr p-expedited clearfix">
+        <dt class="atr">是否加急：</dt>
+        <dd class="vals clearfix" data-name="是否加急">
+            <a class="val sel" href="javascript:;" data-imguri="{{paramImages[val]}}" data-value="普通服务">普通服务</a>&nbsp;
+            <a class="val" href="javascript:;" data-imguri="{{paramImages[val]}}" data-value="加急服务">加急服务</a>&nbsp;
+            <span class="alt red">选择加急服务初稿快50%，需加收{{agentScale.serviceValue}}{{agentScale.serviceBasis==1?'%':'元'}}加急费</span>
+        </dd>
+    </dl>
+    {{/if}}
+    {{if showCounter==1}}
+    <dl class="attr clearfix">
+        <dt class="atr">数量：</dt>
+        <dd class="vals d-counter clearfix">
+                <span class="counter">
+                    <a>-</a><input class="textbox" type="text" name="counter" value="1"/><b>+</b>
+                </span>
+        </dd>
+    </dl>
+    {{/if}}
+    <dl class="attr p-price clearfix">
+        <dt class="atr">价格：</dt>
+        <dd class="vals">
+            <b id="data-price" class="red sell-price">{{#DOING}}</b>元{{if designProductId!=141}}，市场价<b id="data-costPrice" class="red cost-price">{{#DOING}}</b>元{{/if}}
+        </dd>
+    </dl>
+    {{if preferntialInfo && preferntialInfo.length>0}}
+    <dl class="attr privilege-list clearfix">
+        <dt class="atr">优惠信息：</dt>
+        <dd class="vals clearfix">
+            {{each preferntialInfo as item k}}
+            {{if item.preferentialTitle!=="" && item.preferentialDescription!==""}}
+            <div class="pri-item">
+                <span class="pri-icon">{{item.preferentialTitle}}</span><span class="pri-text red">{{item.preferentialDescription}}</span>
+                {{if item.preferentialLink}}
+                <a class="pri-link" href="{{item.preferentialLink}}" target="_blank">详情&gt;&gt;</a>
+                {{/if}}
+            </div>
+            {{/if}}
+            {{/each}}
+        </dd>
+    </dl>
+    {{/if}}
+    {{if pIcons && pIcons.count>0}}
+    <dl class="p-merit clearfix">
+        {{if pIcons[1]}}
+        <dd class="p-time">6*12小时客服在线服务</dd>
+        {{/if}}
+        {{if pIcons[3]}}
+        <dd class="p-service">1对1专业设计顾问全程跟进</dd>
+        {{/if}}
+        {{if pIcons[2]}}
+        <dd class="p-cloud">云端存储文件，永不丢失</dd>
+        {{/if}}
+        {{if pIcons[4]}}
+        <dd class="p-right">100%原创设计</dd>
+        {{/if}}
+    </dl>
+    {{/if}}
+    <div class="p-btm">
+        <a class="btn btn-primary p-next" href="javascript:;">下一步</a>
+    </div>
+</script>
+<script id="template-product_params" type="text/template">
+    <div class="attrs">
+        {{each namesOrder as name i}}
+        {{if attrs[name].length>showType}}
+        <dl class="attr clearfix">
+            <dt class="atr">{{name}}：</dt>
+            <dd class="vals clearfix" data-name="{{name}}">
+                {{each attrs[name] as val k}}
+                {{if name=='P数' && k==(attrs[name].length-1)}}
+                <span class="counter">
+                    <a>-</a><input class="textbox" type="text" name="qty" value="{{qtyValue>=minQtyValue?qtyValue/qtyFlagValue:1}}" data-name="{{name}}"><b>+</b>
+                </span><span class="unit">{{qtyUnit}}</span>
+                {{else}}
+                <a class="val {{(attr[name]==val && !paramLinks[val]) ? 'sel' : ''}}" href="{{paramLinks[val]||'javascript:;'}}" {{if paramLinks[val]}}target="_blank"{{/if}} data-imguri="{{paramImages[val]}}" data-value="{{val}}">{{val}}</a>&nbsp;
+                {{/if}}
+                {{/each}}
+                {{if i==0 && designProductId==18}}
+                <!--<span class="alt red">购买199元100次<a href="<?=DOMAIN_DESIGN?>category/124.html" target="_blank">名片修改套餐</a>，价格更优惠！</span>-->
+                {{/if}}
+            </dd>
+        </dl>
+        {{/if}}
+        {{/each}}
+    </div>
+</script>
+<?php include(TEMPLATES_DESIGN.'product_desc.xhtml');?>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools_tpl.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS_DESIGN?>category/detail_tpl.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS_DESIGN?>category/detail_com_tpl.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>location_tpl.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded_tpl.js?ininin=<?=VERSION?>"></script>
+<script type="script_weibo"></script>
+<script type="script_linklogin"></script>
+<script type="script_cnzz"></script>
+</body>
+</html>

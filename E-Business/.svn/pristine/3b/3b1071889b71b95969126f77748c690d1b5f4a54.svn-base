@@ -1,0 +1,223 @@
+@charset "utf-8";
+/*safety*/
+.safe-circle {
+    float: left;
+    width: 200px;
+    margin-top: 60px;
+}
+.safe-circle .desc-circle {
+    width: 100%;
+    height: 120px;
+    line-height: 120px;
+    font-size: 30px;
+    margin-bottom: 12px;
+    background: url("../images/circle.png?v=1") center 150px no-repeat;
+}
+.safe-circle.level1 .desc-circle{
+    background-position: center 0;
+}
+.safe-circle.level2 .desc-circle{
+    background-position: center -149px;
+}
+.safe-circle.level3 .desc-circle{
+    background-position: center -300px;
+}
+.safe-circle.level4 .desc-circle{
+    background-position: center -451px;
+}
+.safe-circle.level5 .desc-circle{
+    background-position: center -600px;
+}
+.safe-circle .text {
+    color: #666;
+    font-size: 16px;
+}
+.safe-circle.level1 .text span, .safe-circle.level1 .desc-circle {
+    color: #ff0000;
+}
+.safe-circle.level2 .text span, .safe-circle.level2 .desc-circle {
+    color: #ff7800;
+}
+.safe-circle.level3 .text span, .safe-circle.level3 .desc-circle {
+    color: #ffcc00;
+}
+.safe-circle.level5 .text span, .safe-circle.level4 .text span, .safe-circle.level5 .desc-circle, .safe-circle.level4 .desc-circle {
+    color: #7bbf12;
+}
+.safe-list {
+    float: right;
+    width: 680px;;
+}
+.safe-list h3, .safe-circle .text {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 32px;
+    color: #666;
+}
+.safe-list p, .safe-circle .info {
+    line-height: 18px;
+    color: #999;
+}
+.safe-list li {
+    padding-left: 50px;
+    margin: 14px 0 18px 0;
+    background: url("../images/status.png?v=1") no-repeat;
+}
+.safe-list li a {
+    text-decoration: none;
+}
+.safe-list .line {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 1px;
+    background: #ccd5df;
+}
+.safe-list .safe-item {
+    background-position: 0 18px;
+}
+.safe-list .danger-item {
+    background-position: 0 -39px;
+}
+/*steps*/
+.btn-gray {
+    width: 128px;
+    height: 34px;
+    line-height: 34px;
+    background: #ebebeb;
+    color: #666;
+}
+.btn-gray:hover {
+    background: #dbdbdb;
+    color: #666;
+}
+.steps-wrap {
+    color: #666;
+}
+.steps-wrap a {
+    text-decoration: none;
+}
+.steps-wrap .headline {
+    color: #666;
+}
+.steps-wrap .send-tips, .steps-wrap .text-tips {
+    padding-left: 330px;
+}
+.steps-wrap .form_item .btn-default {
+    width: 120px;
+}
+.steps-wrap .short-input {
+    width: 136px;
+}
+.steps-wrap .submit {
+    width: 126px;
+    height: 34px;
+    line-height: 34px;
+}
+.steps-wrap .form_item {
+    padding: 10px 0 10px 290px;
+}
+.steps-wrap .form_item .field {
+    margin-right: 5px;
+}
+.steps-wrap .register .form_item .msg {
+    padding-left: 84px;
+}
+.steps-wrap .register .form_item .readonly {
+    font-size: 20px;
+    text-indent: 5px;
+    line-height: 30px;
+}
+.steps-wrap .radios .radio {
+    margin-right: 20px;
+}
+.steps-wrap .success-info {
+    margin-top: 4px;
+}
+.steps-wrap .success-info .text {
+    font-size: 24px;
+    line-height: 36px;
+}
+.steps-wrap .success-info .info {
+    color: #999;
+    line-height: 18px;
+}
+.steps-wrap .success-info .list {
+    margin-top: 15px;
+}
+.steps-wrap .success-info .list a {
+    padding: 0 10px;
+}
+.steps-title {
+    display: inline-block;
+    *display:inline;
+    *zoom:1;
+    font-size: 0;
+    background: url("../images/line2.png?v=1") 0 13px repeat-x;
+    margin: 20px 0 40px;
+}
+.steps-title li {
+    display: inline-block;
+    *display:inline;
+    *zoom:1;
+    font-size: 12px;
+}
+.steps-title .circle {
+    width: 125px;
+    height: 30px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    line-height: 30px;
+    color: #fff;
+    background: url("../images/step_bg.png?v=1") center -110px no-repeat;
+}
+.steps-title li.active .circle {
+    background-position: 0 0;
+}
+.steps-title li.active .first{
+    background-position: right -36px;
+    margin-left: -8px;
+}
+.steps-title li.active .last {
+    background-position: left -73px;
+    margin-right: -8px;
+}
+.steps-btm {
+    margin-top: 40px;
+}
+
+/*找回密码*/
+.forget-pwd {
+    margin-top: 20px;
+}
+.forget-pwd .upanel {
+    margin: 0;
+    padding: 34px;
+    min-height: 532px;
+}
+.forget-pwd .upanel .headline {
+    padding-bottom: 10px;
+}
+.forget-pwd .steps-wrap .form_item {
+    padding-left: 400px;
+}
+.forget-pwd .safe-list {
+    float: none;
+    width: 500px;
+    margin: 40px auto 0;
+}
+.forget-pwd .safe-list li a.fr {
+    margin-top: 16px;
+}
+.forget-pwd .safe-list .mobile-item {
+    background-position: 0 -102px;
+}
+.forget-pwd .safe-list .email-item {
+    background-position: 0 -164px;
+}
+.forget-pwd .safe-list .tips-item {
+    background-position: 0 -225px;
+}
+.forget-pwd .steps-wrap .send-tips {
+    padding-left: 440px;
+}

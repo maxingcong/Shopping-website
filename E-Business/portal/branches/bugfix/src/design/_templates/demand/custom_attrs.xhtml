@@ -1,0 +1,36 @@
+<script id="demand_custom_attrs" type="text/template">
+    {{if custom.namesOrder.length}}
+    <div class="d-attrs clearfix">
+        <h3 class="d-caption">{{if required}}<b class="red">*</b>{{/if}}选择您所处的行业以及整体设计风格</h3>
+        {{each custom.namesOrder as name i}}
+        {{if custom.values[name].length>0}}
+        <dl class="attr clearfix">
+            <dt class="atr">{{name}}：</dt>
+            <dd class="vals" data-name="{{name}}">
+                {{each custom.values[name] as value k}}
+                {{if /^其他/.test(value)}}
+                    <a class="val {{(disAttr[name] || disKeys[value]) ? 'not-allowed' : ''}} {{attrStyles[value]}} {{attr[name].indexOf(value)>-1 ? 'sel' : ''}}" href="javascript:;" data-value="{{value}}">其他
+                        {{if attr[name].indexOf(value)>-1 && (dv = attr[name].replace(/其他:/g,''))}}
+                            <span class="inputbox d-custom done">
+                            <input class="textbox" type="text" name="{{name}}" data-value="{{dv}}" value="{{dv}}" placeholder="请填写{{name}}" />
+                            </span>
+                        {{else}}
+                            <span class="inputbox d-custom">
+                            <input class="textbox" type="text" name="{{name}}" data-value="" value="" placeholder="请填写{{name}}" />
+                            </span>
+                        {{/if}}
+                    </a>
+                {{else}}
+                    <a class="val {{(disAttr[name] || disKeys[value]) ? 'not-allowed' : ''}} {{attrStyles[value]}} {{attr[name]==value ? 'sel' : ''}}" href="javascript:;" data-value="{{value}}">{{value}}</a>
+                {{/if}}
+                {{/each}}
+            </dd>
+        </dl>
+        {{/if}}
+        {{/each}}
+        {{if customTemplateName}}
+            {{include customTemplateName}}
+        {{/if}}
+    </div>
+    {{/if}}
+</script>

@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="我的购物车" />
+    <meta name="description" content="" />
+    <meta name="author" content="${author}" />
+    <meta name="copyright" content="${copyright}" />
+    <title>我的购物车</title>
+    <link rel="shortcut icon" type="image/x-icon"  href="<?=DOMAIN?>favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>layout.css" />
+    <?php include(MODULES.'dns_prefetch.xhtml');?>
+</head>
+<body>
+<?php include(MODULES.'header.xhtml');?>
+<div id="order_step" class="order-step" style="display: none"><img id="step_img" src="<?=IMAGES?>step/1_1.png" alt="" /></div>
+<div class="main mycart">
+    <div id="template_cart_list_view" class="layout"></div>
+</div>
+<?php include(MODULES.'footer.xhtml');?>
+<script id="template_cart_list" type="text/template">
+    <% if(cartList&&cartList.length){ %>
+        <h3 class="headline_order">我的购物车</h3>
+        <form id="mycart" class="forms">
+            <h3 class="headline"><a class="lnk" href="<?=DOMAIN?>">继续购物>></a><span>商品信息</span></h3>
+            <div id="mycart" class="list orders prints checkboxs">
+                <ol>
+                    <li class="col1">
+                        <div>
+                            <a href="javascript:;" class="checkbox"><input type="checkbox" name="chkall" />全选</a>
+                        </div>
+                    </li>
+                    <li class="col2">
+                        <div>商品信息</div>
+                    </li>
+                    <li class="col3">
+                        <div>数量</div>
+                    </li>
+                    <li class="col6">
+                        <div>重量（kg）</div>
+                    </li>
+                    <li class="col7">
+                        <div>预计出货日期<a class="up_help" href="<?=DOMAIN?>faq/distribution.html#1" title="货期说明" target="_blank"></a></div>
+                    </li>
+                    <li class="col4">
+                        <div>金额（元）</div>
+                    </li>
+                    <li class="col5">
+                        <div>操作</div>
+                    </li>
+                </ol>
+                <p class="line"></p>
+                <div>
+                    <% for(var k=0; temp = cartList[k]; k++){ %>
+                    <ul cid="<%=temp.categoryId%>" pid="<%=temp.productId%>">
+                        <li class="col1">
+                            <div>
+                                <a href="javascript:;" class="checkbox<%=temp.status?' sel':''%>"><input type="checkbox" name="chk" value="<%=temp.cartId%>"<%=temp.status?' checked="checked"':''%> /></a>
+                            </div>
+                        </li>
+                        <li class="col2">
+                            <div>
+                                <a href="<?=DOMAIN?>product/<%=temp.targetId||temp.productId%>.html#<%=temp.productAttr%>" target="_blank" title="<%=temp.productName%>">
+                                    <b class="img">
+                                        <img src="<%=temp.productImg%>?imageMogr2/thumbnail/!112x64r/auto-orient/gravity/Center/crop/112x64" alt="<%=temp.productName%>" />
+                                    </b><span class="info"><span class="name ellipsis">
+                                    	<%=temp.productName%>
+                                    </span><span class="attr ellipsis" title="<%=temp.productAttr%>">
+                                    	<%=temp.productAttr%>
+                                    </span></span>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="col3">
+                            <div><%=temp.quantity%></div>
+                        </li>
+				        <li class="col6">
+					        <div>
+                                <% if(temp.valuationMethod==3){ %>
+                                <%=temp.valuationValue>0?Number(temp.valuationValue)+'个':'---'%>
+                                <% }else if(temp.valuationMethod==2){ %>
+                                <%=temp.valuationValue>0?'约'+RMB(temp.valuationValue)+'m³':'---'%>
+                                <% }else if(temp.valuationMethod==1){ %>
+                                <%=temp.valuationValue>0?'约'+RMB(temp.valuationValue)+'㎡':'---'%>
+                                <% }else{ %>
+                                <%=temp.valuationValue>0?'约'+RMB(temp.valuationValue)+'kg':'---'%>
+                                <% } %>
+                            </div>
+				        </li>
+			        	<li class="col7">
+				            <div><%=temp.deliveryDay>0?DeliveryDate('',temp.deliveryDay,2):'---'%></div>
+				        </li>
+                        <li class="col4">
+                            <div>
+                                <% if(temp.hasSupply==1){ %>
+                                <span class="red">无法配送</span>
+                                <% }else if(temp.hasSupply==2){ %>
+                                <span class="red">商品已下架</span>
+                                <% }else{ %>
+                                <b class="red"><%=RMB(temp.price)%></b>
+                                <% } %>
+                            </div>
+                        </li>
+                        <li class="col5">
+                            <div>
+                                <a class="del" href="javascript:;">删除</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <% } %>
+                </div>
+                <div class="btmline"></div>
+                <dl class="clearfix order_col">
+                    <dd class="colx">
+                        <div>
+                            <a href="javascript:;" class="checkbox"><input type="checkbox" name="chkall" />全选</a><a class="delall" href="javascript:;">删除选中商品</a>
+                        </div>
+                    </dd>
+                    <dd class="coly">
+                        <div>总计：<span id="data_totalProductPrice">0.00</span>元</div>
+                    </dd>
+                    <dd class="colz">
+                        <div>
+                            <a class="submit cart_to_payment" onclick="_czc.push(['_trackEvent', '通用', '去结算', '','','']);" href="javascript:;">去结算</a>
+                        </div>
+                    </dd>
+                </dl>
+            </div>
+        </form>
+    <% }else{ %>
+        <div class="empty">
+            <dl class="vertical_middle"><dt class="vm_left"></dt><dd class="vm_right"><div class="alt">您的购物车暂时没有任何商品</div><a class="submit" href="<?=DOMAIN?>">马上去选购</a></dd></dl>
+        </div>
+        <div id="template-hot_sell-view" class="hotlist"></div>
+    <% } %>
+</script>
+<?php include(TEMPLATES.'hot_sell.xhtml');?>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>cart/index.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>location.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js?ininin=<?=VERSION?>"></script>
+<!--script type="text/javascript" src="<?=SCRIPTS?>jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>template-native.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>zh_cn.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tool.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>cart/cart.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>libs/location.js"></script-->
+<?php include(MODULES.'linklogin.xhtml');?>
+</body>
+</html>

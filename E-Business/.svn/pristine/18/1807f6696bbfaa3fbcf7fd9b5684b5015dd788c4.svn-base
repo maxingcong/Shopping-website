@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="renderer" content="webkit|ie-stand" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+	<meta http-equiv="pragma" content="no-cache"/>
+	<meta name="format-detection" content="telephone=no, email=no"/>
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+	<meta name="robots" content="all" />
+	<meta name="keywords" content="名片三小时快印" />
+	<meta name="description" content="名片三小时快印" />
+	<meta name="author" content="${author}" />
+	<meta name="copyright" content="${copyright}" />
+	<title>名片三小时快印</title>
+	<link href="<?=DOMAIN?>favicon.ico" rel="shortcut icon" type="image/x-icon" />
+	<link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+	<link rel="stylesheet" type="text/css" href="<?=STYLES?>new.css" />
+	<?php include(MODULES.'dns_prefetch.xhtml');?>
+	<style type="text/css">
+		.pro_wrapper { overflow: hidden}
+		.pro_wrapper .font-light { color: #00a0e9}
+		.pro_wrapper .body_wraper{color: #555; position: relative; left: -960px; top: 0; width: 1920px; margin: 0 0 0 50%; overflow: hidden}
+		.pro_wrapper .card{position: relative; border-top: 1px solid #CCD5DF; padding: 29px 0 50px; width: 1220px; margin: 0 auto}
+		.pro_wrapper .card_head { min-height: 791px;}
+		.card h3 {font-size: 32px; font-weight: normal; line-height: 1.8em;}
+		.card .sub_text{ font-size: 18px; line-height: 2em;}
+		.card .price strong{font-size:48px; font-weight: normal;}
+		.card .font-light { color: #00a0e9}
+		.card .img-cell { width: 932px; margin: 30px auto 0; border: none;}
+		.card .img-cell td { padding: 0 15px; font-size: 18px; line-height: 30px; vertical-align: top; border: none;}
+		.card .img-cell .img { min-height: 282px; margin-bottom: -25px;}
+		.card .img-cell .img-name { padding: 5px 0 0; font-size: 22px; line-height: 40px;}
+		.card .img-cell .img-name .font-light { font-size: 30px; line-height: 40px;}
+	</style>
+</head>
+<body>
+<?php include(MODULES.'header.xhtml');?>
+<div class="main active non_pad">
+	<div id="layout" class="pro_wrapper">
+		<div class="layout pro_head">
+			<div class="opacity"></div>
+			<div class="layout">
+				<h2 class="title fl">名片三小时快印</h2>
+				<div id="tabs_desc" class="pro_tabs clearfix">
+					<a class="tab focus" data-target="0" href="javascript:;">优选材质</a>
+					<span class="vline"></span>
+					<a class="tab" data-target="1" href="javascript:;">专业印刷</a>
+					<span class="vline"></span>
+					<a class="tab" data-target="2" href="javascript:;">专业包装</a>
+					<span class="vline"></span>
+					<a class="tab" data-target="3" href="javascript:;">专业物流</a>
+					<span class="vline"></span>
+					<a class="tab" data-target="4" href="javascript:;">支持区域</a>
+					<span class="vline"></span>
+					<a class="tab" data-target="5" href="javascript:;">贴心服务</a>
+					<a class="btn_blue" href="<?=DOMAIN?>product/200474.html#300g铜版纸_2盒_90mm*54mm-覆哑膜" onclick="_czc.push(['_trackEvent', '&quot;新&quot;名片-头部', '立即购买', '','','']);">立即购买</a>
+				</div>
+			</div>
+		</div>
+		<div class="body_wraper pro_items">
+			<div class="card_head">
+				<img src="<?=IMAGES?>new/200474/101.jpg?v=1" alt="名片三小时快印"/>
+			</div>
+			<div class="card pro_item">
+				<h3 class="text_center">优选材质</h3>
+				<p class="text_center sub_text">足量300G铜版纸双面覆亚膜、300G砂影时光米白，手感厚实细腻，纸张笔直挺括，洁净如新</p>
+				<table class="img-cell" cellpadding="0" cellspacing="0">
+					<tr>
+						<td>
+							<div class="img"><img src="<?=IMAGES?>new/200474/102.jpg?v=1" alt="250G优质铜版纸"></div>
+							<div class="img-name font-light">基础版</div>
+							<div class="img-desc">选用300G铜版纸双面覆亚膜</div>
+							<div class="img-name"><span class="font-light">100元</span>/盒起</div>
+						</td>
+						<td>
+							<div class="img"><img src="<?=IMAGES?>new/200474/103.jpg?v=1" alt="157G优质铜版纸"></div>
+							<div class="img-name font-light">尊贵版</div>
+							<div class="img-desc">选用300G砂影时光米白</div>
+							<div class="img-name"><span class="font-light">150元</span>/盒起</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="card pro_item text_center">
+				<h3>专业印刷</h3>
+				<p class="sub_text">采用先进惠普HP Indigo 数字印刷机，色彩鲜艳，色调细腻，准确还原每一个细节；达到传统印刷机的效果</p>
+				<img src="<?=IMAGES?>new/200474/104.jpg?v=1" alt="专业印刷"/>
+			</div>
+			<div class="card pro_item text_center ">
+				<h3>名片包装</h3>
+				<p class="sub_text">选用高档名片盒包装，可重复使用</p>
+				<img src="<?=IMAGES?>new/200474/105.jpg?v=1" alt="名片包装"/>
+			</div>
+			<div class="card pro_item text_center ">
+				<h3>专业物流</h3>
+				<p class="sub_text mb35">选用国内领先的同城速运公司高效精准配送，让您省心放心</p>
+				<img src="<?=IMAGES?>new/200474/106.jpg?v=1" alt="专业物流"/>
+			</div>
+			<div class="card pro_item text_center ">
+				<h3>使命必达</h3>
+				<p class="sub_text">下单后三小时送达，满足您不时之需！周一至周六<span class="font-light">早上10：00到晚上20:00</span>，支持深圳南山、福田、罗湖区全境</p>
+				<img src="<?=IMAGES?>new/200474/107.jpg?v=1" alt="使命必达"/>
+			</div>
+			<div class="card pro_item">
+				<h3 class="text_center">贴心服务</h3>
+				<table class="new-service" cellspacing="0" cellpadding="0">
+					<colgroup>
+						<col style="width: 70px"/>
+						<col/>
+					</colgroup>
+					<tr>
+						<th><i class="icon"></i></th>
+						<td>专属会员顾问实时在线，5分钟内快速响应，通过电话、QQ、微信全渠道，解决您遇到的任何问题</td>
+					</tr>
+					<tr>
+						<th><i class="icon time_icon"></i></th>
+						<td>24小时在线下单不打烊，简单三步即可轻松完成下单</td>
+					</tr>
+					<tr>
+						<th><i class="icon upload_icon"></i></th>
+						<td>搭建云端专属企业素材库，永久云端存储您的名片模板，印刷文件和设计素材，轻松修改，随用随取，同时采用先进加密算法，有效保证数据私密性及安全性</td>
+					</tr>
+					<tr>
+						<th><i class="icon logistics_icon"></i></th>
+						<td>全方位的配送体系（第三方物流、自提点，加急配）+全国异地分发服务，不同配送方式满足您的不同需求，让您省时、省力、更省心</td>
+					</tr>
+					<tr>
+						<th><i class="icon information_icon"></i></th>
+						<td>短信，邮件，网站，微信公众号，随时随地掌握订单状态，自在安心</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<?php include(MODULES.'footer.xhtml');?>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>other/new.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>location.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js?ininin=<?=VERSION?>"></script>
+<?php include(MODULES.'linklogin.xhtml');?>
+</body>
+</html>

@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>生成静态页</title>
+    <link  rel="shortcut icon" type="image/x-icon" href="/favicon.ico"  />
+    <link rel="stylesheet" type="text/css" href="/themes/css/base.css" />
+    <style type="text/css">
+        html, body { width: 100%; height: 100%; background:#fff;}
+        fieldset { padding-bottom: 20px; border-top: 3px solid #ccd5df;}
+        fieldset legend { font-size: 20px; padding: 0 10px; background:#fff; display: inline-block;}
+        .block { width: 180px; margin: 0 5px; padding: 0; display: inline-block; vertical-align: top; border: 1px solid #ccd5df; border-radius: 5px;}
+        .block legend { font-size: 16px; text-align: left;}
+        .links { margin: 0 auto; max-width: 620px; text-align: left; overflow: hidden;}
+        .links .link { width: 150px; line-height: 30px; text-align: left; display: inline-block;}
+        .block .links { text-align: center;}
+        /*.iframe, .iframe .ul, .iframe .div, .iframe iframe { height: 100%}
+        .iframe .ul { width: 200px; background:#fafafa; border-right:1px solid #e1e1e1; float: left;}
+        .iframe .div { overflow: hidden;}
+        .iframe iframe { width: 100%;}
+        .iframe li { padding:15px 15px 0;}
+        .iframe li .btn { width:auto; display:block;}*/
+    </style>
+</head>
+<body>
+<h2 class="red">点击相应链接即可生成对应的产品页面，此操作会直接更新运营电商网站对应页面，请谨慎操作！！！</h2>
+<fieldset>
+    <legend>设计服务详情页</legend>
+    <ul id="template_design_category_list_view" class="links clearfix"></ul>
+</fieldset>
+<fieldset>
+    <legend>印刷产品列表页</legend>
+    <ul id="template_category_list_view" class="links clearfix"></ul>
+</fieldset>
+<fieldset>
+    <legend>印刷产品详情页</legend>
+    <div id="template_product_list_view"></div>
+</fieldset>
+<script id="template_product_list" type="text/template">
+    <% for(var k=0; category = categoryList[k]; k++){
+    if(category.products.length&&category.categoryId!==35){ %>
+    <fieldset class="block"><legend><%=category.categoryName%></legend><ul class="links clearfix">
+    <% for(var i=0; product = category.products[i]; i++){
+    if(product&&product.standardType==0){ %>
+    <li class="link"><a href="/portal/pdetail_tpl.html?pid=<%=product.productId%>&w=<%=WWW%>" target="_blank"><%=product.productName%></a></li>
+    <% } else { %>
+    <li class="link"><a href="/portal/<%=product.productId%>_tpl.html?w=<%=WWW%>" target="_blank"><%=product.productName%></a></li>
+    <% } } %>
+    </ul></fieldset>
+    <% } } %>
+</script>
+<script id="template_category_list" type="text/template">
+    <% for(var k=0; category = categoryList[k]; k++){
+    if(category&&category.categoryId){ %>
+    <li class="link"><a href="/portal/plist_tpl.html?cid=<%=category.categoryId%>&w=<%=WWW%>" target="_blank"><%=category.categoryName%></a></li>
+    <% } } %>
+</script>
+<script id="template_design_category_list" type="text/template">
+    <% for(var k=0; category = designCategoryList[k]; k++){
+    if(category&&category.id&&category.id!=9){ %>
+    <li class="link"><a href="/design/detail_tpl.html?cid=<%=category.id%>&w=<%=WWW%>" target="_blank"><%=category.categoryName%></a></li>
+    <% } } %>
+</script>
+<script type="text/javascript" src="/scripts/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="/scripts/template-native.js"></script>
+<script type="text/javascript" src="/scripts/zh_cn.js?v=<?=$ver?>"></script>
+<script type="text/javascript" src="/scripts/tools_tpl.js?v=<?=$ver?>"></script>
+<script type="text/javascript">
+    //var www = T.getQueryString('www')||'www';
+    var www = 'www';
+    T.GET({
+        action: 'in_product_new/home_product_query',
+        success: function(data) {
+            data.categoryList = data.categoryList || [];
+            data.WWW = www;
+            T.Template('category_list', data);
+            T.Template('product_list', data);
+        }
+    });
+    T.GET({
+        action: 'in_product/query_design_category_all',
+        success: function (data) {
+            data.designCategoryList = data.designCategoryList || [];
+            data.WWW = www;
+            T.Template('design_category_list', data);
+        }
+    });
+</script>
+</body>
+</html>

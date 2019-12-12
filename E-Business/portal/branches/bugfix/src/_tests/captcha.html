@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>layout.css" />
+</head>
+<body>
+<div id="captcha" class="forms form_vcode">
+    <input type="text" class="vcode" value="" name="code"/>
+    <img class="img" src=""/><a class="refresh" href="javascript:;">换一张</a>
+</div>
+<input id="account" type="text" />
+<input id="dd" type="button" value="dddddd"/>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript">
+    require(["base", "tools"], function ($, T) {
+        ;(function(T){
+            /**
+             * 图片验证码
+             * @param options
+             * @returns {{getValue: getValue, verify: verify, refresh: refresh}}
+             * @constructor
+             */
+            function Captcha(options){
+                var _this = this,
+                        opts = options||{};
+                opts.img = opts.img||"img"; //图片
+                opts.input = opts.input||"input[name='code']"; //输入框
+                opts.account = opts.account||"input[name='account']"; //账号输入框
+                opts.refresh = opts.refresh||".refresh"; //刷新按钮
+                _this.options = opts;
+                if(opts.trigger){ //通过按钮激活
+                    var contId = "captcha-" + new Date().getTime();
+                    opts.cont = "#" + contId;
+                    $(opts.trigger).off("click.captcha").on("click.captcha", function(e){
+                        //显示验证码弹出框
+                        _this.popup = T.cfm('<div id="'+contId+'" class="forms form_vcode"><input type="text" class="vcode" value="" name="code"/><img class="img" src=""/><a class="refresh" href="javascript:;">换一张</a></div>', function(){
+                            _this.verify();
+                            return false;
+                        }, function (_o) {
+                            _o.remove();
+                        }, "请输入图片验证码", "发 送");
+                        _this.init();
+                    });
+                }else{
+                    _this.init();
+                }
+            }
+            Captcha.prototype = {
+                data: {
+                    token: "" //图片验证码的唯一码
+                },
+                init: function(){
+                    var _this = this,
+                            opts = _this.options;
+                    _this.$cont = $(opts.cont); //验证码容器
+                    _this.$img = $(opts.img, _this.$cont); //验证码图片
+                    _this.$input = $(opts.input, _this.$cont); //验证码输入框
+                    _this.$account = $(opts.account); //账号输入框
+                    _this.$img.off("click.captcha").on("click.captcha", function(e){
+                        _this.refresh();
+                    });
+                    $(opts.refresh, _this.$cont).off("click.captcha").on("click.captcha", function(e){
+                        _this.refresh();
+                    });
+                    _this.refresh();
+                },
+                /**
+                 * 获取输入的验证码
+                 * @returns {*}
+                 */
+                getValue: function(){
+                    var _this = this;
+                    return $.trim(T.toDBC(_this.$input.val()));
+                },
+                /**
+                 * 校验验证码
+                 */
+                verify: function(params){
+                    var _this = this,
+                            opts = _this.options;
+                    var code = _this.getValue();
+                    if(_this.data.token && code){
+                        T.GET({
+                            action: "http://alpha.action.ininin.com/in_common/captcha/captcha_verify",
+                            params: {
+                                token: _this.data.token,
+                                capt_val: code
+                            },
+                            success: function(data, params){
+                                _this.data.ticket = data.ticket||"";
+                                //验证码校验通过，继续业务处理
+                                opts.success && opts.success.call(_this, data.verify_code);
+                            },
+                            failure: function(data, params){
+                                //验证码校验通过，刷新验证码，提示用户重新输入
+                                T.msg(data.msg||"输入验证码有误，请重新输入");
+                                _this.refresh();
+                            }
+                        });
+                    }else{
+                        _this.refresh();
+                    }
+                },
+                /**
+                 * 加载验证码
+                 */
+                refresh: function(){
+                    var _this = this,
+                            opts = _this.options;
+                    //获取唯一码
+                    T.GET({
+                        action: "http://alpha.action.ininin.com/in_common/captcha/get_token",
+                        success: function(data, params){
+                            _this.data.token = data.token||"";
+                            //加载验证码
+                            _this.$img.attr("src", /*T.DOMAIN.ACTION*/"http://alpha.action.ininin.com/" + "in_common/captcha/get_captcha?" + T.ConvertToQueryString({token: _this.data.token}));
+                            if(!opts.trigger){ //非按钮激活方式
+                                //执行成功回调
+                                opts.success && opts.success.call(_this, data.token);
+                            }
+                        },
+                        failure: function(data, params){
+
+                        }
+                    }, function(){}, function(){});
+                }
+            };
+            T.Captcha = function(options){
+                return new Captcha(options);
+            };
+        }(T));
+        ;(function(T){
+            /**
+             * 发送验证码到手机
+             * @param options
+             * @returns {{getValue: getValue, verify: verify, refresh: refresh}}
+             * @constructor
+             */
+            function CaptchaToPhone(options){
+                this.options = options||{};
+                this.init();
+            }
+            CaptchaToPhone.prototype = {
+                init: function(){
+                    var _this = this,
+                            opts = _this.options;
+                    opts.trigger = opts.trigger||"#captcha_to_phone"; //触发按钮
+                    opts.text = opts.text||"发送验证码"; //按钮默认文字
+                    opts.sendText = opts.sendText||"发送成功"; //按钮发送成功文字
+                    opts.account = opts.account||"#account"; //账号输入框
+                    opts.interval = opts.interval||60; //间隔时间内不能重复发送，单位：秒
+
+                    _this.$account = $(opts.account); //账号输入框
+                    _this.$trigger = $(opts.trigger); //触发按钮
+                    _this.data = {};
+                    var captcha = T.Captcha({
+                        trigger: _this.$trigger,
+                        success: function(ticket){
+                            _this.sendCode(ticket);
+                        }
+                    });
+                },
+                /**
+                 * 发送手机验证码
+                 */
+                sendCode: function(ticket){
+                    var _this = this,
+                            opts = _this.options;
+                    if(ticket){
+                        var step = opts.interval;
+                        _this.$trigger.addClass("dis").text(opts.sendText + "（" + step + "）");
+                        _this.timer = setInterval(function () {
+                            if(step > 1){
+                                step--;
+                                _this.$trigger.text(opts.sendText + "（" + step + "）");
+                            }else{
+                                _this.reset();
+                            }
+                        }, 1000);
+                        setTimeout(function(){
+                            _this.reset();
+                        }, opts.interval);
+                        T.POST({
+                            action: "http://alpha.action.ininin.com/in_user/create_code",
+                            params: {
+                                username: _this.data.account,
+                                source: String(opts.source),
+                                ticket: ticket
+                            },
+                            success: function (data, params) {
+                                T.msg("发送验证码成功");
+                            },
+                            failure: function (data, params) {
+                                _this.reset();
+                                T.msg(data.msg||"发送验证码失败，请重新发送！");
+                            }
+                        });
+                    }
+                },
+                /**
+                 * 重置按钮
+                 */
+                reset: function(){
+                    var _this = this,
+                            opts = _this.options;
+                    if(_this.timer){
+                        clearInterval(_this.timer);
+                        _this.timer = null;
+                    }
+                    _this.$trigger.removeClass("dis").text(opts.text);
+                }
+            };
+            T.CaptchaToPhone = function(options){
+                return new CaptchaToPhone(options);
+            };
+        }(T));
+        var captcha = T.Captcha({
+            cont: "#captcha",
+            success: function(token){
+                debugger
+            }
+        });
+        T.CaptchaToPhone({
+            trigger: "#dd"
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<div class="pro_img">
+    <ul id="prolist">
+        <li><a class="link_custom" href="<?=DOMAIN?>product/200000.html?pid=<%=productId%>" title="没找到您想要的？按需定制" target="_blank">没找到您想要的？<br/>按需定制</a></li>
+        <li><a class="designer" id="qqservice" onclick="_czc.push(['_trackEvent', '<%=productName%>', '找设计', '','','']);" href="javascript:;" title="找设计师" target="_blank">找设计师</a></li>
+        <%if(categoryId==30||categoryId==39||categoryId==40||categoryId==41||categoryId==42||categoryId==141||categoryId==142){%>
+        <li><a class="common_faq" href="<?=DOMAIN?>faq/index.html" title="常见问题" target="_blank">常见问题</a></li>
+        <%}else{%>
+        <li><a class="download_tpl" href="<%=templatePath%>?download/<%=_templateName%>" title="下载空白模板" target="_blank">下载空白模板</a></li>
+        <%}%>
+    </ul>
+</div>

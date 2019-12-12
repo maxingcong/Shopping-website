@@ -1,0 +1,72 @@
+<script id="template-free_area_list" type="text/template">
+    <table class="table table-hover">
+        <colgroup>
+            <col style="width: 240px"/>
+            <col style="width: 150px"/>
+            <col />
+        </colgroup>
+        <thead>
+        <tr>
+            <th>配送至</th>
+            <th>操作</th>
+            <th>
+                <div class="text-left">设置包邮条件</div>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        {{if deliveryModeTemplate.freeAreaList&&deliveryModeTemplate.freeAreaList.length}}
+        {{include 'template-free_area_each'}}
+        {{else}}
+        </tbody>
+        <thead>
+        <tr>
+            <td colspan="4">
+                <div class="text-left gray no-data">您还没有设置可包邮区域</div>
+            </td>
+        </tr>
+        </thead>
+        {{/if}}
+        <tfoot>
+        <tr>
+            <td colspan="4">
+                <div class="text-left">
+                    <a href="#" class="edit-free-area mr15" title="添加可包邮区域">添加可包邮区域</a>
+                </div>
+            </td>
+        </tr>
+        </tfoot>
+    </table>
+</script>
+<script id="template-free_area_each" type="text/template">
+{{each deliveryModeTemplate.freeAreaList as freeArea i}}
+<tr data-id="{{freeArea.id}}">
+    <td>{{freeArea.destination}}</td>
+    <td>
+        <div class="icons">
+            <a href="#" class="edit-free-area"><i class="fa fa-edit"></i> 编辑</a>
+            <a href="#" class="del-free-area"><i class="fa fa-trash" ></i> 删除</a>
+        </div>
+    </td>
+    <td>
+        <div class="text-left">
+            <select class="form-control" name="freeType">
+                {{each OPTIONS as value key}}
+                <option value="{{key}}">{{value}}</option>
+                {{/each}}
+            </select>
+            <span>{{include 'template-free_type_option' freeArea}}</span>
+        </div>
+    </td>
+</tr>
+{{/each}}
+</script>
+<script id="template-free_type_option" type="text/template">
+{{if type==2 || (maxAmount&&minAmount)}}
+在 <input type="text" class="form-control" name="maxAmount" value="{{maxAmount}}"/> <span class="logistics-price-type-unit">{{UNIT}}</span>内，<input type="text" class="form-control" name="minAmount" value="{{minAmount}}"/> 元以上包邮
+{{else if type==1 || maxAmount}}
+在 <input type="text" class="form-control" name="maxAmount" value="{{maxAmount}}"/> <span class="logistics-price-type-unit">{{UNIT}}</span>内包邮
+{{else}}
+满 <input type="text" class="form-control" name="minAmount" value="{{minAmount}}"/> 元包邮
+{{/if}}
+</script>

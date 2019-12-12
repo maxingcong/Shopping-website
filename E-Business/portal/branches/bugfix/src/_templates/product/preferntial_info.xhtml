@@ -1,0 +1,17 @@
+{{if preferntialInfo && preferntialInfo.length>0}}
+<dl class="attr privilege-list clearfix">
+    <dt class="atr">优惠信息：</dt>
+    <dd class="vals clearfix">
+        {{each preferntialInfo as item k}}
+        {{if item.preferentialTitle!=="" && item.preferentialDescription!==""}}
+        <div class="pri-item">
+            <span class="pri-icon">{{item.preferentialTitle}}</span><span class="pri-text yellow">{{item.preferentialDescription}}</span>
+            {{if item.preferentialLink}}
+            <a class="pri-link" href="{{item.preferentialLink}}" target="_blank">详情&gt;&gt;</a>
+            {{/if}}
+        </div>
+        {{/if}}
+        {{/each}}
+    </dd>
+</dl>
+{{/if}}

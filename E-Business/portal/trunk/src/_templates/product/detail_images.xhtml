@@ -1,0 +1,14 @@
+<div class="dupload">
+    <dl class="images">
+        <dt id="proimg" class="zoomimg">
+            <a href="<?=DOMAIN?>product/<%=productId%>.html" title="<%=productName%>"><img data-imguri="<%=productImgDef%>" src="<%=productImgDef%>" alt="<%=productName%>" /></a>
+        </dt>
+        <dd>
+            <ul id="imglist">
+                <% for(var j=0; img=pImages[j]; j++){ %>
+                <li data-imguri="<%=img%>"><a href="javascript:;"><img src="<%=img%>?imageMogr2/thumbnail/!60x60r/auto-orient/gravity/Center/crop/60x60" alt="<%=productName%>"/></a></li>
+                <% } %>
+            </ul>
+        </dd>
+    </dl>
+</div>

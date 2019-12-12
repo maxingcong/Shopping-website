@@ -1,0 +1,137 @@
+<div class="form_item clearfix">
+    <label>
+        <span class="field">产品名称：</span><input class="textbox" type="text" name="product_name" value="{{productName}}"/>
+        <b class="required">*</b>
+        <i class="msg"></i>
+    </label>
+    <a class="icon_help" href="javascript:;" data-text="如您不清楚你需要印刷的产品的具体规格，可以点击右侧的印刷FAQ进行查阅；如需要帮助，请您拨打400-680-9111联系客服MM帮您填写！"></a>
+</div>
+<div class="form_item clearfix">
+    <span class="field">产品分类：</span>
+    <select id="product_sort" class="select select_big" name="product_sort">
+        <option value="">请选择分类</option>
+        {{each productList as product i}}
+        <option value="{{product.productId}}" data-target_id="{{product.targetId}}" {{if productId==product.productId}}selected="selected"{{/if}}>{{product.productName}}</option>
+        {{/each}}
+    </select>
+    <b class="required" style="margin-left: -10px;">*</b>
+    <i class="msg"></i>
+</div>
+<div class="form_item clearfix">
+    <label>
+        <span class="field">数量：</span><input class="textbox" type="text" name="number" value="{{number}}"/>
+        <b class="required">*</b>
+        <i class="msg"></i>
+    </label>
+    <p class="alt">数量+单位（例：100本）</p>
+</div>
+<div class="form_item item-com item-size clearfix size_whv">
+    <label>
+        <span class="field">产品尺寸：</span><input id="product_size" class="textbox" type="text" name="product_size" value="{{(productSize||'').replace(/mm/g, '')}}"/>
+        <b class="required hide">*</b>
+        <i class="msg"></i>
+    </label>
+    <p class="alt">单位：毫米(mm)（例：宽100*高80，宽在前，高在后）</p>
+</div>
+<div class="form_item item-fold clearfix size_whv hide">
+    <label>
+        <span class="field">展开尺寸：</span><input class="textbox" type="text" name="unfold_size" value="{{(extraInfo||'').replace(/mm/g, '')}}"/>
+        <b class="required">*</b>
+        <i class="msg"></i>
+    </label>
+    <p class="alt">单位：毫米(mm)（例：宽300*高80，宽在前，高在后）</p>
+</div>
+<div class="form_item item-pack clearfix hide">
+    <label>
+        <span class="field">材质：</span>
+        <select class="select select_rich" name="material_select">
+            {{each materialList as item i}}
+            <option value="{{item.key}}">{{item.val}}</option>
+            {{/each}}
+        </select>
+        <span class="text rel hid">
+            <input class="textbox" type="text" name="material_pack"/>
+            <i class="msg"></i>
+        </span>
+    </label>
+</div>
+<div class="form_item item-com clearfix">
+    <label>
+        <span class="field">材质：</span><input class="textbox" type="text" name="material" value="{{material}}"/>
+        <i class="msg"></i>
+    </label>
+</div>
+<div class="form_item item-album clearfix hide">
+    <span class="field">装订方式：</span>
+    <select class="select select_rich" name="binding_mode_select">
+        {{each bindingList as item i}}
+        <option value="{{item.key}}">{{item.val}}</option>
+        {{/each}}
+    </select>
+    <span class="text rel hid">
+        <input class="textbox" type="text" name="binding_mode"/>
+        <i class="msg"></i>
+    </span>
+</div>
+<div class="form_item item-com clearfix">
+    <span class="field">印刷方式：</span>
+    <select class="select select_rich" name="printing_mode_select">
+        {{each printingList as item i}}
+        <option value="{{item.key}}">{{item.val}}</option>
+        {{/each}}
+    </select>
+    <span class="text rel hid">
+        <input class="textbox" type="text" name="printing_mode"/>
+        <i class="msg"></i>
+    </span>
+</div>
+<div class="form_item item-com clearfix">
+    <span class="field">表面处理：</span>
+    <select class="select select_rich" name="surface_treatment_select">
+        {{each surfaceList as item i}}
+        <option value="{{item.key}}">{{item.val}}</option>
+        {{/each}}
+    </select>
+    <span class="text rel hid">
+        <input class="textbox" type="text" name="surface_treatment"/>
+        <i class="msg"></i>
+    </span>
+    <p class="alt yellow">折页超过200g，材质为铜板、哑粉纸时建议覆膜，避免爆线</p>
+</div>
+<div class="form_item item-com clearfix">
+    <span class="field">质量要求：</span>
+    <select class="select select_rich" name="quality_requirements">
+        {{each qualityList as item i}}
+        <option value="{{item.key}}">{{item.val}}</option>
+        {{/each}}
+    </select>
+</div>
+<div class="form_item clearfix">
+    <label>
+        <span class="field">其他要求：</span><textarea id="other_requirements" class="textarea" name="other_requirements">{{otherRequirements}}</textarea>
+        <i class="msg"></i>
+    </label>
+</div>
+<div class="form_item clearfix">
+    <span class="field">附件：</span>
+    <a id="file_upload-cont" class="up-cont btn-default btn-md" href="javascript:;">
+            <span id="file_upload" class="up-btn">
+                <span class="up-text">点击上传</span>
+            </span>
+        <span class="up-doing">正在上传...</span>
+        <span class="up-forbid"></span>
+    </a>
+    <a class="icon_help" href="javascript:;" data-text="您可以上传附件以更好地描述需求，如有多个附件，请打包上传，附件大小不超过20M"></a>
+    <div id="file_upload-info" class="upload-info"></div>
+</div>
+<div class="form_item clearfix">
+    <label>
+        <span class="field">联系人手机：</span><input class="textbox" type="text" name="phone" value="{{phone}}"/>
+        <b class="required">*</b>
+        <i class="msg"></i>
+    </label>
+</div>
+<?php include(TEMPLATES.'delivery_address.xhtml');?>
+<div class="form_item form_btm btm_attr">
+    <span class="field"></span><a class="submit yellow-btn" href="javascript:;">{{isBack==1?'重新提交':'立即询价'}}<input onclick="_czc.push(['_trackEvent', '{{productName}}', '立即询价', '','','']);" value="" type="submit" /></a>
+</div>

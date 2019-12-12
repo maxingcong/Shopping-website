@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="新人送福利，新用户首单交易成功，即送&quot;10&quot;元优惠券"/>
+    <meta name="description" content="新人送福利，新用户首单交易成功，即送&quot;10&quot;元优惠券" />
+    <meta name="author" content="${author}" />
+    <meta name="copyright" content="${copyright}" />
+    <title>新人送福利，新用户首单交易成功，即送&quot;10&quot;元优惠券</title>
+    <link href="<?=DOMAIN?>favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>activity.css" />
+    <?php include(MODULES.'dns_prefetch.xhtml');?>
+    <style type="text/css">
+        #go_shopping_btn, #go_shopping_btn:link, #go_shopping_btn:visited{display: inline-block; width: 193px; height: 56px; background-color: transparent; position: absolute; left: 514px; top: 749px;}
+        #go_shopping_btn:hover, #go_shopping_btn:active{background: url(../resources/activity/a18_2.png) no-repeat; z-index: 9;}
+    </style>
+</head>
+<body>
+<?php include(MODULES.'header.xhtml');?>
+<div class="main active non_pad">
+    <div class="layout">
+        <div class="hot_con" style="position: relative; padding: 0 0 70px;">
+            <img usemap="#mapa18" border="0" src="<?=IMAGES?>activity/a18_1.jpg" alt="新人送福利，新用户首单交易成功，即送&quot;10&quot;元优惠券"/>
+            <a href="<?=DOMAIN?>all.html" id="go_shopping_btn" alt="立即选购产品" title="立即选购产品"></a>
+        	<map name="mapa18" id="mapa18">
+                <area shape="circle" coords="166,1160,25"  href="<?=DOMAIN?>product/200021.html" target="_blank" title="&quot;新&quot;名片，低至8元/盒" />
+                <area shape="circle" coords="344,1160,25"  href="<?=DOMAIN?>product/200022.html" target="_blank" title="&quot;新&quot;名片Pro，低至26.8元/2盒" />
+                <area shape="circle" coords="520,1160,25"  href="<?=DOMAIN?>product/200032.html" target="_blank" title="&quot;新&quot;单页，低至99元/500张" />
+                <area shape="circle" coords="698,1160,25"  href="<?=DOMAIN?>product/200033.html" target="_blank" title="&quot;新&quot;单页Pro，低至199元/500张" />
+                <area shape="circle" coords="874,1160,25"  href="<?=DOMAIN?>product/200030.html" target="_blank" title="&quot;新&quot;展架，低至68元/个" />
+                <area shape="circle" coords="1051,1160,25"  href="<?=DOMAIN?>product/200031.html" target="_blank" title="&quot;新&quot;展架Pro，低至98元/个" />
+            </map>
+        </div>
+    </div>
+</div>
+<?php include(MODULES.'footer.xhtml');?>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>activity/detail.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>location.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js?ininin=<?=VERSION?>"></script>
+<!--script type="text/javascript" src="<?=SCRIPTS?>jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>template-native.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>zh_cn.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tool.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>activity/detail.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>libs/location.js"></script-->
+<?php include(MODULES.'linklogin.xhtml');?>
+</body>
+</html>

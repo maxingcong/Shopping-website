@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="常见问题-账号类" />
+    <meta name="description" content="" />
+    <meta name="author" content="${author}" />
+    <meta name="copyright" content="${copyright}" />
+    <title>常见问题-账号类</title>
+    <link rel="shortcut icon" type="image/x-icon"  href="<?=DOMAIN?>favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>faq.css" />
+	<?php include(MODULES.'dns_prefetch.xhtml');?>
+</head>
+<body>
+<?php include(MODULES.'header.xhtml');?>
+<div class="main faq">
+	<div class="layout clearfix">
+		<?php include(MODULES.'helpsidebar.xhtml');?>
+		<div class="container faqs">
+			<div class="upanel">
+				<dl class="faq_item">
+					<dt class="faq_tit"><span>1.如何注册？</span></dt>
+					<dd class="faq_contain">
+						<div>在网站右上角点击<a name="registerurl" href="<?=DOMAIN?>passport/index.html#type=1" target="_blank">"注册"</a>，进入注册页面后，填写账号、密码后即可完成注册。</div>
+						<div>网站目前支持手机号/邮箱注册。</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<dl class="faq_item">
+					<dt class="faq_tit"> <span>2.手机注册接收不到验证码？</span> </dt>
+					<dd class="faq_contain">
+						<div>请检查是否作为垃圾短信阻拦了；</div>
+						<div>若确认不是手机设置问题，重试后还是收不到验证码，可改用邮箱注册。</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<dl class="faq_item">
+					<dt class="faq_tit"> <span>3.商务经理是什么？</span> </dt>
+					<dd class="faq_contain">
+						<div>商务经理是邀请您注册，并且为您提供后续服务的云印商务人员。填写有效的商务经理编号，后续可不定期获得云印优惠和奖励。关于商务经理的填写事宜，您可以跟商务经理了解或者拨打云印客户支持热线：400-680-9111 进行了解。</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<dl class="faq_item">
+					<dt class="faq_tit"> <span>4.登录密码和支付密码有什么区别？</span> </dt>
+					<dd class="faq_contain">
+					<ul class="faq_msg">
+						<li>1 .登录密码是账户的基本密码，用于账户登录。</li>
+						<li>2 .支付密码是账户资金的密码，为了保障会员账户余额安全，单独设置的密码。使用账户余额支付时，需要输入支付密码验证。</li>
+					</ul>
+					<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<dl class="faq_item">
+					<dt class="faq_tit"> <span>5.如何找回登录密码？</span> </dt>
+					<dd class="faq_contain">
+						<div>在网站右上角点击"登录"进入会员登录页面，点击“<a href="<?=DOMAIN?>passport/forget.html" target="_blank">忘记密码</a>”，通过会员注册使用的手机号/邮箱找回密码。</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<dl class="faq_item">
+					<dt class="faq_tit"> <span>6.如何修改登录密码？</span> </dt>
+					<dd class="faq_contain">
+						<div>登录系统后，在个人中心左侧导航栏，选择“<a href="<?=DOMAIN?>member/modifypwd.html" target="_blank">修改登录密码</a>”。</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<dl class="faq_item">
+					<dt class="faq_tit"> <span>7.如何找回/修改/设置支付密码？</span> </dt>
+					<dd class="faq_contain">
+						<div>登录系统后，在个人中心左侧导航栏，选择“<a href="<?=DOMAIN?>member/paypwd.html" target="_blank">修改支付密码</a>”。</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<dl class="faq_item">
+					<dt class="faq_tit"> <span>8.什么是联合登录？</span> </dt>
+					<dd class="faq_contain">
+						<div>联合登录是指使用其他平台的账号（包括QQ、新浪微博）登录云印电商平台。</div>
+						<div>第一次使用联合登录时，需要补充您的云印账户信息或者绑定已有的云印账户。后续可以直接用云印账户登录，也可以用绑定的其他平台账户登录。</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<dl class="faq_item">
+					<dt class="faq_tit"> <span>9.怎么完善账户信息？</span> </dt>
+					<dd class="faq_contain">
+						<div>登录系统后，点击页面右上角您的账户名，进入“<a href="<?=DOMAIN?>member/udetail.html" target="_blank">我的基本信息</a>”页面，填写您的账户信息后保存即可。</div>
+						<div>完善账户信息后可以获得优惠券/积分奖励。</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<dl class="faq_item">
+					<dt class="faq_tit"> <span>10.怎么查看我的优惠券？</span> </dt>
+					<dd class="faq_contain">
+						<div>您可以在<a href="<?=DOMAIN?>member/index.html" target="_blank">账户中心</a>-<a href="<?=DOMAIN?>member/mycoupon.html" target="_blank">我的优惠券</a>页面中查看优惠券金额、使用限制等信息。</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>
+				<!--<dl class="faq_item">
+					<dt class="faq_tit"> <span>11.怎么查看我的积分？</span> </dt>
+					<dd class="faq_contain">
+						<div>您可以在<a href="<?=DOMAIN?>member/index.html" target="_blank">账户中心</a>-<a href="<?=DOMAIN?>member/myintegral.html" target="_blank">我的积分</a>页面中查看积分数量以及积分获取和消费记录。</div>
+						<p class="faq_close"><a href="javascript:;">收起↑</a></p>
+					</dd>
+				</dl>-->
+			</div>
+		</div>
+	</div>
+</div>
+<?php include(MODULES.'footer.xhtml');?>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>other/faq.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>location.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js?ininin=<?=VERSION?>"></script>
+<!--<script type="text/javascript" src="<?=SCRIPTS?>jquery-1.7.2.min.js"></script> -->
+<!--<script type="text/javascript" src="<?=SCRIPTS?>template-native.js"></script> -->
+<!--<script type="text/javascript" src="<?=SCRIPTS?>zh_cn.js"></script> -->
+<!--<script type="text/javascript" src="<?=SCRIPTS?>tool.js"></script>-->
+<!--<script type="text/javascript" src="<?=SCRIPTS?>other/faq.js"></script>-->
+<!--<script type="text/javascript" src="<?=SCRIPTS?>loaded.js"></script>-->
+<!--<script type="text/javascript" src="<?=SCRIPTS?>libs/location.js"></script>-->
+<?php include(MODULES.'linklogin.xhtml');?>
+</body>
+</html>

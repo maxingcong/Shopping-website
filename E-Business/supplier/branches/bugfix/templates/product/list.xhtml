@@ -1,0 +1,96 @@
+<script id="template-product_list" type="text/template">
+    <table class="table table-hover">
+        <colgroup>
+            <col style="width: 30px">
+            <col style="width: 60px">
+            <col>
+            <col style="width: 15%">
+            <col style="width: 20%">
+            <col style="width: 12%">
+            {{if auditStatus=='Pass'}}
+            <col style="width: 10%">
+            {{/if}}
+            <col style="width: 150px">
+        </colgroup>
+        <thead>
+        <tr>
+            <th>
+                {{if supplierProducts&&supplierProducts.length}}
+                <div class="checkbox">
+                    <label><input type="checkbox" name="checkbox_all"/><i class="fa fa-checkbox"></i></label>
+                </div>
+                {{/if}}
+            </th>
+            <th>序号</th>
+            <th>产品名称</th>
+            <th>产品分类</th>
+            <th>配送方式</th>
+            <th>审核状态</th>
+            {{if auditStatus=='Pass'}}
+            <th>接单状态</th>
+            {{/if}}
+            <th class="text-center">操作</th>
+        </tr>
+        </thead>
+        {{if supplierProducts&&supplierProducts.length}}
+        <tbody>
+        {{each supplierProducts as product i}}
+        <tr data-id="{{product.id}}" data-order_status="{{product.orderStatus}}">
+            <th scope="row">
+                <div class="checkbox">
+                    <label><input type="checkbox" name="checkbox" value="{{product.id}}"/><i class="fa fa-checkbox"></i></label>
+                </div>
+            </th>
+            <td>{{1+i}}</td>
+            <td>{{product.productName}}</td>
+            <td>{{product.categoryName}}</td>
+            <td>
+                {{product.deliveryStr}}
+            </td>
+            <td>
+                {{if product.auditStatus=='Draft'}}
+                审核中
+                {{else if product.auditStatus=='Pass'}}
+                审核已通过
+                {{else if product.auditStatus=='NotPass'}}
+                审核未通过
+                {{/if}}
+            </td>
+            {{if auditStatus=='Pass'}}
+            <td>
+                {{if product.orderStatus=='normal'}}
+                正在接单中
+                {{else if product.orderStatus=='suspend'}}
+                已停止接单
+                {{/if}}
+            </td>
+            {{/if}}
+            <td class="text-center">
+                {{if auditStatus=='Pass'}}
+                    {{if product.orderStatus=='normal'}}
+                    <button name="btn-orderStatus" class="btn btn-danger btn-xs">停止接单</button>
+                    {{else if product.orderStatus=='suspend'}}
+                    <button name="btn-orderStatus" class="btn btn-primary btn-xs">开始接单</button>
+                    {{/if}}
+                    <a class="btn btn-success btn-xs" href="<?=DOMAIN?>product/detail.html?id={{product.id}}">查看详情</a>
+                {{else if auditStatus=='NotPass'}}
+                <a class="btn btn-primary btn-xs" href="<?=DOMAIN?>product/detail.html?id={{product.id}}">继续申请</a>
+                <a class="btn btn-danger btn-xs delete" href="#">删除</a>
+                {{else}}
+                <a class="btn btn-success btn-xs" href="<?=DOMAIN?>product/detail.html?id={{product.id}}">查看详情</a>
+                {{/if}}
+            </td>
+        </tr>
+        {{/each}}
+        </tbody>
+        {{else}}
+        <thead>
+        <tr>
+            <td colspan="8">
+                您还没有可接单商品，马上 <a href="<?=DOMAIN?>product/detail.html">申请新增可供应产品</a>
+            </td>
+        </tr>
+        </thead>
+        {{/if}}
+    </table>
+</script>

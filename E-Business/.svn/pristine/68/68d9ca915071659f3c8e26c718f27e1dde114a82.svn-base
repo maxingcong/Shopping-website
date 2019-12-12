@@ -1,0 +1,10 @@
+<div class="attr pprice clearfix">
+    <div class="atr">价格：</div>
+    <div class="vals">
+        {{if hasCounter}}
+        <span id="data-unitPrice">{{#DOING}}</span><span> 元 * <span id="data-counter">{{#DOING}}</span>款 = </span><b id="data-price" class="yellow">{{#DOING}}</b><span> 元</span><span id="data-amountAlt" class="alt"></span>
+        {{else}}
+        <b id="data-price" class="yellow">{{#DOING}}</b><span>元{{if avgUnit}}，平均</span> <b id="data-avgValue" class="yellow">{{#DOING}}</b> <span id="data-avgUnit">{{avgUnit}}{{/if}}</span>
+        {{/if}}
+    </div>
+</div>

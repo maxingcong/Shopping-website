@@ -1,0 +1,263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="折页设计,折页制作,折页报价,折页印刷,二折页,三折页,四折页,云印"/>
+    <meta name="description" content="折页设计,折页制作,折页报价,折页印刷,二折页,三折页,四折页,云印" />
+    <meta name="author" content="${author}" />
+    <meta name="copyright" content="${copyright}" />
+    <title>折页设计_折页制作_折页报价_折页印刷_二折页_三折页_四折页_云印</title>
+    <link href="<?=DOMAIN?>favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>new.css" />
+    <?php include(MODULES.'dns_prefetch.xhtml');?>
+    <style type="text/css">
+        .pro_wrapper .gradual{width: 100%; height: 940px; background: url(../themes/images/new_gradual.jpg?v=1) repeat-x 0 center;}
+        .pro_wrapper .zhe_top{position: relative; width: 1220px; height: 100%; margin: 0 auto;}
+        .pro_wrapper .zhe_top>img{position: absolute; left: 0; bottom: 0;}
+        .pro_wrapper .zhe_body .top_txt{position: absolute; top: 160px; left: 15px; margin-left: 496px;}
+        .pro_wrapper .zhe_body .top_title{line-height: 1.6em; font-size: 64px; font-weight: normal; color: #0093dd;}
+        .pro_wrapper .zhe_body .top_txt p{width: 560px; line-height: 72px; font-size: 36px; color: #555;}
+        .pro_wrapper .text_card{margin-top: 35px; font-size: 24px;}
+        .pro_wrapper .text_card .text_blue{float: left; display: inline-block; width: 200px; line-height: 30px; padding: 15px 0; border: 1px solid #00a0e9; color: #00a0e9; vertical-align: middle;}
+        .pro_wrapper .text_card>a{float: left; padding: 15px 0; font-size: 24px;}
+        .pro_wrapper .zhe_item{position: relative; padding: 50px 0; background: url(../themes/images/back_inset.png?v=1) repeat 0 0; color: #fff; text-align: center;}
+        .pro_wrapper .dark_back{background-color: #0060cc;}
+        .pro_wrapper .light_back{background-color: #4192ee;}
+        .pro_wrapper .zhe_title{font-size: 48px; line-height: 2.2em; font-weight: normal;}
+        .pro_wrapper .item_cont{width: 1060px; padding: 30px 80px; margin: 0 auto;}
+        .pro_wrapper .item_pad{width: 1140px; padding: 30px 40px; }
+        .pro_wrapper .item_cont p{font-size: 20px; line-height: 1.8em; margin-top: 24px;}
+        .pro_wrapper .item_cont .two_part{float: left; width: 49%; margin-right: 25px;}
+        .pro_wrapper .rect_radius_box{width: 100%; margin: 30px auto;}
+        .pro_wrapper .rect_radius_top{width: 100%; height: 30px; background: url(../themes/images/zhe_radius.png?v=1) repeat top left;}
+        .pro_wrapper .rect_radius_btm{width: 100%; height: 30px; background: url(../themes/images/zhe_radius.png?v=1) repeat bottom left;}
+        .pro_wrapper .rect_radius_mid{background-color: #fff; color: #555;}
+        .pro_wrapper .radius_mid1{height: 400px; padding: 20px 0;}
+        .pro_wrapper .radius_mid2, .pro_wrapper .radius_mid4{padding: 10px 40px;}
+        .pro_wrapper .radius_mid3{min-height: 180px; padding: 0 40px;}
+        .pro_wrapper .radius_mid3 .fr_img{margin-top: -50px; margin-left: 60px;}
+        .pro_wrapper .rect_radius_mid ul{padding: 0; margin: 0;}
+        .pro_wrapper .rect_radius_mid li{float: left; width: 33%; font-size: 24px; text-align: center; color: #555;}
+        .pro_wrapper .rect_radius_mid .zhe_svg{display: inline-block; width: 150px; height: 185px; background: url(../themes/images/zhe_page.png?v=1) no-repeat 25px 10px;}
+        .pro_wrapper .rect_radius_mid .page2{background-position: -346px 10px;}
+        .pro_wrapper .rect_radius_mid .page3{background-position: -725px 10px;}
+        .pro_wrapper .rect_radius_mid .big{font-size: 30px; color: #fb7c00;}
+        .pro_wrapper .zhe_buy{display: inline-block; width: 242px; height: 70px; background: url(../themes/images/200054_btn.png?v=1) no-repeat -151px 0; line-height: 70px; font-size: 28px; color: #fff;}
+        .pro_wrapper .zhe_buy:hover{background-position: -151px -86px; text-decoration: none;}
+        .pro_wrapper .rect_radius_mid .sider_title{font-size: 48px; line-height: 48px; font-weight: normal; color: #1887e5; text-align: left;}
+        .pro_wrapper .zhe_service{line-height: 2em;}
+        .pro_wrapper .zhe_service .zhe_icon{display: inline-block; width: 32px; height: 32px; background: url(../themes/images/zhe_service.png?v=1) no-repeat -1px 0; margin-right: 20px; vertical-align: middle;}
+        .pro_wrapper .zhe_service .icon2{background-position: -1px -70px;}
+        .pro_wrapper .zhe_service .icon3{float: left; background-position: -1px -135px; height: 60px;}
+        .pro_wrapper .zhe_service .icon4{float: left; background-position: -1px -232px; height: 60px;}
+        .pro_wrapper .zhe_service .icon5{background-position: -1px -328px;}
+    </style>
+</head>
+<body>
+<?php include(MODULES.'header.xhtml');?>
+<div class="main active non_pad">
+    <div id="layout" class="pro_wrapper" style="padding-bottom: 0;">
+        <div class="pro_head">
+            <div class="opacity"></div>
+            <div class="layout">
+                <h2 class="title fl">“新”折页</h2>
+                <div id="tabs_desc" class="pro_tabs clearfix">
+                    <a class="tab" data-target="0" href="javascript:;">如何选</a>
+                    <span class="vline"></span>
+                    <a class="tab" data-target="1" href="javascript:;">新材质</a>
+                    <span class="vline"></span>
+                    <a class="tab" data-target="2" href="javascript:;">新价格</a>
+                    <span class="vline"></span>
+                    <a class="tab" data-target="3" href="javascript:;">新设计</a>
+                    <span class="vline"></span>
+                    <a class="tab" data-target="4" href="javascript:;">新包装</a>
+                    <span class="vline"></span>
+                    <a class="tab" data-target="5" href="javascript:;">新工艺</a>
+                    <span class="vline"></span>
+                    <a class="tab" data-target="6" href="javascript:;">新服务</a>
+                    <a class="btn_blue" href="<?=DOMAIN?>product/200054.html" onclick="_czc.push(['_trackEvent', '&quot;新&quot;折页-头部', '立即购买', '','','']);">立即购买</a>
+                </div>
+            </div>
+        </div>
+        <div class="zhe_body pro_items">
+            <div class="gradual">
+                <div class="zhe_top">
+                    <img src="<?=IMAGES?>new/200054/zhe_top.jpg" alt=""新"折页"/>
+                    <div class="top_txt tl">
+                        <h1 class="top_title">"新"折页</h1>
+                        <p>资料很多却做不好一份宣传折页？<br/>“新”折页为您提供全面的设计指引做一份让客户主动带走的折页</p>
+                        <div class="text_card text_center">
+                            <span class="text_blue">500份/149元起</span>
+                            <a class="btn_blue"  href="<?=DOMAIN?>product/200054.html#157g铜版纸不覆膜_500_210mm*95mm-三折页_荷包折" title="立即购买" onclick="_czc.push(['_trackEvent', '&quot;新&quot;折页-头部', '立即购买', '','','']);">立即购买</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pro_item zhe_item dark_back" style="height: 1420px;">
+                <h2 class="zhe_title">几折页？有讲究</h2>
+                <div class="item_cont">
+                    <img src="<?=IMAGES?>new/200054/zhe1.jpg" height="326px" alt="二折页"/>
+                    <p class="tl"><strong>二折页：</strong>简洁，但折页感不强，适合使用高档纸张制作邀请函等</p>
+                </div>
+                <div class="item_cont">
+                    <img src="<?=IMAGES?>new/200054/zhe2.jpg" height="326px" alt="三折页"/>
+                    <p class="tl"><strong>三折页：</strong>最常用的折页，有展开效果，承载信息量也比较适合</p>
+                </div>
+                <div class="item_cont">
+                    <img src="<?=IMAGES?>new/200054/zhe3.jpg" height="325px" alt="四折页"/>
+                    <p class="tl"><strong>四折页：</strong>信息承载量较三折页更丰富，适合产品和信息较多时制作</p>
+                </div>
+            </div>
+            <div class="zhe_item light_back" style="height: 1290px;">
+                <h2 class="zhe_title">怎么折？有门道</h2>
+                <div class="item_cont">
+                    <img src="<?=IMAGES?>new/200054/zhe4.png" height="284px" alt="对折"/>
+                    <p class="tl"><strong>对折：</strong>适用于请帖、邀请函等，也适用于内容简洁希望开门见山的宣传材料</p>
+                </div>
+                <div class="item_cont">
+                    <img src="<?=IMAGES?>new/200054/zhe5.png" height="277px" alt="风琴折"/>
+                    <p class="tl"><strong>风琴折：</strong>适用于流程性较强的内容</p>
+                </div>
+                <div class="item_cont">
+                    <img src="<?=IMAGES?>new/200054/zhe6.png" height="279px" alt="荷包折"/>
+                    <p class="tl"><strong>荷包折：</strong>打开感较强，打开后的首页容易抓住观者眼球，适合安排重要内容</p>
+                </div>
+            </div>
+            <div class="pro_item zhe_item dark_back" style="height: 1060px;">
+                <h2 class="zhe_title">什么纸？有态度</h2>
+                <div class="item_cont item_pad">
+                    <img src="<?=IMAGES?>new/200054/zhe7.png" height="349px" alt="二折页"/>
+                    <p class="tl"><strong>二折页</strong>选用名片同等质量300g铜版纸，厚度0.35mm，手感厚实细腻，纸张笔直挺括，提升您的宣传档次</p>
+                </div>
+                <div class="item_cont item_pad">
+                    <img src="<?=IMAGES?>new/200054/zhe8.png" height="349px" alt="三折页、四折页"/>
+                    <p class="tl"><strong>三折页、四折页</strong>精选市面上最流行的157g铜版纸，0.13mm厚度，手感更厚实，性价比更高，在满足大范围推广的同时，价格更低</p>
+                </div>
+            </div>
+            <div class="zhe_item light_back" style="height: 660px;">
+                <h2 class="zhe_title">覆膜吗？有考虑</h2>
+                <div class="item_cont item_pad">
+                    <img src="<?=IMAGES?>new/200054/zhe9.png" height="414px">
+                    <p class="tl two_part"><strong>不覆膜，</strong>可为您的折页提供良好的书写体验，适用于有个性化书写需求的您。</p>
+                    <p class="tl"><strong>覆膜，</strong>可使得折页得到更好的保护，并且提升折页的手感和档次。</p>
+                </div>
+            </div>
+            <div class="pro_item zhe_item dark_back" style="height: 800px;">
+                <h2 class="zhe_title">新价格</h2>
+                <div class="item_cont item_pad" style="padding-top: 0;">
+                    <p class="tl">传统印刷厂商为了牟取暴利，对纸张和油墨偷工减料，使得折页纸张克数不够，印刷色差大等问题常常出现。云印对比近百家供应厂商，精挑细选，通过批量采购，降低原材料成本，同时，采用先进规模化生产工艺，极大提高折页的品质和生产效率。使新折页价格更低，质量更优。</p>
+                    <div class="rect_radius_box">
+                        <div class="rect_radius_top"></div>
+                        <div class="rect_radius_mid radius_mid1">
+                            <ul class="clearfix">
+                                <li>
+                                    <div class="zhe_svg page1"></div>
+                                    <p>二折页<br/>500份/<span class="big">299</span>元起 </p>
+                                </li>
+                                <li>
+                                    <div class="zhe_svg page2"></div>
+                                    <p>三折页<br/>500份/<span class="big">149</span>元起 </p>
+                                </li>
+                                <li>
+                                    <div class="zhe_svg page3"></div>
+                                    <p>四折页<br/>500份/<span class="big">249</span>元起 </p>
+                                </li>
+                            </ul>
+                            <div class="text_center mt20">
+                                <a class="zhe_buy" href="<?=DOMAIN?>product/200054.html" onclick="_czc.push(['_trackEvent', '&quot;新&quot;折页-头部', '立即购买', '','','']);">立即购买</a>
+                            </div>
+                        </div>
+                        <div class="rect_radius_btm"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="zhe_item light_back" style="height: 1740px; margin-bottom: -5px;">
+                <div class="pro_item item_cont item_pad" style="padding-top: 0;">
+                    <div class="rect_radius_box">
+                        <div class="rect_radius_top"></div>
+                        <div class="rect_radius_mid radius_mid2">
+                            <h2 class="sider_title">新设计</h2>
+                            <p class="tl">源于国内一线设计公司的专业设计师团队，凭借多年设计经验与审美体验，根据您的需求，为您量身打造最佳设计方案。</p>
+                        </div>
+                        <div class="rect_radius_btm"></div>
+                    </div>
+                </div>
+                <div class="pro_item item_cont item_pad" style="padding-top: 0;">
+                    <div class="rect_radius_box">
+                        <div class="rect_radius_top"></div>
+                        <div class="rect_radius_mid radius_mid3">
+                            <h2 class="sider_title">新包装</h2>
+                            <img class="fr_img fr" src="<?=IMAGES?>new/paper_box.png?v=1" width="266px" height="192px" alt="新包装">
+                            <p class="tl">包装采用云印专属设计的瓦楞纸包装，防止运输过程中出现磨边、折页，品质更有保证。</p>
+                        </div>
+                        <div class="rect_radius_btm"></div>
+                    </div>
+                </div>
+                <div class="pro_item item_cont item_pad" style="padding-top: 0;">
+                    <div class="rect_radius_box">
+                        <div class="rect_radius_top"></div>
+                        <div class="rect_radius_mid radius_mid2">
+                            <h2 class="sider_title">专业工艺</h2>
+                            <p class="tl">
+                                1、采用顶尖KOMORI专业印刷机，出色的生产能力，过硬的印刷质量，保证每一个细节都还原到纸上。<br/>
+                                2、进口Polor切纸机，高精度裁切，精度高达0.1mm，相当于一根极细的头发丝直径，为您呈现更完美的直角；全程采用GMG色彩管理系统：严格执行G7控制方法，将色差控制在10%以内，保证阶调再现性和层次感，高品质还原色彩。
+                            </p>
+                            <div class="tr mt20"><img src="<?=IMAGES?>new/print_mac_big.jpg?v=1"alt="专业工艺"></div>
+                        </div>
+                        <div class="rect_radius_btm"></div>
+                    </div>
+                </div>
+                <div class="pro_item item_cont item_pad tl" style="padding-top: 0;">
+                    <div class="rect_radius_box">
+                        <div class="rect_radius_top"></div>
+                        <div class="rect_radius_mid radius_mid4">
+                            <h2 class="sider_title">新服务</h2>
+                            <p class="zhe_service">
+                                <i class="zhe_icon"></i>专属会员顾问实时在线，5分钟内快速响应，通过电话、QQ、微信全渠道，解决您遇到的任何问题；
+                            </p>
+                            <p class="zhe_service">
+                                <i class="zhe_icon icon2"></i>24小时在线下单不打烊，简单三步即可轻松完成下单；
+                            </p>
+                            <p class="zhe_service">
+                                <i class="zhe_icon icon3"></i><span>搭建云端专属企业素材库，永久存储您的设计素材，为您免去重复设计之苦，还可随时随地，随心修改。同时采用先进加密算法，有效保证数据私密性和安全性；</span>
+                            </p>
+                            <p class="zhe_service">
+                                <i class="zhe_icon icon4"></i>全方位的配送体系（第三方物流、自提点、加急配）+全国异地分发服务，不同配送方式满足您的不同需求，让您省时、省力、更省心；
+                            </p>
+                            <p class="zhe_service">
+                                <i class="zhe_icon icon5"></i>短信，邮件，网站，微信公众账号，随时随地掌握订单状态，自在安心。
+                            </p>
+                        </div>
+                        <div class="rect_radius_btm"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php include(MODULES.'footer.xhtml');?>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>other/new.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>location.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js?ininin=<?=VERSION?>"></script>
+<!--<script type="text/javascript" src="<?=SCRIPTS?>jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>template-native.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>zh_cn.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tool.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>other/new.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>libs/location.js"></script>-->
+<?php include(MODULES.'linklogin.xhtml');?>
+</body>
+</html>

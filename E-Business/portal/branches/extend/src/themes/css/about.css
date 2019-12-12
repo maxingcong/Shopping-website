@@ -1,0 +1,106 @@
+/* CSS Document */
+
+/*about job page*/
+.uabout .headline { color:#0487e2; border-bottom: 1px solid #ccd5df;  }
+.uabout .container {width:982px; padding-left: 10px; min-height:250px; overflow:hidden; background-color: #f5f5f5;}
+.about { line-height:24px; padding: 20px; background-color: #fff;}
+.contact_line{ border-bottom: 1px solid #e7e7e7; color:#404144; float: right; overflow:hidden; width:960px; height:20px; margin:10px 0;}
+.about .about_tit {clear: both; padding-left: 30px; padding: 10px 0 5px;}
+.about .about_text{padding: 15px 0; line-height: 24px; overflow: hidden;}
+.about .about_text .point span{ display:inline-block;}
+.about .about_text .point .point_name{color:#ec008c; padding-right:17px;}
+.about .contactus_quarter{ display: block; background:url(../images/sprite.png?v=1) no-repeat -15px -1162px; padding-left:35px; line-height:40px;}
+.about .service_title { display: block; font-size: 16px; background:url(../images/sprite.png?v=1) no-repeat -15px -1202px; padding-left:35px; line-height:40px;}
+.about .about_text .contain { padding: 10px 0; min-height:62px;}
+.about .about_text .about_img{ display:block; float:left; width:62px; margin-right:28px; height:61px; }
+.about .about_text .about_desc{ overflow:hidden; display:block; vertical-align:top;}
+.about .about_text .img {min-height: 260px; padding:15px 0 0; overflow:hidden; float: right;}
+.about .about_text .culture {width: 380px; min-height: 260px; overflow: hidden; }
+.about .about_text .culture p { padding:0;}
+.about .passage { padding: 10px 0 0;}
+/*服务点*/
+.about .about_intr{float: left; width: 670px; padding-top: 20px; line-height: 24px; overflow: hidden;}
+.about .cartoon_qr{min-height: 164px; margin-left: 700px; padding: 20px 0 0 114px; background: url(../images/cartoonqr.png) 0 20px no-repeat;}
+.about .cartoon_ps{position: relative; top: 70px; left: 0; color: #0487e2;}
+.about .about_text .store { padding:10px 0 15px; padding-bottom:30px;}
+.about .about_text .store .store_hai{float:left; margin-right:10px; display:block; width:414px; height:251px;}
+.about .about_text .store .store_ke{ overflow:hidden; display:block;}
+.about .about_text .point { padding:10px 0 0; font-size:14px;}
+.about .about_text .point p { padding:0;}
+.about .contactus { padding:10px 0 20px 0;}
+.about .contactus { border-top: 1px solid #ccd5df;}
+.about .contactus:first-child { border-top: none;}
+.point_list_box{float: left; width: 400px; padding: 10px 0;}
+.point_list{width: 100%;}
+.point_list .item{padding: 4px 0; border-bottom: 1px solid #ccd5df; cursor: pointer;}
+.point_list .item:last-child{border-bottom: none;}
+.point_list .item.sel .radio{background-position: -20px -1690px;}
+.point_list .item .txt{padding-left: 24px;}
+
+.about .contactus p { padding: 0 0 0 10px; line-height:30px; color:#404144;}
+/*.about .contactus .coord { margin:3px 0 0 6px; vertical-align: top;}*/
+.about .point_filter .textbox{height: 18px;}
+.about .point_filter .search_box{display: inline-block; *zoom: 1; *display: inline; margin-left: 40px; vertical-align: middle;}
+.about .search_box .btn{width: 80px; height: 28px; line-height: 28px; margin-left: -5px; border: 1px solid #ccd5df;}
+.about .bd_map{width: 500px; height: 380px; border: 1px solid #ccd5df; margin: 20px 0 0 420px; overflow: hidden;}
+.about .bd_map .point_map{width: 100%; height: 100%;}
+.uabout .store_address{  width:100%; padding-left:30px; display:inline-block;}
+.uabout .store_address ul{float:left;overflow:hidden;}
+.uabout .store_address ul .quarter{ min-height:160px;}
+.uabout .store_address .address_quarter{ width:58%;}
+.uabout .store_address ul li{ line-height:30px;font-size:14px;}
+.uabout .store_address .address_name{ background:url(../images/all.png?v=1) -17px -1314px no-repeat; padding-left:30px; line-height:35px; vertical-align:bottom; color:#ec008c;}
+/*job pages*/
+.hrinfo { text-align: left; background: #fff; overflow: hidden; padding:0 0 0 30px;}
+.hrinfo .hrpic img { width: 100%;}
+.hrinfo .hrtext {color: #595958; line-height: 36px; margin: 0 15px; padding: 15px 20px 15px 100px; border-bottom: 2px solid #a6a6a6; }
+.hrinfo .dlist{ padding: 15px 0 15px; text-align: left; border-top: 1px solid #bababa;}
+.hrinfo .dlist:first-child { border-top: none;}
+.hrinfo .dlist dt { padding: 15px 0 0; }
+.hrinfo .dlist dd{ min-height:220px; display:none; margin-top:18px;}
+.hrinfo .tabcontent span{ display:block; float:left; width:315px; margin:0 10px;}
+.hrinfo .dlist dd img{}
+.hrinfo .hr1 .jober_desc{min-width: 220px; width: 400px; text-indent:8px; line-height: 52px; height: 52px; border-left: 5px solid #93a34a; background: #c6de64 url(../images/jober.png?v=1) right 0 no-repeat; display: inline-block;}
+.hrinfo .jober_ch{ display:inline; color: #fff; font-size: 32px;}
+.hrinfo .jober_en{ display:inline; color: #fff; font-size: 18px;}
+.hrinfo .shadetabs{ padding-left:330px; display: block;}
+.hrinfo .shadetabs a { margin:0 20px 0 0; display:inline-block; font-size:18px; line-height: 28px; text-decoration:none; border:1px solid #fff; padding:0 5px;}
+.hrinfo .shadetabs a.sel { color:#ff0000; border-color: #ff0000;}
+.shadetabs ul li{ display:inline; margin:0;}
+.hrinfo .tabcontent { color: #666; line-height: 24px; padding:0 5px 0 0;}
+.hrinfo .dlist .jober_intro{ overflow:auto; min-height:220px;}
+.hrinfo .dlist .jober_intro i{ padding-left:10px;}
+.hrinfo .hrbtm { position: relative; height: 290px; margin: 20px 0 0; overflow: hidden; }
+.hrinfo .hrbtm dd { position: absolute; top: 155px; left: 263px; max-width: 500px;}
+.hrinfo .hrbtm dd p { color: #fffb9c; height: 24px; line-height: 24px; min-width: 215px; overflow: hidden; float: left;}
+.hrinfo .hrbtm dd a, .hrinfo .hrbtm dd span { color: #fff;}
+
+.hrinfo .company_indro{ padding-top:56px;}
+.hrinfo .company_indro dd ul li{ float:left; margin-left:25px; height:300px;}
+.hrinfo .company_indro dd ul li span{ display:inline;}
+
+/*media*/
+.about .media{ display:block;}
+.media dd{ padding:25px 0; display:block; position:relative; border-top:1px solid #e7e7e7; min-height:132px;}
+.about .media dd:first-child{ border-top:none;}
+.media a{ color:#6d6d6d; text-decoration:none; display:block;}
+.media a:hover{ color:#0093dd;}
+.media .img{ float:left; width:265px; height:132px;}
+.media .media_intro{ overflow:hidden; padding:0;}
+.media .media_intro .title{ font-size:20px; font-weight:bold; padding-bottom:15px; line-height:20px;}
+.media .media_intro .summary{ font-size:16px; min-height:76px;}
+.media .media_intro .time{ display:inline-block; font-size:12px;}
+.media .media_intro .time{ *display:inline;}
+.media .media_intro .more{ display:inline-block; position:absolute; right:0; font-size:12px;}
+.media .media_intro .more{ *display:inline;}
+
+
+
+
+
+
+
+
+
+
+

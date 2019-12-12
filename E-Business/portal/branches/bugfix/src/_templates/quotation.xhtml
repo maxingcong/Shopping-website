@@ -1,0 +1,87 @@
+<div class="p-attrs form">
+    {{if isBack!=1}}
+    <div class="p-attr p-flow">
+        <span class="p-key">定制流程：</span>
+        <div class="p-values">
+            <img src="<?=IMAGES?>products/rfq.png"/>
+        </div>
+    </div>
+    {{/if}}
+    <div id="products" class="p-attr" data-name="productId">
+        <span class="p-key">产品分类：</span>
+        <div class="p-values p-icon-200000">
+            {{each productList as item i}}
+            <a class="p-value p-icon {{icons[item.productId]}} {{productId==item.productId ? 'p-sel' : ''}}"
+               href="javascript:;" data-value="{{item.productId}}">{{item.productName.replace(/^定制/, '')}}</a>
+            {{/each}}
+            <!--<a class="p-value p-icon p-icon-2 {{productId==200047 ? 'p-sel' : ''}}" href="javascript:;"
+               data-value="200047">折页</a>
+            <a class="p-value p-icon p-icon-3 {{productId==200051 ? 'p-sel' : ''}}" href="javascript:;"
+               data-value="200051">画册</a>
+            <a class="p-value p-icon p-icon-4 {{productId==200046 ? 'p-sel' : ''}}" href="javascript:;"
+               data-value="200046">单页</a>
+            <a class="p-value p-icon p-icon-5 {{productId==200045 ? 'p-sel' : ''}}" href="javascript:;"
+               data-value="200045">喷绘</a>
+            <a class="p-value p-icon p-icon-6 {{productId==200050 ? 'p-sel' : ''}}" href="javascript:;"
+               data-value="200050">手提袋</a>
+            <a class="p-value p-icon p-icon-7 {{productId==200049 ? 'p-sel' : ''}}" href="javascript:;"
+               data-value="200049">档案袋</a>
+            <a class="p-value p-icon p-icon-8 {{productId==200048 ? 'p-sel' : ''}}" href="javascript:;"
+               data-value="200048">不干胶</a>
+            <a class="p-value p-icon p-icon-9 {{productId==200074 ? 'p-sel' : ''}}" href="javascript:;"
+               data-value="200074">包装</a>
+            <a class="p-value p-icon p-icon-10 {{productId==2000441 ? 'p-sel' : ''}}" href="javascript:;"
+               data-value="200044">灯箱</a>
+            <a class="p-value p-icon p-icon-11 {{productId==2000442 ? 'p-sel' : ''}}" href="javascript:;"
+               data-value="200044">广告字</a>
+            <a class="p-value p-icon p-icon-12 {{productId==200055 ? 'p-sel' : ''}}" href="javascript:;"
+               data-value="200055">其他定制</a>-->
+        </div>
+    </div>
+    <div class="form-group">
+        <span class="form-label">附件：</span>
+        <div class="form-cont">
+            <label id="file_upload-cont" class="up-cont btn-default btn-md">
+            <span id="file_upload" class="up-btn">
+                <span class="up-text">点击上传</span>
+            </span>
+                <span class="up-doing">正在上传...</span>
+                <span class="up-forbid"></span>
+            </label>
+            <a class="icon_help" href="javascript:;" data-text="您可以上传附件以更好地描述需求，如有多个附件，请打包上传，附件大小不超过20M"></a>
+            <div id="file_upload-info" class="upload-info"></div>
+        </div>
+    </div>
+    <div class="form-group">
+        <span class="form-label">联系人手机：</span>
+        <label class="form-control">
+            <input class="form-text" type="text" name="phone" value="{{phone}}"/>
+            <span class="form-placeholder">如：13800000000</span>
+        </label>
+    </div>
+    <!--div class="form-group">
+        <span class="form-label">联系人邮箱：</span>
+        <label class="form-control">
+            <input class="form-text" type="text" name="email" value="{{email}}"/>
+            <span class="form-placeholder">如：xiaoyin@ininin.com</span>
+        </label>
+    </div-->
+    <?php include(TEMPLATES.'delivery_address.xhtml');?>
+    {{if quoterList && quoterList.length}}
+    <div id="quoterList" class="form-group quoter-list">
+        <span class="form-label">指定报价员：</span>
+        <div class="form-cont checkboxs">
+            {{each quoterList as item i}}
+            <label class="checkbox {{item.checked ? 'sel' : ''}}">
+                <input type="checkbox" name="quoterCodes" value="{{item.quoterCode}}" {{item.checked
+                ?'checked="checked"' : ''}}/>{{item.quoterName}}
+            </label>
+            {{/each}}
+        </div>
+    </div>
+    {{/if}}
+    <div class="form_item form_btm btm_attr">
+        <span class="field"></span><a class="submit yellow-btn" href="javascript:;"
+                                      onclick="_czc.push(['_trackEvent', '{{productName}}', '立即询价', '','','']);">{{isBack==1?'重新提交':'立即询价'}}</a>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="${keywords}" />
+    <meta name="description" content="${description}" />
+    <meta name="author" content="ininin.com" />
+    <meta name="copyright" content="Copyright © 2015 ininin.com. All rights reserved." />
+    <title>${title}</title>
+    <link href="<?=DOMAIN?>favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>layout.css" />
+	<?php include(MODULES.'dns_prefetch.xhtml');?>
+</head>
+<body>
+	<?php include(MODULES.'header.xhtml');?>
+	<div id="main" class="main pdetail mained">
+	    <div id="template-product_detail-view" class="layout details"></div>
+        <div class="layout">
+            <?php include(TEMPLATES.'product/desc.xhtml');?>
+        </div>
+	</div>
+	<?php include(MODULES.'footer.xhtml');?>
+    <script id="template-product_detail" type="text/template">
+        <?php include(TEMPLATES.'product/sitemap.xhtml');?>
+        <div id="dpanel" class="dpanel clearfix">
+            <?php include(TEMPLATES.'product/images.xhtml');?>
+            <?php include(TEMPLATES.'product/sidebar.xhtml');?>
+            <?php include(TEMPLATES.'product/options_sqm.xhtml');?>
+        </div>
+    </script>
+    <?php include(TEMPLATES.'product/params_sqm.xhtml');?>
+    <script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>tools_tpl.js?ininin=<?=VERSION?>"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>location_tpl.js?ininin=<?=VERSION?>"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>product/detail_tpl.js?ininin=<?=VERSION?>"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>product/detail_sqm_tpl.js?ininin=<?=VERSION?>"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>loaded_tpl.js?ininin=<?=VERSION?>"></script>
+	<script type="script_weibo"></script>
+	<script type="script_linklogin"></script>
+    <script type="script_cnzz"></script>
+</body>
+</html>

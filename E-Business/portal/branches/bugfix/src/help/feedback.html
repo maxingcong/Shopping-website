@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="意见反馈" />
+    <meta name="description" content="" />
+    <meta name="author" content="${author}" />
+    <meta name="copyright" content="${copyright}" />
+    <title>意见反馈</title>
+    <link rel="shortcut icon" type="image/x-icon"  href="<?=DOMAIN?>favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>help.css" />
+    <?php include(MODULES.'dns_prefetch.xhtml');?>
+</head>
+<body>
+    <?php include(MODULES.'header.xhtml');?>
+    <div class="main feedback">
+      <div class="layout">
+        <fieldset>
+          <form id="feedback" class="forms">
+            <div class="form_item textarea">
+              <label>
+                <span class="field">请输入您的反馈</span>
+                <textarea name="feedback_content"></textarea>
+              </label>
+              <span class="field tip">
+                    请留下您的联系方式，以便于我们给您反馈。
+                  </span>
+            </div>
+            <div class="form_item form_left">
+              <label>
+                <span class="field">联系方式</span>
+                <input class="textbox" type="text" name="contact_information" />
+              </label>
+            </div>
+            <div class="form_item">
+              <label>
+                <span class="field">姓名</span>
+                <input class="textbox" type="text" name="real_name" />
+              </label>
+            </div>
+            <div class="form_item form_btm">
+              <a class="submit" href="javascript:;">
+                    提 交<input type="submit" value="" />
+              </a>
+            </div>
+          </form>
+        </fieldset>
+      </div>
+    </div>
+    <?php include(MODULES.'footer.xhtml');?>
+    <script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>other/feedback.js?ininin=<?=VERSION?>"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>location.js?ininin=<?=VERSION?>"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>loaded.js?ininin=<?=VERSION?>"></script>
+    <!-- 
+    <script type="text/javascript" src="<?=SCRIPTS?>jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>template-native.js"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>zh_cn.js"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>tool.js"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>other/feedback.js"></script>
+	<script type="text/javascript" src="<?=SCRIPTS?>loaded.js"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>libs/location.js"></script> -->
+    <?php include(MODULES.'linklogin.xhtml');?>
+  </body>
+</html>

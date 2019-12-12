@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="安全中心" />
+    <meta name="description" content="" />
+    <meta name="author" content="${author}" />
+    <meta name="copyright" content="${copyright}" />
+    <title>安全中心</title>
+    <link  rel="shortcut icon" type="image/x-icon" href="<?=DOMAIN?>favicon.ico"  />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>layout.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>safety.css" />
+    <?php include(MODULES.'dns_prefetch.xhtml');?>
+</head>
+<body>
+<?php include(MODULES.'header.xhtml');?>
+<div class="main ucenter">
+    <div class="layout clearfix">
+        <?php include(MODULES.'usersidebar.xhtml');?>
+        <div class="container">
+            <div id="upanel" class="upanel hide">
+                <h3 class="headline">安全中心</h3>
+                <div class="clearfix" id="template-safe_info-view"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php include(MODULES.'footer.xhtml');?>
+<script id="template-safe_info" type="text/template">
+    <ul class="safe-list">
+        <li class="safe-item">
+            <h3>登录密码</h3>
+            <p><a class="fr" href="<?=DOMAIN?>member/modifypwd.html">修改</a>为保证您的购物安全，建议您定期更改密码以保护账户安全。</p>
+        </li>
+        <li class="line"></li>
+        <li class="{{if hasPayPassword==1}}safe-item{{else}}danger-item{{/if}}">
+            <h3>支付密码</h3>
+            <p>
+                <a class="fr" href="<?=DOMAIN?>member/paypwd.html">{{if hasPayPassword==1}}修改{{else}}立即启用{{/if}}</a>
+                启用支付密码功能，为您的账户安全保驾护航。
+            </p>
+        </li>
+        <li class="line"></li>
+        <!--<li class="{{if phoneFlag==1}}safe-item{{else}}danger-item{{/if}}">
+            <h3>绑定手机</h3>
+            <p>
+                <a class="fr" href="<?=DOMAIN?>member/paypwd.html">{{if phoneFlag==1}}修改{{else}}立即启用{{/if}}</a>
+                轻松找回密码，验证身份。已绑定：{{phone}}186****4202
+            </p>
+        </li>
+        <li class="line"></li>
+        <li class="{{if emailFlag==1}}safe-item{{else}}danger-item{{/if}}">
+            <h3>绑定邮箱</h3>
+            <p>
+                <a class="fr" href="<?=DOMAIN?>member/paypwd.html">{{if emailFlag==1}}修改{{else}}立即启用{{/if}}</a>
+                验证邮箱，让您的账户更加安全。
+            </p>
+        </li>
+        <li class="line"></li>-->
+        <li class="{{if safetyFlag==1}}safe-item{{else}}danger-item{{/if}}">
+            <h3>安全问题</h3>
+            <p>
+                <a class="fr" href="<?=DOMAIN?>member/safetips.html">{{if safetyFlag==1}}修改{{else}}立即启用{{/if}}</a>
+                保护账户安全，验证您身份的工具之一。
+            </p>
+        </li>
+    </ul>
+    <div class="safe-circle text_center">
+        <div id="safe_percent" class="desc-circle"></div>
+        <p class="text">安全等级：<span id="safe_desc">较低</span></p>
+        <!--<p class="info">您的安全级别低于20%的用户</p>-->
+    </div>
+</script>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>member/safety.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>location.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js?ininin=<?=VERSION?>"></script>
+<!--script type="text/javascript" src="<?=SCRIPTS?>jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>template-native.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>zh_cn.js"></script> 
+<script type="text/javascript" src="<?=SCRIPTS?>tool.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>member/paypwd.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>libs/location.js"></script-->
+<?php include(MODULES.'linklogin.xhtml');?>
+</body>
+</html>

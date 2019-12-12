@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="我的云印" />
+    <meta name="description" content="" />
+    <meta name="author" content="${author}" />
+    <meta name="copyright" content="${copyright}" />
+    <title>我的云印</title>
+    <link href="<?=DOMAIN?>favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>layout.css" />
+	<?php include(MODULES.'dns_prefetch.xhtml');?>
+</head>
+<body>
+<?php include(MODULES.'header.xhtml');?>
+<div class="main ucenter uindex">
+    <div class="layout clearfix">
+        <?php include(MODULES.'usersidebar.xhtml');?>
+        <div class="container myininin">
+            <div class="uheader">
+                <!--<div class="fr ininin-integral">
+                    <div class="givescore sign_integral">
+                        <p class="cions">签到送<span class="yellow"> 3 </span>积分</p>
+                        <a href="javascript:;" id="template-signbtn-view" class="signbtn text_center">签到送积分</a>
+                    </div>
+                    <div class="balance_panel">
+                        <p><strong>我的积分</strong></p>
+                        <p>累计积分：<a href="<?=DOMAIN?>member/myintegral.html" target="_blank" id="data_allGetCoin" class="yellow"></a> 积分</p>
+                        <p>首次消费送 <span class="yellow">100</span> 积分 <a href="<?=DOMAIN?>" target="_blank">立即消费</a></p>
+                        <p>资料完善送 <span class="yellow">100</span> 积分 <a href="<?=DOMAIN?>member/udetail.html">立即完善</a></p>
+                        <p>账户安全送 <span class="yellow">100</span> 积分 <a href="<?=DOMAIN?>member/safety.html">立即提升</a></p>
+                    </div>
+                </div>-->
+                <div id="template-accountinfo-view" class="acc_info fl"></div>
+                <div class="my_balance" style="width: auto; border-right: none">
+                    <div class="balance_panel">
+                        <p><strong>我的资产 </strong><a href="<?=DOMAIN?>" target="_blank">立即消费</a> </p>
+                        <p>现金账户：<a href="<?=DOMAIN?>member/mywallet.html" target="_blank" id="data_allWallet" class="yellow"></a> 元</p>
+                        <p>优惠券：<a href="<?=DOMAIN?>member/mycoupon.html" target="_blank" id="data_usableCount" class="yellow"></a></p>
+                        <p>月结额度：剩 <strong id="data_canUse" class="yellow"></strong> 元（总计 <span id="data_allMonthly"></span> 元）</p>
+                        <p>待开发票额度：<a href="<?=DOMAIN?>member/myinvoice.html" target="_blank" id="data_allSurplusInvoicePrice" class="yellow"> </a> 元</p>
+                    </div>
+                </div>
+            </div>
+            <div class="upanel">
+                <h3 class="headline"><a id="changeHotsell" class="fr" href="javascript:;">换一批</a>热销产品</h3>
+                <div id="template-hot_list-view" class="hotlist"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<?php include(MODULES.'footer.xhtml');?>
+<script id="template-hot_list" type="text/template">
+    {{if product&&product.length}}
+    <ul class="clearfix">
+        {{each product as item i}}
+        <li class="p-info p-info-md">
+            <a class="p-img" href="<?=DOMAIN?>product/{{item.id}}.html" title="{{item.simpleDesc}}" target="_blank">
+                <!--<img src="{{item.productImg}}?imageMogr2/thumbnail/!200x200r/auto-orient/gravity/Center/crop/200x200" alt="{{item.productName}}"/>-->
+                <img src="{{item.productImg}}" alt="{{item.productName}}"/>
+                <!--i class="p-mark"></i-->
+            </a>
+            <div class="p-price ellipsis"><b class="yellow">{{item.priceDesc}}</b></div>
+            <div class="p-name">
+                <a href="<?=DOMAIN?>product/{{item.id}}.html" title="{{item.simpleDesc}}" target="_blank">{{item.productName}}<span class="p-desc">{{item.simpleDescEllipsis}}</span></a>
+            </div>
+        </li>
+        {{/each}}
+    </ul>
+    {{/if}}
+</script>
+<?php include(TEMPLATES.'accountinfo.xhtml');?>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>uploader/main.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>modules/account_info.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>member/index.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>location.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js?ininin=<?=VERSION?>"></script>
+<!--script type="text/javascript" src="<?=SCRIPTS?>jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>template-native.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>zh_cn.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tool.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>member/index.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>libs/location.js"></script-->
+<?php include(MODULES.'linklogin.xhtml');?>
+</body>
+</html>

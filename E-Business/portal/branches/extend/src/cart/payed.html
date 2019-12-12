@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="支付完成" />
+    <meta name="description" content="" />
+    <meta name="author" content="${author}" />
+    <meta name="copyright" content="${copyright}" />
+    <title>支付完成</title>
+    <link rel="shortcut icon" type="image/x-icon"  href="<?=DOMAIN?>favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>layout.css" />
+    <?php include(MODULES.'dns_prefetch.xhtml');?>
+</head>
+<body>
+    <!--php include '../header.xhtml';?>
+    <div class="main payment">
+        <div class="layout">
+            <div class="payinfo">
+                <span class="alt"><span id="payStatus">订单支付成功</span><a id="orderdetail" href="#">查看订单详情</a></span>
+                <div class="desc">
+                    <span>订单号：<b id="data_order_code"></b></span>
+                    <span>下单时间：<b id="data_record_time"></b></span>
+                    <span>商品数量： <b id="data_number">0</b> 件</span><span>订单金额： <b id="data_total_price" class="red">0.00</b> 元</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <php include '../footer.xhtml';?-->
+    <script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>cart/payed.js?ininin=<?=VERSION?>"></script>
+    <!--script type="text/javascript" src="<?=SCRIPTS?>jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>template-native.js"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>zh_cn.js"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>tool.js"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>cart/payed.js"></script>
+	<script type="text/javascript" src="<?=SCRIPTS?>loaded.js"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>libs/location.js"></script-->
+    <?php include(MODULES.'linklogin.xhtml');?>
+</body>
+</html>

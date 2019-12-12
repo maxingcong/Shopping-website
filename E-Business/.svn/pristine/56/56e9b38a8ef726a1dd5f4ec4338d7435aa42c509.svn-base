@@ -1,0 +1,7 @@
+<div class="attr p-num clearfix">
+    <div class="atr">款数：</div>
+    <div class="counter counter-num">
+        <a>-</a><input class="textbox" type="text" name="counter" value="{{counter||1}}"/><b>+</b>
+    </div>
+    <div class="alt">（款数是指印刷文件的数量）</div>
+</div>

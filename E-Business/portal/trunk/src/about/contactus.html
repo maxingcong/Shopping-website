@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+	<meta name="robots" content="all" />
+	<meta name="keywords" content="联系我们" />
+	<meta name="description" content="" />
+	<meta name="author" content="${author}" />
+	<meta name="copyright" content="${copyright}" />
+	<title>联系我们</title>
+    <link rel="shortcut icon" type="image/x-icon"  href="<?=DOMAIN?>favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>about.css" />
+	<?php include(MODULES.'dns_prefetch.xhtml');?>
+</head>
+<body>
+	<?php include(MODULES.'header.xhtml');?>
+	<div class="main uabout">
+		<div class="layout clearfix">
+			<?php include(MODULES.'aboutsidebar.xhtml');?>
+			<div class="container">
+				<div id="contactus" class="about">
+					<h3 class="headline about_tit">联系我们</h3>
+					<dl>
+						<dd class="contactus">
+							<b class="contactus_quarter blue">云印总部</b>
+							<p>云印技术（深圳）有限公司</p>
+							<p>Tel： 0755-86700810</p>
+							<p>Email：<a href="mailto:join@ininin.com?subject=">join@ininin.com</a>
+							</p>
+							<p>Web：<a href="<?=DOMAIN?>">www.ininin.com</a>
+							</p>
+							<p>Add： 深圳市南山区粤海街道科技南十二路2号金蝶软件园B栋南座206<span class="coord" data-name="云印技术（深圳）有限公司" data-coord="113.961406,22.539856"></span>
+							</p>
+						</dd>
+						<dd class="contactus">
+							<b class="contactus_quarter blue">云印技术北京办事处</b>
+							<p>云印技术北京办事处</p>
+							<p>Tel： 010-53383361</p>
+							<p>Add： 北京市朝阳区 望京中环南路9号望京大厦B座12层7-8<span class="coord" data-name="云印技术北京办事处" data-coord="116.48339,40.003247"></span>
+							</p>
+						</dd>
+						<dd class="contactus">
+							<b class="contactus_quarter blue">云印技术上海办事处</b>
+							<p>云印技术上海办事处</p>
+							<p>Tel： 18017688981</p>
+							<p>Add：上海市徐汇区 田林路130号越界创意园20号楼119室<span class="coord" data-name="云印技术上海办事处" data-coord="121.418453,31.176946"></span>
+							</p>
+						</dd>
+
+					</dl>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?php include(MODULES.'footer.xhtml');?>
+    <script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+    <script type="text/javascript">
+        require(["base", "tools", "modules/point"], function($, T, TakeAddress){
+            T.Loader(function(){
+                //自提点地址
+                new TakeAddress({
+                    callbacks: {
+                        loaded: function(){}
+                    }
+                });
+            });
+        });
+    </script>
+    <script type="text/javascript" src="<?=SCRIPTS?>location.js?ininin=<?=VERSION?>"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>loaded.js?ininin=<?=VERSION?>"></script>
+	<!--script type="text/javascript" src="<?=SCRIPTS?>jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="<?=SCRIPTS?>libs/utils.js"></script>
+	<script type="text/javascript" src="<?=SCRIPTS?>zh_cn.js"></script>
+	<script type="text/javascript" src="<?=SCRIPTS?>tool.js"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>libs/location.js"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>modules/point.js"></script>
+	<script type="text/javascript" src="<?=SCRIPTS?>other/contactus.js"></script>
+	<script type="text/javascript" src="<?=SCRIPTS?>loaded.js"></script>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=VybvSG3RqpGQzp6GwlzNOmiq"></script-->
+    <?php include(MODULES.'linklogin.xhtml');?>
+</body>
+</html>

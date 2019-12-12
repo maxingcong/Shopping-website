@@ -1,0 +1,25 @@
+<script id="template-choice_yunfile" type="text/template">
+    <div class="pop-choice-yunfile">
+        <div id="ofilter" class="ofilter">
+            <ul>
+                <li><a class="sel" href="javascript:;" data-idx="10">我的资料</a></li>
+                <li class="vline"></li>
+                <li><a class="" href="javascript:;" data-idx="30">我的设计文件</a></li>
+            </ul>
+        </div>
+        <div class="choice-content" data-idx="10">
+            <div id="template-datum_file_list-view" class="mt10 load"></div>
+            <div id="paginbar_datum_file_list" class="paginbar mt10 hide"></div>
+        </div>
+        <div class="choice-content hide" data-idx="30">
+            <div id="template-design_file_list-view" class="mt10 load"></div>
+            <div id="paginbar_design_file_list" class="paginbar mt10 hide"></div>
+        </div>
+        <div class="btns-center mt20">
+            <button type="button" class="btn btn-primary" value="确定">确定</button>
+            <button type="button" class="btn btn-default" value="取消">关闭</button>
+        </div>
+    </div>
+</script>
+<?php include(TEMPLATES.'my_datum_file_list.xhtml');?>
+<?php include(TEMPLATES.'my_design_file_list.xhtml');?>

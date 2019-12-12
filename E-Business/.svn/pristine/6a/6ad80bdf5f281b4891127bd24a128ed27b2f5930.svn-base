@@ -1,0 +1,220 @@
+{
+  "categoryList": [
+    {
+      "categoryName": "印刷类",
+      "products": [
+        {
+          "productName": "铜版纸名片"
+        },
+        {
+          "productName": "特种纸名片"
+        },
+        {
+          "productName": "宣传单页"
+        },
+        {
+          "productName": "画册"
+        },
+        {
+          "productName": "纸品手提袋"
+        },
+        {
+          "productName": "折页"
+        },
+        {
+          "productName": "封套"
+        },
+        {
+          "productName": "红包"
+        },
+        {
+          "productName": "台历，挂历"
+        },
+        {
+          "productName": "对联"
+        },
+        {
+          "productName": "信封"
+        },
+        {
+          "productName": "刮刮卡"
+        },
+        {
+          "productName": "菜谱"
+        }
+      ]
+    },
+    {
+      "categoryName": "喷绘类",
+      "products": [
+        {
+          "productName": "X展架"
+        },
+        {
+          "productName": "门型展架"
+        },
+        {
+          "productName": "易拉宝"
+        },
+        {
+          "productName": "车贴"
+        },
+        {
+          "productName": "灯布"
+        },
+        {
+          "productName": "灯箱片"
+        },
+        {
+          "productName": "背胶海报"
+        },
+        {
+          "productName": "地贴"
+        },
+        {
+          "productName": "透明玻璃贴"
+        },
+        {
+          "productName": "大型户外喷绘"
+        },
+        {
+          "productName": "桁架安装"
+        },
+        {
+          "productName": "背胶（车贴）裱KT板"
+        },
+        {
+          "productName": "背胶（车贴）裱画板"
+        }
+      ]
+    },
+    {
+      "categoryName": "票据类",
+      "products": [
+        {
+          "productName": "票据联单"
+        }
+      ]
+    },
+    {
+      "categoryName": "数码快印",
+      "products": [
+        {
+          "productName": "相册"
+        },
+        {
+          "productName": "标书"
+        },
+        {
+          "productName": "菜谱"
+        },
+        {
+          "productName": "个性贺卡"
+        },
+        {
+          "productName": "商务印刷品打样"
+        },
+        {
+          "productName": "彩盒打样"
+        }
+      ]
+    },
+    {
+      "categoryName": "包装类",
+      "products": [
+        {
+          "productName": "卡纸盒"
+        },
+        {
+          "productName": "瓦楞盒"
+        },
+        {
+          "productName": "纸箱"
+        },
+        {
+          "productName": "礼品盒"
+        }
+      ]
+    },
+    {
+      "categoryName": "不干胶类",
+      "products": [
+        {
+          "productName": "合版不干胶"
+        },
+        {
+          "productName": "轮转不干胶"
+        },
+        {
+          "productName": "PVC类不干胶"
+        },
+        {
+          "productName": "打印切割的不干胶"
+        }
+      ]
+    },
+    {
+      "categoryName": "制卡类",
+      "products": [
+        {
+          "productName": "PVC卡"
+        },
+        {
+          "productName": "PVC名片"
+        },
+        {
+          "productName": "人像卡"
+        }
+      ]
+    },
+    {
+      "categoryName": "标牌、广告字",
+      "products": [
+        {
+          "productName": "亚克力标牌"
+        },
+        {
+          "productName": "广告字安装"
+        },
+        {
+          "productName": "不锈钢精工字含不锈钢字，电镀字，烤漆字"
+        }
+      ]
+    },
+    {
+      "categoryName": "礼品类",
+      "products": [
+        {
+          "productName": "纸质折扇"
+        },
+        {
+          "productName": "PVC柄扇"
+        },
+        {
+          "productName": "马克杯"
+        },
+        {
+          "productName": "定制T恤衫"
+        },
+        {
+          "productName": "笔记本"
+        },
+        {
+          "productName": "广告遮阳伞"
+        },
+        {
+          "productName": "户外广告帐篷"
+        },
+        {
+          "productName": "无纺布袋"
+        },
+        {
+          "productName": "鼠标垫"
+        },
+        {
+          "productName": "工卡挂绳"
+        }
+      ]
+    }
+  ]
+}

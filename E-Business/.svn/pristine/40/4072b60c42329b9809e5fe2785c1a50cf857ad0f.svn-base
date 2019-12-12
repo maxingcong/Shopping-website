@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <title>云印官网</title>
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+    <?php include(MODULES.'dns_prefetch.xhtml');?>
+</head>
+<body>
+<a id="sinaOpen" href="javascript:;"></a>
+<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=2422438855" type="text/javascript"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript">
+    require(["base", "tools"], function ($, T) {
+        window.T = window.T || {};
+        /**
+         * 获取URL参数
+         * Return 参数集合
+         */
+        T.getRequest = function (url) {
+            url = url || location.search; //获取url中'?'符后的字符串
+            var theRequest = {};
+            if (url.indexOf('?') < 0) return theRequest;
+            var str = url.substr(1);
+            strs = str.split('&');
+            for (var i = 0; i < strs.length; i++)
+                theRequest[strs[i].split('=')[0]] = decodeURI(strs[i].split('=')[1]);
+            return theRequest;
+        };
+        var params = T.getRequest();
+        params.backurl = decodeURIComponent(params.backurl);
+        WB2.anyWhere(function (W) {
+            W.widget.connectButton({
+                id: "sinaOpen",
+                type: '3,2',
+                callback: {
+                    login: function (o) { //登录后的回调函数
+                        //alert("login: " + o.screen_name);
+                        //var type = 3, openid = o.id;//, nickname = encodeURIComponent(o.screen_name), portrait = encodeURIComponent(o.profile_image_url), backurl = encodeURIComponent(location.href);
+                        //alert(openid)
+                        //alert('<?=DOMAIN?>passport/openuser.html?type='+type+'&openid=' + openid + '&nickname=' + nickname + '&portrait=' + portrait + '&backurl=' + backurl+'#token='+(T.MD5(encodeURIComponent(type+openid+nickname+portrait+backurl)).toUpperCase()));
+                        _LoginCallback(''+3, ''+o.id, encodeURIComponent(o.screen_name), encodeURIComponent(o.profile_image_url), encodeURIComponent(params.backurl));
+                        //var params = '?type=3&openid=' + o.id + '&nickname=' + o.screen_name + '&portrait=' + encodeURIComponent(o.profile_image_url) + '&gender=' + o.gender + '&backurl=' + encodeURIComponent(location.href);
+                        //location.href = '<?=DOMAIN?>passport/openuser.html#token='+T.MD5(params)+params;
+                    },
+                    logout: function () { //退出后的回调函数
+                        alert('logout');
+                    }
+                }
+            });
+        });
+        function _LoginCallback(type, openid, nickname, portrait, backurl) {
+            location.href = '<?=DOMAIN?>passport/openuser.html?type=' + type + '&openid=' + openid + '&nickname=' + nickname + '&portrait=' + portrait + '&backurl=' + backurl + '#token=' + (T.MD5(decodeURIComponent(type + openid + nickname + portrait + backurl)).toUpperCase());
+        }
+        $("#sinaOpen").click();
+    });
+</script>
+</body>
+</html>

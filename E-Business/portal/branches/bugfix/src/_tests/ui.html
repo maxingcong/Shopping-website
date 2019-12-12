@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>layout.css" />
+</head>
+<body>
+
+<input list="cars" />
+<datalist id="cars">
+    <option value="BMW">
+    <option value="Ford">
+    <option value="Volvo">
+</datalist>
+
+<div class="btns-left">
+    <a class="btn btn-primary" href="javascript:;">仍然选该文件</a><a class="btn btn-warning" href="javascript:;">重新选择文件</a><a class="btn btn-default" href="javascript:;">关 闭</a>
+</div>
+
+<div class="btns-center">
+    <a class="btn btn-primary" href="javascript:;">仍然选该文件</a><a class="btn btn-warning" href="javascript:;">重新选择文件</a><a class="btn btn-default" href="javascript:;">关 闭</a>
+</div>
+
+<div class="btns-right">
+    <a class="btn btn-primary" href="javascript:;">仍然选该文件</a><a class="btn btn-warning" href="javascript:;">重新选择文件</a><a class="btn btn-default" href="javascript:;">关 闭</a>
+</div>
+2、上传按钮
+<div class="upload-group">
+    <input id="file_upload_input" type="text" class="textbox" readonly/><a class="btn btn-default upload-button" href="javascript:;"><input id="file_upload" name="file_upload" type="file" /><span class="doing">上传中...</span></a><span id="file_upload_uris" class="upload_uris"></span>
+    <div id="file_upload_progressbar" class="progressbar"></div>
+    <div id="file_upload_network" class="network"></div>
+</div>
+<p><a id="previewer" class="btn btn-primary" href="javascript:;">文件预览</a></p>
+<?php include(TEMPLATES.'previewer.xhtml');?>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript">
+    require(["base", "tools", "modules/uploader", "widgets/previewer"], function ($, T, Uploader, Previewer) {
+        Uploader({
+            params: {},
+            auto: true,
+            prefix: "ec/print/",
+            type: "",
+            inputId: "file_upload",
+            text: "选择文件",
+            text2: "重新选择文件"
+        });
+        $("#previewer").on("click", function(e){
+            Previewer({
+                uris: ["http://cloud.ininin.com/advertisement/2016-01-21-21-44-44-764.jpg","http://cloud.ininin.com/advertisement/2016-01-21-21-44-44-764.jpg","http://cloud.ininin.com/advertisement/2016-01-21-21-44-44-764.jpg"]
+            });
+        });
+        var arr = [{a:5},{a:1},{a:3}]
+        arr.sort(function(a, b){return a.a>b.a?1:-1});
+        T.alt(T.JSON.stringify(arr));
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,368 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="我的发票" />
+    <meta name="description" content="" />
+    <meta name="author" content="${author}" />
+    <meta name="copyright" content="${copyright}" />
+    <title>我的发票</title>
+    <link rel="shortcut icon" type="image/x-icon" href="<?=DOMAIN?>favicon.ico"  />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>layout.css" />
+    <?php include(MODULES.'dns_prefetch.xhtml');?>
+</head>
+<body>
+<?php include(MODULES.'header.xhtml');?>
+<div class="main ucenter myinvoice">
+    <div class="layout clearfix">
+        <?php include(MODULES.'usersidebar.xhtml');?>
+        <div class="container">
+            <div class="uheader">
+                <div id="template-accountinfo-view" class="acc_info fl"></div>
+                <div class="my_invoice">
+                    <div id="template-invoice_panel-view" class="invoice_panel">
+                        <!-- 我的发票展示 -->
+                    </div>
+                </div>
+            </div>
+            <div id="myinvoice" class="upanel">
+                <!-- <div> -->
+                	<h3 class="headline clearfix"><span class="fl">发票申请历史<span class="red">（电子发票为PDF格式，下载后请使用PDF阅读器打开查看）</span></span><span class="fr"><a class="btn" href="javascript:;">申请发票</a></span></h3>
+	                <div class="list invoice clearfix">
+	                    <div id="template-invoice_record-view"></div>
+	                </div>
+	                <div class="idesc">说明：待开发票金额不包含2015年3月1日之前的数据。</div>
+	                <div id="paginbar" class="paginbar hide"></div>
+                <!-- </div> -->
+            </div>
+            <div id="applyinvoice" class="upanel applyinvoice">
+            	<div>
+            		<h3 class="headline clearfix">
+                        <span class="fl">申请发票</span>
+                        <a class="btn fr" href="javascript:;">查看开票记录</a>
+                    </h3>
+	            	<form id="apply_invoice" class="forms" method="post">
+	                    <div class="form_item"><b>发票信息</b><span class="alt">（最多保存10条发票信息）</span><span class="alt red">填写完毕发票（普票、专票）信息后请点击下方蓝色确认按钮提交并确认申请</span></div>
+			            <div id="invlist" class="invlist">
+	                        <ul id="template-invoice_list-view" class="radios"></ul>
+	                    </div>
+                        <div class="tax-invoice">
+                            <div class="form_item"><b>寄送地址</b><span class="alt">（最多保存10条收货地址）</span></div>
+                            <div id="adrlist" class="adrlist">
+                                <ul id="template-address_list-view" class="radios"></ul>
+                            </div>
+                        </div>
+	                    <div class="form_item"><b>发票金额：</b><label><input id="form_all_get_coin" type="text" class="textbox" name="invoice_price" /><i class="msg"></i></label><span class="alt tax-invoice">（发票额度满<span class="red">200</span>元可免快递费，如果您不急于报销，可以累积满<span class="red">200</span>元后统一开票）</span></div>
+	                    <div class="tax-invoice">
+                            <div class="form_item"><b>发票运费：</b><span id="invoice_ship" class="red">免费寄送</span></div>
+                        </div>
+	                    <div class="form_btm">
+	                    	<a class="submit btn-primary" href="javascript:;">确 定<input type="submit" value="" /></a><a class="submit btn-default cancel" href="javascript:;">取 消</a>
+	                    </div>
+	            	</form>
+            	</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="hide">
+    <fieldset id="invoice_form" class="invoice_form adrorder">
+        <form id="invoice" class="forms">
+            <input id="hid_invoice_id" name="invoice_id" type="hidden" value="" />
+            <div class="form-warn-info" style="display: none">尊敬的客户，您好，根据国家税务总局2017年第16号公告，自2017年7月1日起，企业开具增值税普通发票时，应向销售方提供纳税人识别号或统一社会信用代码，感谢您的理解与支持</div>
+            <div id="form_item_invoice_type" class="form_item">
+                <div class="radios">
+                    <span class="field">发票类型：</span>
+                    <span class="radio sel">增值税电子普通发票<input type="radio" name="invoice_type" value="3" checked="checked" /></span>
+                    <span class="radio">增值税专用发票<input type="radio" name="invoice_type" value="2" /></span>
+                </div>
+            </div>
+            <div id="invoiceTypeOne" class="hide clear">
+                <div class="form_item">
+                    <span class="radios">
+                        <span class="field">发票抬头：</span>
+                        <span class="radio sel">个人<input type="radio" name="title_type" value="1" checked="checked" /></span>
+                        <span class="radio">单位<input type="radio" name="title_type" value="2" /></span>
+                    </span>
+                </div>
+                <div class="form_item">
+                    <span class="field">单位名称：</span>
+                    <div class="drop-list">
+                        <div class="drop-input">
+                            <input type="text" class="textbox input-lg" name="invoice_title" maxlength="200" autocomplete="off"/><span class="drop-down"></span>
+                        </div>
+                        <div class="drop-items"></div>
+                    </div><b class="required">*</b><i class="msg"></i>
+                </div>
+                <div class="form_item">
+                    <label>
+                        <span class="field">纳税人识别号：</span>
+                        <input class="textbox input-lg" type="text" name="company_id_code" maxlength="200" autocomplete="off"/><b class="required">*</b><i class="msg"></i>
+                    </label>
+                </div>
+            </div>
+            <div id="invoiceTypeTwo" class="hide clear">
+                <div class="form_item clear">
+                    <label>
+                        <span class="field">单位名称：</span>
+                        <div class="drop-list">
+                            <div class="drop-input">
+                                <input class="textbox input-lg" type="text" name="company_name" maxlength="200" autocomplete="off"/><span class="drop-down"></span>
+                            </div>
+                            <div class="drop-items"></div>
+                        </div>
+                        <b class="required">*</b><i class="msg"></i>
+                    </label>
+                </div>
+                <div class="form_item">
+                    <label>
+                        <span class="field">纳税人识别号：</span>
+                        <input class="textbox input-lg" type="text" name="id_code" maxlength="200" autocomplete="off"/><b class="required">*</b><i class="msg"></i>
+                    </label>
+                </div>
+                <div class="form_item">
+                    <label>
+                        <span class="field">注册地址：</span>
+                        <input class="textbox input-lg" type="text" name="register_address" maxlength="200" autocomplete="off"/><b class="required">*</b><i class="msg"></i>
+                    </label>
+                </div>
+                <div class="form_item">
+                    <label>
+                        <span class="field">注册电话：</span>
+                        <input class="textbox input-lg" type="text" name="register_phone" maxlength="200" autocomplete="off"/><b class="required">*</b><i class="msg"></i>
+                    </label>
+                </div>
+                <div class="form_item">
+                    <label>
+                        <span class="field">开户银行：</span>
+                        <input class="textbox input-lg" type="text" name="bank" maxlength="200" autocomplete="off"/><b class="required">*</b><i class="msg"></i>
+                    </label>
+                </div>
+                <div class="form_item">
+                    <label>
+                        <span class="field">银行账户：</span>
+                        <input class="textbox input-lg" type="text" name="bank_account" maxlength="200" autocomplete="off"/><b class="required">*</b><i class="msg"></i>
+                    </label>
+                </div>
+                <div class="form_item">
+                    <span class="field">证明资料：</span>
+                    <input id="file_upload_path" class="textbox" type="hidden" name="data_path" autocomplete="off"/>
+                    <input id="file_upload_name" class="textbox" type="hidden" name="data_name" autocomplete="off"/>
+                    <label id="file_upload-cont" class="up-cont btn-default btn-md">
+                        <span id="file_upload" class="up-btn">
+                            <span class="up-text"></span>
+                        </span>
+                        <span class="up-doing">正在上传...</span>
+                        <span class="up-forbid"></span>
+                    </label>
+                    <span id="file_uploaduri" class="ml10 info"><span class="alt"></span></span>
+                    <!-- <span class="file_btn upload-button">
+                        <input id="file_upload" name="file_upload" type="file" />
+                        <span class="doing">上传中...</span>
+                    </span>
+                    <span id="file_upload1uri" class="info"><span class="alt"></span></span> -->
+
+                    <div class="invoice_upload">
+                        <!-- <div id="file_upload_progressbar" class="progressbar"></div> -->
+                        <div class="alt">请上传可证明本单位是一般纳税人的资料证明照片，如：<a class="invoice_preview" href="javascript:;">《一般纳税人认定通知书》</a></div>
+                        <div id="invoice_preview_img" class="hide">
+                            <img src="<?=IMAGES?>invoice101.jpg" width="100%"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="form_item_content_type" class="form_item clear">
+                <div class="checkboxs contents">
+                    <span class="field">发票内容：</span>
+                    <!--span class="radio sel">明细<input type="radio" name="content_type" value="1" checked="checked" /></span>
+                    <span class="radio">办公用品<input type="radio" name="content_type" value="2" /></span>
+                    <span class="radio">耗材<input type="radio" name="content_type" value="3" /></span-->
+                    <span class="radio">名片<input type="radio" name="content_type" value="4" /></span>
+                    <span class="radio">画册<input type="radio" name="content_type" value="7" /></span>
+                    <span class="radio sel">办公用品<input type="radio" name="content_type" value="2" checked="checked" /></span>
+                    <span class="radio">宣传用品<input type="radio" name="content_type" value="5" /></span>
+                    <span class="field">&nbsp;</span>
+                    <span class="radio">设计费<input type="radio" name="content_type" value="6" /></span>
+                    <span class="radio">耗材<input type="radio" name="content_type" value="3" /></span>
+                    <!--span class="radio">运费<input type="radio" name="content_type" value="8" /></span-->
+                </div>
+            </div>
+            <div class="form_item form_btm"> <span class="field"></span><a class="submit" href="javascript:;">保 存
+                <input type="submit" value="" />
+            </a> </div>
+        </form>
+    </fieldset>
+    <fieldset id="address_form" class="address_form adrorder">
+        <form id="address" class="forms">
+            <input id="hid_address_id" type="hidden" name="address_id" />
+            <div class="form_item">
+                <label> <span class="field">收货人</span>
+                    <input class="textbox" type="text" name="receiver" />
+                    <b class="required">*</b> <i class="msg"></i> </label>
+            </div>
+            <div class="form_item">
+                <div> <span class="field">地区</span>
+                    <select id="pid-address" name="province"></select>
+                    <select id="cid-address" name="city"></select>
+                    <select id="did-address" name="area"></select>
+                    <input id="pcd-address" name="areaName" type="hidden" value="" />
+                </div>
+            </div>
+            <div class="form_item">
+                <label> <span class="field">详细地址</span>
+                    <input class="textbox adr_desc" type="text" name="address" />
+                    <b class="required">*</b> <i class="msg"></i> </label>
+            </div>
+            <div class="form_item">
+                <label> <span class="field">手机号码</span>
+                    <input class="textbox" type="text" name="phone" />
+                    <b class="required">*</b> <i class="msg"></i> <span class="alt">手机和座机至少填写一个</span> </label>
+            </div>
+            <div class="form_item">
+                <label> <span class="field">固定电话</span>
+                    <input class="textbox" type="text" name="tel" />
+                    <i class="msg"></i> <span class="alt"></span> </label>
+            </div>
+            <div class="form_item">
+                <label> <span class="field">邮箱</span>
+                    <input class="textbox" type="text" name="email" />
+                    <i class="msg"></i> <span class="alt">用于接收订单状态信息</span> </label>
+            </div>
+            <div class="form_item form_btm"> <span class="field"></span><a class="submit" href="javascript:;">添加这个地址
+                <input type="submit" value="" />
+            </a> </div>
+        </form>
+    </fieldset>
+</div>
+<?php include(TEMPLATES.'accountinfo.xhtml');?>
+<?php include(MODULES.'footer.xhtml');?>
+<script id="template-invoice_panel" type="text/template">
+    <p><strong>待开发票金额：</strong><strong class="yellow">{{allSurplusInvoicePrice}}</strong> 元</p>
+    <p>累计消费：<strong class="yellow">{{totalConsumePrice}}</strong> 元</p>
+    <p>已开发票：<strong class="yellow">{{totalInvoicePrice}}</strong> 元</p>
+    <p><a href="<?=DOMAIN?>faq/invoice.html#1" target="_blank">查看发票申请制度</a></p>
+</script>
+<script id="template-invoice_record" type="text/template">
+    <table class="table_view" cellpadding="0" cellspacing="0">
+        <colgroup>
+            <col width="18%"/>
+            <col width="17%"/>
+            <col width="15%"/>
+            <col width="10%"/>
+            <col width="12%"/>
+            <col width="10%"/>
+            <col width="7%"/>
+            <col width="14%"/>
+            <col/>
+        </colgroup>
+        <thead>
+        <tr>
+            <th class="col1"><div>申请时间<i class="desc_order"></i></div></th>
+            <th class="col2"><div>发票类型</div></th>
+            <th class="col3"><div>发票抬头</div></th>
+            <th class="col4"><div>发票项目</div></th>
+            <th class="col5"><div>发票金额</div></th>
+            <th class="col6"><div>状态</div></th>
+            <th class="col7"><div>地址</div></th>
+            <th class="col7"><div>物流信息/下载</div></th>
+        </tr>
+        </thead>
+        <tbody>
+        {{each invoiceList as temp k}}
+        <tr>
+            <td class="col1"><div>{{temp.requestDateStr}}</div></td>
+            <td class="col2"><div class="ellipsis" title="{{temp.type}}">
+                {{if temp.type=='增值税专用发票' }}
+                    <a class="look {{temp._pass}}" title="{{temp._status}}" href="javascript:;" data-invoicetemplateid="{{temp.invoiceTemplateId}}">
+                    {{temp.type}}</a>
+                {{else}}
+                    {{(temp.type||'增值税电子普通发票').replace(/（.*/,'')}}
+                {{/if}}
+            </div></td>
+            <td class="col3"><div title="{{temp.title}}"><p class="ellipsis">{{temp.title}}<p></div></td>
+            <td class="col4"><div class="ellipsis" title="{{temp.item}}">{{temp.item||'办公用品'}}</div></td>
+            <td class="col5"><div>{{RMB(temp.invoicePrice)}}</div></td>
+            <td class="col6"><div class="ellipsis" title="{{temp.statusStr}}">{{temp.statusStr}}</div></td>
+            <td class="col7"><div>
+                {{if temp.type=='增值税专用发票'}}
+                <a class="det" href="javascript:" data-code="{{temp.invoiceCode}}">查看</a>
+                {{else}}
+                <span class="gray">---</span>
+                {{/if}}
+            </div></td>
+            <td class="col8">
+                {{if temp.type=='增值税专用发票' && temp.logisticsCode}}
+                <div class="ellipsis" title="{{temp.logisticsName}}-{{temp.logisticsCode}}">
+                    <a class="logistics" href="javascript:;" data-name="{{temp.logisticsName}}" data-code="{{temp.logisticsCode}}">{{temp.logisticsName}}</a>
+                </div>
+                {{else if temp.invoiceUrl}}
+                <div class="ellipsis">
+                    <a class="logistics invoice_download" href="{{temp.invoiceUrl}}?download" target="_blank" data-code="{{temp.invoiceCode}}">下载</a>
+                </div>
+                {{else}}
+                <span class="gray">---</span>
+                {{/if}}
+            </td>
+        </tr>
+        {{/each}}
+        </tbody>
+    </table>
+    {{ if !invoiceList||!invoiceList.length }}
+        <div class="empty"><dl class="vertical_middle"><dt class="vm_left"></dt><dd class="vm_right">暂无数据</dd></dl></div>
+    {{/if}}
+</script>
+<script id="template-invoice_list" type="text/template">
+    {{each invoiceList as temp k}}
+    <li id="invoice_item_{{temp.invoiceId}}" class="invitem">
+        <span class="radio ellipsis" data-type="{{temp.invoiceType}}">
+            <span class="{{temp._pass}}">{{temp._status?'['+temp._status+']':''}}</span>{{ENUM.TYPE[temp.invoiceType]}}<span class="name">{{ENUM.TITLE[temp.titleType]}}</span>{{temp.invoiceTitle}}<input type="radio" name="invoice_id" value="{{temp.invoiceId}}" /><input type="radio" name="invoice_type" value="{{temp.invoiceType}}" /></span><a class="upd" href="javascript:;">修改</a><a class="del" href="javascript:;">删除</a>
+    </li>
+    {{/each}}
+    {{ if invoiceList && invoiceList.length<10 }}
+        <li class="additem"><a class="addbtn" href="javascript:;">新增发票信息</a></li>
+    {{/if}}
+</script>
+<script id="template-address_list" type="text/template">
+    {{each addressList as temp k}}
+    <li id="address_item_{{temp.addressId}}" class="adritem{{temp.isDefault?' def':''}}">
+        <span class="radio ellipsis{{temp.isDefault?' sel':''}}">{{temp.address.replace(/\^/gi,"")}} （{{temp.receiver}}  收）<span class="tel">{{temp.phone||temp.tel}}</span><input type="radio" name="address_id" value="{{temp.addressId}}" {{temp.isDefault?'checked=checked':''}} /></span><span class="def">默认地址</span><a class="def" href="javascript:;">设为默认</a><a class="upd" href="javascript:;">修改</a><a class="del" href="javascript:;">删除</a>
+    </li>
+    {{/each}}
+    {{if addressList && addressList.length<10 }}
+        <li class="additem"><a class="addbtn" href="javascript:;">新增收货地址</a></li>
+        <li class="hide">
+            <span class="radio">
+                <input type="radio" name="address_id" value="0" checked="checked" />
+            </span>
+        </li>
+    {{/if}}
+</script>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>location.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>uploader/main.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>modules/account_info.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>member/myinvoice.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js?ininin=<?=VERSION?>"></script>
+<!--script type="text/javascript" src="<?=SCRIPTS?>jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.uploadify.min.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>template-native.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>zh_cn.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tool.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>libs/location.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>member/myinvoice.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js"></script-->
+<?php include(MODULES.'linklogin.xhtml');?>
+</body>
+</html>

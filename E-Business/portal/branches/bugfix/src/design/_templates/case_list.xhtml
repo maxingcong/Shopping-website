@@ -1,0 +1,32 @@
+<script id="template-case_list" type="text/template">
+    {{if productionList&&productionList.length}}
+    <ul class="clearfix">
+        {{each productionList as project i}}
+        <li>
+            <div class="d-info" data-id="{{project.productionId}}">
+                <a class="d-img" href="javascript:;" title="{{project.caseName}}">
+                    <img src="{{project.coverImage}}" alt="{{project.caseName}}"/>
+                </a>
+                <div class="d-name ellipsis" title="{{project.caseName}}">{{project.caseName}}</div>
+                <div class="d-category ellipsis"><a href="<?=DOMAIN_DESIGN?>category/{{project.designCategoryId}}.html?pid={{project.designProductId}}" target="_blank" title="{{project.designCategoryName}}-{{project.designProductName}}">{{project.designCategoryName}}-{{project.designProductName}}</a></div>
+                <div class="d-desc ellipsis" title="{{project.digest}}">{{project.digest}}</div>
+                <div class="d-operator">
+                    <i class="browse {{if project.hasBrowse}}sel{{/if}}" title="浏览"></i><span class="mr10">{{project.viewNumber}}</span>
+                    <i class="commend {{if project.hasCommend}}sel{{/if}}" title="点赞"></i><span class="mr10">{{project.likeNumber}}</span>
+                    <i class="mark {{if project.isCollection}}sel{{/if}}" title="{{if !project.isCollection}}收藏{{else}}取消收藏{{/if}}"></i><span>{{project.collectionNumber}}</span>
+                </div>
+                <div class="d-headimg ellipsis">
+                    <a href="<?=DOMAIN_DESIGN?>designer/{{project.designerId}}.html" target="_blank" title="{{project.designerAlias}}"><div class="img-box fl mr10"><img src="{{project.personImage}}" alt="{{project.designerAlias}}"><i></i></div>{{project.designerAlias}}</a>
+                </div>
+            </div>
+        </li>
+        {{/each}}
+    </ul>
+    {{else if blankTemplate}}
+    {{include blankTemplate}}
+    {{else}}
+    <div class="blank-tips">
+        <p class="text_center">暂无相关案例~</p>
+    </div>
+    {{/if}}
+</script>

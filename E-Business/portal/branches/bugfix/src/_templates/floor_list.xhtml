@@ -1,0 +1,200 @@
+<script id="template-floor_list" type="text/template">
+    <div class="floor-group">
+        {{each floorList as floor i}}
+        <div class="floor-item" data-nav_idx="{{floor.floorId}}">
+            <div class="floor-head clearfix">
+                <h3 class="floor-title"><span class="blue">F{{i+1}}</span> {{floor.floorName}}</h3>
+                <ul class="floor-tabs">
+                    {{if floor.pageList.length>1 || (floor.pageList[0] && floor.pageList[0].hiperlink)}}
+                    {{each floor.pageList as page k}}
+                    <li class="floor-tab" data-page_id="{{page.pageId}}">
+                        <a class="{{k?'':'sel'}}" href="{{page.hiperlink||'javascript:;'}}" {{page.hiperlink?'target="_blank"':''}}>{{page.pageName}}</a>
+                    </li>
+                    {{/each}}
+                    {{/if}}
+                </ul>
+            </div>
+            <div class="floor-body">
+                {{include 'floor_page_list' floor}}
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</script>
+<script id="floor_page_list" type="text/template">
+{{each pageList as page k}}
+{{include 'template-'+page.tempId page}}
+{{/each}}
+</script>
+<script id="template-101" type="text/template">
+<div class="floor-content clearfix" data-page_id="{{pageId}}">
+    {{each itemList.slice(0,1) as item i}}
+    <div class="floor-grid grid-{{item.itemCode}}"></div>
+    {{/each}}
+    {{each itemList.slice(1) as item i}}
+    {{include 'item-'+item.itemCode item}}
+    {{/each}}
+</div>
+{{each itemList.slice(0,1) as item i}}
+<div class="grid-fixed" style="top:0; left:0">
+    {{include 'item-'+item.itemCode item}}
+</div>
+{{/each}}
+</script>
+<script id="template-102" type="text/template">
+{{include 'template-101'}}
+</script>
+<script id="template-103" type="text/template">
+{{include 'template-101'}}
+</script>
+<script id="template-104" type="text/template">
+<div class="floor-content clearfix" data-page_id="{{pageId}}">
+    <div class="floor-grid grid-col2">
+        {{each itemList.slice(0,1) as item i}}
+        <div class="floor-grid grid-{{item.itemCode}}"></div>
+        {{/each}}
+        {{each itemList.slice(1,3) as item i}}
+        {{include 'item-'+item.itemCode item}}
+        {{/each}}
+    </div>
+    {{each itemList.slice(3) as item i}}
+    {{include 'item-'+item.itemCode item}}
+    {{/each}}
+</div>
+{{each itemList.slice(0,1) as item i}}
+<div class="grid-fixed" style="top:0; left:0">
+    {{include 'item-'+item.itemCode item}}
+</div>
+{{/each}}
+</script>
+<script id="template-105" type="text/template">
+{{include 'template-101'}}
+</script>
+<script id="template-106" type="text/template">
+{{include 'template-101'}}
+</script>
+<script id="template-107" type="text/template">
+{{include 'template-101'}}
+</script>
+<script id="template-301" type="text/template">
+{{include 'template-101'}}
+</script>
+<script id="template-302" type="text/template">
+{{include 'template-101'}}
+</script>
+<script id="template-303" type="text/template">
+{{include 'template-101'}}
+</script>
+<script id="template-304" type="text/template">
+{{include 'template-104'}}
+</script>
+<script id="template-305" type="text/template">
+{{include 'template-101'}}
+</script>
+<script id="template-306" type="text/template">
+{{include 'template-101'}}
+</script>
+<script id="template-307" type="text/template">
+{{include 'template-101'}}
+</script>
+<script id="template-201" type="text/template">
+<div class="floor-content clearfix" data-page_id="{{pageId}}">
+    <div class="floor-grid grid-2002"></div>
+    {{each itemList as item i}}
+    {{include 'item-'+item.itemCode item}}
+    {{/each}}
+</div>
+</script>
+<script id="template-202" type="text/template">
+<div class="floor-content clearfix" data-page_id="{{pageId}}">
+    <div class="floor-grid grid-2003"></div>
+    {{each itemList as item i}}
+    {{include 'item-'+item.itemCode item}}
+    {{/each}}
+</div>
+</script>
+<script id="template-203" type="text/template">
+<div class="floor-content clearfix" data-page_id="{{pageId}}">
+    <div class="floor-grid grid-2004"></div>
+    {{each itemList as item i}}
+    {{include 'item-'+item.itemCode item}}
+    {{/each}}
+</div>
+</script>
+<script id="template-204" type="text/template">
+<div class="floor-content clearfix" data-page_id="{{pageId}}">
+    <div class="floor-grid grid-2003"></div>
+    {{each itemList as item i}}
+    {{include 'item-'+item.itemCode item}}
+    {{/each}}
+</div>
+</script>
+<script id="template-205" type="text/template">
+<div class="floor-content clearfix" data-page_id="{{pageId}}">
+    <div class="floor-grid grid-2001"></div>
+    {{each itemList as item i}}
+    {{include 'item-'+item.itemCode item}}
+    {{/each}}
+</div>
+</script>
+<!--<script id="item_size" type="text/template">
+{{itemCode ? {'1001': '236x236', '2001': '236x310', '2002': '236x630', '2003': '482x310', '2004': '482x630'}[itemCode]||'' : ''}}
+</script>-->
+<script id="item-1001" type="text/template">
+<div class="floor-grid grid-{{itemCode}} {{(!data || !data.length || !data[0])?'grid-empty':'p-info grid-fill'}}" data-sort="{{sort}}" data-item_code="{{itemCode}}">
+    {{if data && data[0]}}
+    <a class="p-img" href="{{data[0].hiperlink}}" title="{{data[0].contentDesc}}" target="_blank">
+        <!--<img src="{{data[0].itemImgs}}?imageMogr2/thumbnail/!{/*{include 'item_size'}*/}r/auto-orient/gravity/Center/crop/{/*{include 'item_size'}*/}" alt="{{data[0].productName}}"/>-->
+        <img src="{{data[0].itemImgs}}" alt="{{data[0].contentDesc}}"/>
+        <!--i class="p-mark"></i-->
+    </a>
+    <div class="p-price ellipsis"><b class="yellow">{{data[0].priceDesc}}</b></div>
+    <div class="p-name">
+        <a href="{{data[0].hiperlink}}" title="{{data[0].contentDesc}}" target="_blank">{{data[0].productName}}<span class="p-desc">{{data[0].contentDescEllipsis}}</span></a>
+    </div>
+    {{/if}}
+</div>
+</script>
+<script id="item_content" type="text/template">
+<div class="floor-grid grid-{{itemCode}} {{(!data || !data.length || !data[0])?'grid-empty':'grid-fill'}}" data-sort="{{sort}}" data-item_code="{{itemCode}}">
+    {{if data && data.length>1}}
+    <div class="slide-panel" data-duration="{{carouselInterval}}" data-interval="{{residenceTime}}">
+        <ul class="slide-layer clearfix">
+            {{each data as item i}}
+            <li class="slide-item">
+                <a class="grid-link" href="{{item.hiperlink}}" title="{{item.contentDesc}}" target="_blank">
+                    <!--<img src="{{item.itemImgs}}?imageMogr2/thumbnail/!{/*{include 'item_size'}*/}r/auto-orient/gravity/Center/crop/{/*{include 'item_size'}*/}" alt="{{item.productName}}"/>-->
+                    <img src="{{item.itemImgs}}" alt="{{item.contentDesc}}"/>
+                </a>
+            </li>
+            {{/each}}
+        </ul>
+        <div class="slide-dots">
+            {{each data as item i}}
+            <span class="slide-dot"><i class="slide-shade"></i><span class="slide-sort">{{i+1}}</span></span>
+            {{/each}}
+        </div>
+        <div class="slide-prev"></div>
+        <div class="slide-next"></div>
+    </div>
+    {{else if data && data[0]}}
+    <a class="grid-link" href="{{data[0].hiperlink}}" title="{{data[0].productName}}" target="_blank">
+        <!--<img src="{{data[0].itemImgs}}?imageMogr2/thumbnail/!{/*{include 'item_size'}*/}r/auto-orient/gravity/Center/crop/{/*{include 'item_size'}*/}" alt="{{data[0].productName}}"/>-->
+        <img src="{{data[0].itemImgs}}" alt="{{data[0].productName}}"/>
+    </a>
+    {{/if}}
+</div>
+</script>
+<script id="item-2001" type="text/template">
+{{include 'item_content'}}
+</script>
+<script id="item-2002" type="text/template">
+{{include 'item_content'}}
+</script>
+<script id="item-2003" type="text/template">
+{{include 'item_content'}}
+</script>
+<script id="item-2004" type="text/template">
+{{include 'item_content'}}
+</script>
+<?php include(TEMPLATES.'floor_nav.xhtml');?>

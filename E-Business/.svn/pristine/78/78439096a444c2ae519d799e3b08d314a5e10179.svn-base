@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="我的优惠券" />
+    <meta name="description" content="" />
+    <meta name="author" content="${author}" />
+    <meta name="copyright" content="${copyright}" />
+    <title>我的优惠券</title>
+    <link rel="shortcut icon" type="image/x-icon"  href="<?=DOMAIN?>favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>layout.css" />
+    <?php include(MODULES.'dns_prefetch.xhtml');?>
+</head>
+<body>
+    <?php include(MODULES.'header.xhtml');?>
+    <div class="main ucenter mycoupon">
+        <div class="layout clearfix">
+            <?php include(MODULES.'usersidebar.xhtml');?>
+            <div class="container">
+                <div class="uheader">
+                    <div class="coupon_use fr">
+                        <p><strong>优惠券兑换</strong></p>
+                        <div id="offline_coupon" class="offline_coupon mt20">
+                            <label><input id="record_code_input" class="textbox" type="text" name="record_code" autocomplete="off" /></label>
+                            <div class="mt20 text_center">
+                                <a id="redeemed_coupon" class="submit btnshort" href="javascript:;">立即兑换</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="template-accountinfo-view" class="acc_info fl"></div>
+                    <div class="my_coupon">
+                        <div id="template-coupon_panel-view" class="coupon_panel"></div>
+                    </div>
+                </div>
+                <div class="upanel">
+                    <h3 class="headline">
+                        <span class="fr"><a href="<?=DOMAIN?>faq/payment.html#2" target="_blank">了解优惠券获取途径&gt;&gt;</a></span>
+                        <div id="ofilter" class="ofilter coupon_filter">
+                            <ul>
+                                <li><a class="sel" href="javascript:;" data-status="">全部<!-- <span id="data-usableCardNum" class="red"></span>--></a></li>
+                                <li class="vline"></li>
+                                <li><a href="javascript:;" data-type="2">通用券<!-- <span id="data-generalCardNum" class="red"></span>--></a></li>
+                                <li class="vline"></li>
+                                <li><a href="javascript:;" data-type="0">印刷券<!-- <span id="data-productCardNum" class="red"></span>--></a></li>
+                                <li class="vline"></li>
+                                <li><a href="javascript:;" data-type="1">设计券<!-- <span id="data-designCardNum" class="red"></span>--></a></li>
+                                <li class="vline"></li>
+                                <li><a href="javascript:;" data-type="3">运费券<!-- <span id="data-freightTicketCardNum" class="red"></span>--></a></li>
+                            </ul>
+                        </div>
+                    </h3>
+                    <div id="ofilter2" class="ofilter coupon_filter2">
+                        <ul>
+                            <li><a class="sel" href="javascript:;" data-status="0" data-index="0">可以使用<!-- <span id="data_product_card_num" class="blue"></span>--></a></li>
+                            <li class="vline"></li>
+                            <li><a href="javascript:;" data-status="1" data-index="1">已使用<!-- <span id="data_design_card_num" class="blue"></span>--></a></li>
+                            <li class="vline"></li>
+                            <li><a href="javascript:;" data-status="2" data-index="2">已过期<!-- <span id="data_general_card_num" class="blue"></span>--></a></li>
+                        </ul>
+                    </div>
+                    <div id="template-coupon_list-view" class="mycoupons clearfix"></div>
+                    <!--<div id="paginbar" class="paginbar hide"></div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php include(MODULES.'footer.xhtml');?>
+<script id="template-coupon_panel" type="text/template">
+    <p class="line20"><strong>我的优惠券：<span class="yellow"> {{usableCardNum}} </span>可用</strong></p>
+    <p>通用券：<strong class="yellow"> {{generalCardNum||0}} </strong>可用</p>
+    <p>印刷券：<strong class="yellow"> {{productCardNum||0}} </strong>可用</p>
+    <p>设计券：<strong class="yellow"> {{designCardNum||0}} </strong>可用</p>
+    <p>运费券：<strong class="yellow"> {{freightTicketCardNum||0}} </strong>可用</p>
+</script>
+<?php include(TEMPLATES.'accountinfo.xhtml');?>
+<script id="template-coupon_list" type="text/template">
+    <dl id="couponTab0" class="group usable{{couponList&&couponList.length>12?' shw_hid_more':''}}">
+        <dd class="nodes coupon_list clearfix">
+            {{ if couponList && couponList.length>0 }}
+                {{ each couponList as item k }}
+                <div class="node cs{{couponStatus}} t{{item.couponType}}" title="{{item.couponName}}" data-index="{{k}}">
+                    <?php include(TEMPLATES.'coupon_item.xhtml');?>
+                </div>
+                {{ /each }}
+            {{ else }}
+            <div class="empty">
+                <dl class="vertical_middle">
+                    <dt class="vm_left"></dt><dd class="vm_right"><p>您暂无可用优惠券。</p><p>参加云印官网、微博、微信活动即有机会赢优惠券哦~</p></dd>
+                </dl>
+            </div>
+           {{ /if }}
+        </dd>
+        {{ if couponList && couponList.length >12 }}
+        	<dt class="shw"><a class="showmore" href="javascript:;">展开全部</a></dt>
+        {{ /if }}
+    </dl>
+</script>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>uploader/main.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>modules/account_info.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>member/mycoupon.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>location.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js?ininin=<?=VERSION?>"></script>
+<?php include(MODULES.'linklogin.xhtml');?>
+</body>
+</html>

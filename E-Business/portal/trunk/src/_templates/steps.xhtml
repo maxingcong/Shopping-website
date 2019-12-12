@@ -1,0 +1,130 @@
+<script id="template-check_type" type="text/template">
+    <div class="radios mt10 text_center">
+        <span>选择验证方式：</span>
+        {{if hasMobile}}
+        <span class="radio sel" data-value="0"><span class="name">手机验证</span></span>
+        {{else}}
+        <span class="radio sel" data-value="1"><span class="name">邮箱验证</span></span>
+        {{/if}}
+        {{if hasQuestion}}
+        <span class="radio" data-value="2"><span class="name">安全问题验证</span></span>
+        {{/if}}
+    </div>
+    <div class="steps-btm text_center">
+        <a class="submit" href="javascript:;">下一步</a>
+    </div>
+</script>
+<script id="template-check_cellphone" type="text/template">
+<fieldset class="register">
+    <form id="forgetpay_mobile" class="forms">
+        <div class="form_item">
+            <label>
+                <span class="field">手机号：</span>
+                <span class="readonly">{{phoneEllipsis}}</span>
+            </label>
+        </div>
+        <div class="form_item form_code">
+            <label>
+                <span class="field">验证码：</span>
+                <input class="textbox short-input" type="text" name="code" />
+                <a id="sendCode" class="btn btn-default">获取验证码</a>
+            </label>
+            <i class="msg"></i>
+        </div>
+        <div class="steps-btm text_center">
+            {{if flag==2}}
+            <a class="pre btn btn-gray mr10" href="javascript:;">上一步</a>
+            {{/if}}
+            <a class="submit" href="javascript:;">
+                下一步<input type="submit" value="" />
+            </a>
+        </div>
+    </form>
+</fieldset>
+</script>
+<script id="template-check_email" type="text/template">
+<fieldset class="register">
+    <form id="info_org_form" class="forms">
+        <div class="form_item">
+            <label>
+                <span class="field">邮箱：</span>
+                <span class="readonly" id="ent_user_name">{{email}}</span>
+            </label>
+        </div>
+        <p id="sendedEmail" class="send-tips hide">邮件已发送<br />请到 <span></span> 查阅来自云印的邮件，验证邮件24小时有效，<br />点击邮件中的链接完成后续操作。</p>
+        <div class="steps-btm text_center">
+            {{if flag==2}}
+            <a class="pre btn btn-gray mr10" href="javascript:;">上一步</a>
+            {{/if}}
+            <a id="sendEmail" class="submit" href="javascript:;">下一步</a>
+        </div>
+    </form>
+</fieldset>
+</script>
+<script id="template-check_safetips" type="text/template">
+<fieldset>
+    <form id="check_safe_tips" class="forms">
+        {{if protectResultList&&protectResultList.length}}
+        {{each protectResultList as protect i}}
+        <div class="form_group">
+            <div class="form_item">
+                <label>
+                    <span class="field">问题{{if i==0}}一{{else if i==1}}二{{/if}}：</span>
+                    <span class="readonly">{{protect.question_mark}}</span>
+                </label>
+            </div>
+            <div class="form_item">
+                <label>
+                    <span class="field">安全答案：</span>
+                    <input data-question="{{protect.question_mark}}" class="textbox" type="text" name="{{if i==0}}answer1{{else if i==1}}answer2{{/if}}" />
+                    <strong class="required">*</strong>
+                </label>
+                <i class="msg"></i>
+            </div>
+        </div>
+        {{/each}}
+        {{/if}}
+        <div class="steps-btm text_center">
+            <a class="pre btn btn-gray mr10" href="javascript:;">上一步</a>
+            <a class="submit" href="javascript:;">
+                下一步<input type="submit" value="" />
+            </a>
+        </div>
+    </form>
+</fieldset>
+</script>
+<script id="template-change_pwd" type="text/template">
+<fieldset>
+    <form id="set_pwd" class="forms">
+        <div class="form_item">
+            <label>
+                <span class="field">新密码：</span>
+                <input class="textbox" type="password" name="new_password" maxlength="20" autocomplete="off" />
+                <strong class="required">*</strong>
+                <i class="msg"></i>
+            </label>
+        </div>
+        <div class="form_item">
+            <label>
+                <span class="field">确认密码：</span>
+                <input class="textbox" type="password" name="renewpwd" maxlength="20" autocomplete="off" />
+                <strong class="required">*</strong>
+                <i class="msg"></i>
+            </label>
+        </div>
+        <div class="steps-btm text_center">
+            <a class="submit" href="javascript:;">
+                确认修改<input type="submit" value="" />
+            </a>
+            <!--<a class="forget" href="<?=DOMAIN?>passport/forgetpay.html">忘记支付密码</a>-->
+        </div>
+    </form>
+</fieldset>
+</script>
+<script id="template-step_success" type="text/template">
+<div class="success-info text_center">
+    <p class="text">恭喜您{{if flag==2}}修改{{else}}设置{{/if}}成功！</p>
+    <p class="info"><span class="yellow">5</span> 秒后，将自动返回安全中心首页</p>
+    <p class="list blue"><a href="<?=DOMAIN?>">云印首页</a>|<a href="<?=DOMAIN?>member/safety.html">安全中心</a></p>
+</div>
+</script>

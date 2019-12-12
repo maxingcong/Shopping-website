@@ -1,0 +1,250 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="订单支付" />
+    <meta name="description" content="" />
+    <meta name="author" content="${author}" />
+    <meta name="copyright" content="${copyright}" />
+    <title>订单支付</title>
+    <link rel="shortcut icon" type="image/x-icon"  href="<?=DOMAIN?>favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>layout.css" />
+    <?php include(MODULES.'dns_prefetch.xhtml');?>
+</head>
+<body>
+    <?php include(MODULES.'header_simple.xhtml');?>
+    <div class="order-step"><img id="step_img" src="<?=IMAGES?>step/1_3.png" alt=""/></div>
+    <div id="payment" class="main payment">
+        <div class="layout">
+            <div id="template-order-view"></div>
+            <div class="payform forms">
+                <div id="payform"></div>
+                <script id="pay_form" type="text/template">
+                    <dl id="credit_pay" class="coupons checkboxs credit_pay">
+                        <dt data-type="credit" class="tit checkbox">
+                            <b>阿米巴信用账户支付</b><span class="desc"></span>
+                        </dt>
+                        <dd class="hidden credit_pay">
+                            <div style="margin-top: 10px; text-indent: 30px;">
+                                服务费用：<b id="order_serviceChargeNeedPayment" class="red">0.00</b> 元
+                            </div>
+                            <div class="alt">
+                                <span class="red">温馨提示：</span>1、信用账户支付仅支持支付订单金额，且不可与其他支付方式同时使用；2、服务费仅支持支付宝和微信支付。
+                            </div>
+                        </dd>
+                    </dl>
+                    <dl id="amoeba_cash_pay" class="coupons checkboxs amoeba_cash_pay">
+                        <dt data-type="amoeba_cash" class="tit checkbox">
+                            <b>阿米巴代金账户支付</b><span class="desc">您的账户余额为 <b id="data_amoebaCashAmount" class="red">0.00</b> 元</span>
+                        </dt>
+                        <dd class="hidden amoeba_cash_pay"></dd>
+                    </dl>
+                    <dl id="monthly_pay" class="coupons checkboxs monthly_pay">
+                        <dt data-type="credit" class="tit checkbox">
+                            <b>企业月结支付</b><span class="desc">（3个月累计消费满5万元，可申请成为月结客户，具体见“<a href="<?=DOMAIN?>vip/index.html" target="_blank">大客户专区</a>”）</span>
+                        </dt>
+                        <dd class="hidden monthly_pay">
+                            <div class="alt"><span class="red">温馨提示：</span>企业月结支付不可与其他支付方式同时使用。</div>
+                        </dd>
+                    </dl>
+                    <dl id="wallet_pay" class="coupons checkboxs wallet_pay">
+                        <dt data-type="wallet" class="tit checkbox">
+                            <b>现金账户支付</b><span class="desc">您的账户余额为 <b id="data_walletTotalPrice" class="red">0.00</b> 元</span>
+                        </dt>
+                        <dd class="last hidden wallet_pay"></dd>
+                    </dl>
+                </script>
+                <div class="hide">
+                    <div id="pay_pwd_box" class="form_item">
+                        <label><input id="pay_password" class="textbox" type="password" name="pay_password" autocomplete="off" /><i class="msg"></i></label><a id="set_pay_password" class="lnk" href="<?=DOMAIN?>member/paypwd.html" target="_blank">设置/修改支付密码>></a>
+                    </div>
+                </div>
+                <div class="payments">
+                    <div class="btmline"></div>
+                    <div class="title">请选择支付方式：</div>
+                    <div id="template-payment-view" class="dtabs"></div>
+                </div>
+                <a id="submit" class="submit btn-primary" href="javascript:;" onclick="_czc.push(['_trackEvent', '通用', '确认支付', '','','']);">确认支付</a><span id="order_altMsg" class="alt_msg"></span>
+            </div>
+        </div>
+    </div>
+    <?php include(MODULES.'footer.xhtml');?>
+    <script id="template-order" type="text/template">
+        <h3 class="headline_order">订单支付</h3>
+        <div class="payinfo">
+            <span class="alt"><span>订单提交成功，请尽快支付您的订单</span><a href="<?=DOMAIN?>member/odetail.html?o={{orderCode}}&t={{orderType}}" target="_blank">查看订单详情</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{if orderType==0}}<a href="<?=DOMAIN?>member/odetail.html?o={{orderCode}}&t={{orderType}}" target="_blank">上传文件</a>{{/if}}</span>
+            <div class="desc">
+                <p><span class="cell">订单号：<span>{{orderCode}}</span></span><span class="cell">订单类型：<span id="order_orderTypeStr"></span></span></p>
+                <p><span class="cell">下单时间：<span>{{recordTime}}</span></span>{{if orderType!=15}}<span>商品数量： <span>{{productNum}}</span></span>{{/if}}</p>
+                {{if orderType!=15}}<p><span class="cell">订单金额： <span class="red">{{RMB(originalPrice)}}</span> 元 {{if orderType==0}}（{{shipPrice>0?'含运费'+RMB(shipPrice)+'元':'包邮'}}）{{/if}} <span id="order_canDiscountStr"></span></span></p>{{/if}}
+                {{if paymentMethod==2}}
+                <p><span class="cell">应付金额： <b id="order_serviceChargeNeedPayment" class="red">{{RMB(serviceChargeNeedPayment)}}</b> 元（信用账户支付服务费） <span class="tip">（如果72小时未付款，订单会自动取消）</span></span></p>
+                {{else}}
+                <p><span class="cell">应付金额： <b id="order_payablePrice" class="red">{{RMB(payablePrice)}}</b> 元 <span class="tip">（如果72小时未付款，订单会自动取消）</span></span></p>
+                {{/if}}
+            </div>
+        </div>
+    </script>
+    <script id="template-payment" type="text/template">
+        <div class="ofilter">
+            <ul>
+                <li><a class="sel" href="javascript:;" data-type="2">在线支付</a></li>
+                {{if isEnterpriseRemittance}}
+                <li class="vline"></li>
+                <li><a href="javascript:;" data-type="3">企业转账</a></li>
+                {{/if}}
+                {{if isAgentPay}}
+                <li class="vline"></li>
+                <li><a href="javascript:;" data-type="4">加盟商支付</a></li>
+                {{/if}}
+            </ul>
+        </div>
+        <div class="dtab onlinepay" type="2">
+            <input name="pay_type" type="hidden" value="0" />
+            <div class="paylist radios">
+                {{if isAlipayPay}}
+                <a class="radio sel" data-value="100" href="javascript:;">
+                    <img alt="支付宝" src="<?=IMAGES?>pay/101.jpg" /><i></i>
+                </a>
+                {{/if}}
+                {{if isOnlineBanking}}
+                <a class="radio" data-value="109" href="javascript:;">
+                    <img alt="银联支付" src="<?=IMAGES?>pay/104.jpg" /><i></i>
+                </a>
+                {{/if}}
+                {{if isWeChatPay}}
+                <a class="radio" data-value="111" href="javascript:;">
+                    <img alt="微信支付" src="<?=IMAGES?>pay/105.jpg" /><i></i>
+                </a>
+                {{/if}}
+                <!--a class="radio sel" href="javascript:;">
+                    <img alt="企业银行转账" src="<?=IMAGES?>pay/106.jpg" /><i></i>
+                    <input type="radio" alt="企业银行转账" value="5" name="pay_type" />
+                </a>
+                <a class="radio sel" href="javascript:;">
+                    <img alt="现金支付" src="<?=IMAGES?>pay/102.jpg" /><i></i>
+                    <input type="radio" alt="现金支付" value="7" name="pay_type" />
+                </a>
+                <a class="radio sel" href="javascript:;">
+                    <img alt="刷卡支付" src="<?=IMAGES?>pay/103.jpg" /><i></i>
+                    <input type="radio" alt="刷卡支付" value="8" name="pay_type" />
+                </a-->
+            </div>
+        </div>
+        {{if isEnterpriseOnlineBanking || isEnterpriseRemittance}}
+        <div class="dtab companypay hide" type="3">
+            <div class="block {{isEnterpriseOnlineBanking?'':'dispay'}}">
+                <div class=""><b class="title">方式一：企业网银支付</b><span class="text">（订单应付金额满<b class="red">500</b>元，可使用企业网银在线支付，可实时到账，实时确认订单）</span></div>
+                <div class="paylist radios">
+                    <a class="radio" data-value="114" href="javascript:;">
+                        <img alt="企业网银支付" src="<?=IMAGES?>pay/201.jpg" /><i></i>
+                    </a>
+                    <a class="radio" data-value="114" href="javascript:;">
+                        <img alt="企业网银支付" src="<?=IMAGES?>pay/202.jpg" /><i></i>
+                    </a>
+                    <a class="radio" data-value="114" href="javascript:;">
+                        <img alt="企业网银支付" src="<?=IMAGES?>pay/203.jpg" /><i></i>
+                    </a>
+                    <a class="radio" data-value="114" href="javascript:;">
+                        <img alt="企业网银支付" src="<?=IMAGES?>pay/204.jpg" /><i></i>
+                    </a>
+                    <a class="radio" data-value="114" href="javascript:;">
+                        <img alt="企业网银支付" src="<?=IMAGES?>pay/205.jpg" /><i></i>
+                    </a>
+                    <a class="radio" data-value="114" href="javascript:;">
+                        <img alt="企业网银支付" src="<?=IMAGES?>pay/206.jpg" /><i></i>
+                    </a>
+                    <a class="radio" data-value="114" href="javascript:;">
+                        <img alt="企业网银支付" src="<?=IMAGES?>pay/207.jpg" /><i></i>
+                    </a>
+                    <a class="radio" data-value="114" href="javascript:;">
+                        <img alt="企业网银支付" src="<?=IMAGES?>pay/208.jpg" /><i></i>
+                    </a>
+                    <a class="radio" data-value="114" href="javascript:;">
+                        <img alt="企业网银支付" src="<?=IMAGES?>pay/209.jpg" /><i></i>
+                    </a>
+                </div>
+            </div>
+            <div class="block transfer">
+                <div><b class="title">方式二：企业汇款</b><span class="text">（到账周期为1-4个工作日）</span></div>
+                <div id="template_tremittance_view">
+                    <dl class="infos">
+                        <dt class="first">1.请您按照下方信息进行汇款：</dt>
+                        <dd>
+                            <p>户&nbsp;&nbsp;&nbsp;名：深圳市云印电子商务有限公司</p>
+                            <p>账&nbsp;&nbsp;&nbsp;号：7559&nbsp;&nbsp;2893&nbsp;&nbsp;5310&nbsp;&nbsp;801</p>
+                            <p>开户行：招商银行深圳源兴支行</p>
+                            <p class="line"></p>
+                            <p>订单号：<a href="<?=DOMAIN?>member/odetail.html?o={{orderCode}}&t={{orderType}}" target="_blank">{{orderCode}}</a></p>
+                            <p>应付金额：<b class="red">{{RMB(payablePrice)}}</b> 元</p>
+                            <p>为了及时处理您的订单，请您汇款时将订单号 <a href="<?=DOMAIN?>member/odetail.html?o={{orderCode}}&t={{orderType}}" target="_blank">{{orderCode}}</a> 填写至电汇凭证的<b class="red">【汇款用途】</b>栏内。</p>
+                        </dd>
+                        {{if !isDistOrder}}
+                        <dt class="last">2.请您完成汇款后拨打 400-680-9111 告知客服，以便于及时确认您的款项到账情况。</dt>
+                        {{else}}
+                        <dt class="last">2.请您完成汇款后填写如下信息，我们将优先确认您的款项到账情况。</dt>
+                        {{/if}}
+                    </dl>
+                    {{if !isDistOrder}}
+                    <div class="form_item">
+                        <label><input id="receipt_number" class="textbox" type="text" name="receipt_number" value="" autocomplete="off" /><i class="msg"></i></label>
+                        <a class="icon_help" href="javascript:;" target="_blank"></a>
+                    </div>
+                    <a class="submit remittance" href="javascript:;">我已完成汇款</a>
+                    {{/if}}
+                    <dl class="alts">
+                        <dt class="red">温馨提示：</dt>
+                        <dd>企业汇款的到账周期一般为1~4个工作日，款项到账后我们将安排订单进入后续流程。</dd>
+                        <dd>如果订单状态长时间未变更为“已支付”，请拨打 400-680-9111 咨询您的<a id="qqservice" href="javascript:;" target="_blank">专属会员顾问</a></dd>
+                        <dd class="wxalt"><span>欢迎关注云印微信<br/>实时了解订单状态</span><img src="<?=IMAGES?>wxcode.png" alt="云印官方微信"/></dd>
+                    </dl>
+                    <div id="receipt_number_img" class="hide">
+                        <img src="<?=IMAGES?>pay/1.jpg"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/if}}
+        {{if isAgentPay}}
+        <div class="dtab agentpay hide" type="4">
+            <dl class="coupons checkboxs">
+                <dt data-type="agent_cash" class="tit checkbox {{isAgentCash?'sel':''}}"><b>加盟商现金账户</b><span class="desc">您的现金账户余额为 <b class="red">{{RMB(agentCashPrice)}}</b> 元<!--（包含押金2000.00元）--></span></dt>
+                <dd class="hidden"></dd>
+                <dt data-type="agent_rebate" class="tit checkbox {{isAgentRebate?'sel':''}}"><b>加盟商返现账户</b><span class="desc">您的返现账户余额为 <b class="red">{{RMB(agentRebatePrice)}}</b> 元</span></dt>
+                <dd class="hidden last {{(isAgentCash||isAgentRebate)?'shw':''}}">
+                    <div class="form_item">
+                        <label><input id="agent_pay_password" class="textbox" type="password" name="agent_pwd" autocomplete="off" /><i class="msg"></i></label>
+                        <div class="alt"><span class="red">温馨提示：</span>支付时将依次扣除商现金账户、返现账户的金额。</div>
+                    </div>
+                </dd>
+            </dl>
+        </div>
+        {{/if}}
+    </script>
+    <script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>cart/payment.js?ininin=<?=VERSION?>"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>location.js?ininin=<?=VERSION?>"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>loaded.js?ininin=<?=VERSION?>"></script>
+    <!--script type="text/javascript" src="<?=SCRIPTS?>jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>jquery.qrcode.min.js"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>qrcode.min.js"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>template-native.js"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>zh_cn.js"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>tool.js"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>cart/payment.js"></script>
+	<script type="text/javascript" src="<?=SCRIPTS?>loaded.js"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>libs/location.js"></script-->
+    <?php include(MODULES.'linklogin.xhtml');?>
+</body>
+</html>

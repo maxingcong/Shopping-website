@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="${keywords}" />
+    <meta name="description" content="${description}" />
+    <meta name="author" content="${author}" />
+    <meta name="copyright" content="${copyright}" />
+    <title>${title}</title>
+    <link href="<?=DOMAIN?>favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css?ininin=<?=VERSION?>" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES_DESIGN?>layout.css?ininin=<?=VERSION?>" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES_DESIGN?>designer.css?ininin=<?=VERSION?>" />
+    <?php include(MODULES.'dns_prefetch.xhtml');?>
+</head>
+<body>
+<?php include(MODULES_DESIGN.'header.xhtml');?>
+<div id="slider_list_designer" class="full-banner"></div>
+<div class="main designhome">
+    <div class="layout clearfix">
+        <div id="template-designer_list-view" class="designers"></div>
+    </div>
+</div>
+<?php include(MODULES_DESIGN.'footer.xhtml');?>
+<script id="template-designer_list" type="text/template">
+    <div id="designers" class="slide-panel" data-number="5" data-duration="300" data-interval="2500">
+        <ul class="slide-layer clearfix">
+        {{ each designerList as temp i }}
+            <li class="slide-item">
+                <a href="<?=DOMAIN_DESIGN?>designer/{{temp.designerId}}.html" title="{{temp.designerAlias}}" target="_blank">
+                <img src="{{temp.coverImage}}" alt="{{temp.designerAlias}}">
+                <div class="designer-item">
+                    <div class="designer-shade"></div>
+                    <div class="designer-title">{{# _bk(temp.jobPosition)}}</div>
+                    <div class="designer-text">{{ temp.designerAlias }}</div>
+                </div>
+                </a>
+            </li>
+        {{ /each }}
+        </ul>
+        <div class="slide-prev"></div>
+        <div class="slide-next"></div>
+    </div>
+</script>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools_tpl.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS_DESIGN?>designer/index_tpl.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>location_tpl.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded_tpl.js?ininin=<?=VERSION?>"></script>
+<script type="script_weibo"></script>
+<script type="script_linklogin"></script>
+<script type="script_cnzz"></script>
+</body>
+</html>

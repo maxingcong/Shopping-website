@@ -1,0 +1,96 @@
+<div id="template-recommend_list-view" class="recommend"></div>
+<div class="ddetail">
+    <div class="probox clearfix">
+        <div id="template-label_list-view" class="relativelabel"></div>
+        <div id="template-hot_sell-view" class="hotlist"></div>
+        <div id="template-product_desc-view" class="pdesc"></div>
+    </div>
+</div>
+<!-- 相关产品推荐、设计推荐 -->
+<script id="template-recommend_list" type="text/template">
+{{if productList.length || designList.length}}
+<ul class="desctab clearfix">
+    {{if designList.length}}
+    <li class="sel" data-idx="0"><a href="javascript:;">相关设计推荐</a></li>
+    {{/if}}
+    {{if productList.length}}
+    <li {{if !designList.length}}class="sel"{{/if}} data-idx="1"><a href="javascript:;">相关印刷推荐</a></li>
+    {{/if}}
+</ul>
+{{if designList.length}}
+<div class="tabdetail" data-idx="0">
+    <ul class="clearfix">
+        {{each designList as item i}}
+        <li>
+            <div class="p-info p-info-sm">
+                <a class="p-img" href="{{item.relevanceLink}}" title="{{item.productName}}" target="_blank">
+                    <!--<img src="{{item.relevanceImgUrl}}?imageMogr2/thumbnail/!140x140r/auto-orient/gravity/Center/crop/140x140" alt="{{item.productName}}"/>-->
+                    <img src="{{item.relevanceImgUrl}}" alt="{{item.productName}}"/>
+                    <!--i class="p-mark"></i-->
+                </a>
+                <div class="p-price ellipsis">
+                    <b class="yellow" title="{{item.priceDesc}}">{{item.priceDesc}}</b>
+                </div>
+                <div class="p-name">
+                    <a href="{{item.relevanceLink}}" title="{{item.relevanceDesc}}" target="_blank">{{item.productName}}<span class="p-desc">{{item.relevanceDescEllipsis}}</span></a>
+                </div>
+            </div>
+        </li>
+        {{/each}}
+    </ul>
+</div>
+{{/if}}
+{{if productList.length}}
+<div class="tabdetail" data-idx="1" {{if designList.length}}style="display: none;"{{/if}}>
+    <ul class="clearfix">
+        {{each productList as item i}}
+        <li>
+            <div class="p-info p-info-sm">
+                <a class="p-img" href="{{item.relevanceLink}}" title="{{item.relevanceDesc}}" target="_blank">
+                    <!--<img src="{{item.relevanceImgUrl}}?imageMogr2/thumbnail/!140x140r/auto-orient/gravity/Center/crop/140x140" alt="{{item.productName}}"/>-->
+                    <img src="{{item.relevanceImgUrl}}" alt="{{item.productName}}"/>
+                    <!--i class="p-mark"></i-->
+                </a>
+                <div class="p-price ellipsis">
+                    <b class="yellow" title="{{item.priceDesc}}">{{item.priceDesc}}</b>
+                </div>
+                <div class="p-name">
+                    <a href="{{item.relevanceLink}}" title="{{item.relevanceDesc}}" target="_blank">{{item.productName}}<span class="p-desc">{{item.relevanceDescEllipsis}}</span></a>
+                </div>
+            </div>
+        </li>
+        {{/each}}
+    </ul>
+</div>
+{{/if}}
+{{/if}}
+</script>
+<script id="template-product_desc" type="text/template">
+{{if (productDescTabs && productDescTabs.length>1) || (productDesc.length>1 && !productDescTabs)}}
+<ul class="ptabs desctab">
+    {{each productDesc as item i}}
+    <li class="{{i?'':'sel'}}" data-index="{{i}}"><a href="javascript:">{{item.title}}</a></li>
+    {{/each}}
+</ul>
+{{/if}}
+<ul class="p_contents">
+    {{if productDescTabs}}
+    {{#productDesc}}
+    {{else}}
+    {{each productDesc as item i}}
+    <li data-index="{{i}}">{{#item.content}}</li>
+    {{/each}}
+    {{/if}}
+</ul>
+</script>
+<script id="template-label_list" type="text/template">
+{{if flagList&&flagList.length}}
+<h3 class="title"><span>相关标签</span></h3>
+<div id="relative_list" class="relative_list clearfix">
+    {{each flagList as item i}}
+        <a href="<?=DOMAIN?>search.html#keyword={{item}}&type=5" title="{{item}}" target="_blank">{{item}}</a>
+    {{/each}}
+</div>
+{{/if}}
+</script>
+<?php include(TEMPLATES.'hot_sell.xhtml');?>

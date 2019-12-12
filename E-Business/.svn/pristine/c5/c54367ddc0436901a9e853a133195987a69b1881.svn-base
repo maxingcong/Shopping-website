@@ -1,0 +1,41 @@
+<div id="payform" class="payform"></div>
+<script id="pay_form" type="text/template">
+    <input id="form_order_code" name="order_code" type="hidden" value="" autocomplete="off" />
+    <input id="couponCode" type="hidden" name="coupon_code" autocomplete="off" />
+    <dl id="coupons" class="coupons checkboxs">
+        <dt data-type="coupon" class="tit checkbox coupon_pay"><b>使用优惠券</b><span class="desc">本订单符合条件的优惠券一共 <b id="data_couponCount" class="red">0</b> 张</span><a href="<?=DOMAIN?>faq/payment.html#3" target="_blank">云印有哪些优惠券>></a></dt>
+        <dd class="first last hidden coupon_pay">
+            <div class="form_item usable">
+                <div id="template-coupon_list-view" class="collapsed"></div>
+            </div>
+        </dd>
+    </dl>
+</script>
+<div id="oinfo" class="oinfo clearfix"></div>
+<script id="pay_info" type="text/template">
+    <div class="lbox">
+        <div id="finfo" class="finfo">
+            <div class="fitem"><span class="tit">收货信息：</span><span id="address_str" class="ctt ellipsis">无</span></div>
+            <div class="fitem"><span class="tit">配送方式：</span><span id="delivery_str" class="ctt ellipsis">无</span></div>
+            <input type="hidden" name="invoice_id" value="0" />
+            <div class="fitem">
+                <span class="tit">备注信息：</span><span class="ctt form_item"><label><input id="buyer_remark" class="textbox oremark" name="buyer_remark"/></label></span>
+            </div>
+            <div class="fitem">如需发票，请您支付成功后在“<a href="<?=DOMAIN?>member/myinvoice.html#1" target="_blank">申请发票</a>”页面，提交申请信息。<a class="lnk" href="<?=DOMAIN?>faq/invoice.html#0" target="_blank">如何申请发票？</a></div>
+        </div>
+    </div>
+    <div class="rbox">
+        <div class="newbox">
+            <p>商品金额：<b id="data_orderProductPrice" class="red">0.00</b> 元 </p>
+            <p>配送运费：<b id="data_shipPrice" class="red">0.00</b><span> 元</span><span id="data_shipDesc" class="freight_desc"></span></p>
+            <p id="coupon_deduction" style="display: none">优惠券抵扣：<b id="data_couponDeduction" class="red">0.00</b> 元 </p>
+            <!--<p>现金抵扣：<b id="data_walletDeduction" class="red">0.00</b>元 </p>-->
+            <p>应付金额：<b id="data_payablePrice" class="tprice red">0.00</b> 元 </p>
+            <!--div id="pay_alt" class="pay_alt"></div-->
+            <p><a class="submit" href="javascript:;" onclick="_czc.push(['_trackEvent', '通用', '提交订单', '','','']);">提交订单</a></p>
+        </div>
+    </div>
+</script>
+<script id="template-coupon_list" type="text/template">
+<?php include(TEMPLATES.'coupon_list.xhtml');?>
+</script>

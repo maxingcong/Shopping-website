@@ -1,0 +1,61 @@
+<script id="template-template_detail" type="text/template">
+    <table class="table-form">
+        <colgroup>
+            <col style="width: 120px"/>
+            <col/>
+        </colgroup>
+        <tr>
+            <th>
+                <label class="control-label">始发地：</label>
+            </th>
+            <td>
+                <select id="pid-address" class="form-control" name="province"></select>
+                <select id="cid-address" class="form-control" name="city"></select>
+                <select id="did-address" class="form-control" name="district"></select>
+                <input id="pcd-address" name="departPlace" type="hidden" value=""/>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <label class="control-label">物流公司：</label>
+            </th>
+            <td>
+                <select id="selectLogisticsCompany" class="form-control">
+                    <option value="">--请选择--</option>
+                </select>
+                <input type="text" class="form-control" style="display: none" name="logisticsCompany" value="" placeholder="请填写物流公司"/>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <label class="control-label">说明：</label>
+            </th>
+            <td>
+                <textarea type="text" name="description" class="form-control input-long" placeholder="请填写物流模板说明">{{deliveryModeTemplate.description}}</textarea>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <label class="control-label">配送方式：</label>
+            </th>
+            <td>
+                {{deliveryModeTemplate.deliveryName}}
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <label class="control-label">物流计价方式：</label>
+            </th>
+            <td>
+                {{deliveryModeTemplate.valuationMethodName}}
+                <!--{{each LOGISTICS_PRICE_TYPE as value key}}
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="logisticsPriceType" value="{{key}}" {{if deliveryModeTemplate.valuationMethod==key}}checked="checked"{{/if}}/><i class="fa fa-radio"></i>{{value}}
+                    </label>
+                </div>
+                {{/each}}-->
+            </td>
+        </tr>
+    </table>
+</script>

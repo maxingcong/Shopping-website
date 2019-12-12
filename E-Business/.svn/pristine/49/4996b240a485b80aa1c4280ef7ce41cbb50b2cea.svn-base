@@ -1,0 +1,21 @@
+﻿<!doctype html public "-//w3c//dtd xhtml 1.0 transitional//en" "http://www.w3.org/tr/xhtml1/dtd/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>EmailTemplate</title>
+</head>
+
+<body>
+	<div style="color: #333;padding:10px 20px;background:#fff;">
+		<p style="padding-bottom:20px;"><a href="http://www.ininin.com" style="border:none;"><img src="<?=IMAGES?>logo_s.png" style="border:none;" /></a></p>
+		<p style="padding-left: 14px; height: 28px;">感谢你注册ininin!</p>
+		<p style="padding-left: 14px; height: 28px;">你的登录名为: <b style="color: #f3750f;">wooholy@163.com</b></p>
+		<p style="padding-left: 14px; height: 28px; color: #666; padding-top: 24px">点击以下链接，开始ininin之旅吧：</p>
+		<p style="padding-bottom: 0px; padding-left: 14px; padding-right: 0px; padding-top: 10px"><a style="display: inline-block; max-width: 540px; word-wrap: break-word; color: #0082cb; word-break: break-all" href="http://weibo.com/signup/v5/activating?username=wooholy@163.com&amp;rand=7422c79260e60dbd3f46799c517f77ce&amp;sinaid=343a767bab12f8bb246e81dd7ffb47ed&amp;invitecode=&amp;invitesource=0&amp;lang=zh-cn&amp;entry=default&amp;backurl=">http://weibo.com/signup/v5/activating?username=wooholy@163.com&amp;rand=7422c79260e60dbd3f46799c517f77ce&amp;sinaid=343a767bab12f8bb246e81dd7ffb47ed&amp;invitecode=&amp;invitesource=0&amp;lang=zh-cn&amp;entry=default&amp;backurl=</a></p>
+		<p style="padding-left: 14px; height: 28px; color: red; font-size: 12px; padding-top: 6px">（该链接在48小时内有效，48小时需要重新注册）</p>
+		<p style="padding-left: 14px; color: #999; font-size: 12px; padding-top: 50px">如果以上链接无法访问，请将该网址复制并粘贴至新的浏览器窗口中。</p>
+		<p style="padding-bottom: 20px; padding-left: 14px; padding-right: 0px; color: #999; font-size: 12px; padding-top: 10px">如果你错误地收到了此电子邮件，你无需执行任何操作来取消帐号！此帐号将不会启动。</p>
+		<p style="padding-left: 14px; display: block; color: #999; font-size: 12px; border-top: #9f9f9f 1px dotted; padding-top: 18px">请不要直接回复哦。</p>
+	</div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<script id="product_params" type="text/template">
+    {{each namesOrder as name i}}
+    {{if name=='数量'}}
+    <div class="attr clearfix">
+        <div class="atr">{{name}}：</div>
+        <div class="clearfix">
+            <span class="counter counter-qty">
+                <a>-</a><input class="textbox" type="text" name="qty" value="{{qtyValue||1}}" data-name="{{name}}"><b>+</b>
+            </span>
+            <span class="unit">{{qtyFlag}}</span>
+            {{if paramTips[name]}}
+            <a class="icon_help" href="javascript:;"  data-text="{{paramTips[name]}}"></a>
+            {{/if}}
+        </div>
+    </div>
+    {{else if attrs[name].length}}
+    <div class="attr clearfix">
+        <div class="atr">{{name}}：</div>
+        <div class="vals clearfix" data-name="{{name}}">
+        {{each attrs[name] as val k}}
+            <a class="val {{attr[name]==val?'sel':''}}" href="javascript:;" data-imguri="{{paramImages[val]}}" data-value="{{val}}">{{val}}</a>&nbsp;
+        {{/each}}
+        {{if paramTips[name]}}
+            <a class="icon_help" href="javascript:;"  data-text="{{paramTips[name]}}"></a>
+        {{/if}}
+        </div>
+    </div>
+    {{/if}}
+    {{/each}}
+</script>

@@ -1,0 +1,3 @@
+<div id="sitemap" class="sitemap clearfix">
+    <a href="/">首页</a><b>&gt;</b><a href="{{DOMAIN.DESIGN}}category/{{product.designCategoryId}}.html">{{product.designCategoryName}}</a><b>&gt;</b><span>{{product.designProductName}}</span>
+</div>

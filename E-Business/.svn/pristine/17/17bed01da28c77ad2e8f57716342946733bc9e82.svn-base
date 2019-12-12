@@ -1,0 +1,119 @@
+@charset "utf-8";
+/* CSS Document */
+.zoom_in, .zoom_out { width: 32px; height:32px; display: inline-block; vertical-align: middle; background: url(../images/sprite.png?v=1) -14px -4px no-repeat;}
+.zoom_out { background-position: -14px -44px;}
+
+.mark, .mark1, .mark2, .mark3 { width: 32px; height: 32px; text-align: left; display: inline-block; vertical-align: middle;}
+.mark {background: url(../icons/mark.png?v=1) center center no-repeat;}
+.mark1 {background: url(../icons/mark1.png?v=1) center center no-repeat;}
+.mark2 {background: url(../icons/mark2.png?v=1) center center no-repeat;}
+.mark3 {background: url(../icons/mark3.png?v=1) center center no-repeat;}
+
+.todraft a.mark { position: absolute; width: 1px; height: 1px;}
+.todraft a.mark span { position: absolute; bottom: 0; left: -8px; background: inherit; width: 18px; height: 23px; display: block; cursor: pointer;}
+
+.todraft { width: 1186px; padding: 20px 17px; text-align: left; overflow: hidden;}
+.todraft .draft { position: relative; width: 750px; border: 1px solid #cacaca; overflow: hidden; float: left;}
+.todraft .images { border-bottom: 1px solid #cacaca;}
+.todraft .images a { color: #404144; font-size: 18px; text-align: center; height: 48px; padding: 1px 20px; background: #fff; border-right: 1px solid #cacaca; min-width: 70px; line-height: 48px; display: inline-block; text-decoration: none;}
+.todraft .images .sel { color: #eb068e; margin-bottom: -1px; padding-bottom: 0; border-bottom: 2px solid #eb068e; background: #fbfbfb;}
+.todraft .canvas { position: relative; width: 750px; height: 425px; background: #fbfbfb; overflow: hidden;}
+.todraft .image { position: absolute; display: none;
+    -webkit-box-shadow: -3px 3px 8px 0 rgba(0,0,0,.21);
+    -moz-box-shadow: -3px 3px 8px 0 rgba(0,0,0,.21);
+    -ms-box-shadow: -3px 3px 8px 0 rgba(0,0,0,.21);
+    -o-box-shadow: -3px 3px 8px 0 rgba(0,0,0,.21);}
+.todraft .image.shw { display: inline-block;}
+.todraft .image .img { width: 100%; height: 100%; margin: -1px; display: inline-block; border: 1px solid #bebebf; overflow: hidden;}
+.todraft .image img { width: 100%; height: 100%;}
+.todraft .draft_bar { height: 50px; border-top: 1px solid #cacaca;}
+.todraft .zooms { padding: 9px; overflow: hidden; float: right;}
+.todraft .marks { text-align: center; padding: 9px; overflow: hidden;}
+.todraft .marks span.mark { width: 1px; height: 5px; padding: 27px 16px 0;}
+.todraft .forms { position: relative; height: 449px; padding: 20px 0 60px 20px;}
+.todraft .forms .field { font-size: 18px; line-height: 32px; width: auto;}
+.todraft .dis .field { color: #b8b8b8;}
+.todraft .forms textarea.textbox  {width: 400px; height: 86px;}
+.todraft .forms .submit { font-size: 18px; width: 150px; height: 42px; line-height: 42px;}
+.todraft .forms .form_item { padding-bottom: 15px;}
+.todraft .forms .form_btm { position: absolute; left: 10px; bottom: 0; width: 100%; padding: 0; text-align: center;}
+.todraft .forms .good { margin-left: 48px; background: #0093dd;}
+.todraft .form_btm .dis { background: #bfbfbf;}
+.todraft .draft_btm { clear: both; color: #757577; font-size: 18px; line-height: 48px;}
+.todraft .draft_btm .mark1 { height: 26px; margin-top: -5px;}
+
+/*todraft_mp*/
+.todraft_mp {
+	text-align: left;
+	max-width: 1170px;
+	padding: 25px;
+}
+.todraft_mp .thead b:first-child {
+	font-size: 16px;
+}
+.todraft_mp  .vers {
+	margin: 0 0 0 10px;
+}
+.todraft_mp .tbody {
+	padding: 10px 0;
+	text-align: center;
+}
+.todraft_mp .image {
+	margin: 10px 10px 0;
+	line-height: 0;
+	font-size: 0;
+	vertical-align: bottom;
+	display: inline-block;
+	*display: inline;
+	*zoom:1;
+}
+.todraft_mp .image img {
+	max-width: 1140px;
+}
+.todraft_mp .img {
+	display: block;
+	border: 5px solid #ccd4df;
+}
+.todraft_mp .dname {
+	color: #666;
+	font-size: 16px;
+	line-height: 30px;
+}
+.todraft_mp .form_item .field {
+	width: auto;
+	color: #666;
+	text-align: left;
+	line-height: 36px;
+    margin: 0 -6px;
+	display: block;
+}
+.todraft_mp .upddraft .form_item label {
+    position: relative;
+	display: block;
+}
+.todraft_mp textarea.textbox {
+	width: 100%;
+    margin: 0 -6px;
+}
+.todraft_mp .form_btm {
+	padding: 25px 0 0;
+	text-align: center;
+}
+.todraft_mp .form_btm .file_btn {
+	margin: 0 10px;
+}
+.ver_list .item {
+	padding: 5px 0;
+}
+/*.todraft_panel*/
+.todraft_page { height: 100%; text-align: center;}
+.todraft_panel .todraft_opacity { position: fixed; _position: absolute; z-index: -1; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; background: #000; opacity: 0.25; filter: alpha(opacity=25);}
+.todraft_panel { min-height: 100%; background: #fff; text-align: left; display: inline-block; *display: inline; *zoom: 1;}
+.todraft_panel .headline { text-align: left; font-weight: bold; font-size: 16px; line-height: 32px;}
+.todraft_panel .relation, .todraft_panel .upddraft { padding: 15px 0 0; margin: 10px 0 0;  text-align: left; border-top: 1px solid #ccd4df;}
+.todraft_panel .upddraft .placeholder { margin:0 0 0 -3px}
+.todraft_panel .upddraft .radio {font-size: 16px;}
+.todraft_panel .relation { line-height: 28px;}
+.todraft_panel .big { font-size: 16px;}
+.todraft_panel .small { font-size: 12px;}
+.todraft_panel .alt_text { padding-top: 15px; line-height: 24px;}

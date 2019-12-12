@@ -1,0 +1,72 @@
+<script id="template-product_delivery" type="text/template">
+    {{if (deliveryToInList&&deliveryToInList.length) || (deliveryToUserList&&deliveryToUserList.length>0)}}
+    <section class="table-scroll table-full">
+        <form class="form-inline">
+            <table class="table">
+                <colgroup>
+                    <col style="width: 100%">
+                </colgroup>
+                <tbody>
+                {{if deliveryToUserList&&deliveryToUserList.length>0}}
+                <tr>
+                    <td>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="receiverToInAll" {{if 1>showMode}}disabled="disabled"{{/if}} {{if isReceiverToIn}}checked="checked"{{/if}}/><i class="fa fa-checkbox"></i>发货至该地仓储中心
+                            </label>
+                            <span class="gray">（将货品发送至该城市所在的云印仓储中心，云印发给用户）</span>
+                        </div>
+                        <br>
+                        <div class="info-box mt10">
+                            <fieldset>
+                                {{each deliveryToInList as delivery i}}
+                                {{if i>0}}<br>{{/if}}
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="receiverToIn" value="{{delivery.deliveryModeId}}" {{if 1>showMode||!delivery.approve}}disabled="disabled"{{/if}} {{if delivery.checked}}checked="checked"{{/if}}/><i class="fa fa-checkbox"></i>{{delivery.deliveryName}}
+                                    </label>
+                                    {{if !delivery.approve}}
+                                    <span class="gray">（该配送方式暂未设置价格，请您先<a href="<?=DOMAIN?>delivery/list.html?receiver=In">设置价格</a>）</span>
+                                    {{/if}}
+                                </div>
+                                {{/each}}
+                            </fieldset>
+                        </div>
+                    </td>
+                </tr>
+                {{/if}}
+                {{if deliveryToUserList&&deliveryToUserList.length>0}}
+                <tr>
+                    <td>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="receiverToUserAll" {{if 1>showMode}}disabled="disabled"{{/if}} {{if isReceiverToUser}}checked="checked"{{/if}}/><i class="fa fa-checkbox"></i>直接发货给用户
+                            </label>
+                        </div>
+                        <br>
+                        <div class="info-box mt10">
+                            <fieldset>
+                                {{each deliveryToUserList as delivery i}}
+                                {{if i>0}}<br>{{/if}}
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="receiverToUser" value="{{delivery.deliveryModeId}}" {{if 1>showMode||!delivery.approve}}disabled="disabled"{{/if}} {{if delivery.checked}}checked="checked"{{/if}}/><i class="fa fa-checkbox"></i>{{delivery.deliveryName}}
+                                    </label>
+                                    {{if !delivery.approve}}
+                                    <span class="gray">（该配送方式暂未设置价格，请您先<a href="<?=DOMAIN?>delivery/list.html?receiver=User">设置价格</a>）</span>
+                                    {{/if}}
+                                </div>
+                                {{/each}}
+                            </fieldset>
+                        </div>
+                    </td>
+                </tr>
+                {{/if}}
+                </tbody>
+            </table>
+        </form>
+    </section>
+    {{else}}
+    <span class="gray">{{if showMode==2}}请先选择具体产品{{else}}没有数据{{/if}}</span>
+    {{/if}}
+</script>

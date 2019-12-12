@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="${keywords}" />
+    <meta name="description" content="${description}" />
+    <meta name="author" content="ininin.com" />
+    <meta name="copyright" content="Copyright © 2015 ininin.com. All rights reserved." />
+    <title>云印-设计力量</title>
+    <link rel="shortcut icon" type="image/x-icon" href="<?=DOMAIN?>favicon.ico"  />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css?ininin=<?=VERSION?>" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES_DESIGN?>layout.css?ininin=<?=VERSION?>" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES_DESIGN?>index.css?ininin=<?=VERSION?>" />
+    <?php include(MODULES.'dns_prefetch.xhtml');?>
+</head>
+<body>
+<?php include(MODULES_DESIGN.'header.xhtml');?>
+<div id="slider_list_design" class="full-banner"></div>
+<div class="main">
+    <div class="layout clearfix">
+        <div class="services mt10 clearfix">
+            <div class="title fl"><img src="<?=IMAGES_DESIGN?>index/service.png" /></div>
+            <ul class="order-steps text_center clearfix">
+                <li class="col1">选择产品</li>
+                <li class="r-arrow"></li>
+                <li class="col2">填写需求并支付</li>
+                <li class="r-arrow"></li>
+                <li class="col3">客服确认需求</li>
+                <li class="r-arrow"></li>
+                <li class="col4">设计/对稿</li>
+                <li class="r-arrow"></li>
+                <li class="col5">定稿</li>
+            </ul>
+        </div>
+        <h2 class="case-title text_center mt10 mb10">秀<span>/案例</span></h2>
+        <div id="template-case_list-view" class="recommend-cases" style="padding-bottom: 0;"></div>
+        <div class="text_center mt10"><a class="btn btn-more" href="<?=DOMAIN_DESIGN?>case/index.html" target="_blank">浏览更多案例</a></div>
+        <div class="bt-img"><a href="javascript:;"><img src="<?=IMAGES_DESIGN?>index/01.jpg" alt="云印设计"/></a></div>
+    </div>
+</div>
+<?php include(MODULES_DESIGN.'footer.xhtml');?>
+<?php include(MODULES_DESIGN.'project_view.xhtml');?>
+<?php include(TEMPLATES_DESIGN.'case_list.xhtml');?>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools_tpl.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS_DESIGN?>index_tpl.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>location_tpl.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded_tpl.js?ininin=<?=VERSION?>"></script>
+<script type="script_weibo"></script>
+<script type="script_linklogin"></script>
+<script type="script_cnzz"></script>
+</body>
+</html>

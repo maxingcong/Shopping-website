@@ -1,0 +1,57 @@
+<div class="img {{Number(item.maxDiscount)>0?'max-discount':''}}">
+    {{if couponStatus>0}}
+    <img src="<?=IMAGES?>coupon/{{couponStatus}}.png" alt="{{item.couponName}}"/>
+    {{else}}
+    <img src="<?=IMAGES?>coupon/{{couponStatus}}-{{item.couponType}}-1.png" alt="{{item.couponName}}"/>
+    {{/if}}
+    <div class="amount">
+        {{if item.preferWay==1}}
+        <b>{{Number(item.couponPrice)}}</b><span class="unit">折</span>
+        {{else}}
+        <span class="unit">￥</span><b>{{Number(item.couponPrice)}}</b>
+        {{/if}}
+        {{ if Number(item.orderPrice)<=0 }}
+        <div class="astrict">不限金额</div>
+        {{ else }}
+        <div class="astrict">满{{Number(item.orderPrice)}}元可用</div>
+        {{/if}}
+    </div>
+    <div class="limit">
+        <b>{{ couponTypeCN[item.couponType]||'优惠券' }}</b>
+        {{if productIdName && item.couponCount>1 && couponStatus==0}}
+        <div class="count">剩余{{item.usableCount||0}}次</div>
+        {{/if}}
+    </div>
+    {{if item.couponCount>1}}
+        {{if couponStatus==1}}
+        <div class="count">共可使用{{item.couponCount}}次，已使用{{item.disableCount||0}}次</div>
+        {{else if couponStatus==2}}
+        <div class="count">共可使用{{item.couponCount}}次，已过期{{item.expiredCount||0}}次</div>
+        {{else}}
+        <div class="count">共可使用{{item.couponCount}}次{{if !productIdName}}，剩余{{item.usableCount||0}}次{{/if}}</div>
+        {{if productIdName && item.couponCount>1 && couponStatus==0}}
+            <div class="counter">
+                <a>-</a><input class="textbox" type="text" name="qty" value="1" data-name="数量"><b>+</b>
+            </div>
+        {{/if}}
+        {{/if}}
+    {{else if Number(item.maxDiscount)>0 }}
+    <div class="count">最高抵扣{{Number(item.maxDiscount)}}元</div>
+    {{/if}}
+    <div class="date">{{item.limitTime.slice(0, 23)}}</div>
+    {{if productIdName}}
+     <a class="i" href="javascript:;"></a>
+    {{/if}}
+</div>
+<div class="desc">
+    {{if couponStatus>0}}
+    <img src="<?=IMAGES?>coupon/4.png" alt="{{item.couponName}}"/>
+    {{else}}
+    <img src="<?=IMAGES?>coupon/0-{{item.couponType}}-2.png" alt="{{item.couponName}}"/>
+    {{/if}}
+    <div class="name ellipsis">{{item.couponName}}</div>
+    <div class="text">
+        <div class="form">券来源：{{ item.channelName }}</div>
+        {{ item.simpleDesc||item.couponDesc }}
+    </div>
+</div>

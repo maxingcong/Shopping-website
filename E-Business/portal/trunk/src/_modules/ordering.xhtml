@@ -1,0 +1,53 @@
+<div id="payform" class="payform"></div>
+<script id="pay_form" type="text/template">
+{{if isCoupon || isVIPLevel}}
+    <input id="form_order_code" name="order_code" type="hidden" value="" autocomplete="off" />
+    <input id="couponCode" type="hidden" name="coupon_code" autocomplete="off" />
+    <dl id="coupons" class="coupons checkboxs">
+        {{if isCoupon}}
+        <dt data-type="coupon" class="tit checkbox coupon_pay"><b>使用优惠券</b><span class="desc">本订单符合条件的优惠券一共 <b id="data_couponCount" class="red">0</b> 张</span><a href="<?=DOMAIN?>faq/payment.html#3" target="_blank">云印有哪些优惠券>></a></dt>
+        <dd class="first {{(isVIPLevel>0 && vipLevel>0)?'':'last'}} hidden coupon_pay">
+            <div class="form_item usable">
+                <div id="template-coupon_list-view" class="collapsed"></div>
+            </div>
+        </dd>
+        {{/if}}
+        {{if isVIPLevel>0 && (vipLevel==1 || vipLevel==2)}}
+        <dt data-type="vip" class="tit checkbox vip_pay"><b>{{VIP_LEVEL[vipLevel]}}</b>{{if vipDiscount==0}}<i class="vip-icon vip-icon-0"></i>{{/if}}<span class="desc">
+            {{if vipDiscount>0}}
+            本订单符合打折条件，享有 {{vipDiscountNum}} 折优惠
+            {{else}}
+            {{VIP_LEVEL[vipLevel]}}所有修改服务免费
+            {{/if}}
+        </span></dt>
+        {{/if}}
+        {{if isVIPLevel>0 && vipLevel>0}}
+        <dd class="last hidden vip_pay"></dd>
+        {{/if}}
+    </dl>
+{{/if}}
+</script>
+<div id="oinfo" class="oinfo clearfix"></div>
+<script id="pay_info" type="text/template">
+    <div class="lbox">
+        <div id="finfo" class="finfo">
+            <div class="fitem">
+                <span class="tit">备注信息：</span><span class="ctt form_item"><label><input id="buyer_remark" class="textbox oremark" name="buyer_remark"/></label></span>
+            </div>
+            <div class="fitem">如需发票，请您支付成功后在“<a href="<?=DOMAIN?>member/myinvoice.html#1" target="_blank">申请发票</a>”页面，提交申请信息。<a class="lnk" href="<?=DOMAIN?>faq/invoice.html#0" target="_blank">如何申请发票？</a></div>
+        </div>
+    </div>
+    <div class="rbox">
+        <div class="newbox">
+            <p>商品金额：<b id="data_orderProductPrice" class="red">0.00</b> 元 </p>
+            <p id="coupon_deduction" style="display: none">优惠券抵扣：<b id="data_couponDeduction" class="red">0.00</b> 元 </p>
+            <p id="vip_discount_num" style="display: none">优惠折扣：<b id="data_vipDiscountNum" class="red">0.00</b> 折 </p>
+            <!--<p>现金抵扣：<b id="data_walletDeduction" class="red">0.00</b>元 </p>-->
+            <p>应付金额：<b id="data_payablePrice" class="tprice red">0.00</b> 元 </p>
+            <a class="btn btn-primary btn-lg submit" href="javascript:;" onclick="_czc.push(['_trackEvent', '通用', '提交订单', '','','']);">提交订单</a>
+        </div>
+    </div>
+</script>
+<script id="template-coupon_list" type="text/template">
+<?php include(TEMPLATES.'coupon_list.xhtml');?>
+</script>

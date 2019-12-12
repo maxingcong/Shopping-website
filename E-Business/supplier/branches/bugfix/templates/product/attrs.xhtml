@@ -1,0 +1,32 @@
+<script id="template-product_attrs" type="text/template">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">{{TITLE}}</h4>
+    </div>
+    <div class="modal-body table-product-price">
+        {{if attrs&&attrs.length>0}}
+        <table class="table table-bordered table-hover">
+            <thead>
+            <tr>
+                {{each attrs as attr i}}
+                <th data-name="{{attr}}">{{attr}}</th>
+                {{/each}}
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                {{each attrs as attr i}}
+                <td data-name="{{name}}" data-attr="{{attr}}">
+                    <input type="text" class="form-control"/>
+                </td>
+                {{/each}}
+            </tr>
+            </tbody>
+        </table>
+        {{/if}}
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default md-btn" data-dismiss="modal">关闭</button>
+        <button type="button" class="btn btn-primary save md-btn">保存</button>
+    </div>
+</script>

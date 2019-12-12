@@ -1,0 +1,205 @@
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<div id="product_info">
+    <ol class="breadcrumb">
+        <li><a href="<?=DOMAIN?>home/index.html"><i class="fa fa-home"></i>首页</a></li>
+        <li class="active">生产配送</li>
+        <li>商品信息查询</li>
+    </ol>
+    <!-- Start Filter -->
+    <div class="panel form-inline panel-filter">
+        <div class="panel-collapse collapse in" role="tabpanel">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label class="control-label">下单时间：</label>
+                        <input id="startTime" size="16" type="text" data-font-awesome="true" readonly class="form_datetime form-control"> 至
+                        <input id="endTime" size="16" type="text" data-font-awesome="true" readonly class="form_datetime form-control">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label">商品状态：</label>
+                        <select name="productStatus" class="form-control">
+                            <option value="">全部</option>
+                            <option value="3">生产中</option>
+                            <option value="15">待发货</option>
+                            <option value="4">已发货</option>
+                            <option value="5">已签收</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label">配送方式：</label>
+                        <select name="takeType" class="form-control">
+                            <option value="">全部</option>
+                            <option value="17">第三方物流</option>
+                            <option value="16">专车配送</option>
+                            <option value="2">上门自提</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label for="orderCode" class="control-label">订单编号：</label>
+                        <div class="input-group">
+                            <input type="text" id="orderCode" class="form-control" placeholder="订单编号" />
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="logisticsCode" class="control-label">快递单号：</label>
+                        <div class="input-group">
+                            <input type="text" id="logisticsCode" class="form-control" placeholder="快递单号" />
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="receivelTel" class="control-label">收货人电话：</label>
+                        <div class="input-group">
+                            <input type="text" id="receivelTel" class="form-control" placeholder="收货人电话" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-8">
+                        <ul id="product-tabs" class="nav nav-pills">
+                            <li role="presentation"><a href="#" data-product_status="3">今日应发货</a></li>
+                            <li role="presentation"><a href="#" data-product_status="5">今日已发货</a></li>
+                            <li role="presentation"><a href="#" data-product_status="2">发货逾期</a></li>
+                            <li role="presentation" class="active"><a href="#" data-product_status="">全部</a></li>
+                        </ul>
+                    </div>
+                    <div class="pull-right mt10 col-md-4">
+                        <button id="searchBtn" class="btn btn-primary" type="button"><i class="fa fa-search"></i> 搜索</button>
+                       <!-- <button id="resetBtn" class="btn btn-primary" type="button">重置选项</button>-->
+                        <button id="exportExcel" class="btn btn-primary" type="button">导出Excel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Filter -->
+    <div id="template-distribution_product_info-view"></div>
+    <div class="pagination clearfix">
+        <div id="paginbar" class="pull-right paginbar"></div>
+    </div>
+</div>
+<!-- 批量发货模态框 -->
+<div class="modal fade" id="batchDeliveryModl" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">批量出货</h4>
+            </div>
+            <div class="modal-body">
+                <p>是否将选中的订单商品批量出货并打印出货单？</p>
+            </div>
+            <div class="modal-footer text-center">
+                <button type="button" class="btn btn-primary md-btn save">确 定</button>
+                <button type="button" class="btn btn-default md-btn" data-dismiss="modal">取 消</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script id="template-distribution_product_info" type="text/template">
+    {{if canDelivery}}
+    <button type="button" class="btn btn-primary mb15" id="batchDelivery">批量出货</button>
+    {{/if}}
+    <div class="table-scroll table-product-price">
+        <table class="table table-hover table-fixed">
+            <colgroup>
+                <col style="width:30px;">
+                <col style="width:10%">
+                <col style="width:5%">
+                <col style="width:5%">
+                <col style="width:8%">
+                <col style="width:10%">
+                <col style="width:8%">
+                <col style="width:10%">
+                <col style="width:5%">
+                <col style="width:10%">
+                <col style="width:10%">
+                <col style="width:10%">
+                <col>
+            </colgroup>
+            <thead>
+            <tr>
+                <th>
+                    <div class="checkbox">
+                        <label><input type="checkbox" name="checkbox_all"/><i class="fa fa-checkbox"></i></label>
+                    </div>
+                </th>
+                <th>订单编号</th>
+                <th>批次号</th>
+                <th>商品号</th>
+                <th>商品名称</th>
+                <th>商品属性</th>
+                <th>商品状态</th>
+                <th>进入生产时间</th>
+                <th>货期</th>
+                <th>预计出货时间</th>
+                <th>配送信息</th>
+                <th>地址信息</th>
+                <th>收货人</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{if resultData&&resultData.length>0}}
+                {{each resultData as data}}
+                {{each data.infoList as infos}}
+                {{each infos.recordList as info}}
+                <tr>
+                    <td>
+                        <div class="checkbox">
+                            <label><input type="checkbox" {{if info.status==3||info.status==4||info.status==15}}data-delivery_info="{{info.orderCode}}-{{info.orderProductId}}-{{info.productName}}-{{info.takeTypeStr}}" name="checkbox"{{else}}disabled="disabled"{{/if}} /><i class="fa fa-checkbox"></i></label>
+                        </div>
+                    </td>
+                    <td>{{info.orderCode}}</td>
+                    <td>{{info.batchNum}}</td>
+                    <td>{{info.orderProductId}}</td>
+                    <td>{{info.productName}}</td>
+                    <td>{{info.productAttr}}</td>
+                    <td>{{info.statusStr}}</td>
+                    <td>{{info.intoProductionTime}}</td>
+                    <td>{{info.delivery}}天</td>
+                    <td>{{info.outProductionTime}}</td>
+                    <td>{{info.takeTypeStr}}{{if info.takeType==17||info.takeType==18||info.takeType==4}}</br>{{info.logisticsName}} {{info.logisticsCode}}{{/if}}</td>
+                    <td>{{info.receiveAddress.replace(/\^/g, '')}}</td>
+                    <td>{{info.receiveName}}</td>
+                </tr>
+                {{/each}}
+                {{/each}}
+                {{/each}}
+            {{else}}
+            <tr><td colspan="13">未获取到相应商品信息</td></tr>
+            {{/if}}
+            </tbody>
+        </table>
+    </div>
+</script>
+<script id="delivery_order_print" type="text/html">
+    <div class="table-product-price">
+        <small>
+            <small>
+                <h4 class="text-center">出货单</h4>
+                <p class="text-center"><span style="padding-right: 30pt;">出货人：{{operator}}</span> 出货时间：{{deliveryTime}}</p>
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <td>编号</td>
+                        <td>订单编号</td>
+                        <td>商品号</td>
+                        <td>商品名称</td>
+                        <td>配送方式</td>
+                        <td>订单商品码</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{each infoList as info i}}
+                    <tr><td>{{i}}</td><td>{{info.orderCode}}</td><td>{{info.orderProductId}}</td><td>{{info.productName}}</td><td>{{info.takeTypeStr}}</td><td><div style="width: 134pt;">barCode{{i}}</div></td></tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+                <p class="text-right" style="padding-right: 50pt;">确认签收：</p>
+                <p class="text-right" style="padding-right: 50pt;">收货时间：</p>
+            </small>
+        </small>
+    </div>
+</script>
+<script type="text/javascript" src="<?=SCRIPTS?>distribution/product_info.js"></script>

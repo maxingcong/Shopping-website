@@ -1,0 +1,17 @@
+<script id="template-images_previewer" type="text/template">
+    <div class="slide-panel">
+        <ul class="slide-layer clearfix">
+            {{each uris as uri i}}
+            <li class="slide-item imgs-cont">
+                <i></i><img class="imgs-cont" src="{{uri}}"/>
+            </li>
+            {{/each}}
+        </ul>
+        <div class="slide-prev"></div>
+        <div class="slide-next"></div>
+        {{if tips}}
+        <div class="previewer_tips_filter"></div>
+        <div class="previewer_tips">{{tips}}</div>
+        {{/if}}
+    </div>
+</script>

@@ -1,0 +1,31 @@
+<script id="attr_quotation" type="text/template">
+    <div id="options_attrs" class="d-attrs custom-quot clearfix">
+	    <dl class="attr clearfix">
+	        <dt class="atr">产品名称：</dt>
+	        <dd class="vals" data-name="product_name">
+	            <span class="val">{{product.productName||demandParamsInfo['产品名称']||''}}</span>
+	        </dd>
+	    </dl>
+
+	    <dl class="attr clearfix">
+	        <dt class="atr">询价单号：</dt>
+	        <dd class="vals" data-name="id">
+	            <span class="val">{{product.id||demandParamsInfo['询价单号']||''}}</span>
+	        </dd>
+	    </dl>
+
+	    <dl class="attr clearfix">
+	        <dt class="atr">询价日期：</dt>
+	        <dd class="vals" data-name="date_created_str">
+	            <span class="val">{{product.dateCreatedStr||demandParamsInfo['询价日期']||''}}</span>
+	        </dd>
+	    </dl>
+
+	    <dl class="attr clearfix">
+	        <dt class="atr">产品描述：</dt>
+	        <dd class="vals" data-name="other_requirements">
+	            <span class="val">{{product.otherRequirements||demandParamsInfo['产品描述']||''}}</span>
+	        </dd>
+	    </dl>
+	</div>
+</script>

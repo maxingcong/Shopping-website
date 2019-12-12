@@ -1,0 +1,20 @@
+<script id="template-hot_sell" type="text/template">
+    {{if productList&&productList.length}}
+    <h3 class="title"><span>热销产品</span></h3>
+    <ul class="clearfix">
+        {{each productList as item i}}
+        <li class="p-info p-info-md">
+            <a class="p-img" href="<?=DOMAIN?>product/{{item.id}}.html" title="{{item.simpleDesc}}" target="_blank">
+                <!--<img src="{{item.productImg}}?imageMogr2/thumbnail/!200x200r/auto-orient/gravity/Center/crop/200x200" alt="{{item.productName}}"/>-->
+                <img src="{{item.productImg}}" alt="{{item.productName}}"/>
+                <!--i class="p-mark"></i-->
+            </a>
+            <div class="p-price ellipsis"><b class="yellow">{{item.priceDesc}}</b></div>
+            <div class="p-name">
+                <a href="<?=DOMAIN?>product/{{item.id}}.html" title="{{item.simpleDesc}}" target="_blank">{{item.productName}}<span class="p-desc">{{item.simpleDescEllipsis}}</span></a>
+            </div>
+        </li>
+        {{/each}}
+    </ul>
+    {{/if}}
+</script>

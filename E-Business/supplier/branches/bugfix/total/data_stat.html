@@ -1,0 +1,195 @@
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<div class="page-stat">
+    <ol class="breadcrumb">
+        <li><a href="<?=DOMAIN?>home/index.html"><i class="fa fa-home"></i>首页</a></li>
+        <li class="active">数据统计</li>
+    </ol>
+    <!-- Nav tabs -->
+    <ul id="list_tabs" class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#" aria-controls="" role="tab" data-stat_type="1" data-toggle="tab">接单数据统计</a></li>
+        <li role="presentation"><a href="#" aria-controls="" role="tab" data-stat_type="2" data-toggle="tab">财务数据统计</a></li>
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active">
+            <!-- Start Filter -->
+            <div class="panel form-inline panel-filter">
+                <div class="panel-collapse collapse in" role="tabpanel">
+                    <div class="panel-body">
+                        <div id="time_range_btn" class="form-group">
+                            <button class="btn btn-link" type="button" data-time_range="preMonth">上月</button>
+                            <button class="btn btn-link" type="button" data-time_range="curMonth">本月</button>
+                            <button class="btn btn-link" type="button" data-time_range="-30">最近30天</button>
+                            <button class="btn btn-primary active" type="button" data-time_range="-7">最近7天</button>
+                            <button class="btn btn-link" type="button" data-time_range="0">今天</button>
+                            <button class="btn btn-link" type="button" data-time_range="-1">昨天</button>
+                        </div>
+                        <div class="form-group ml30">
+                            <input id="startTime" size="16" type="text" data-font-awesome="true" readonly class="form_datetime form-control">
+                            <span> 至 </span>
+                            <input id="endTime" size="16" type="text" data-font-awesome="true" readonly class="form_datetime form-control">
+                            <button id="searchBtn" class="btn btn-primary" type="button"><i class="fa fa-search"></i> 搜索</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Filter -->
+            <div id="template-stat_info-view" class="panel-group panel-quick" role="tablist" aria-multiselectable="true" ></div>
+            <!--<div class="pagination clearfix">
+                <div class="pull-left">
+                    <span>共 <b id="data-recordCount">0</b> 条，每页
+                    <select class="form-control" name="pageCount">
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                        <option value="40">40</option>
+                        <option value="50">50</option>
+                    </select> 条</span>
+                </div>
+                <div id="paginbar" class="pull-right paginbar"></div>
+            </div>-->
+        </div>
+    </div>
+</div>
+<script id="template-stat_info" type="text/template">
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                {{if statType == '1'}}接单数据总计{{else}}财务数据总览{{/if}}
+                <a class="pull-right" role="button" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <i class="fa fa-angle-double-down"></i>
+                    <i class="fa fa-angle-double-up"></i>
+                </a>
+            </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body">
+                <ul class="row text-center">
+                    {{if statType == '1'}}
+                    <li class="col-sm-3"><h5>总计接单任务数</h5><h3>{{totalSingle}}</h3></li>
+                    <li class="col-sm-3"><h5>生产逾期任务数</h5><h3>{{totalDelivery}}</h3></li>
+                    <li class="col-sm-3"><h5>拒单任务数</h5><h3>{{totalRefuse}}</h3></li>
+                </ul>
+                    {{else}}
+                    <li class="col-sm-3"><h5>累计接单金额</h5><h3>￥{{totalAmount}}</h3></li>
+                </ul>
+                    <p>注<b class="light">*</b>：在所选时间段内，已接单任务的总金额</p>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingTwo">
+            <h4 class="panel-title">
+                {{if statType == '1'}}接单趋势图{{else}}接单数据图表{{/if}}
+                <a class="pull-right" role="button" data-toggle="collapse" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fa fa-angle-double-down"></i>
+                    <i class="fa fa-angle-double-up"></i>
+                </a>
+            </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+            <div class="panel-body">
+                <div id="chart_container" style="height:400px;"></div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingThree">
+            <h4 class="panel-title">
+                {{if statType == '1'}}接单数量统计{{else}}订单列表{{/if}}
+                <a class="pull-right" role="button" data-toggle="collapse" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                    <i class="fa fa-angle-double-down"></i>
+                    <i class="fa fa-angle-double-up"></i>
+                </a>
+            </h4>
+        </div>
+        <div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
+            <div class="panel-body">
+                {{if statType == '1'}}
+                <div class="table-scroll" style="margin-top: 10px;">
+                    <table class="table mt15 table-hover">
+                        <thead>
+                        <th>时间</th>
+                        <th>当日接单数量</th>
+                        <th>生产逾期订单</th>
+                        <th>拒单数</th>
+                        </thead>
+                        <tbody>
+                        {{if statisticList&&statisticList.length>0}}
+                        {{each statisticList as stat i}}
+                        <tr>
+                            <td>{{stat.date}}</td>
+                            <td>{{stat.singleCount}}</td>
+                            <td>{{stat.deliveryCount}}</td>
+                            <td>{{stat.refuseCount}}</td>
+                        </tr>
+                        {{/each}}
+                        {{else}}
+                        <tr>
+                            <td colspan="4" class="text-center">未查询到相关记录</td>
+                        </tr>
+                        {{/if}}
+                        </tbody>
+                    </table>
+                </div>
+                {{else if statType == '2'}}
+                <div id="template-total_order_list-view" class="table-scroll" style="margin-top: 10px;"></div>
+                <div class="pagination clearfix">
+                    <div class="pull-left">
+                            <span>共 <b id="data-recordCount">0</b> 条，每页
+                            <select class="form-control" name="pageCount">
+                                <option value="10">10</option>
+                                <option value="20">20</option>
+                                <option value="30">30</option>
+                                <option value="40">40</option>
+                                <option value="50">50</option>
+                            </select> 条</span>
+                    </div>
+                    <div id="paginbar" class="pull-right paginbar"></div>
+                </div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</script>
+<script id="template-total_order_list" type="text/template">
+    <table class="table mt15 table-hover">
+        <colgroup>
+            <col style="width: 50px">
+            <col style="width: 120px">
+            <col style="width: 12%">
+            <col style="width: 14%">
+            <col style="width: 10%">
+            <col style="width: 20%">
+            <col>
+        </colgroup>
+        <thead>
+        <th>编号</th>
+        <th>订单号</th>
+        <th>订单类型</th>
+        <th>结算价格（元）</th>
+        <th>配送方式</th>
+        <th>下单时间</th>
+        <th>订单状态</th>
+        </thead>
+        <tbody>
+            {{if recordList && recordList.length>0}}
+            {{each recordList as record i}}
+            <tr>
+                <td>{{record.recordId}}</td>
+                <td>{{record.orderCode}}</td>
+                <td>{{if record.orderType==0}}印刷订单{{else if record.orderType==5}}套餐订单{{else}}设计服务{{/if}}</td>
+                <td>{{record.orderAmount}}</td>
+                <td>{{if record.orderTakeType==17}}普通快递{{else if record.orderTakeType==4}}物流发货{{else if record.orderTakeType=2}}上门自提{{else}}专车配送{{/if}}</td>
+                <td>{{record.recordTimeStr}}</td>
+                <td>{{record.recordStatusStr}}</td>
+            </tr>
+            {{/each}}
+            {{else}}
+            <tr><td colspan="7" class="text-center">未查询到相关记录</td></tr>
+        {{/if}}
+        </tbody>
+    </table>
+</script>
+<script type="text/javascript" src="<?=SCRIPTS?>/total/data_stat.js"></script>

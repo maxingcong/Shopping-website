@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <title>云印官网</title>
+    <link rel="shortcut icon" type="image/x-icon" href="<?=DOMAIN?>favicon.ico"  />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>layout.css" />
+    <?php include(MODULES.'dns_prefetch.xhtml');?>
+</head>
+<body>
+<a id="qqOpen" href="javascript:;"></a>
+<script src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" type="text/javascript" data-appid="100554417"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>oauth/login.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript">
+    require(["base", "tools", "oauth/login"], function ($, T, OAuthLogin) {
+        //QQ联合登陆
+        var oauthQQ = {
+            data: {
+                type: 1
+            },
+            params: T.getRequest(),
+            init: function(){
+                var _this = this;
+                QC.Login({
+                    //btnId：插入按钮的节点id，必选
+                    btnId: "qqOpen",
+                    //用户需要确认的scope授权项，可选，默认all
+                    scope: "all",
+                    //按钮尺寸，可用值[A_XL| A_L| A_M| A_S|  B_M| B_S| C_S]，可选，默认B_S
+                    size: "A_XL"
+                }, function (o, opts) {//登录成功
+                    QC.Login.getMe(function (openId, accessToken) {debugger
+                        _this.data.openid = openId;
+                        _this.data.nickname = o.nickname==null?"":o.nickname;
+                        _this.data.portrait = o.figureurl_2==null?"":o.figureurl_2;
+                        OAuthLogin().init(_this.data, function(data){
+                            location.replace(_this.params.redirect_uri||T.DOMAIN.WWW);
+                        });
+                    });
+                }, function (opts) {//注销成功
+                    T.msg("QQ登录注销成功");
+                    T.cookie("sid", "", { expires: -1, path: "/", domain: T.DOMAIN.DOMAIN });
+                    window.reload();
+                });
+            }
+        };
+        if(window.QC){
+            oauthQQ.init();
+        }
+    });
+</script>
+</body>
+</html>

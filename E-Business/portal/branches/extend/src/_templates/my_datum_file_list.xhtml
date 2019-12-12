@@ -1,0 +1,50 @@
+<script id="template-datum_file_list" type="text/template">
+    <table class="table_view checkboxs" cellpadding="0" cellspacing="0">
+        <colgroup>
+            <col width="6%"/>
+            <col width="45%"/>
+            <col width="30%"/>
+            <col/>
+        </colgroup>
+        <thead>
+        <tr>
+            <th class="col2" colspan="2"><div>文件名</div></th>
+            <th class="col3"><div>下单时间</div></th>
+            <th class="col4"><div>预览</div></th>
+        </tr>
+        </thead>
+        <tbody>
+        {{each fileList as file i}}
+        <tr data-file_uri="{{file.fileSrc}}" data-file_name="{{file.fileName}}">
+            <td class="col1">
+                <div>
+                    <label class="checkbox {{file.CHECKED && 'sel'}}"></label>
+                </div>
+            </td>
+            <td class="col2">
+                <div title="{{file.fileName}}">
+                    <a class="word-wrap" href="{{file.fileSrc}}" title="{{file.fileName}}" target="_blank">{{file.fileName}}</a>
+                </div>
+            </td>
+            <td class="col4"><div>{{file.recordTime}}</div></td>
+            <td class="col5">
+                <div>
+                    {{if file.hasPreviewer}}
+                    <a class="previewer" href="javascript:;" data-urls="{{file.fileSrc}}">预览</a>
+                    {{else}}
+                    <a class="word-wrap" href="{{file.fileSrc}}" title="{{file.fileName}}" target="_blank">预览</a>
+                    {{/if}}
+                </div>
+            </td>
+        </tr>
+        {{/each}}
+        {{if !fileList || !fileList.length}}
+        <tr>
+            <td class="col1" colspan="4">
+                <div class="empty"><dl class="vertical_middle"><dt class="vm_left"></dt><dd class="vm_right">暂无数据</dd></dl></div>
+            </td>
+        </tr>
+        {{/if}}
+        </tbody>
+    </table>
+</script>

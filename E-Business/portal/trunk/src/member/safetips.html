@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="修改安全问题" />
+    <meta name="description" content="" />
+    <meta name="author" content="${author}" />
+    <meta name="copyright" content="${copyright}" />
+    <title>修改安全问题</title>
+    <link  rel="shortcut icon" type="image/x-icon" href="<?=DOMAIN?>favicon.ico"  />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>layout.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>safety.css" />
+    <?php include(MODULES.'dns_prefetch.xhtml');?>
+</head>
+<body>
+<?php include(MODULES.'header.xhtml');?>
+<div class="main ucenter">
+    <div class="layout clearfix">
+        <?php include(MODULES.'usersidebar.xhtml');?>
+        <div class="container">
+            <div id="upanel" class="upanel steps-wrap hide">
+                <div>
+                    <h3 class="headline"><a href="<?=DOMAIN?>member/safety.html">安全中心</a> > <span id="pageName">修改安全问题</span></h3>
+                    <div class="text_center">
+                        <ul class="steps-title"></ul>
+                    </div>
+                    <div class="steps-content" id="template-steps_content-view"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php include(MODULES.'footer.xhtml');?>
+<?php include(TEMPLATES.'steps.xhtml');?>
+<script id="template-change_safetips" type="text/template">
+    <fieldset>
+        <form id="set_safe_tips" class="forms">
+            <div class="form_group">
+                <div class="form_item">
+                    <label>
+                        <span class="field">问题一：</span>
+                        <select name="question1" id="firstTips"></select>
+                        <i class="msg"></i>
+                    </label>
+                </div>
+                <div class="form_item">
+                    <label>
+                        <span class="field">安全答案：</span>
+                        <input class="textbox" type="text" name="answer1" />
+                        <strong class="required">*</strong>
+                    </label>
+                    <i class="msg"></i>
+                </div>
+            </div>
+            <div class="form_group">
+                <div class="form_item">
+                    <label>
+                        <span class="field">问题二：</span>
+                        <select name="question2" id="secondTips"></select>
+                        <i class="msg"></i>
+                    </label>
+                </div>
+                <div class="form_item">
+                    <label>
+                        <span class="field">安全答案：</span>
+                        <input class="textbox" type="text" name="answer2" />
+                        <strong class="required">*</strong>
+                    </label>
+                    <i class="msg"></i>
+                </div>
+            </div>
+            <div class="form_group">
+                <div class="form_item">
+                    <label>
+                        <span class="field">问题三：</span>
+                        <select name="question3" id="thirdTips"></select>
+                        <i class="msg"></i>
+                    </label>
+                </div>
+                <div class="form_item">
+                    <label>
+                        <span class="field">安全答案：</span>
+                        <input class="textbox" type="text" name="answer3" />
+                        <strong class="required">*</strong>
+                    </label>
+                    <i class="msg"></i>
+                </div>
+            </div>
+            <div class="steps-btm text_center">
+                <a class="submit" href="javascript:;">
+                    下一步<input type="submit" value="" />
+                </a>
+            </div>
+        </form>
+    </fieldset>
+</script>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>member/safetips.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>location.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js?ininin=<?=VERSION?>"></script>
+<!--script type="text/javascript" src="<?=SCRIPTS?>jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>template-native.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>zh_cn.js"></script> 
+<script type="text/javascript" src="<?=SCRIPTS?>tool.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>member/paypwd.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>libs/location.js"></script-->
+<?php include(MODULES.'linklogin.xhtml');?>
+</body>
+</html>

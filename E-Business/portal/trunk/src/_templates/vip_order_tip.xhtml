@@ -1,0 +1,12 @@
+<% if(temp.status==5){ %>
+<div class="warn">订单未提交申请，请尽快提交申请</div>
+<% } %>
+<% if(temp.status==6){ %>
+<div class="success">订单已提交申请，正在审核中，请耐心等待</div>
+<% } %>
+<% if(temp.status==7){ %>
+<div class="danger">
+<div>订单审核不通过，请重新提交申请</div>
+<div>驳回原因：<%=temp.not_through_reason%></div>
+</div>
+<% } %>

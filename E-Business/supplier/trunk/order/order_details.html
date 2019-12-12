@@ -1,0 +1,260 @@
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<div class="page-order-details">
+    <div class="clearfix">
+        <div class="nav-btns pull-right">
+            <button id="getBack" type="button" class="btn btn-primary btn-sm" role="button">返回</button>
+        </div>
+        <ol class="breadcrumb">
+            <li><a href="<?=DOMAIN?>home/index.html"><i class="fa fa-home"></i>首页</a></li>
+            <li><a href="<?=DOMAIN?>order/order.html">订单管理</a></li>
+            <li class="active">订单详情</li>
+        </ol>
+    </div>
+    <!-- Start Filter -->
+    <div class="panel form-inline panel-filter">
+        <div class="panel-collapse collapse in" role="tabpanel">
+            <div class="panel-body">
+                <div class="form-group">
+                    <span>当前订单状态：</span><span id="orderStatus"></span>
+                </div>
+                <div class="pull-right">
+                    <button id="confirm_order" class="btn btn-primary md-btn ml30 hide" type="button">确认订单</button>
+                    <button id="refuse_order" class="btn btn-danger md-btn ml30 hide" type="button">拒单</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Filter -->
+    <div id="template-order_details-view"></div>
+</div>
+
+<div class="modal fade" id="goProduction" tabindex="-1" role="dialog" aria-labelledby="goProductionLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="goProductionLabel">确认订单</h4>
+            </div>
+            <div class="modal-body">
+                <p>请选择产品：</p>
+                <div id="template-product_list1-view"></div>
+                <div class="info-box">
+                    提示：在进入生产之前，请务必确认您已经检查文件并且可以正常生产所有产品！
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary save md-btn">确认并进入生产</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="refuseProduction" tabindex="-1" role="dialog" aria-labelledby="refuseProductionLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="refuseProductionLabel">拒单</h4>
+            </div>
+            <div class="modal-body">
+                <p>请选择产品：</p>
+                <div id="template-product_list2-view"></div>
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label text-right">拒单原因：</label>
+                        <div class="col-sm-10 row">
+                            <div class="radio col-sm-5">
+                                <label><input type="radio" name="refuseReason" value="量太大，无法生产" /><i class="fa fa-radio"></i>量太大，无法生产</label>
+                            </div>
+                            <div class="radio col-sm-5">
+                                <label><input type="radio" name="refuseReason" value="机器坏了" /><i class="fa fa-radio"></i>机器坏了</label>
+                            </div>
+                            <div class="radio col-sm-5">
+                                <label><input type="radio" name="refuseReason" value="无法生产此类型订单" /><i class="fa fa-radio"></i>无法生产此类型订单</label>
+                            </div>
+                            <div class="radio col-sm-5">
+                                <label><input type="radio" name="refuseReason" value="印刷稿件有问题" /><i class="fa fa-radio"></i>印刷稿件有问题</label>
+                            </div>
+                            <div class="radio col-sm-5">
+                                <label><input type="radio" name="refuseReason" value="其他" /><i class="fa fa-radio"></i>其他</label>
+                            </div>
+                            <textarea id="oRefuseReason" class="form-control mt15 col-sm-12" placeholder="请输入其他原因"></textarea>
+                        </div>
+                    </div>
+                </form>
+                <div class="info-box">
+                    您确定要拒单吗？拒单之后，您的权重值将降低，以后给您的订单将会减少。
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger save md-btn">确认拒单</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script id="template-o_product_list" type="text/template">
+    <table class="table table-hover">
+        <colgroup>
+            <col style="width:50px;" />
+            <col style="width:15%" />
+            <col style="width:18%" />
+            <col style="width:50%" />
+            <col />
+        </colgroup>
+        <thead>
+        <th></th>
+        <th>商品编号</th>
+        <th>产品名称</th>
+        <th>产品属性</th>
+        <th>款数</th>
+        </thead>
+        {{if orderProductList && orderProductList.length>0}}
+            {{each orderProductList as product}}
+            {{if product.status==2 && product.supplierRefuseFlag!=1}}
+            <tr>
+                <td>
+                    <div class="checkbox">
+                    <label><input data-product_id="{{product.orderProductId}}" type="checkbox" name="checkbox"/><i class="fa fa-checkbox"></i></label>
+                    </div>
+                </td>
+                <td>{{product.serialNumber}}</td>
+                <td>{{product.productName}}</td>
+                <td>{{product.productAttr}}</td>
+                <td>{{product.productCount}}款</td>
+            </tr>
+            {{/if}}
+        {{/each}}
+        <tr>
+            <td>
+                <div class="checkbox">
+                    <label><input type="checkbox" name="checkbox_all"/><i class="fa fa-checkbox"></i></label>
+                </div>
+            </td>
+            <td>全选</td>
+            <td colspan="3"></td>
+        </tr>
+        {{/if}}
+    </table>
+</script>
+<script id="template-confirm_attr" type="text/template">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">确认信息</h4>
+    </div>
+    <div class="modal-body">
+        <p>请确认该产品以下工艺可生产并可按期交货。</p>
+        <div class="info-box">{{attr}}</div>
+    </div>
+    <div class="modal-footer">
+        <a href="{{url}}" class="btn btn-primary md-btn save">确认并下载</a>
+    </div>
+</script>
+<script id="template-order_details" type="text/template">
+    <div class="table-scroll mb15">
+        <table class="table table-fixed">
+            <tr>
+                <td>订单编号：{{orderCode}} </td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>下单时间：{{recordTime}}</td>
+                <td>订单种类：{{if type==0}}印刷订单{{else if type==5}}套餐订单{{else}}设计服务{{/if}}</td>
+                <td>订单状态：{{statusStr}}</td>
+            </tr>
+            <tr>
+                <td>物流方式：{{takeTypeStr}}</td>
+                <td>
+                {{if actualReceiveName||actualReceiveMobile}}
+                联系人：{{actualReceiveName||'暂无姓名'}} , {{actualReceiveMobile||'暂无电话'}}
+                {{else}}
+                暂无联系人信息
+                {{/if}}
+                </td>
+                <td>收货地址：{{actualReceiveAddress}}</td>
+            </tr>
+        </table>
+        <div class="table-product-price">
+            <table class="table table-bordered text-center table-fixed">
+                <colgroup>
+                    <col style="width: 100px">
+                    <col style="width: 120px">
+                    <col style="width: 22%">
+                    <col style="width: 12%">
+                    <col style="width: 12%">
+                    <col style="width: 12%">
+                    <col style="width: 12%">
+                    <col>
+                </colgroup>
+                <thead>
+                <tr class="tr-head">
+                    <th>商品编号</th>
+                    <th>产品名称</th>
+                    <th>产品属性</th>
+                    <th>发货日期</th>
+                    <th>结算金额（元）</th>
+                    <th>商品状态<br/>预计发货日期</th>
+                    <th>配送信息</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{include 'template-order_info'}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#remark" aria-controls="home" role="tab" data-toggle="tab">备注信息</a></li>
+        <li role="presentation"><a href="#operate" aria-controls="profile" role="tab" data-toggle="tab">操作记录</a></li>
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content" style="border: 1px solid #ccd5df;">
+        <div role="tabpanel" class="tab-pane active" id="remark">
+            <table class="table table-hover">
+                <thead>
+                <th>用户备注</th>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>{{buyerRemark||'暂无用户备注信息'}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="operate">
+            <table class="table table-hover">
+                <colgroup>
+                    <col style="width: 200px">
+                    <col style="width: 200px">
+                    <col style="width: 10%">
+                    <col>
+                </colgroup>
+                <thead>
+                <th>时间</th>
+                <th>操作人</th>
+                <th>状态</th>
+                <th>备注</th>
+                </thead>
+                <tbody>
+                {{if orderStepList&&orderStepList.length>0}}
+                    {{each orderStepList as step}}
+                    <tr>
+                        <td>{{step.recordTime}}</td>
+                        <td>{{step.operationUser}}</td>
+                        <td>{{step.statusTitle}}</td>
+                        <td>{{step.remark}}</td>
+                    </tr>
+                    {{/each}}
+                {{else}}
+                <tr><td colspan="4">暂无操作记录</td></tr>
+                {{/if}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</script>
+<?php include(TEMPLATES.'order/order_info.xhtml');?>
+<script type="text/javascript" src="<?=SCRIPTS?>order/order_details.js"></script>

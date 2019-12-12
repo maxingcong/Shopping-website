@@ -1,0 +1,19 @@
+<div id="header" class="header d-header" >
+    <div id="header_fixed" class="header_fixed">
+        <div class="headbar">
+            <div class="layout clearfix">
+                <?php include MODULES.'h_userbar.xhtml';?>
+                <?php include MODULES.'h_address.xhtml';?>
+                <?php include MODULES.'h_topbar.xhtml';?>
+            </div>
+        </div>
+    </div>
+    <div class="d-navbar">
+        <div class="layout clearfix">
+            <div id="menu" class="menu clearfix">
+                <?php include 'h_logo.xhtml';?>
+                <?php include 'h_nav.xhtml';?>
+            </div>
+        </div>
+    </div>
+</div>

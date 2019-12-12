@@ -1,0 +1,300 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="renderer" content="webkit|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="robots" content="all">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="ininin.com">
+    <meta name="copyright" content="Copyright © 2015 ininin.com. All rights reserved.">
+    <title>'New' name card</title>
+    <link href="http://www.ininin.com/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="http://www.ininin.com/themes/css/base.css?v=21025153207">
+    <link rel="stylesheet" type="text/css" href="http://www.ininin.com/themes/css/layout.css?v=21025153207">
+    <link rel="dns-prefetch" href="//colud.ininin.com">
+    <link rel="dns-prefetch" href="//action.ininin.com">
+    <style type="text/css">
+        .textbox {box-sizing: content-box;}
+        .main { padding-bottom: 200px;}
+        .options .atr { min-width: 140px; padding-right: 10px;}
+        .options .addcart { width: 158px;}
+        .desctab { width: 1220px; text-align: center}
+        .ddetail .pdesc { padding: 0}
+        .footer {padding-top: 30px;}
+    </style>
+</head>
+<body>
+<div id="header" class="header">
+    <div id="header_fixed" class="header_fixed">
+        <div class="headbar">
+            <div class="layout clearfix">
+                <div id="template_delivery_region_view" class="mod_selectbox_head">
+                    <div class="mod_selectbox" data-mode="0" data-value="">
+                        <div class="input_btn">
+                            <span class="tip">Delivery to：</span>
+                            <span class="value">GuangDong</span>
+                            <span class="iconDetail"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="topbar">
+                    <span class="introduce">Hot line：</span><span class="head_tel">400-680-9111</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="layout clearfix">
+        <div class="head_logo clearfix">
+            <a href="http://www.ininin.com/" target="_blank" class="logo"><img src="http://www.ininin.com/resources/logo.png"></a>
+            <div class="head_shop">
+                <dl class="cartbtn">
+                    <dt class="dt"><a href="#" class="cart_login"><b id="car_number">Add to cart</b></a></dt>
+                </dl>
+            </div>
+            <div id="head_searchbar" class="head-searchbar">
+                <div class="search-input">
+                    <input class="textbox placeholder" name="keyword" autocomplete="off" type="text">
+                    <a class="submit" href="javascript:;">Search</a>
+                    <ul id="shelper" class="search-helper"></ul>
+                </div>
+            </div>
+        </div>
+        <div id="menu" class="menu clearfix">
+            <div class="all_sort sort_show">
+                <a href="#" class="all_pro">All Categories</a>
+            </div>
+            <div id="nav" class="nav">
+                <ul class="nav_main clearfix">
+                    <li class="col-1"><a href="#">Product</a></li>
+                    <li class="col-2"><a href="#">Design Service </a></li>
+                    <li class="col-3"><a href="#">Jet Print<img src="http://www.ininin.com/resources/icons/new.gif"></a></li>
+                    <li class="col-4"><a href="#">Promotion Products<img src="http://www.ininin.com/resources/icons/new.gif"></a></li>
+                    <li class="col-5"><a href="#"> Exhibition Solution</a></li>
+                    <li class="item_last col-7"><a href="#"> Other Enquiry </a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="main" class="main pdetail mained">
+    <div id="template-product_detail-view" class="layout"></div>
+    <div class="layout">
+        <div class="ddetail">
+            <div class="probox clearfix">
+                <div id="template_product_desc_view" class="pdesc"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="footer" class="footer">
+    <ul class="about_us clearfix">
+        <li><a href="#">Contact Us</a></li>
+        <li class="foot_line"></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li class="foot_line"></li>
+        <li><a href="#">Terms and Conditions</a></li>
+        <li class="foot_line"></li>
+        <li><a href="#">Site Map</a></li>
+    </ul>
+    <div class="copyright">
+        Copyright©2013-2016 www.ininin.com All rights reserved.
+    </div>
+</div>
+<script id="template-product_detail" type="text/template">
+    <div id="sitemap" class="sitemap clearfix">
+        <a href="#">Home</a><b>&gt;</b><a href="#"><%=categoryName%></a><b>&gt;</b><span><%=productName%></span>
+    </div>
+    <div class="dpanel clearfix" id="dpanel">
+        <div class="dupload">
+            <dl class="images">
+                <dt id="proimg" class="zoomimg">
+                    <a href="#" title="<%=productName%>"><img data-imguri="<%=productImgDef%>" src="<%=productImgDef%>" alt="<%=productName%>" /></a>
+                </dt>
+                <dd>
+                    <ul id="imglist">
+                        <% for(var j=0; img=pImages[j]; j++){ %>
+                        <li data-imguri="<%=img%>"><a href="javascript:;"><img src="<%=img%>?imageMogr2/thumbnail/!60x60r/auto-orient/gravity/Center/crop/60x60" alt="<%=productName%>"/></a></li>
+                        <% } %>
+                    </ul>
+                </dd>
+            </dl>
+        </div>
+        <div class="pro_img">
+            <ul id="prolist">
+                <li><a class="link_custom" href="#" title="Make on demand">Make on demand</a></li>
+                <li><a class="designer" href="javascript:;" title="Find a designer">Find a designer</a></li>
+                <li><a class="common_faq" href="#" title="FAQ">FAQ</a></li>
+            </ul>
+        </div>
+        <div id="product_options-<%=productId%>" class="options" data-product_id="<%=productId%>">
+            <fieldset id="template-product_options-<%=productId%>-view" class="product_detail"></fieldset>
+        </div>
+    </div>
+</script>
+<script id="template-product_options" type="text/template">
+    <form id="pdetail" class="forms forms_border">
+        <div class="pro_title">
+            <h1 class="headline">
+                <a href="#" title="<%=productName%>"><%=productName%></a>
+                <p class="mark"><%=simpleDesc%></p>
+            </h1>
+        </div>
+        <div id="product_pattr-<%=productId%>" class="pattr">
+            <% include('template-product_number_card') %>
+            <% if(productList&&productList.length){ %>
+            <% for(var item="", i=0; item=productList[i]; i++){ %>
+            <div id="template-product_params-<%=item.productId%>-view" class="attrs" data-product_id="<%=item.productId%>"></div>
+            <% } %>
+            <% }else{ %>
+            <div id="template-product_params-<%=productId%>-view" class="attrs" data-product_id="<%=productId%>"></div>
+            <% } %>
+            <div class="pro_attr pro_btm">
+                <% if(HAS_WEIGHT){ %>
+                <div class="attr weight clearfix">
+                    <span id="data-valuationMethod-<%=productId%>" class="atr"></span><span id="data-valuationValue-<%=productId%>" class="vals"></span>
+                </div>
+                <% } %>
+                <% if(HAS_DELIVERY_DAY){ %>
+                <div class="attr day clearfix">
+                    <span class="atr">Production Period : </span><span class="vals"><b id="data-deliveryDay-<%=productId%>" class="yellow"><%==DOING%></b> <span>Day</span></span>
+                </div>
+                <% } %>
+            </div>
+            <div class="attr dly clearfix">
+                <span class="atr">Delivery to : </span><div class="mod_selectbox" id="delivery_address" data-value="">
+                <div class="input_btn">
+                    <span class="value">GuangDong</span>
+                    <span class="iconDetail"></span>
+                </div>
+            </div>
+                <span id="data-deliveryAlt-<%=productId%>" class="d_not red"></span>
+            </div>
+            <div class="attr pprice clearfix">
+                <span class="vals gap_pl_40"><span></span><span id="data-counter-<%=productId%>" class="yellow"><%==DOING%></span><span> <%=_counterUnit%>, </span><span id="data-quantity-<%=productId%>"><%==DOING%></span><span> <%=_quantityUnit%>, Total Amount $</span><b id="data-discountAmount-<%=productId%>" class="yellow"><%==DOING%></b><span></span><span id="data-moneyAlt-<%=productId%>" class="alt"></span></span>
+            </div>
+        </div>
+        <div class="form_btm btm_attr">
+            <a class="submit buynow yellow-box dis" href="javascript:;">Confirm Order<span class="doing"><span>Loading...</span></span></a><a class="submit yellow-btn addcart s2 dis" href="javascript:;">Shopping Cart<span class="doing"><span>Loading...</span></span></a>
+        </div>
+    </form>
+</script>
+<script id="template-product_params" type="text/template">
+    <% for(var idx=0; namesOrder.length>idx; idx++){ var name = namesOrder[idx]; if(name&&attrs[name]&&(attrs[name].length||(HAS_INPUT_QUANTITY&&name===_quantityName))){ %>
+    <div class="attr <%=(HAS_SINGLE_HIDE==1||showType==1)&&attrs[name].length==1?'readonly':''%> clearfix">
+        <span class="atr"><%=name%> : </span>
+    <span class="vals" data-name="<%=name%>">
+        <% if(HAS_CUSTOM_QUANTITY&&name===_quantityName){ %>
+        <% include('template-product_params_quantity') %>
+        <% }else { %>
+        <% if((HAS_INPUT_QUANTITY&&name===_quantityName&&attrs[name]&&attrs[name].length>1)||name!=_quantityName||!HAS_INPUT_QUANTITY){ %>
+        <% for(var atr="", i=0; atr=attrs[name][i]; i++){ %>
+        <a class="val <%=atr==attr[name]?'sel':''%> <%=disValues&&disValues[atr]?'dis':''%>" href="javascript:;" data-value="<%=atr%>" data-alt_text="<%=_valuesAlt[atr]%>"><%=atr%></a>&nbsp;
+        <% } %>
+        <% } %>
+        <% if(HAS_INPUT_QUANTITY&&name===_quantityName){ %>
+        <span class="counter" data-name="<%=_quantityName%>"><a>-</a><input id="quantity" class="textbox" type="text" name="quantity" value="<%=attr[_quantityName]>=_quantityMulriple?attr[_quantityName]/_quantityMulriple:0%>"/><b>+</b></span><span class="unit"><%=_quantityInputUnit%></span><span class="mark"><%=_quantityAlt%></span>
+        <% } %>
+        <% } %>
+    </span>
+    </div>
+    <% } } %>
+</script>
+<script id="template-product_custom" type="text/template">
+    <div class="options custom_attrs" data-product_id="<%=productId%>">
+        <div class="pattr">
+            <div class="attrs">
+                <% include('template-product_number_card',_custom) %>
+                <% for(var k=0; item=_custom[k]; k++){%>
+                <div class="attr clearfix" data-index="<%=k%>">
+                    <span class="atr">Name card<%=k+1%> : </span>
+                        <span class="vals">
+                        <% include('template-product_params_quantity',item) %>
+                        </span>
+                </div>
+                <% } %>
+            </div>
+        </div>
+        <div class="btm">
+            <a class="submit" href="javascript:;">Submit</a>
+        </div>
+    </div>
+</script>
+<script id="template-product_number_card" type="text/template">
+    <% if(HAS_SHOW_COUNTER==1&&(categoryId==30||categoryId==39||categoryId==40||categoryId==41||categoryId==42||categoryId==141||categoryId==142)){ %>
+    <div class="pro_attr">
+        <div class="attr clearfix">
+            <span class="atr">Person : </span><span class="counter"><a>-</a><input class="textbox" type="text" name="counter" value="<%=_counter||1%>"/><b>+</b></span><span class="unit"><%=_counterUnit||'Person'%></span><i class="msg"></i>
+        </div>
+    </div>
+    <% } %>
+</script>
+<script id="template-product_params_quantity" type="text/template">
+    <% var num = attrs[_quantityName].length>5?3:attrs[_quantityName].length; %>
+    <% for(var atr="", i=0; atr=attrs[_quantityName][i], num>i; i++){ %>
+    <a class="val <%=(atr==attr[_quantityName]&&!_droplist[_quantityName]&&!_custom.length)?'sel':''%>" href="javascript:;" data-value="<%=atr%>"><%=atr%></a>&nbsp;
+    <% } if(attrs[_quantityName].length>5){ var uuid = _getUUID(); %>
+    <div uuid="droplist-<%=uuid%>" class="droplist <%=_droplist[_quantityName]&&!_custom.length?'focus':''%>">
+        <i class="dropbtn"></i>
+        <a class="dropval" href="javascript:;" data-value=""><%=(_isCustom!=1&&_droplist[_quantityName])||_droplist.firstItem%></a>
+        <input type="hidden" name="number" value="<%=_droplist[_quantityName]%>" data-name="<%=_quantityName%>"/>
+        <a class="val sel" href="javascript:;"><%=_isCustom!=1&&_droplist[_quantityName]%></a>
+        <div uuid="droplist-<%=uuid%>" class="dropoptions">
+            <div class="dropitems">
+                <% for(var atr="", i=3; atr=attrs[_quantityName][i]; i++){ %>
+                <a class="dropitem <%=atr==_droplist[_quantityName]&&!_custom.length?'sel':''%>" href="javascript:;" data-value="<%=atr%>"><%=atr%></a>
+                <% } %>
+            </div>
+        </div>
+    </div>
+    <% } %>
+    <% if(HAS_CUSTOM_QUANTITY){ %>
+    <a class="but <%=_custom&&_custom.length?'sel':''%>" href="javascript:;">Custome</a>
+    <% } %>
+    <% if(categoryId==30||categoryId==39||categoryId==40||categoryId==41||categoryId==42||categoryId==141||categoryId==142){ %>
+    <span class="alt_red">(100pcs/Box)</span>
+    <% } %>
+</script>
+<script id="template_product_desc" type="text/template">
+    <%if(typeof(productDesc)=='string'){%>
+    <%if(TABS&&TABS.length){%>
+    <ul class="ptabs desctab">
+        <% for(var i=0; tab=TABS[i]; i++){%>
+        <% if(i==0) {%>
+        <li class="sel" data-target="<%=tab.key%>"><a href="javascript:"><%=tab.value%></a></li>
+        <% }else{ %>
+        <li data-target="<%=tab.key%>"><a href="javascript:"><%=tab.value%></a></li>
+        <% } %>
+        <% } %>
+    </ul>
+    <% } %>
+    <div class="pshow"><%==productDesc%></div>
+    <% }else if(typeof(productDesc)=='object'){ %>
+    <ul class="ptabs desctab">
+        <% for(var i=0; tab=productDesc[i]; i++){%>
+        <% if(i==0) {%>
+        <li class="sel" data-index="<%=i%>"><a href="javascript:"><%=tab.title%></a></li>
+        <% }else{ %>
+        <li data-index="<%=i%>"><a href="javascript:"><%=tab.title%></a></li>
+        <% } %>
+        <% } %>
+    </ul>
+    <ul class="p_contents">
+        <% for(var i=0; tab=productDesc[i]; i++){%>
+        <li data-index="<%=i%>">
+            <%==tab.content%>
+        </li>
+        <% } %>
+    </ul>
+    <%} %>
+</script>
+<script type="text/javascript" src="http://www.ininin.com/scripts/jquery.js?ininin=21025153146"></script>
+<script type="text/javascript" src="http://www.ininin.com/scripts/tools.js?ininin=21025153146"></script>
+<script type="text/javascript" src="./new-name-card.js?ininin=123"></script>
+</body>
+</html>

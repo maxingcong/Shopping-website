@@ -1,0 +1,117 @@
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<div id="sort_out">
+    <ol class="breadcrumb">
+        <li><a href="<?=DOMAIN?>home/index.html"><i class="fa fa-home"></i>首页</a></li>
+        <li class="active">生产配送</li>
+        <li>分拣</li>
+    </ol>
+    <!-- Start Filter -->
+    <div class="panel form-inline panel-filter">
+        <div class="panel-collapse collapse in" role="tabpanel">
+            <div class="panel-body">
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="订单号-商品号"  id="orderCode"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button id="searchBtn" class="btn btn-primary" type="button"><i class="fa fa-search"></i> 搜索</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Filter -->
+    <div id="template-sort_product_list-view"></div>
+
+</div>
+<!-- 完成生产模态框 -->
+<div class="modal fade" id="completeProductionModl" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">完成生产</h4>
+            </div>
+            <div class="modal-body">
+                <p>是否将选中的订单商品完成生产？</p>
+            </div>
+            <div class="modal-footer text-center">
+                <button type="button" class="btn btn-primary md-btn save">确 定</button>
+                <button type="button" class="btn btn-default md-btn" data-dismiss="modal">取 消</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 打印模态框 -->
+<div class="modal fade" id="printerDiv" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div id="printerContent">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script id="template-sort_product_list" type="text/template">
+    <div class="mb15">
+        <button class="btn btn-primary" type="button" id="completeProduction">批量完成生产</button>
+        <button class="btn btn-primary" type="button" id="batchPrintBigLabel">批量打印大标签</button>
+    </div>
+    <div class="table-scroll table-product-price">
+        <table class="table table-hover table-fixed">
+            <colgroup>
+                <col style="width:50px;">
+                <col style="width:10%">
+                <col style="width:5%">
+                <col style="width:5%">
+                <col style="width:8%">
+                <col style="width:10%">
+                <col style="width:20%">
+                <col style="width:10%">
+                <col style="width:16%">
+                <col>
+            </colgroup>
+            <thead>
+            <tr>
+                <th>
+                    <div class="checkbox">
+                        <label><input type="checkbox" name="checkbox_all"/><i class="fa fa-checkbox"></i></label>
+                    </div>
+                </th>
+                <th>订单编号</th>
+                <th>批次号</th>
+                <th>商品号</th>
+                <th>商品状态</th>
+                <th>商品名称</th>
+                <th>商品属性</th>
+                <th>配送信息</th>
+                <th>地址信息</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{each infos as info}}
+            <tr data-order_code='{{info.orderCode}}' data-order_productid='{{info.orderProductId}}'>
+                <td>
+                    <div class="checkbox">
+                        <label><input type="checkbox"  data-record_code='{{info.recordCode}}-{{info.batchNum}}' name="checkbox"/><i class="fa fa-checkbox"></i></label>
+                    </div>
+                </td>
+                <td>{{info.orderCode}}</td>
+                <td>{{info.batchNum}}</td>
+                <td>{{info.orderProductId}}</td>
+                <td>{{info.statusStr}}</td>
+                <td>{{info.productName}}</td>
+                <td>{{info.productAttr}}</td>
+                <td>{{info.takeTypeStr}}</td>
+                <td>{{info.receiveAddress.replace(/\^/g, '')}}</td>
+                <td><button class="btn btn-primary" type="button">完成生产</button></td>
+            </tr>
+            {{/each}}
+            </tbody>
+        </table>
+    </div>
+</script>
+<script type="text/javascript" src="<?=SCRIPTS?>distribution/sort_out.js"></script>

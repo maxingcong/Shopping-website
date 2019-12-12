@@ -1,0 +1,1352 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="订单详情" />
+    <meta name="description" content="" />
+    <meta name="author" content="${author}" />
+    <meta name="copyright" content="${copyright}" />
+    <title>订单详情</title>
+    <link href="<?=DOMAIN?>favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>layout.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>designer.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>todraft.css" />
+    <?php include(MODULES.'dns_prefetch.xhtml');?>
+</head>
+<body>
+<?php include(MODULES.'header.xhtml');?>
+<div id="order_step" class="order-step" style="display: none"><img id="step_img" src="" alt="" /> </div>
+<div class="main order">
+    <div class="layout">
+        <form id="odetail" class="forms odetail" name="odetail">
+            <div id="template-quotation-view"></div>
+            <div id="template_order_view"></div>
+        </form>
+    </div>
+</div>
+<div id="upload_text" class="upload_text">
+    <p>1. 名片类产品请直接选择模板生成印刷文件；</p>
+    <p>2. 其它印刷品可以选择云端的印刷文件，或者上传AI,PSD,CDR,PDF格式文件，每款对应一个文件；</p>
+    <p>3. 若一个产品由多个印刷文件组成，请压缩成RAR或ZIP后再上传；</p>
+    <p>4. 若是单面印刷，请在文件名中标注“单面印刷”；</p>
+    <p class="red">请仔细核对印刷文件内容，以避免造成损失。</p>
+</div>
+<div id="upload_text2" class="upload_text">
+    <p>1. 上传AI,PSD,CDR,PDF格式文件，每款对应一个文件；</p>
+    <p>2. 若一个产品由多个印刷文件组成，请压缩成RAR或ZIP后再上传；</p>
+    <p>3. 若是单面印刷，请在文件名中标注“单面印刷”；</p>
+    <p>请仔细核对印刷文件内容，以避免造成损失。</p>
+</div>
+<?php include(MODULES.'footer.xhtml');?>
+<script id="template-quotation" type="text/template">
+    <!--<div class="step"><img id="step_img" src="{{DOMAIN.RESOURCES}}{{stepImg}}" alt="" /></div>-->
+    <div class="successbar clearfix">
+        <dl class="wxcode">
+            <dt><img src="{{DOMAIN.RESOURCES}}wxcode.png" alt="云印微信"></dt>
+            <dd>
+                <p>关注云印微信</p>
+                <p>随时随地查询订单状态</p>
+            </dd>
+        </dl>
+        {{if isBack == 1 }}
+        <div class="success nowrap"><i class="err"></i><span class="msg word-wrap">
+            <span class="text">询价单信息不准确，未通过审核</span>
+            <span class="desc">请您及时修改询价单信息，并重新提交，如有疑问，请联系客服MM。<a class="btn cancel_order" href="javascript:;">取消询价单</a></span>
+        </span></div>
+        {{else if status == "Draft"}}
+        <div class="success nowrap"><i class="ico"></i><span class="msg word-wrap">
+            <span class="text">询价订单已提交成功</span>
+            <span class="desc">请您保持电话畅通，需求审核通过后，我们尽量会在</span>
+            <span class="desc">2个小时内给出报价，届时将会以短信的形式通知给您。<a class="btn cancel_order" href="javascript:;">取消询价单</a></span>
+        </span></div>
+        {{else if status == "Done"}}
+        <div class="success"><i class="ico"></i><span class="msg"><span class="text">询价订单报价已出，请您尽快下单。报价有效期至 {{dateDeadlineStr}}，逾期报价自动失效！</span></span>
+        </div>
+        {{else if status == "Canceled"}}
+        <div class="success"><i class="ico"></i><span class="msg">
+            <span class="text">询价订单已取消，如有需要，请您重新询价！
+                {{if type === 'Design'}}
+                    <a class="btn quotation" href="{{DOMAIN_DESIGN}}category/{{categoryId||productId}}.html?o={{id}}">重新询价</a>
+                {{else}}
+                    <a class="btn quotation" href="{{DOMAIN}}product/{{targetId||productId}}.html?o={{id}}">重新询价</a>
+                {{/if}}
+            </span></span></div>
+        {{else if status == "Expired"}}
+        <div class="success"><i class="ico"></i><span class="msg">
+            <span class="text">您的询价订单已过期，请您重新进行询价！
+            {{if type == 'Design'}}
+                <a class="btn quotation"
+                   href="{{DOMAIN_DESIGN}}category/{{categoryId||productId}}.html?o={{id}}">重新询价</a>
+            {{else}}
+                <a class="btn quotation" href="{{DOMAIN}}product/{{targetId||productId}}.html?o={{id}}">重新询价</a>
+            {{/if}}
+            </span></span></div>
+        {{/if}}
+    </div>
+    <div id="oinfo" class="oinfo {{isBack==1?'quotation-form':'quotation-info'}} clearfix">
+        <div class="lbox">
+            <div id="finfo" class="finfo">
+                <h3 class="title">询价单详情</h3>
+                <div class="fitem remark">
+                    <span class="tit">询价单编号：</span><span class="ctt ocode word-wrap">{{id}}</span>
+                </div>
+                <div class="fitem remark">
+                    <span class="tit">询价时间：</span><span class="ctt word-wrap">{{dateCreatedStr}}</span>
+                </div>
+                {{if isBack==1}}
+                <div id="form_detail" class="forms custom"></div>
+                {{else}}
+                {{each keys as key i}}
+                {{if nonEmpty($data[key.name])}}
+                <div class="fitem remark">
+                    <span class="tit">{{key.value}}：</span><span class="ctt word-wrap">{{$data[key.name]}}</span>
+                </div>
+                {{/if}}
+                {{/each}}
+                {{if nonEmpty(otherRequirements)}}
+                <div class="fitem remark">
+                    <span class="tit">{{type=='Design'?'设计详述':'其他要求'}}：</span><span class="ctt word-wrap">{{otherRequirements}}</span>
+                </div>
+                {{/if}}
+                {{if nonEmpty(attachmentPath)}}
+                <div class="fitem remark">
+                    <span class="tit">附件：</span><span class="ctt word-wrap">
+                    <a href="{{attachmentPath}}" target="_blank">{{(attachmentName||attachmentPath||'').replace(/^.*\//, '')}}</a>
+                </span>
+                </div>
+                {{/if}}
+                {{if type === 'Design' && nonEmpty(inquirerName)}} <!-- 订单来源是设计询价 -->
+                <div class="fitem remark">
+                    <span class="tit">联系人：</span><span class="ctt word-wrap">{{inquirerName}}</span>
+                </div>
+                {{/if}}
+                {{if nonEmpty(phone)}}
+                <div class="fitem remark">
+                    <span class="tit">联系人电话：</span><span class="ctt word-wrap">{{phone}}</span>
+                </div>
+                {{/if}}
+                {{if nonEmpty(email)}}
+                <div class="fitem remark">
+                    <span class="tit">联系人邮箱：</span><span class="ctt word-wrap">{{email}}</span>
+                </div>
+                {{/if}}
+                {{if nonEmpty((address||'').replace(/\^/g,''))}}
+                <div class="fitem remark">
+                    <span class="tit">收货地址：</span><span class="ctt word-wrap">{{address.replace(/\^/g,'')}}</span>
+                </div>
+                {{/if}}
+                {{/if}}
+            </div>
+        </div>
+        <div class="rbox">
+            <div class="finfo">
+                {{if isBack == 1 && reason}}
+                <h3 class="title">审核不通过详情</h3>
+                <div class="fitem">
+                    <span class="ctt">{{reason}}</span>
+                </div>
+                <p class="line"></p>
+                {{else}}
+                {{if type === 'Design'}}<!-- 订单来源是设计询价 -->
+                <h3 class="title">产品报价及初稿时间</h3>
+                {{if infSubList && infSubList[0]}}
+                <div class="fitem">
+                    <span class="tit">初稿时间：</span><span id="d_design_time" class="ctt ellipsis">{{infSubList[0].designTimeStr?infSubList[0].designTimeStr+' 小时' : '- 小时'}}</span>
+                </div>
+                <div class="fitem">
+                    <span class="tit">售价：</span><span id="d_sale" class="ctt ellipsis">{{infSubList[0].salePrice + (infSubList[0].urgentCost||0)}} 元</span>
+                </div>
+                {{else}}
+                <div class="fitem">
+                    <span class="tit">初稿时间：</span><span id="data_design_time" class="ctt ellipsis"> - 小时</span>
+                </div>
+                <div class="fitem">
+                    <span class="tit">售价：</span><span id="data_sale" class="ctt ellipsis"> - 元</span>
+                </div>
+                {{/if}}
+                {{else}}
+                {{if status == "Done" && infSubList.length}}
+                {{if infSubList.length>1}}
+                <h3 class="title">报价方案 <a class="btn" href="{{DOMAIN.ACTION}}in_quotation/quotation/pdf/download?id={{id}}" target="_blank">下载报价方案</a></h3>
+                <div class="inf-list">
+                    {{each infSubList as inf idx}}
+                    <a class="inf-item" href="javascript:;" data-idx="{{idx}}">{{getSolutionName(idx)}}</a>
+                    {{/each}}
+                </div>
+                {{else}}
+                <h3 class="title">产品报价及货期 <a class="btn" href="{{DOMAIN.ACTION}}in_quotation/quotation/pdf/download?id={{id}}" target="_blank">下载产品报价</a></h3>
+                {{/if}}
+                <div id="div-quotation_project">
+                {{include 'quotation_project'}}
+                </div>
+                {{else}}
+                <h3 class="title">产品报价及货期</h3>
+                <div class="fitem">
+                    <span class="tit">重量：</span><span id="data_weight" class="ctt ellipsis">- kg</span>
+                </div>
+                <div class="fitem">
+                    <span class="tit">货期：</span><span id="data_delivery" class="ctt ellipsis">- 天</span>
+                </div>
+                <div class="fitem">
+                    <span class="tit">售价：</span><span id="data_sale" class="ctt ellipsis">- 元</span>
+                </div>
+                {{/if}}
+                {{/if}}
+                {{/if}}
+            </div>
+            {{if status == "Done"}}
+            <div class="newbox">
+                {{if type === 'Design'}}<!-- 订单来源是设计询价 -->
+                <a class="btn btn-warning" href="{{DOMAIN_DESIGN}}product/{{productId}}.html?qo={{id}}">立即购买</a>
+                {{else}}
+                <a class="btn btn-warning add_cart" href="javascript:;">立即购买</a>
+                {{/if}}
+            </div>
+            {{/if}}
+        </div>
+</script>
+<script id="quotation_form" type="text/template">
+    <?php include(TEMPLATES.'quotation.xhtml');?>
+</script>
+<script id="quotation_form_items" type="text/template">
+    <?php include(TEMPLATES.'quotation-items.xhtml');?>
+</script>
+<script id="quotation_project" type="text/template">
+    {{if infSubObj.characteristic}}
+    <div class="fitem">
+        <span class="tit">方案特点：</span><span class="ctt ellipsis red">{{infSubObj.characteristic}}</span>
+    </div>
+    {{/if}}
+    {{each keys as key i}}
+    {{if nonEmpty(infSubObj[key.name])}}
+    <div class="fitem remark">
+        <span class="tit">{{key.value}}：</span><span
+            class="ctt word-wrap {{$data[key.name]==infSubObj[key.name]?'red':''}}">{{infSubObj[key.name]}}</span>
+    </div>
+    {{/if}}
+    {{/each}}
+    {{if nonEmpty(infSubObj.otherRequirements)}}
+    <div class="fitem remark">
+        <span class="tit">{{type=='Design'?'设计详述':'其他要求'}}：</span><span
+            class="ctt word-wrap {{otherRequirements==infSubObj.otherRequirements?'red':''}}">{{infSubObj.otherRequirements}}</span>
+    </div>
+    {{/if}}
+    <div class="fitem">
+        <span class="tit">报价有效期：</span><span class="ctt ellipsis red">{{dateDeadlineStr}}</span>
+    </div>
+    {{if infSubObj.shippingAddress}}
+    <div class="fitem">
+        <span class="tit">始发地：</span><span class="ctt ellipsis">{{infSubObj.shippingAddress}}</span>
+    </div>
+    {{/if}}
+    {{if infSubObj.installationFee>0}}
+    <div class="fitem">
+        <span class="tit">安装费：</span><span class="ctt ellipsis red">{{RMB(infSubObj.installationFee)}}</b>元</span>
+    </div>
+    {{/if}}
+    <div class="fitem">
+        <span class="tit">{{infSubObj.shipWeightTypeStr}}：</span><span class="ctt ellipsis">
+        <b class="yellow">{{RMB(infSubObj.shipWeightValue)}}</b>{{infSubObj.shipWeightType=='Weight'?'kg':'元'}}
+        </span>
+    </div>
+    <div class="fitem">
+        <span class="tit">货期：</span><span class="ctt ellipsis"><b class="yellow">{{infSubObj.delivery}}</b>天</span>
+    </div>
+    <div class="fitem big">
+        <span class="tit">产品售价：</span><span class="ctt ellipsis"><b
+            class="yellow">{{RMB(infSubObj.salePrice)}}</b>元</span>
+    </div>
+</script>
+<!-- 定制询价单 _cus -->
+<script id="quotation_form_cus" type="text/template">
+    <?php include(TEMPLATES.'quotation_cus.xhtml');?>
+</script>
+<script id="template_order" type="text/template">
+<% if (type!=15) { %>
+    <!--<% if(_success==1){ %>
+        <div class="step"><img id="step_img" src="<?=IMAGES?><%=step_img%>" alt="" /></div>
+    <% } %>-->
+    <% if (_success==1&&type==5) { %>
+        <div class="successbar clearfix">
+            <dl class="wxcode">
+                <dt><img src="<?=IMAGES?>wxcode.png" alt="云印微信"></dt>
+                <dd>
+                    <p>关注云印微信</p>
+                    <p>随时随地查询订单状态</p>
+                </dd>
+            </dl>
+            <div class="success"><i class="ico"></i><span class="msg"><span class="text"><%=_success_str||'订单支付成功'%></span><a class="lnk" href="<?=DOMAIN?>member/index.html">查看帐户余额</a></span></div>
+        </div>
+    <!--% } else if(_success==1&&type==10) { %>
+        <h3 class="headline_order">联系设计客服</h3>
+        <div class="suc_cont">
+            <div><img src="<?=IMAGES?>design/success_logo.jpg" alt="ininin" /></div>
+            <div>交易完成，请尽快联系设计客服</div>
+            <div><a href="http://wpa.qq.com/msgrd?v=1&uin=4008601846&site=www.ininin.com&menu=yes" target="_blank">点击联系QQ客服</a></div>
+        </div-->
+    <% } else { %>
+        <% if (_success==1) { %>
+            <div class="successbar clearfix">
+                <dl class="wxcode">
+                    <dt><img src="<?=IMAGES?>wxcode.png" alt="云印微信"></dt>
+                    <dd>
+                        <p>关注云印微信</p>
+                        <p>随时随地查询订单状态</p>
+                    </dd>
+                </dl>
+                <div class="success"><i class="ico"></i><span class="msg"><span class="text"><%=_success_str||'订单支付成功'%></span><a class="lnk" href="<?=DOMAIN?>member/odetail.html?o=<%=order_code%>&t=<%=type%>">查看订单详情</a></span></div>
+            </div>
+        <% }else{ %>
+            <h3 class="headline_order mt">订单详情</h3>
+        <% } %>
+        <h3 class="headline"><%if(type==0){%><em class="gray fr">为了您的商品更快地生产和配送，您的订单可能会拆分配送&nbsp;&nbsp;&nbsp;&nbsp;</em><%}%><span>订单商品信息</span></h3>
+        <div id="cfmorder" class="list orders checkboxs <%=type==5?'simple_list':'high_list'%><%=type==10?' designs':''%><%=type==0?' prints':''%>">
+            <ol>
+                <li class="col2">
+                    <div>商品信息</div>
+                </li>
+                <% if(type!=0){%>
+                <li class="col3">
+                    <div>数量</div>
+                </li>
+                <li class="col4">
+                    <div>金额（元）</div>
+                </li>
+                <% } %>
+                <% if(type!=5){%>
+                    <li class="col5">
+                        <div><%if(type==0){%>印刷文件<a class="up_help" href="<?=DOMAIN?>help/upload.html" target="_blank" title="上传文件须知"></a><%}else{%>设计需求<%}%></div>
+                    </li>
+                    <li class="col6">
+                        <div>状态</div>
+                    </li>
+                <% } %>
+                <% if(type==0){%>
+                <li class="col7">
+                    <div>配送方式</div>
+                </li>
+                <% } %>
+            </ol>
+            <p class="line"></p>
+            <div class="odetail_view">
+                <% for(var k=0; temp = order_product_list[k]; k++){ %>
+                    <% if(type==0&&(k==0||(order_product_list[k-1]&&order_product_list[k-1]._logistics_infos))){ %>
+                    <div class="list_group clearfix">
+                        <div class="col0">
+                    <% } %>
+                    <ul ocode="<%=order_code%>" opid="<%=temp.order_product_id%>" pid="<%=temp.product_id%>" cid="<%=temp.category_id%>" pname="<%=temp.product_name%>" ostatus="<%=status%>">
+                        <li class="col2">
+                            <div>
+                                <% if(temp.product_id){ %>
+                                    <% if(type==5){%>
+                                        <% if(temp.category_id>0){ %>
+                                            <a class="img" href="<?=DOMAIN_DESIGN?>category/<%=temp.category_id%>.html" target="_blank" title="<%=temp.product_name%>">
+                                        <% }else{ %>
+                                            <a class="img" href="<?=DOMAIN?>package/?pid=<%=temp.product_id%>&atr=<%=temp.product_attr%>" target="_blank" title="<%=temp.product_name%>">
+                                        <% } %>
+                                    <% }else if(type==10){%>
+                                        <a class="img" href="<?=DOMAIN_DESIGN?>category/<%=temp.category_id%>.html" target="_blank" title="<%=temp.product_name%>">
+                                    <% }else{%>
+                                        <ul class="pdt_list">
+                                            <li class="pdt_item clearfix">
+                                    <% } %>
+                                <% } %>
+                                <% if(type==5){%>
+                                        <img src="<%=temp.product_pic||IMG.package||DOMAIN.CLOUD%>?imageMogr2/thumbnail/!112x64r/auto-orient/gravity/Center/crop/112x64" alt="<%=temp.product_name%>" />
+                                    </a><span class="desc">
+                                        <% if(temp.product_id){ %>
+                                            <% if(temp.category_id>0){ %>
+                                                <p class="ellipsis"><a href="<?=DOMAIN_DESIGN?>category/<%=temp.category_id%>.html" target="_blank" title="<%=temp.product_name%>"><%=temp.product_name%></a></p>
+                                            <% }else{ %>
+                                                <p class="ellipsis"><a href="<?=DOMAIN?>package/?pid=<%=temp.product_id%>&atr=<%=temp.product_attr%>" target="_blank" title="<%=temp.product_name%>"><%=temp.product_name%></a></p>
+                                            <% } %>
+                                        <% }else{ %>
+                                            <p class="ellipsis"><a href="javascript:;" title="<%=temp.product_name%>"><%=temp.product_name%></a></p>
+                                        <% } %>
+                                    </span>
+                                <% }else if(type==10){%>
+                                        <img src="<%=temp.cover_image_url||temp.product_pic||IMG.design||DOMAIN.CLOUD%>?imageMogr2/thumbnail/!112x64r/auto-orient/gravity/Center/crop/112x64" alt="<%=temp.product_name%>" />
+                                    </a><span class="desc">
+                                        <% if(temp.product_id){ %>
+                                            <p class="ellipsis"><a href="<?=DOMAIN_DESIGN?>category/<%=temp.category_id%>.html" target="_blank" title="<%=temp.product_name%>"><%=temp.product_name%><br/><%=temp.product_attr%></a></p>
+                                        <% }else{ %>
+                                            <p class="ellipsis"><a href="javascript:;" title="<%=temp.product_name%>"><%=temp.product_name%><br/><%=temp.product_attr%></a></p>
+                                        <% } %>
+                                        <% if(temp.template_name){ %>
+                                            <p class="ellipsis"><%=temp.template_name%></p>
+                                        <% } %>
+                                        <% if(temp.template_code){ %>
+                                            <p class="ellipsis">模版编号：<%=temp.template_code%></p>
+                                        <% } %>
+                                    </span>
+                                <% }else{%>
+                                            <a class="pdt_img" href="<%=(temp.target_id||temp.product_id)?DOMAIN.PRODUCT+(temp.target_id||temp.product_id)+'.html#'+temp.product_attr:'javascript:;'%>" target="_blank" title="<%=temp.product_name%>">
+                                                <img src="<%=temp.product_pic%>?imageMogr2/thumbnail/!112x64r/auto-orient/gravity/Center/crop/112x64" alt="<%=temp.product_name%>">
+                                            </a>
+                                            <a class="pdt_name" href="<%=DOMAIN.PRODUCT+(temp.target_id||temp.product_id)%>.html#<%=temp.product_attr%>" target="_blank" title="<%=temp.product_name%>">
+                                                <%=temp.product_name%>
+                                            </a>
+                                            <div class="pdt_attr ellipsis" title="<%=temp.product_attr%>">
+                                                <%=temp.product_attr%>
+                                            </div>
+                                            <div class="pdt_info clearfix">
+                                                <span class="pdt_price red">￥<%=RMB(temp.total_price)%></span>
+                                                <span class="pdt_weight gray">
+                                                    <% if(temp.valuation_method==3){ %>
+                                                    <%=temp.weight>0?'个数：'+Number(temp.weight)+'个':'&nbsp;'%>
+                                                    <% }else if(temp.valuation_method==2){ %>
+                                                    <%=temp.weight>0?'体积：约'+RMB(temp.weight)+'m³':'&nbsp;'%>
+                                                    <% }else if(temp.valuation_method==1){ %>
+                                                    <%=temp.weight>0?'面积：约'+RMB(temp.weight)+'㎡':'&nbsp;'%>
+                                                    <% }else{ %>
+                                                    <%=temp.weight>0?'重量：约'+RMB(temp.weight)+'kg':'&nbsp;'%>
+                                                    <% } %>
+                                                </span>
+                                                <span class="pdt_date gray">
+                                                    <% if((status==0||(status==1&&(temp.status==2||temp.status==3)&&temp.update_time))&&temp.delivery>0){
+                                                        var dStr = '';
+                                                        if(status==0){
+                                                            dStr = DeliveryDate('',temp.delivery,2);
+                                                        }else{
+                                                            dStr = DeliveryDate(temp.update_time,temp.delivery,2);
+                                                        }
+                                                        if(!temp._IsInstallService){ %>
+                                                        <%='预计出货：'+dStr%>
+                                                    <% }} %>
+                                                </span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                <% }%>
+                            </div>
+                        </li>
+                        <% if(type!=0){%>
+                        <li class="col3">
+                            <div><%=temp.quantity||temp.product_count%></div>
+                        </li>
+                        <% if(temp.type!=5&&temp.type!=10){%>
+                            <li class="col7">
+                                <div><%=temp._IsInstallService?'---':(temp.weight?RMB(temp.weight):'')%></div>
+                            </li>
+                            <li class="col8">
+                                <div>
+                                <% if(status==0||(status==1&&(temp.status==2||temp.status==3)&&temp.update_time)){
+                                    var dStr = '';
+                                    if(status==0){
+                                        dStr = DeliveryDate('',temp.delivery,2);
+                                    }else{
+                                        dStr = DeliveryDate(temp.update_time,temp.delivery,2);
+                                    }
+                                    if(dStr&&temp.product_id!=200000){ %>
+                                    <p class="ddate"><%=temp._IsInstallService?'---':dStr%></p>
+                                <% }} %>
+                                </div>
+                            </li>
+                        <% }%>
+                        <li class="col4">
+                            <div><b class="red"><%=RMB(temp.total_price)%></b></div>
+                        </li>
+                        <% }%>
+                        <% if(type!=5){%>
+                            <li class="col5 upload">
+                                <% if(temp._IsInstallService){ %>
+                                    ---
+                                <% }else{ %>
+                                    <% if(temp.type==0){ %>
+                                        <% if(temp.status==12 && temp.relation_design_order){ %>
+                                            <p>已关联设计服务订单</p>
+                                            <a href="<?=DOMAIN?>member/odetail.html?o=<%=temp.relation_design_order%>" target="_blank"><%=temp.relation_design_order%></a>
+                                        <% } else if(temp._is_upload){ %>
+                                            <a class="file_btn select_file" href="javascript:;"><%=temp.file_url?'修改':'选择'%>印刷文件</a><!--<% if(temp.design_category_id){ %><a class="file_btn select_design" href="<?=DOMAIN_DESIGN?>category/<%=temp.design_category_id%>.html?ro=<%=temp.order_code%>&rop=<%=temp.order_product_id%>" target="_blank">选择设计服务</a><%}%>-->
+                                            <!--%if((temp.category_id==30||temp.category_id==39||temp.category_id==40||temp.category_id==41||temp.category_id==42)&&(temp.product_id==200021||temp.product_id==200022)&&!temp.sorce_file){%>
+                                                <p class="tr" style="padding-right: 23px"><a class="select_design_help" href="javascript:;" data-product_id="<%=temp.product_id%>">首次免费</a></p>
+                                            <%}%-->
+                                            <!--span class="upload_button"><span class="order_btn yellow-btn"><span class="utxt"><%=temp.file_url?'重新上传':'上传文件'%></span><input id="file_upload_<%=temp.order_product_id%>" name="file_upload" type="file" /></span><span class="order_upload"><span class="order_links"><a class="uped_file" href="javascript:;" data-category_id="<%=temp.category_id%>">选择已上传文件</a><a href="<?=DOMAIN?>design/index.html" target="_blank">购买设计服务</a><span class="order_arrows"></span></span></span></span>
+                                            <div id="file_upload_<%=temp.order_product_id%>_progressbar" class="progressbar"></div>
+                                            <div id="file_upload_<%=temp.order_product_id%>_network" class="network"></div-->
+                                        <% } %>
+                                    <% }else if(temp.type==10){ %>
+                                        <% if(status<2&&(temp.status==101||temp.status==102||temp.status==103)){ %>
+                                            <a class="upload_button" href="<?=DOMAIN_DESIGN?>product/<%=temp.product_id%>.html?o=<%=temp.order_code%>"><span class="order_btn yellow-btn"><span class="utxt"><%=(temp.status==102||temp.status==103)?'重新提交需求':'提交设计需求'%></span></span></a>
+                                        <% }else if(status==1&&(temp.status==107||temp.status==110)){ %>
+                                            <a class="upload_button todraft_btn" href="<?=DOMAIN?>todraft.html?o=<%=temp.order_code%>,<%=temp.order_product_id%>" target="_blank"><span class="order_btn yellow-btn"><span class="utxt">对稿</span></span></a>
+                                        <% }else if(status>0&&(temp.status==109||temp.status==111)){ %>
+                                            <a class="upload_button todraft_btn" href="<?=DOMAIN?>todraft.html?o=<%=temp.order_code%>,<%=temp.order_product_id%>" target="_blank"><span class="order_btn yellow-btn"><span class="utxt">查看稿件</span></span></a>
+                                        <% }else if(temp.product_id==134){ %>
+                                            <a class="upload_button" href="<?=DOMAIN?>card/index.html" target="_blank"><span class="order_btn yellow-bg"><span class="utxt">去制作名片</span></span></a>
+                                        <% } %>
+                                    <% } %>
+                                    <% if(temp.sorce_file&&temp.file_url&&!temp.card_id){ %>
+                                        <p><a class="ellipsis filename" href="<%=temp.file_url%>?download/<%=temp.sorce_file%>" title="<%=temp.sorce_file%>" target="_blank"><%=temp.sorce_file%></a></p>
+                                    <% }else if(temp.sorce_file&&temp.card_id){%>
+                                        <p><a class="ellipsis filename" href="javascript:;" title="<%=temp.sorce_file%>" data-card_id="<%=temp.card_id%>"><%=temp.sorce_file%></a></p>
+                                    <%} %>
+                                <%} %>
+                            </li>
+                            <li class="col6">
+                                <% if(temp.type==10){ %>
+                                    <div class="status_str"><%=status>0?temp.status_str:''%></div>
+                                <% }else if(temp.type==0){ %>
+                                    <%if(temp.status==1){%>
+                                        <div class="status_str">
+                                            <div class="not_pass" data-value="<%=temp.not_pass_reason%>">
+                                                <p><b class="red"><%=temp.status_str%></b></p>
+                                                <a href="javascript:;">查看原因</a>
+                                            </div>
+                                        </div>
+                                    <%}else if(temp.status==5){if(!temp.is_comment){%>
+                                        <p><%=temp.status_str%></p>
+                                        <a class="comment btn btn-default upload-button" href="javascript:;">评价</a>
+                                    <%}else{%>
+                                        已评价
+                                    <%}}else{%>
+                                        <%=temp.status_str%>
+                                    <%}%>
+                                <% }else{%>
+                                    <div class="status_str"><%=temp.status_str%></div>
+                                <%} %>
+                            </li>
+                        <% } %>
+                    </ul>
+                    <% if(type==0&&(temp._logistics_infos||!order_product_list[k+1])){ %>
+                    </div><div class="col7">
+                            <div>
+                                <p><%=temp.take_type_str||take_type_str%></p>
+                                <% if(temp.take_date&&TAKEDATE[temp.take_date]){%>
+                                <p><%=TAKEDATE[temp.take_date]%></p>
+                                <% } %>
+                                <% if(temp.take_address&&temp.coordinate){%>
+                                <p><%=temp.take_address.replace(/（.*$/, '')%><span class="coord" data-name="<%=temp.take_address%>" data-coord="<%=temp.coordinate%>"></span></p>
+                                <% } %>
+                                <% if(temp._logistics_infos){ for(var x=0; _info=temp._logistics_infos[x]; x++){%>
+                                <p><a class="logistics" href="javascript:;" data-name="<%=_info.name%>" data-code="<%=_info.code%>"><%=_info.name%><%=_info.code?'：'+_info.code:''%></a></p>
+                                <% } } %>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+                <% } %>
+                </div>
+            </div>
+            <div class="btmline"></div>
+        </div>
+        <% if (type == 5||type == 10) { %>
+        <div id="oinfo" class="oinfo clearfix">
+            <div class="lbox">
+                <div id="finfo" class="finfo">
+                    <h3 class="title">订单详情</h3>
+                    <div class="fitem"><span class="tit">订单编号：</span><span class="ctt ocode"><%=order_code%></span><span class="tit">下单时间：</span><span class="ctt"><%=record_time%></span></div>
+                    <!--div class="fitem"><span class="tit">发票信息：</span><span class="ctt ellipsis"><%=invoice_content||'无'%></span></div-->
+                    <div class="fitem remark"><span class="tit">备注信息：</span><span class="ctt word-wrap"><%=buyer_remark||'无'%></span></div>
+                </div>
+            </div>
+            <div class="rbox">
+                <div class="finfo">
+                    <div class="fitem"><span class="tit">订单状态：</span><span class="ctt ellipsis"><%=status_str%><%==remittance_number?'<b class="red">（汇款待确认）</b>':''%></span></div>
+                    <!--div class="fitem"><span class="tit">支付方式：</span><span class="ctt ellipsis"><%=pay_type_str%></span></div-->
+                    <div class="fitem pay_infos"><span class="tit">支付信息：</span><span class="ctt word-wrap"><%for(var x=0; _info=_pay_infos[x]; x++){%><span class="word-wrap"><%=_info%></span><%}%></span></div>
+                </div>
+                <% if(_pay_type!=15){%>
+                    <div class="newbox">
+                        <p> 订单金额：<span class="red"><%=RMB(total_price||0)%></span> 元</p>
+                        <% if (payable && status == 0) { %>
+                            <p> 应付金额：<b class="tprice red"><%=RMB(amount_payable||0)%></b> 元</p>
+                            <% if(payable&&!remittance_number){ %>
+                                <a class="submit" style="margin-top: 15px" href="<?=DOMAIN?>cart/payment.html?o=<%=order_code%>">去支付</a>
+                            <%}%>
+                        <% } %>
+                        <% if (_success == 1) { %>
+                        	<p><a class="lnk" href="<?=DOMAIN?>faq/invoice.html#0" target="_blank">如何申请发票？</a></p>
+                    	<% } %>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+        <% }else{ %>
+        <div id="oinfo" class="oinfo clearfix">
+            <div class="lbox">
+                <div id="finfo" class="finfo">
+                    <h3 class="title">订单详情</h3>
+                    <div class="fitem"><span class="tit">订单编号：</span><span class="ctt ocode"><%=order_code%></span><span class="tit">下单时间：</span><span class="ctt"><%=record_time%></span></div>
+                    <!--div class="fitem"><span class="tit">发票信息：</span><span class="ctt ellipsis" title="><%=invoice_content%>"><%=invoice_content||'无'%></span></div-->
+                    <% if(service_infos&&service_infos.length){%>
+                    <div class="fitem"><span class="tit">优惠：</span><span class="ctt ellipsis"><%=service_infos[0].service_desc%></span></div>
+                    <% } %>
+                    <div class="fitem"><span class="tit">收货信息：</span><span class="ctt ellipsis" title="<%=receive_address%> <%=receive_name%> <%=receive_mobile%>"><span><%=receive_address%></span> <span><%=receive_name%></span> <span><%=receive_mobile%></span></span></div>
+                    <div class="fitem"><span class="tit">配送方式：</span><span class="ctt ellipsis" title="<%=take_address%>"><%=_take_type_list.length<=1?_take_type_list[0]||'---':'混合配送'%> <%=take_address?'（':''%><%=take_address%><%=take_address?'）':''%><%if(take_address){%><span class="coord" data-name="<%=take_address%>" data-coord="<%=coordinate%>"></span><%}%></span></div>
+                    <% if(take_date&&TAKEDATE[take_date]){%>
+                        <div class="fitem"><span class="tit">配送时间：</span><span class="ctt ellipsis"><%=TAKEDATE[take_date]%></span></div>
+                    <% } %>
+                    <div class="fitem remark"><span class="tit">备注信息：</span><span class="ctt word-wrap"><%=buyer_remark||'无'%></span></div>
+                    <div class="fitem pay_infos"><span class="tit">物流信息：</span><span class="ctt word-wrap"><%for(var x=0; _info=_logistics_infos[x]; x++){%><span class="word-wrap"><%=_info.name%><a class="logistics" href="javascript:;" data-name="<%=_info.name%>" data-code="<%=_info.code%>"><%=_info.code?'（'+_info.code+'）':''%></a></span><%}%></span></div>
+                </div>
+            </div>
+            <div class="rbox">
+                <div class="finfo">
+                    <div class="fitem">
+                        <span class="tit">订单状态：</span><span class="ctt ellipsis"><%=status_str%><%==remittance_number?'<b class="red">（汇款待确认）</b>':''%></span>
+                    </div>
+                    <!--div class="fitem"><span class="tit">支付方式：</span><span class="ctt ellipsis"><%=pay_type_str%></span></div-->
+                    <div class="fitem pay_infos">
+                        <span class="tit">支付信息：</span><span class="ctt word-wrap"><%for(var x=0; _info=_pay_infos[x]; x++){%><span class="word-wrap"><%=_info%></span><%}%></span>
+                    </div>
+                    <div class="fitem">
+                        <span class="tit">配送费用：</span><span class="ctt ellipsis"><%=ship_price>0?RMB(ship_price)+' 元':'包邮'%></span>
+                    </div>
+                    <% if (payable && status == 0 && service_charge_need_payment>0) { %>
+                    <div class="fitem">
+                        <span class="tit">服&nbsp;&nbsp;务&nbsp;&nbsp;费：</span><span class="ctt ellipsis"><%=RMB(service_charge_need_payment)+' 元'%></span>
+                    </div>
+                    <% } %>
+                </div>
+                <% if(_pay_type!=15){%>
+                    <div class="newbox">
+                        <p> 订单金额：<span class="red"><%=RMB(total_price||0)%></span> 元</p>
+                        <% if (payable && status == 0) { %>
+                        	<p> 应付金额：<b class="tprice red"><%=RMB(amount_payable||0)%></b> 元</p>
+                            <% if(payable&&!remittance_number){ %>
+                                <a class="submit" style="margin-top: 15px" href="<?=DOMAIN?>cart/payment.html?o=<%=order_code%>">去支付</a>
+                            <%}%>
+                        <% } else if (status==1&&dist_code) { %>
+                        	<a class="submit" href="<?=DOMAIN?>member/odetail.html?o=<%=dist_code%>&t=15">查看分发详情</a>
+                        <%} %>
+                        <% if(status==1&&_is_receive){%>
+                        <p><a class="submit receive_goods" href="javascript:;">确认收货</a></p>
+                        <%}%>
+                        <% if (_success == 1) { %>
+                        	<p class="lnk">&nbsp;</p>
+                        	<p class="lnk">如需发票，请您在“<a href="<?=DOMAIN?>member/myinvoice.html#1" target="_blank">申请发票</a>”页面，提交申请信息</p>
+                        	<p><a class="lnk" href="<?=DOMAIN?>faq/invoice.html#0" target="_blank">如何申请发票？</a></p>
+                    	<% } %>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+        <% } %>
+    <% } %>
+<% } else { %>
+	<% if(dist_order_detail_list&&dist_order_detail_list.length){%>
+    <% if (_success==1) { %>
+        <!--<div class="step"><img id="step_img" src="<?=IMAGES?><%=step_img%>" alt="" /></div>-->
+        <div class="successbar clearfix">
+            <dl class="wxcode">
+                <dt><img src="<?=IMAGES?>wxcode.png" alt="云印微信"></dt>
+                <dd>
+                    <p>关注云印微信</p>
+                    <p>随时随地查询订单状态</p>
+                </dd>
+            </dl>
+            <div class="success"><i class="ico"></i><span class="msg"><span class="text"><%=_success_str||'订单支付成功'%></span><a class="lnk" href="<?=DOMAIN?>member/odetail.html?o=<%=dist_code%>&t=15">查看订单详情</a></span></div>
+        </div>
+    <% }else{ %>
+        <h3 class="headline_order mt">订单详情</h3>
+    <% } %>
+	<div class="dorder">
+        <h3 class="headline"><span>订单分发详情</span></h3>
+	<div class="list orders dresult">
+    	<ol class="clearfix">
+    		<li class="col1"><div class="cell">分发地址详情</div></li>
+			<li class="col2"><div class="cell">分发商品详情</div></li>
+		</ol>
+		<%for(var k=0; order = dist_order_detail_list[k]; k++){%>
+		<ul class="clearfix">
+			<li class="col1">
+				<div class="cell">
+	    			<div class="receive ellipsis" title="<%=order.receive_address.replace(/\^/gi,"")%>">地址：<%=order.receive_address.replace(/\^/gi,"")%></div>
+	    			<div class="receive ellipsis">联系人：<span class="linkman ellipsis"><%=order.receive_name%></span> <%=order.receivel_tel%></div>
+	    			<div class="receive">重量：<%=RMB(order.weight)%> kg<span class="gap_ml_30">运费：<b class="red"><%=RMB(order.ship)%></b> 元</span></span></div>
+	    			<div class="receive deliveries">配送方式：<%=order.take_type_str%></div>
+	    			<% if(order.take_date&&TAKEDATE[order.take_date]){%>
+	    				<div class="receive red"><%=TAKEDATE[order.take_date]%></div>
+                    <% } %>
+	    			<% if(order.take_address){ %>
+	    			<div class="receive red" title="<%=order.take_address.replace(/\^/gi,"")%>"><span class="address ellipsis"><%=order.take_address.replace(/\^/gi,"")%></span><span class="coord" data-name="<%=order.take_address%>" data-coord="<%=order.coordinate%>"></span></div>
+	    			<% } %>
+	    		</div>
+			</li>
+			<li class="col2">
+				<div class="cell">
+					<table class="table" cellpadding="0" cellspacing="0">
+						<colgroup>
+							<col style="width: 18%;" />
+							<col style="width: 25%;" />
+							<col style="width: 25%;" />
+							<col style="width: 10%;" />
+							<col style="width: 10%;" />
+							<col />
+						</colgroup>
+						<thead>
+							<tr>
+								<th><div class="ellipsis">订单号</div></th>
+								<th><div class="ellipsis">商品</div></th>
+								<th><div class="ellipsis">文件名</div></th>
+								<th><div class="ellipsis">数量</div></th>
+								<th><div class="ellipsis">状态</div></th>
+								<th><div class="ellipsis">物流信息</div></th>
+							</tr>
+						</thead>
+						<tbody>
+							<% if(order.dist_order_product_list&&order.dist_order_product_list.length){ %>
+								<% for(var h=0; product = order.dist_order_product_list[h]; h++){%>
+								<tr>
+									<td><div class="ellipsis"><a href="<?=DOMAIN?>member/odetail.html?o=<%=product.order_code%>&t=0" target="_blank"><%=product.order_code%></a></div></td>
+									<td><div class="ellipsis"><%=product.product_name%></div></td>
+									<td><div class="ellipsis"><%=product.source_file%></div></td>
+									<td><div class="ellipsis"><%=product.quantity%></div></td>
+									<td><div class="ellipsis"><%=product.status_str%></div></td>
+									<td><div class="ellipsis">
+										<%if(product.logistics_code){%>
+											<a class="logistics" href="javascript:;" data-name="<%=product.logistics_name%>" data-code="<%=product.logistics_code%>"><%=product.logistics_name%></a>
+										<%}%>
+									</div></td>
+								</tr>
+								<% } %>
+							<% } %>
+						</tbody>
+					</table>
+				</div>
+			</li>
+		</ul>
+		<% } } if(product_counter&&product_counter.length){ %>
+			<div class="pro_info">
+				<% for(var k=0; counter = product_counter[k]; k++){ %>
+				<ul class="clearfix">
+					<li class="col1"><div class="cell">
+						<div class="receive">订单 <a href="<?=DOMAIN?>member/odetail.html?o=<%=counter.order_code%>&t=0" target="_blank"><%=counter.order_code%></a>，共 <span class="red"><%=counter.product_ids.length%></span> 个商品，共分发 <span class="red"><%=counter.address_ids.length%></span> 个地址</div>
+					</div></li>
+				</ul>
+				<% } %>
+			</div>
+		<% } %>
+	</div>
+		<div id="oinfo" class="oinfo clearfix">
+            <div class="lbox">
+                <div id="finfo" class="finfo">
+                    <h3 class="title">订单详情</h3>
+                    <div class="fitem"><span class="tit">订单编号：</span><span class="ctt ocode"><%=dist_code%></span><span class="tit">下单时间：</span><span class="ctt"><%=record_time%></span></div>
+                    <!--div class="fitem"><span class="tit">总&nbsp;重&nbsp;量：</span><span class="ctt"><%=RMB(total_weight)%> kg</span></div-->
+                    <div class="fitem remark"><span class="tit">备注信息：</span><span class="ctt word-wrap"><%=buyer_remark||'无'%></span></div>
+                	<!--div class="fitem pay_infos"><span class="tit">物流信息：</span><span class="ctt word-wrap"><%for(var x=0; _info=_logistics_infos[x]; x++){%><span class="word-wrap"><%=_info.name%><a class="logistics" href="javascript:;" data-name="<%=_info.name%>" data-code="<%=_info.code%>"><%=_info.code?'（'+_info.code+'）':''%></a></span><%}%></span></div-->
+                </div>
+            </div>
+            <div class="rbox">
+                <div class="finfo">
+                    <div class="fitem"><span class="tit">订单状态：</span><span class="ctt ellipsis"><%=status_str%></span></div>
+                    <!--div class="fitem"><span class="tit">支付方式：</span><span class="ctt ellipsis"><%=pay_type_str%></span></div-->
+                    <div class="fitem pay_infos"><span class="tit">支付信息：</span><span class="ctt word-wrap"><%for(var x=0; _info=_pay_infos[x]; x++){%><span class="word-wrap"><%=_info%></span><%}%></span></div>
+                    <% if (payable && status == 0 && service_charge_need_payment>0) { %>
+                    <div class="fitem">
+                        <span class="tit">服&nbsp;&nbsp;务&nbsp;&nbsp;费：</span><span class="ctt ellipsis"><%=RMB(service_charge_need_payment)+' 元'%></span>
+                    </div>
+                    <% } %>
+                </div>
+                <% if(_pay_type!=15){%>
+                    <div class="newbox">
+                        <p> 订单金额：<span class="red"><%=RMB(total_price||0)%></span>元 </p>
+                        <% if (payable && status == 0) { %>
+                            <p> 应付金额：<b class="tprice red"><%=RMB(amount_payable||0)%></b> 元</p>
+                            <a class="submit" href="<?=DOMAIN?>cart/payment.html?o=<%=dist_code%>&t=15">去支付</a>
+                        <% } %>
+                        <% if (_success == 1) { %>
+                        	<p><a class="lnk" href="<?=DOMAIN?>faq/invoice.html#0" target="_blank">如何申请发票？</a></p>
+                    	<% } %>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+	</div>
+<% } %>
+</script>
+<!--script id="template_file_list" type="text/template">
+    <% if(file_list&&file_list.length){
+    for(var k=0; temp = file_list[k]; k++){
+    if(temp.file_src){
+    var file_src = temp.file_src||'';
+    var idx = file_src.lastIndexOf('.');
+    var _type = idx >= 0 ? file_src.substring(idx + 1) : 'def';
+    %>
+    <div class="node" title="<%=temp.file_name%>" data-file_id="<%=temp.file_id%>">
+        <a class="img" href="javascript:;"><img src="<?=IMAGES?>icons/<%=_type%>.png"></a>
+        <a class="name ellipsis" href="<%=temp.file_src%>?download/<%=temp.file_name%>" target="_blank"><%=temp.file_name%></a>
+        <p class="date"><%=temp.record_time%></p>
+    </div>
+    <% }
+    }
+    } %>
+</script-->
+<script id="template_change_files" type="text/template">
+	<div id="change_files" class="change_files">
+		<div id="ofilter" class="ofilter">
+            <div class="searchbar">
+                <input class="textbox" type="text" name="keyword" /><a class="search_btn" href="javascript:;"><i></i></a>
+        	</div>
+            <ul>
+                <li data-type="0"><a class="sel" href="javascript:;">选择云盘文件</a></li>
+                <li class="vline"></li>
+                <%if(isCard){%>
+                <li data-type="1"><a href="javascript:;">使用模板制作名片</a></li>
+                <li><i class="icon_help card_help" style="display: none"></i></li>
+                <%}%>
+                <li data-type="2" style="display: none;"><a></a></li>
+                <li data-type="3"><a href="javascript:;">选择本地文件上传</a></li>
+            </ul>
+        </div>
+    	<div class="change_file" data-type="0">
+            <ul class="block_list clearfix">
+                <%if(product_id!=200042){%>
+                <li class="item" data-type="20">
+                    <div class="tit">选择我的印刷PDF</div>
+                    <div class="desc">我们将您已印刷的资料生成pdf标准印刷文件</div>
+                </li>
+                <%}%>
+                <li class="item" data-type="10">
+                    <div class="tit">选择我的资料</div>
+                    <div class="desc">在“我的资料”中从您之前上传的文件中选择要印刷的文件</div>
+                </li>
+                <%if(product_id!=200042){%>
+                <li class="item" data-type="30">
+                    <div class="tit">选择我的设计文件</div>
+                    <div class="desc">从您的设计订单作品中选择要印刷的稿件</div>
+                </li>
+                <%}%>
+            </ul>
+            <div class="block_content">
+                <h3 class="file_type"></h3>
+                <div class="block_content file_list">
+                    <div id="template_file_list_view"></div>
+                    <div class="btns-center pt15">
+                        <a class="btn btn-primary " href="javascript:;">确 定</a><a class="btn btn-default" href="javascript:;">返 回</a>
+                    </div>
+                </div>
+            </div>
+		</div>
+        <div class="change_file" data-type="1" style="display: none;">
+            <ul class="groups clearfix">
+                <%for(var item='', i=0; item=quantities[i]; i++){%>
+                <li class="group<%=i==0?' show':''%>" data-value="<%=item%>">
+                    <b class="tit"><%=item%></b>
+                    <div class="desc"><%=data[item].length%> <%=isCard?'人':'款'%>，已选择 <span class="red"><%=isUpdate?1:0%></span> <%=isCard?'人':'款'%></div>
+                </li>
+                <%}%>
+            </ul>
+            <div class="card-list">
+                <div id="template_card_list_view"></div>
+                <a class="add-card" href="javascript:;">新增名片信息</a>
+                <div id="paginbar_card_list" class="paginbar hide"></div>
+                <div class="btns-center pt15">
+                    <a class="btn btn-primary " href="javascript:;">确 定</a>
+                </div>
+            </div>
+        </div>
+        <div class="change_file" data-type="2" style="display: none;">
+            <div class="template_list">
+                <div id="template_design_template_list_view"></div>
+                <div id="paginbar_design_template_list" class="paginbar hide"></div>
+            </div>
+        </div>
+		<div class="change_file" data-type="3" style="display: none;">
+            <div class="file_upload">
+                <div class="up_info">您可上传 jpg、png、gif、psd、ai、cdr、eps、ppt、word、excel、pdf、tiff、rar、zip、7z</div>
+                <div class="file_up upload-group">
+                    <label id="order_file_upload-cont" class="up-cont btn-default btn-md">
+                        <span id="order_file_upload" class="up-btn">
+                            <span class="up-text"></span>
+                        </span>
+                        <span class="up-doing">正在上传...</span>
+                        <span class="up-forbid"></span>
+                    </label>
+                    <div id="order_file_upload-info" class="upload-info mt10"></div>
+                    <div class="pt15 red">请您确认上传正确的文件，文件上传成功10分钟后将分配审稿人员，届时您不能修改文件。</div>
+                </div>
+                <div class="btns-center pb10" style="display: none">
+                    <a class="btn btn-primary" href="javascript:;">确 定</a><a class="btn btn-default" href="javascript:;">取 消</a>
+                </div>
+            </div>
+        </div>
+	</div>
+</script>
+<script id="template_card_list" type="text/template">
+	<table class="table_view <%=isUpdate?'radios':'checkboxs'%>" cellpadding="0" cellspacing="0">
+        <colgroup>
+            <col width="5%"/>
+            <col width="18%"/>
+            <col width="15%"/>
+            <col width="15%"/>
+            <col width="16%"/>
+            <col width="20%"/>
+            <col/>
+        </colgroup>
+        <thead>
+        <tr>
+        	<th class="col1"><div>
+        		<%if(card_list.length&&!isUpdate){%>
+        			<label class="checkbox<%=_checkall?' sel':''%>"><input type="checkbox" name="chkall" value="" <%=_checkall?'checked="checked"':''%> /></label>
+        		<%}%>
+        	</div></th>
+            <th class="col2"><div>姓名</div></th>
+            <th class="col3"><div>职位</div></th>
+            <th class="col4"><div>手机号码</div></th>
+            <th class="col5"><div>尺寸</div></th>
+            <th class="col6"><div>创建时间</div></th>
+            <th class="col7"><div>印刷文件</div></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% for(var k=0; temp = card_list[k]; k++){ %>
+        <tr>
+            <td class="col1"><div><label class="<%=isUpdate?'radio':'checkbox'%><%=temp._checked?' sel':''%>"><input type="<%=isUpdate?'radio':'checkbox'%>" name="chk" value="<%=temp.card_id%>" <%=temp._checked?'checked="checked"':''%> /></label></div></td>
+            <td class="col2"><div><%=temp.front_name||temp.front_name_en||temp.back_name||temp.back_name_en%></div></td>
+            <td class="col3"><div><%=temp.front_position||temp.front_position_en||temp.back_position||temp.back_position_en%></div></td>
+            <td class="col4"><div><%=temp.front_phone||temp.back_phone%></div></td>
+            <td class="col5"><div><%=temp.size%></div></td>
+            <td class="col6"><div><%=temp.record_time%></div></td>
+            <td class="col7"><div><a class="edit" data-card_id="<%=temp.card_id%>" href="javascript:;">预览</a></div></td>
+        </tr>
+        <% } %>
+	    <% if(!card_list||!card_list.length){ %>
+	    	<tr>
+	    		<td class="col1" colspan="7">
+	        		<div class="empty"><dl class="vertical_middle">
+                        <dt class="vm_left"></dt><dd class="vm_right">
+	        				<p>暂无可用印刷文件&nbsp;&nbsp;</p>
+    						<div class="alt word-wrap inline-block">
+                                <p class="tl">1、如果您已有名片印刷文件，请选择<a href="<?=DOMAIN_DESIGN?>category/<%=product.design_category_id%>.html?ro=<%=product.order_code%>&rop=<%=product.order_product_id%>" target="_blank">名片设计服务</a><b>上传印刷文件</b>，我们将为您制作成名片模板<a class="icon_help card_help" href="javascript:;"></a>，以后修改名片信息或制作其他人名片文件更加便捷；</p>
+                                <p class="tl">2、如果您没有名片印刷文件，请选择<a href="<?=DOMAIN_DESIGN?>category/<%=product.design_category_id%>.html?ro=<%=product.order_code%>&rop=<%=product.order_product_id%>" target="_blank">名片设计服务</a><b>上传名片相关素材资料</b>，我们将为您设计名片模板<a class="icon_help card_help" href="javascript:;"></a>，以后修改名片信息或制作其他人名片文件更加便捷；</p>
+                                <p class="tl">3、如果有其他疑问，请致电<b class="red">400—680—9111</b>咨询；</p>
+	    						<!--a class="btn btn-primary" href="<?=DOMAIN_DESIGN?>category/<%=product.design_category_id%>.html?ro=<%=product.order_code%>&rop=<%=product.order_product_id%>" target="_blank">选择设计服务</a-->
+    						</div>
+	        			</dd>
+	        		</dl></div>
+	    		</td>	
+	    	</tr>
+	    <% } %>
+        </tbody>
+    </table>
+</script>
+<script id="template_file_list" type="text/template">
+	<table class="table_view radios" cellpadding="0" cellspacing="0">
+        <colgroup>
+            <col width="8%"/>
+            <col/>
+            <col width="25%"/>
+            <col width="20%"/>
+            <col width="15%"/>
+        </colgroup>
+        <thead>
+        <tr>
+            <th class="col1"><div>
+            	<!--<%if(fileList.length&&!isUpdate){%>-->
+            		<!--<label class="checkbox<%=_checkall?' sel':''%>"><input type="checkbox" name="chkall" value="" <%=_checkall?'checked="checked"':''%> /></label>-->
+            	<!--<%}%>-->
+            </div></th>
+            <th class="col2"><div>文件名</div></th>
+            <% if(TYPE==20){ %>
+            <th class="col3"><div>下单时间</div></th>
+            <% }else{ %>
+            <th class="col3"><div>上传时间</div></th>
+            <% } %>
+            <th class="col4"><div>下单记录</div></th>
+            <th class="col5"><div>预览</div></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% for(var k=0; temp = fileList[k]; k++){ %>
+        <tr>
+            <td class="col1"><div><label class="radio<%=temp.CHECKED?' sel':''%>"><input type="radio" name="chk" value="<%=temp.fileId%>" <%=temp.CHECKED?'checked="checked"':''%> /></label></div></td>
+            <td class="col2"><div title="<%=temp.fileName%>"><a class="ellipsis fname" href="<%=temp.fileSrc%>?download/<%=temp.fileName%>" target="_blank"><%=temp.fileName%></a></div></td>
+            <% if(TYPE==20){ %>
+            <td class="col3"><div><a href="<?=DOMAIN?>member/odetail.html?o=<%=temp.orderCode%>" target="_blank"><%=temp.orderCode%>-<%=temp.serialNumber%></a></div></td>
+            <td class="col4"><div><%=temp.recordTime%></div></td>
+            <% }else{ %>
+            <td class="col3"><div><%=temp.recordTime%></div></td>
+            <td class="col4"><div><a class="history-order" href="javascript:;">点击查看</a></div></td>
+            <% } %>
+            <td class="col5"><div>
+                <% if(temp.hasPreviewer){ %>
+                <a class="see-preview" href="javascript:;" data-file_id="<%=temp.fileId%>">预览</a>
+                <% }else{ %>
+                <a class="ellipsis fname" href="<%=temp.fileSrc%>" target="_blank">预览</a>
+                <% } %>
+            </div></td>
+        </tr>
+        <% } %>
+	    <% if(!fileList||!fileList.length){ %>
+	    	<tr>
+	    		<td class="col1" colspan="5">
+	        		<div class="empty"><dl class="vertical_middle">
+                        <dt class="vm_left"></dt><dd class="vm_right">
+                            <p>暂无可用印刷文件&nbsp;&nbsp;</p>
+                            <div class="alt word-wrap inline-block">
+                                <p class="tl">如果您已经有印刷文件，您可以直接<a class="add_file" href="javascript:;">上传本地文件</a></p>
+                                <!--p class="tl">如果您没有印刷文件，您可以<a href="<?=DOMAIN_DESIGN?>category/<%=product.design_category_id%>.html?ro=<%=product.order_code%>&rop=<%=product.order_product_id%>" target="_blank">选择设计服务</a></p-->
+                            </div>
+                        </dd>
+                    </dl></div>
+	    		</td>	
+	    	</tr>
+        <% } %>
+        </tbody>
+    </table>
+    <div id="paginbar_file_list" class="paginbar hide"></div>
+    <% if(fileList||fileList.length){ %>
+    <div class="text_center pt15 red">请您确认上传正确的文件，文件上传成功10分钟后将分配审稿人员，届时您不能修改文件。</div>
+    <% } %>
+</script>
+<script id="template_design_file_list" type="text/template">
+    <table class="table_view radios" cellpadding="0" cellspacing="0">
+        <colgroup>
+            <col width="5%"/>
+            <col/>
+            <col width="22%"/>
+            <col width="15%"/>
+            <col width="10%"/>
+        </colgroup>
+        <thead>
+        <tr>
+            <th class="col1"><div>
+                <!--<%if(designFileList.length&&!isUpdate){%>-->
+                <!--<label class="checkbox<%=_checkall?' sel':''%>"><input type="checkbox" name="chkall" value="" <%=_checkall?'checked="checked"':''%> /></label>-->
+                <!--<%}%>-->
+            </div></th>
+            <th class="col2"><div>文件名</div></th>
+            <th class="col3"><div>下单时间</div></th>
+            <th class="col4"><div>印刷记录</div></th>
+            <th class="col5"><div>预览</div></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% for(var k=0; temp = designFileList[k]; k++){ %>
+        <tr>
+            <td class="col1"><div><label class="radio<%=temp.CHECKED?' sel':''%>"><input type="radio" name="chk" value="<%=temp.fileId%>" <%=temp.CHECKED?'checked="checked"':''%> /></label></div></td>
+            <td class="col2"><div title="<%=temp.pdfPath%>"><a class="ellipsis fname" href="<%=temp.pdfPath%>?download/<%=temp.pdfPath%>" target="_blank"><%=temp.fileName%></a></div></td>
+            <td class="col3"><div><%=temp.recordTime%></div></td>
+            <td class="col4"><div><a class="history-order" href="javascript:;">点击查看</a></div></td>
+            <td class="col5"><div>
+                <% if(temp.hasPreviewer){ %>
+                <a class="see-preview" href="javascript:;" data-file_id="<%=temp.fileId%>">预览</a>
+                <% }else{ %>
+                <a class="ellipsis fname" href="<%=temp.pdfPath%>" target="_blank">预览</a>
+                <% } %>
+            </div></td>
+        </tr>
+        <% } %>
+        <% if(!designFileList||!designFileList.length){ %>
+        <tr>
+            <td class="col1" colspan="5">
+                <div class="empty"><dl class="vertical_middle">
+                    <dt class="vm_left"></dt><dd class="vm_right">
+                    <p>暂无可用印刷文件&nbsp;&nbsp;</p>
+                    <div class="alt word-wrap inline-block">
+                        <p class="tl">如果您已经有印刷文件，您可以直接<a class="add_file" href="javascript:;">上传本地文件</a></p>
+                        <!--p class="tl">如果您没有印刷文件，您可以<a href="<?=DOMAIN_DESIGN?>category/<%=product.design_category_id%>.html?ro=<%=product.order_code%>&rop=<%=product.order_product_id%>" target="_blank">选择设计服务</a></p-->
+                    </div>
+                </dd>
+                </dl></div>
+            </td>
+        </tr>
+        <% } %>
+        </tbody>
+    </table>
+    <div id="paginbar_file_list" class="paginbar hide"></div>
+    <% if(designFileList||designFileList.length){ %>
+    <div class="text_center pt15 red">请您确认上传正确的文件，文件上传成功10分钟后将分配审稿人员，届时您不能修改文件。</div>
+    <% } %>
+</script>
+<script id="template_design_template_list" type="text/template">
+	<ul class="cards clearfix">
+		<% var isNewline = false; for(var k=0; item = design_template_list[k]; k++){ %>
+		<%if(item.format==1&&!isNewline){ isNewline = true;%>
+			<li class="clear"></li>
+		<%}%>
+		<li class="card" data-template_id="<%=item.template_id%>">
+			<div class="title"><b class="name ellipsis"><%=item.template_name%></b></div>
+			<span class="image">
+				<img src="<%=item.show_front_image%>" alt="<%=item.template_name%>"/>
+			</span>
+			<div class="btns">
+                <a class="ok" href="<?=DOMAIN?>card/make.html?tid=<%=item.template_id%>">制作名片</a>
+            </div>
+		</li>
+		<% } %>
+		<% if(!design_template_list||!design_template_list.length){ %>
+	    	<li class="">
+	    		<div class="empty">
+	    			<dl class="vertical_middle">
+	    				<dt class="vm_left"></dt><dd class="vm_right">
+	    					<p>暂无可用名片模板&nbsp;&nbsp;</p>
+                            <div class="alt word-wrap inline-block">
+                                <p class="tl">1、如果您已有名片印刷文件，请选择<a href="<?=DOMAIN_DESIGN?>category/<%=product.design_category_id%>.html?ro=<%=product.order_code%>&rop=<%=product.order_product_id%>" target="_blank">名片设计服务</a><b>上传印刷文件</b>，我们将为您制作成名片模板<a class="icon_help card_help" href="javascript:;"></a>，以后修改名片信息或制作其他人名片文件更加便捷；</p>
+                                <p class="tl">2、如果您没有名片印刷文件，请选择<a href="<?=DOMAIN_DESIGN?>category/<%=product.design_category_id%>.html?ro=<%=product.order_code%>&rop=<%=product.order_product_id%>" target="_blank">名片设计服务</a><b>上传名片相关素材资料</b>，我们将为您设计名片模板<a class="icon_help card_help" href="javascript:;"></a>，以后修改名片信息或制作其他人名片文件更加便捷；</p>
+                                <p class="tl">3、如果有其他疑问，请致电<b class="red">400—680—9111</b>咨询；</p>
+                                <!--a class="file_btn" href="<?=DOMAIN_DESIGN?>category/<%=product.design_category_id%>.html?ro=<%=product.order_code%>&rop=<%=product.order_product_id%>" target="_blank">选择设计服务</a-->
+                            </div>
+	    				</dd>
+	    			</dl>
+	    		</div>
+	    	</li>
+	    <% } %>
+	</ul>
+</script>
+<script id="template_version_list" type="text/template">
+    <% for(var k=0; temp = version_list[k]; k++){ if(temp.image_path){ %>
+    <dd id="item<%=temp.id%>" class="item">
+        <span class="radio<%=(DFVER?DFVER==temp.no:k==0)?' sel':''%>" data-version="<%=temp.no%>">V<%=temp.no%>&nbsp;&nbsp;&nbsp;&nbsp;<%=temp.record_time%></span>
+    </dd>
+    <% }} %>
+</script>
+<script id="template_remind" type="text/template">
+    <div class="upload-remind">
+        <% if(fileType==='ai'){ %>
+        <div class="remind-head">
+            <p>您上传的印刷文件可能包含源文件外的链接图片和特殊字体，为保证印刷质量和节约您的宝贵时间，建议您保存ai文件时勾选“创建兼容性PDF”选框、将文字转曲、并将链接的图片嵌入到ai文件中。</p>
+        </div>
+        <div class="img">
+            <img src="<?=IMAGES?>uploader/ai/101.jpg" />
+        </div>
+        <dl class="remind-list">
+            <dd>
+                <a class="remind-show" href="javascript:;">点击查看AI文件嵌入图片、文字转曲、勾选“创建兼容性PDF”步骤&gt;&gt;</a>
+                <img src="<?=IMAGES?>uploader/ai/201.jpg" />
+                <div class="remind-btm">
+                    <a class="remind-hide" href="javascript:;">收起</a>
+                </div>
+            </dd>
+        </dl>
+        <% }else if(fileType==='cdr'){ %>
+        <div class="remind-head">您上传的印刷文件可能包含特殊字体，为保证印刷质量和节约您的宝贵时间，建议您检查是否在保存cdr文件时已将特殊字体嵌入源文件中。</div>
+        <div class="img">
+            <img src="<?=IMAGES?>uploader/cdr/101.jpg" />
+        </div>
+        <dl class="remind-list">
+            <dd>
+                <a class="remind-show" href="javascript:;">点击查看cdr文件嵌入字体的步骤&gt;&gt;</a>
+                <img src="<?=IMAGES?>uploader/cdr/201.jpg" />
+                <div class="remind-btm">
+                    <a class="remind-hide" href="javascript:;">收起</a>
+                </div>
+            </dd>
+        </dl>
+        <% }else if(fileType==='eps'){ %>
+        <div class="remind-head">您上传的印刷文件可能包含源文件外的链接图片和特殊字体，为保证印刷质量和节约您的宝贵时间，建议您保存eps文件时将文字嵌入文件中、且将文字转曲、并将链接的图片嵌入到文件中。</div>
+        <div class="img">
+            <img src="<?=IMAGES?>uploader/eps/101.jpg" />
+        </div>
+        <dl class="remind-list">
+            <dd>
+                <a class="remind-show" href="javascript:;">点击查看eps文件嵌入字体的步骤&gt;&gt;</a>
+                <img src="<?=IMAGES?>uploader/eps/201.jpg" />
+                <div class="remind-btm">
+                    <a class="remind-hide" href="javascript:;">收起</a>
+                </div>
+            </dd>
+            <dd>
+                <a class="remind-show" href="javascript:;">点击查看eps文件进行文字转曲的步骤&gt;&gt;</a>
+                <img src="<?=IMAGES?>uploader/eps/202.jpg" />
+                <div class="remind-btm">
+                    <a class="remind-hide" href="javascript:;">收起</a>
+                </div>
+            </dd>
+            <dd>
+                <a class="remind-show" href="javascript:;">点击查看eps文件进行嵌入图片的步骤&gt;&gt;</a>
+                <img src="<?=IMAGES?>uploader/eps/203.jpg" />
+                <div class="remind-btm">
+                    <a class="remind-hide" href="javascript:;">收起</a>
+                </div>
+            </dd>
+        </dl>
+        <% }else if(fileType==='indd'){ %>
+        <div class="remind-head">您上传的印刷文件可能包含源文件外的链接图片和特殊字体，为保证印刷质量和节约您的宝贵时间，建议您检查是否需要将链接图片和字体文件与源文件（indd）一起打包上传。</div>
+        <div class="img">
+            <img src="<?=IMAGES?>uploader/indd/101.jpg" />
+        </div>
+        <dl class="remind-list">
+            <dd>
+                <a class="remind-show" href="javascript:;">点击查看打包indd文件用到的字体、链接图的步骤&gt;&gt;</a>
+                <img src="<?=IMAGES?>uploader/indd/201.jpg" />
+                <div class="remind-btm">
+                    <a class="remind-hide" href="javascript:;">收起</a>
+                </div>
+            </dd>
+        </dl>
+        <% }else if(fileType==='jpg_png_pdf_gif'){ %>
+        <div class="remind-head">纸张裁切会有误差，建议您将重要内容全放在画布边缘3毫米之内。</div>
+        <div class="img">
+            <img src="<?=IMAGES?>uploader/jpg_png_pdf_gif/101.jpg" width="40%" />
+        </div>
+        <% }else if(fileType==='ppt_word_excel'){ %>
+        <div class="remind-head">您上传的文件可能包含特殊字体，直接传输可能会导致替换为普通字形，建议您导出PDF文件上传。</div>
+        <div class="img">
+            <img src="<?=IMAGES?>uploader/ppt_word_excel/101.jpg" />
+        </div>
+        <dl class="remind-list">
+            <dd>
+                <a class="remind-show" href="javascript:;">ppt、word文档、excel表格导出pdf文件步骤&gt;&gt;</a>
+                <img src="<?=IMAGES?>uploader/ppt_word_excel/201.jpg" />
+                <div class="remind-btm">
+                    <a class="remind-hide" href="javascript:;">收起</a>
+                </div>
+            </dd>
+        </dl>
+        <% }else if(fileType==='psd_tiff'){ %>
+        <div class="remind-head">有正反面的文件请将正反面放入不同的psd或tiff文件中并将需要印刷的图层设置为可见（图层“眼睛”打开）；关闭可见功能的图层默认为您不需要印刷的图层。</div>
+        <div class="img">
+            <img src="<?=IMAGES?>uploader/psd_tiff/101.jpg" style="max-width: 80%" />
+        </div>
+        <dl class="remind-list">
+            <dd>
+                <a class="remind-show" href="javascript:;">点击查看psd或tiff文件打开或关闭图层的步骤&gt;&gt;</a>
+                <img src="<?=IMAGES?>uploader/psd_tiff/201.jpg" />
+                <div class="remind-btm">
+                    <a class="remind-hide" href="javascript:;">收起</a>
+                </div>
+            </dd>
+        </dl>
+        <% }else if(fileType==='zip_rar_7z'){ %>
+        <div class="remind-head">温馨提示：一个订单的多个印刷商品，每个商品对应的印刷文件将分别进入审核与生产，为节约您宝贵时间和避免造成不必要的经济损失，请将各个商品对应的印刷文件对应分开上传，不建议您将所有商品打包一齐上传。</div>
+        <div class="img">
+            <img src="<?=IMAGES?>uploader/zip_rar_7z/101.jpg" />
+        </div>
+        <% } %>
+        <% if(uploaded==1){ %>
+        <div class="btns-center pb10">
+            <a class="btn btn-primary" href="javascript:;">继续上传</a><a class="btn btn-warning" href="javascript:;">重新选择文件</a>
+        </div>
+        <% }else{ %>
+        <div class="btns-center pb10">
+            <a class="btn btn-primary" href="javascript:;">仍然选该文件</a><a class="btn btn-warning" href="javascript:;">重新选择文件</a><a class="btn btn-default" href="javascript:;">关 闭</a>
+        </div>
+        <% } %>
+    </div>
+</script>
+<script id="template_order_list" type="text/template">
+    <div class="title"><span class="text">历史订单数量：<b class="red"><%=order_count||0%></b></span><span class="text">商品总数量：<b class="red"><%=quantity_total||0%></b></span></div>
+    <table class="table_view" cellpadding="0" cellspacing="0">
+        <colgroup>
+            <col width="15%"/>
+            <col width="20%"/>
+            <col/>
+            <col width="20%"/>
+        </colgroup>
+        <thead>
+        <tr>
+            <th class="col1"><div>订单编号</div></th>
+            <th class="col2"><div>商品名称</div></th>
+            <th class="col3"><div>商品信息</div></th>
+            <th class="col5"><div>下单时间</div></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% for(var k=0; temp = order_list[k]; k++){ %>
+        <tr>
+            <td class="col1"><div><a href="<?=DOMAIN?>member/odetail.html?o=<%=temp.order_code%>" target="_blank"><%=temp.order_code%></a></div></td>
+            <% if(temp.type==0 && 1>temp.type){ %>
+            <td class="col2"><div><div class="ellipsis"><a href="<?=DOMAIN?>product/<%=temp.product_id%>.html#<%=temp.product_attr%>" target="_blank" title="<%=temp.product_name%>"><%=temp.product_name%></a></div></div></td>
+            <% } else if(temp.type==10) { %>
+            <td class="col2"><div><div class="ellipsis"><%=temp.product_name%></div></div></td>
+            <% } %>
+            <td class="col3"><div><div class="ellipsis"><%=temp.product_attr%></div></div></td>
+            <td class="col5"><div><%=temp.record_time||temp.update_time%></div></td>
+        </tr>
+        <% } %>
+        <% if(!order_list||!order_list.length){ %>
+        <tr>
+            <td class="col1" colspan="4">
+                <div class="empty"><dl class="vertical_middle"><dt class="vm_left"></dt><dd class="vm_right">暂无数据</dd></dl></div>
+            </td>
+        </tr>
+        <% } %>
+        </tbody>
+    </table>
+    <div id="paginbar_order_list" class="paginbar hide"></div>
+</script>
+<script id="template_comment_panel" type="text/template">
+    <form>
+        <div class="form-group">
+            <label><b>商品评价</b></label>
+            <textarea id="productComment" name="product" placeholder="请对商品进行评价~"></textarea>
+        </div>
+        <div class="form-group">
+            <label><b>服务评价</b></label>
+            <textarea id="serviceComment" name="service" placeholder="请对服务进行评价~"></textarea>
+        </div>
+        <div class="stars-wrap">
+            <span>认真写评价，可获得<a href="<?=DOMAIN?>integral/index.html" target="_blank" class="yellow"><b>云印5积分!</b></a></span>
+            <p data-type="1" class="mt20"><b class="red">*</b>商品质量<span data-index="1" class="col ml10"></span><span data-index="2" class="col"></span><span data-index="3" class="col"></span><span data-index="4" class="col"></span><span data-index="5" class="col"></span></p>
+            <p data-type="2"><b class="red">*</b>服务质量<span data-index="1" class="col ml10"></span><span data-index="2" class="col"></span><span data-index="3" class="col"></span><span data-index="4" class="col"></span><span data-index="5" class="col"></span></p>
+            <p data-type="3"><b class="red">*</b>交货周期<span data-index="1" class="col ml10"></span><span data-index="2" class="col"></span><span data-index="3" class="col"></span><span data-index="4" class="col"></span><span data-index="5" class="col"></span></p>
+        </div>
+    </form>
+</script>
+<script id="template_receive_panel" type="text/template">
+    <table class="table_view" cellpadding="0" cellspacing="0">
+        <colgroup>
+            <col width="40px">
+            <col width="35%">
+            <col width="22%">
+            <col width="22%">
+            <col>
+        </colgroup>
+        <thead>
+        <tr>
+            <th class="col1"><div></div></th>
+            <th class="col2"><div>商品信息</div></th>
+            <th class="col3"><div>数量</div></th>
+            <th class="col4"><div>金额（元）</div></th>
+            <th class="col5"><div>商品状态</div></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% if(status==1&&order_product_list&&order_product_list.length){%>
+        <% for(var i=0; product= order_product_list[i];i++){%>
+        <% if(product.status == 4){%>
+        <tr>
+            <td class="col1"><div>
+                <label class="checkbox" data-opid="<%=product.order_product_id%>"></label>
+            </div></td>
+            <td class="col2"><div>
+                <% if(product.product_id){ %>
+                <a class="img" href="<?=DOMAIN?>product/<%=product.target_id||product.product_id%>.html#<%=product.product_attr%>" target="_blank" title="<%=product.product_name%>">
+                    <% }else{ %>
+                    <a class="img" href="javascript:;" title="<%=product.product_name%>">
+                        <% } %>
+                        <b><img src="<%=product.product_pic||(product.type==5?IMG.package:'')||(product.type==10?IMG.design:'')||DOMAIN.CLOUD%>?imageMogr2/thumbnail/!112x64r/auto-orient/gravity/Center/crop/112x64" alt="<%=product.product_name%>" /><i></i></b>
+                    </a><span class="desc ellipsis">
+                                <% if(product.product_id){ %>
+                                    <a href="<?=DOMAIN?>product/<%=product.target_id||product.product_id%>.html#<%=product.product_attr%>" target="_blank" title="<%=product.product_name%>"><%=product.product_name%></a>
+                                <% }else{ %>
+                                    <a href="javascript:;" title="<%=product.product_name%>"><%=product.product_name%></a>
+                                <% } %>
+                                </span>
+            </div></td>
+            <td class="col3"><div><%=product.quantity||(product.product_count+'款')%></div></td>
+            <td class="col4"><div><%=RMB(product.total_price)%></div></td>
+            <td class="col5"><div><%=product.status_str%></div></td>
+        </tr>
+        <%}%>
+        <%}%>
+        <%}%>
+        </tbody>
+    </table>
+    <label class="checkbox checkbox_all"></label>
+</script>
+<?php include(TEMPLATES.'previewer.xhtml');?>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>uploader/main.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>member/odetail.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>location.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=VybvSG3RqpGQzp6GwlzNOmiq"></script>
+<?php include(MODULES.'linklogin.xhtml');?>
+</body>
+</html>

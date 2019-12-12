@@ -1,0 +1,35 @@
+<div class="hide" >
+    <fieldset id="login_form" class="login">
+        <form id="login" class="forms">
+            <div class="form_item icon_person">
+                <label><input id="accountLogin" class="textbox" type="text" name="username" /><i class="msg"></i></label><a id="loginChange" class="change">使用验证码登录</a>
+            </div>
+            <div id="loginPwd" class="form_item icon_lock">
+                <label><input class="textbox" type="password" name="password" maxlength="20" autocomplete="off" /><i class="msg"></i></label>
+            </div>
+            <div id="loginCode" class="form_item form_code hide">
+                <label><input class="textbox" type="text" name="code" maxlength="6" /></label><a id="sendCodeLogin" class="btn">发送验证码</a><i class="msg"></i>
+            </div>
+            <div class="form_item">
+                <div class="checkboxs">
+                    <a class="forget" href="<?=DOMAIN?>passport/forget.html">忘记密码</a><label class="checkbox"><input type="checkbox" name="remember" value="1" />记住我 </label>
+                </div>
+            </div>
+            <div id="captcha-pop" class="form_item captcha hide">
+                <label>
+                    <input class="textbox" type="text" name="captcha" /><img class="img" src=""/><a class="refresh" href="javascript:;">看不清楚<br/>换一张</a>
+                    <i class="msg"></i>
+                </label>
+            </div>
+            <div class="form_item form_btm">
+                <a class="submit" href="javascript:;">登 录<input onclick="_czc.push(['_trackEvent', '通用', '登录', '会员帐号','','']);" type="submit" value="" /></a>
+            </div>
+        </form>
+        <div class="comlogin">
+            <div class="txt">使用其它账号登录：</div>
+            <a id="popregisterurl" name="registerurl" class="comereg" onclick="_czc.push(['_trackEvent', '顶部', '去注册', '注册','','popregisterurl']);" href="<?=DOMAIN?>passport/index.html">立即注册</a>
+            <div class="logins"><a id="sina_login_btn" onclick="_czc.push(['_trackEvent', '通用', '登录', '微博帐号','','sina_login_btn']);" href="javascript:;" class="lsina"></a><a id="qq_login_btn" onclick="_czc.push(['_trackEvent', '通用', '登录', 'QQ帐号','','qq_login_btn']);" href="javascript:;" class="ltencent"></a><a id="wechat_login_btn" onclick="_czc.push(['_trackEvent', '通用', '登录', '微信','','wechat_login_btn']);" href="javascript:;" class="lwechat"></a></div>
+        </div>
+        <?php include(MODULES.'login_qrcode.xhtml');?>
+    </fieldset>
+</div>

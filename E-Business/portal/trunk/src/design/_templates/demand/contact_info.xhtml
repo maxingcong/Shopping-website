@@ -1,0 +1,17 @@
+<div class="contact_info">
+    {{if productId!=141}}
+    <h3 class="d-caption"><b class="red">*</b>请填写设计稿确认负责人联系方式，我们的客户顾问将在第一时间与您联系沟通具体的设计细节</h3>
+    {{/if}}
+    <p class="d-mark">请填写正确的联系信息，方便我们可以及时联系到您</p>
+    <label class="item"><b class="red">*</b><span class="field">联系人：</span><input class="textbox" type="text" name="contact" value="{{userContact}}" autocomplete="off" /></label>
+    <label class="item"><b class="red">*</b><span class="field">手机号：</span><input class="textbox" type="text" name="phone" value="{{userPhone}}" autocomplete="off" /></label>
+    <label class="item"><span class="field">QQ号：</span><input class="textbox" type="text" name="qq" value="{{userQQ}}" autocomplete="off" /></label>
+    <div class="checkboxs">
+        <label class="checkbox design_agreement sel">我已阅读并接受 </label><a class="agreement_link" href="<?=DOMAIN?>agreement/designservice.html" target="_blank">《云印设计服务协议》</a>
+    </div>
+</div>
+{{if isUpdate}}
+    <a class="btn btn btn-primary btn-lg submit" href="javascript:;" onclick="_czc.push(['_trackEvent', '设计服务', '修改设计需求', '','','']);">保存修改</a>
+{{else}}
+    <p class="btmline"></p>
+{{/if}}

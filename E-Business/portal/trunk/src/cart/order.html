@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="确认订单" />
+    <meta name="description" content="" />
+    <meta name="author" content="${author}" />
+    <meta name="copyright" content="${copyright}" />
+    <title>确认订单</title>
+    <link rel="shortcut icon" type="image/x-icon"  href="<?=DOMAIN?>favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>layout.css" />
+    <?php include(MODULES.'dns_prefetch.xhtml');?>
+    <style type="text/css">body{background-color: #fff;}</style>
+</head>
+<body>
+<?php include(MODULES.'header_simple.xhtml');?>
+<div class="order-step"><img id="step_img" src="<?=IMAGES?>step/1_2.png" alt="" /> </div>
+<div class="main order">
+    <div class="layout">
+        <h3 class="headline_order">确认订单信息</h3>
+        <form id="order" class="forms">
+            <h3 class="headline"><span>商品信息</span></h3>
+            <div id="cfmorder" class="list orders">
+                <ol>
+                    <li class="col2">
+                        <div>商品信息</div>
+                    </li>
+                    <li class="col3">
+                        <div>数量</div>
+                    </li>
+                    <li class="col4">
+                        <div>金额（元）</div>
+                    </li>
+                </ol>
+                <p class="line"></p>
+                <div id="template-product_list-view"></div>
+            </div>
+            <p class="btmline"></p>
+            <?php include(MODULES.'ordering.xhtml');?>
+        </form>
+    </div>
+</div>
+<?php include(MODULES.'footer.xhtml');?>
+<script id="template-product_list" type="text/template">
+    <% for(var k=0; product = productList[k]; k++){ %>
+    <ul cid="<%=product.categoryId%>" pid="<%=product.productId%>">
+        <li class="col2">
+            <div>
+                <% if(orderType==5 && product.categoryId>0){%>
+                <a class="img" href="<?=DOMAIN?>design/<%=product.categoryId%>.html" target="_blank" title="<%=product.productName%>">
+                    <b><img src="<%=product.imgPath||packageDefImg%>?imageMogr2/thumbnail/!112x64r/auto-orient/gravity/Center/crop/112x64" alt="<%=product.productName%>" /></b><span class="name">
+                			<%=product.productName%>
+                		</span>
+                </a>
+                <% }else{%>
+                <a class="img" href="<?=DOMAIN?>package/?pid=<%=product.productId%>&atr=<%=product.productAttr%>" target="_blank" title="<%=product.productName%>">
+                    <b><img src="<%=product.imgPath||packageDefImg%>?imageMogr2/thumbnail/!112x64r/auto-orient/gravity/Center/crop/112x64" alt="<%=product.productName%>" /></b><span class="name">
+                			<%=product.productName%>
+                		</span>
+                </a>
+                <% }%>
+            </div>
+        </li>
+        <li class="col3">
+            <div><%=product.productCount%></div>
+        </li>
+        <li class="col4">
+            <div><b class="red"><%=RMB(product.totalPrice)%></b></div>
+        </li>
+    </ul>
+    <% } %>
+</script>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>cart/order.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>location.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js?ininin=<?=VERSION?>"></script>
+<!--script type="text/javascript" src="<?=SCRIPTS?>jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>template-native.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>zh_cn.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tool.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>libs/location.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>cart/order.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=VybvSG3RqpGQzp6GwlzNOmiq"></script-->
+<?php include(MODULES.'linklogin.xhtml');?>
+</body>
+</html>

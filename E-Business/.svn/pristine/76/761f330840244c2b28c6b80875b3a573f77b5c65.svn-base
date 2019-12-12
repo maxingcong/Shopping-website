@@ -1,0 +1,24 @@
+﻿<!doctype html public "-//w3c//dtd xhtml 1.0 transitional//en" "http://www.w3.org/tr/xhtml1/dtd/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>EmailTemplate Forget</title>
+</head>
+
+<body>
+	<div style="color: #666; margin:0; padding:20px; font-size: 12px; background:#fff; line-height:20px;">
+		<div style="margin:0; padding:0 0 0 14px;"><a href="http://www.ininin.com" style="border:none;" target="_blank"><img src="<?=IMAGES?>logo_s.png" style="border:none;" /></a></div>
+        <div style="margin:0; padding:20px 0 0 14px; line-height:24px; font-size:20px; font-weight:bold;">尊敬的 <b style="color: #E25351;">云小印</b> 您好！</div>
+		<div style="margin:0; padding:20px 0 0 14px; font-size:16px; line-height:28px;">您在云印商城（<a href="http://www.ininin.com" style="border:none;" target="_blank">ininin.com</a>）点击了“忘记密码”按钮，故系统自动为您发送了这封邮件。您可以点击以下链接修改您的密码：</div>
+		<div style="margin:0; padding:20px 0 0 14px; line-height:20px;"><a style="display: inline-block; word-wrap: break-word; color: #0082cb; word-break: break-all" target="_blank" href="http://weibo.com/signup/v5/activating?username=wooholy@163.com&amp;rand=7422c79260e60dbd3f46799c517f77ce&amp;sinaid=343a767bab12f8bb246e81dd7ffb47ed&amp;invitecode=&amp;invitesource=0&amp;lang=zh-cn&amp;entry=default&amp;backurl=">http://weibo.com/signup/v5/activating?username=wooholy@163.com&amp;rand=7422c79260e60dbd3f46799c517f77ce&amp;sinaid=343a767bab12f8bb246e81dd7ffb47ed&amp;invitecode=&amp;invitesource=0&amp;lang=zh-cn&amp;entry=default&amp;backurl=</a></div>
+		<div style="margin:0; padding:20px 0 0 14px; line-height:20px; color:#f00;">此链接有效期为两个小时，请在两小时内点击链接进行修改，每天最多允许找回5次密码。如果您不需要修改密码，或者您从未点击过“忘记密码”按钮，请忽略本邮件。</div>
+		<div style="margin:0; padding:50px 0 0 14px; line-height:20px; color: #999;">如果以上链接无法访问，请将该网址复制并粘贴至新的浏览器窗口中。</div>
+		<div style="margin:0; padding:10px 0 20px 14px; line-height:20px; color: #999;">如有任何疑问，请联系云印客服，客服热线：0755-86525261</div>
+		<div style="margin:0; padding:15px 0 0 14px; line-height:20px; border-top: #9f9f9f 1px dotted; color: #999;">您之所以收到这封邮件，是因为您曾经注册成为云印的用户。</div>
+        <div style="margin:0; padding:10px 0 0 14px; line-height:20px; color: #999;">本邮件由云印系统自动发出，请勿直接回复！</div>
+        <div style="margin:0; padding:10px 0 0 14px; line-height:20px; color: #999;">在购物中遇到任何问题，请点击 <a href="http://www.ininin.com/about/upload.html" style="border:none;" target="_blank">帮助中心</a>。</div>
+        <div style="margin:0; padding:10px 0 0 14px; line-height:20px; color: #999;">如果您有任何疑问或建议，请点击 <a href="http://www.ininin.com/about/feedback.html" style="border:none;" target="_blank">意见反馈</a>。</div>
+        <div style="margin:0; padding:10px 0 0 14px; line-height:20px;">云印官网（<a href="http://www.ininin.com" style="border:none;" target="_blank">ininin.com</a>）中国最大的互联网印刷和设计服务平台。为您提供最优质的名片、会员卡、宣传单、折页、易拉宝、X展架、封套、画册、宣传册、手提袋等产品印刷和设计服务！</div>
+	</div>
+</body>
+</html>

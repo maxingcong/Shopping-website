@@ -1,0 +1,41 @@
+<fieldset id="address_form" class="address_form adrorder">
+    <form id="address" class="forms">
+        <input id="hid_address_id" type="hidden" name="address_id" />
+        <div class="form_item">
+            <label> <span class="field">收货人</span>
+                <input class="textbox" type="text" name="receiver" />
+                <b class="required">*</b> <i class="msg"></i> </label>
+        </div>
+        <div class="form_item">
+            <div> <span class="field">地区</span>
+                <select id="pid-address" name="province"></select>
+                <select id="cid-address" name="city"></select>
+                <select id="did-address" name="area"></select>
+                <input id="pcd-address" name="areaName" type="hidden" value="" />
+            </div>
+        </div>
+        <div class="form_item">
+            <label> <span class="field">详细地址</span>
+                <input class="textbox adr_desc" type="text" name="address" />
+                <b class="required">*</b> <i class="msg"></i> </label>
+        </div>
+        <div class="form_item">
+            <label> <span class="field">手机号码</span>
+                <input class="textbox" type="text" name="phone" />
+                <b class="required">*</b> <i class="msg"></i> <!--span class="alt">手机和座机至少填写一个</span--> </label>
+        </div>
+        <div class="form_item">
+            <label> <span class="field">固定电话</span>
+                <input class="textbox" type="text" name="tel" />
+                <i class="msg"></i> <span class="alt">如：0755-12345678</span> </label>
+        </div>
+        <div class="form_item">
+            <label> <span class="field">邮箱</span>
+                <input class="textbox" type="text" name="email" />
+                <i class="msg"></i> <!--span class="alt">用于接收订单状态信息</span--> </label>
+        </div>
+        <div class="form_item form_btm"> <span class="field"></span><a class="submit" href="javascript:;">添加这个地址
+            <input type="submit" value="" />
+        </a> </div>
+    </form>
+</fieldset>

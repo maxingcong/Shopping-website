@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="none" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="${author}" />
+    <meta name="copyright" content="${copyright}" />
+    <title>名片数据化设计</title>
+    <link rel="shortcut icon" type="image/x-icon" href="<?=DOMAIN?>favicon.ico"  />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>layout.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES_DESIGN?>layout.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES_DESIGN?>design.css" />
+    <?php include(MODULES.'dns_prefetch.xhtml');?>
+</head>
+<body class="demand">
+<?php include(MODULES_DESIGN.'header.xhtml');?>
+<div class="main load">
+    <div id="demand" class="layout demand-list clearfix">
+        <div id="template-demand-view"></div>
+        <?php include(MODULES.'ordering.xhtml');?>
+    </div>
+</div>
+<?php include(MODULES_DESIGN.'footer.xhtml');?>
+<?php include(TEMPLATES_DESIGN.'demand/headline.xhtml');?>
+<?php include(TEMPLATES_DESIGN.'demand/attrs.xhtml');?>
+<?php include(TEMPLATES_DESIGN.'demand/custom_attrs.xhtml');?>
+<script id="template-demand" type="text/template">
+    <?php include(TEMPLATES_DESIGN.'demand/sitemap.xhtml');?>
+    {{include 'demand_headline'}}
+    {{include 'demand_attrs'}}
+    {{include 'demand_custom_attrs'}}
+    <div id="template-field_info-view"></div>
+    <?php include(TEMPLATES_DESIGN.'demand/material.xhtml');?>
+    <?php include(TEMPLATES_DESIGN.'demand/contact_info.xhtml');?>
+</script>
+<?php include(TEMPLATES_DESIGN.'demand/choice_yunfile.xhtml');?>
+<?php include(TEMPLATES.'previewer.xhtml');?>
+<script id="template-field_info" type="text/template">
+    <div id="design_infos" class="design-infos d-attrs clearfix">
+        <h3 class="d-caption"><b class="red">*</b>请填写名片需要展示的信息及制作的人数</h3>
+        <div class="attr clearfix">
+            <span class="atr">人数：</span><span class="counter"><a>-</a><input class="textbox" type="text" name="counter" value="{{quantity||1}}"><b>+</b></span><span class="unit">人</span><i class="msg"></i>
+        </div>
+        <div class="attr radios">
+            <span class="atr">中/英文：</span><span class="radio {{language=='zh-cn'?'sel':''}}" data-type="zh-cn">中文</span><span class="radio {{language=='en-us'?'sel':''}}" data-type="en-us">英文</span><span class="radio {{language?'':'sel'}}" data-type="">中/英文</span>
+        </div>
+        <div id="template-fields-view">
+            {{include 'template-fields'}}
+        </div>
+    </div>
+</script>
+<script id="template-fields" type="text/template">
+    <div class="field-list checkboxs {{language}}" {{quantity>1?'':'style="display: none"'}}>
+        <ul class="items zh clearfix">
+            <li><label class="checkbox zh {{fields['姓名']?'sel':''}}">姓名</label></li>
+            <li><label class="checkbox zh {{fields['职位']?'sel':''}}">职位</label></li>
+            <li><label class="checkbox zh {{fields['公司名称']?'sel':''}}">公司名称</label></li>
+            <li><label class="checkbox zh {{fields['公司地址']?'sel':''}}">公司地址</label></li>
+        </ul>
+        <ul class="items en clearfix">
+            <li><label class="checkbox en {{fields['姓名（英文）']?'sel':''}}">姓名（英文）</label></li>
+            <li><label class="checkbox en {{fields['职位（英文）']?'sel':''}}">职位（英文）</label></li>
+            <li><label class="checkbox en {{fields['公司名称（英文）']?'sel':''}}">公司名称（英文）</label></li>
+            <li><label class="checkbox en {{fields['公司地址（英文）']?'sel':''}}">公司地址（英文）</label></li>
+        </ul>
+        <ul class="items clearfix">
+            <li><label class="checkbox {{fields['邮箱']?'sel':''}}">邮箱</label></li>
+            <li><label class="checkbox {{fields['手机']?'sel':''}}">手机</label></li>
+            <li><label class="checkbox {{fields['座机']?'sel':''}}">座机</label></li>
+            <li><label class="checkbox {{fields['传真']?'sel':''}}">传真</label></li>
+            <li><label class="checkbox {{fields['公司网站']?'sel':''}}">公司网站</label></li>
+            <li><label class="checkbox {{fields['微信']?'sel':''}}">微信</label></li>
+            <li><label class="checkbox {{fields['QQ']?'sel':''}}">QQ</label></li>
+        </ul>
+        <ul class="items clearfix">
+            <li><label class="checkbox weaken {{fields['添加信息1']?'sel':''}}">添加信息1</label></li>
+            <li><label class="checkbox weaken {{fields['添加信息2']?'sel':''}}">添加信息2</label></li>
+            <li><label class="checkbox weaken {{fields['添加信息3']?'sel':''}}">添加信息3</label></li>
+        </ul>
+        <div class="field-excel">
+            <div class="tit">
+                <div>请在下方表格中填写各款名片对应的信息；您也可以
+                    <a id="excel_tmpl" href="javascript:;">下载导入格式Excel</a> ，填写完毕后
+                    <label id="import_excel-cont" class="up-cont btn-excel btn-sm">
+                        <span id="import_excel" class="up-btn">
+                            <span class="up-text"></span>
+                        </span>
+                        <span class="up-doing">正在上传...</span>
+                        <span class="up-forbid"></span>
+                    </label>
+                    <span id="import_excel_uris" class="ml10 info"></span>
+                </div>
+                <div class="red">
+                    <p>批量导入须知：</p>
+                    <p>使用批量导入时，请勿修改模板中第一行的信息，或新增/删除字段。</p>
+                    <p>如果您已有名片信息文件，请将对应的名片信息复制到模板中再导入。</p>
+                </div>
+            </div>
+            <div id="template-field_list-view" class="excel-result"></div>
+        </div>
+    </div>
+    <dl class="fields checkboxs {{language}} {{quantity>1?'hide':''}}">
+        <dd class="col1">
+            <div class="field zh">
+                <label><span class="checkbox {{(fields['姓名']||fields['姓名（英文）'])?'sel':''}}">姓名</span><input class="textbox" type="text" name="姓名" value="{{paramsInfo['姓名']}}"/><span class="alt">中文</span></label>
+            </div>
+            <div class="field en">
+                <label><input class="textbox" type="text" name="姓名（英文）" value="{{paramsInfo['姓名（英文）']}}"/><span class="alt">英文</span></label>
+            </div>
+            <div class="field zh">
+                <label><span class="checkbox {{(fields['职位']||fields['职位（英文）'])?'sel':''}}">职位</span><input class="textbox" type="text" name="职位" value="{{paramsInfo['职位']}}"/><span class="alt">中文</span></label>
+            </div>
+            <div class="field en">
+                <label><input class="textbox" type="text" name="职位（英文）" value="{{paramsInfo['职位（英文）']}}"/><span class="alt">英文</span></label>
+            </div>
+            <div class="field">
+                <label><span class="checkbox {{fields['邮箱']?'sel':''}}">邮箱</span><input class="textbox" type="text" name="邮箱" value="{{paramsInfo['邮箱']}}"/></label>
+            </div>
+            <div class="field">
+                <label><span class="checkbox {{fields['手机']?'sel':''}}">手机</span><input class="textbox" type="text" name="手机" value="{{paramsInfo['手机']}}"/></label>
+            </div>
+            <div class="field">
+                <label><span class="checkbox {{fields['座机']?'sel':''}}">座机</span><input class="textbox" type="text" name="座机" value="{{paramsInfo['座机']}}"/></label>
+            </div>
+            <div class="field">
+                <label><span class="checkbox {{fields['微信']?'sel':''}}">微信</span><input class="textbox" type="text" name="微信" value="{{paramsInfo['微信']}}"/></label>
+            </div>
+            <div class="field">
+                <label><span class="checkbox {{fields['QQ']?'sel':''}}">QQ</span><input class="textbox" type="text" name="QQ" value="{{paramsInfo['QQ']}}"/></label>
+            </div>
+        </dd>
+        <dd class="col2">
+            <div class="field zh">
+                <label><span class="checkbox {{(fields['公司名称']||fields['公司名称（英文）'])?'sel':''}}">公司名称</span><input class="textbox" type="text" name="公司名称" value="{{paramsInfo['公司名称']}}"/><span class="alt">中文</span></label>
+            </div>
+            <div class="field en">
+                <label><input class="textbox" type="text" name="公司名称（英文）" value="{{paramsInfo['公司名称（英文）']}}"/><span class="alt">英文</span></label>
+            </div>
+            <div class="field">
+                <label><span class="checkbox {{fields['公司网站']?'sel':''}}">公司网站</span><input class="textbox" type="text" name="公司网站" value="{{paramsInfo['公司网站']}}"/></label>
+            </div>
+            <div class="field">
+                <label><span class="checkbox {{fields['传真']?'sel':''}}">传真</span><input class="textbox" type="text" name="传真" value="{{paramsInfo['传真']}}"/></label>
+            </div>
+            <div class="field long zh">
+                <label><span class="checkbox {{(fields['公司地址']||fields['公司地址（英文）'])?'sel':''}}">公司地址</span><input class="textbox" type="text" name="公司地址" value="{{paramsInfo['公司地址']}}"/><span class="alt">中文</span></label>
+            </div>
+            <div class="field long en">
+                <label><input class="textbox" type="text" name="公司地址（英文）" value="{{paramsInfo['公司地址（英文）']}}"/><span class="alt">英文</span></label>
+            </div>
+            <div class="field long">
+                <label><span class="checkbox {{fields['添加信息1']?'sel':''}}">添加信息1</span><input class="textbox" type="text" name="添加信息1"value="{{paramsInfo['添加信息1']}}"/></label>
+            </div>
+            <div class="field long">
+                <label><span class="checkbox {{fields['添加信息2']?'sel':''}}">添加信息2</span><input class="textbox" type="text" name="添加信息2"value="{{paramsInfo['添加信息2']}}"/></label>
+            </div>
+            <div class="field long">
+                <label><span class="checkbox {{fields['添加信息3']?'sel':''}}">添加信息3</span><input class="textbox" type="text" name="添加信息3"value="{{paramsInfo['添加信息3']}}"/></label>
+            </div>
+        </dd>
+        <dd class="field last clear">补充信息：<textarea class="textbox" name="补充信息">{{paramsInfo['补充信息']}}</textarea></dd>
+    </dl>
+</script>
+<script id="template-field_list" type="text/template">
+    {{each cardList as name i}}
+    <div id="import_excel_style{{i}}" class="hide"></div>
+    {{/each}}
+    <table class="table_view" cellpadding="0" cellspacing="0">
+        <colgroup>
+            {{each cardList[0] as name i}}
+            <col style="width: {{widths[name]||130}}px"/>
+            {{/each}}
+        </colgroup>
+        <thead>
+        <tr>
+            {{each cardList[0] as name i}}
+            <th><div>{{name}}</div></th>
+            {{/each}}
+        </tr>
+        </thead>
+        <tbody>
+        {{each cardList as rowData i}}
+        {{if i>0}}
+        <tr class="row{{i}}" data-index="{{i}}">
+            {{each cardList[0] as value k}}
+            <td class="col{{k}}" title="{{rowData[k]}}" data-index="{{k}}">
+                <div>
+                    <pre class="textbox" data-row_index="{{i}}" data-col_index="{{k}}" data-value="{{rowData[k]}}">{{if rowData[k]==''}}<span class="placeholder">请输入</span>{{else}}{{rowData[k]}}{{/if}}</pre>
+                </div>
+            </td>
+            {{/each}}
+        </tr>
+        {{/if}}
+        {{/each}}
+        </tbody>
+    </table>
+</script>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>uploader/main.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS_DESIGN?>product/main.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS_DESIGN?>product/106.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>location.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js?ininin=<?=VERSION?>"></script>
+<?php include(MODULES.'linklogin.xhtml');?>
+</body>
+</html>

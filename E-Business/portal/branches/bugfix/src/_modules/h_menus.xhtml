@@ -1,0 +1,64 @@
+<div id="nav_category" class="nav_category">
+	<ul id="template-nav_category_list-view" class="nav_category_list"></ul>
+    <script id="template-nav_category_list" type="text/template">
+        {{each categoryList as category i}}
+        <li class="nav_category_item">
+            <div class="children_list clearfix">
+                {{if category.pics && category.pics.length}}
+                <ul class="imgs">
+                    {{each category.pics as o k}}
+                    <li>
+                        <a href="{{o.picHref}}" title="{{o.title}}" target="_blank">
+                            <img class="img-loaded" src="{{o.picPath}}" alt="{{o.title}}">
+                        </a>&nbsp;
+                    </li>
+                    {{/each}}
+                </ul>
+                {{/if}}
+                {{if category.categorys && category.categorys.length}}
+                <div class="subitems">
+                    {{each category.categorys as item j}}
+                    <dl class="fore1 clearfix">
+                        <dt>
+                            {{if category.categoryType!='design'}}
+                            <a href="<?=DOMAIN?>search.html#keyword={{item.categoryName}}&type=6" title="{{item.categoryName}}" target="_blank">{{item.categoryName}}</a>
+                            {{else}}
+                            <span>{{item.categoryName}}</span>
+                            {{/if}}
+                            {{if item.sellPriceDescription}}
+                            <em class="yellow">{{item.sellPriceDescription}}</em>
+                            {{/if}}
+                        </dt>
+                        <dd>
+                            {{each item.products as o k}}
+                            {{if o.productId && o.targetId>0 && o.productId!=o.targetId}}
+                            <a class="icon{{o.homeShowIcon}}" href="<?=DOMAIN?>product/{{o.targetId}}.html?pid={{o.productId}}" title="{{o.productName}}" target="_blank">{{o.productName}}</a>&nbsp;
+                            {{else if o.productId}}
+                            <a class="icon{{o.homeShowIcon}}" href="<?=DOMAIN?>product/{{o.productId}}.html" title="{{o.productName}}" target="_blank">{{o.productName}}</a>&nbsp;
+                            {{/if}}
+                            {{/each}}
+                            {{each item.categorys as o k}}
+                            {{if o.categoryId}}
+                            {{if category.categoryType=='design'}}
+                            <a href="<?=DOMAIN_DESIGN?>category/{{o.categoryId}}.html" title="{{o.categoryName}}" target="_blank">{{o.categoryName}}</a>&nbsp;
+                            {{else}}
+                            <a href="<?=DOMAIN?>search.html#keyword={{o.categoryName}}&type=7" title="{{o.categoryName}}" target="_blank">{{o.categoryName}}</a>&nbsp;
+                            {{/if}}
+                            {{/if}}
+                            {{/each}}
+                        </dd>
+                    </dl>
+                    {{/each}}
+                </div>
+                {{/if}}
+            </div>
+            <a href="javascript:;" class="nav_category_content">
+                {{category.categoryName}}
+                {{if !category.categoryId}}
+                <img src="<?=IMAGES?>icons/new.gif"/>
+                {{/if}}
+            </a>
+        </li>
+        {{/each}}
+    </script>
+</div>

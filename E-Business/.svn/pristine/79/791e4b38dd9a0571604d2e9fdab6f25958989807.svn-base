@@ -1,0 +1,24 @@
+<script id="template-option_settings" type="text/template">
+    <table class="table-form form-inline">
+        <colgroup>
+            <col style="width: 120px"/>
+            <col/>
+        </colgroup>
+        {{each optionSettingsData as optionSetting i}}
+        <tr>
+            <th>
+                <label class="control-label">{{optionSetting.name}}：</label>
+            </th>
+            <td>
+                {{each optionSetting.options as option j}}
+                <div class="radio">
+                    <label>
+                        <input type="radio" value="{{option}}" {{if currentValue&&currentValue[optionSetting.name]==option}}checked="checked"{{else if showMode==0}}disabled="disabled"{{/if}} name="{{optionSetting.name}}"><i class="fa fa-radio"></i>{{option}}
+                    </label>
+                </div>
+                {{/each}}
+            </td>
+        </tr>
+        {{/each}}
+    </table>
+</script>

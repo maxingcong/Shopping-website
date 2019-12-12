@@ -1,0 +1,1222 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="renderer" content="webkit|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="robots" content="all">
+    <meta name="keywords" content="第八届·山鹰杯-全国大学生包装结构创新设计大赛 首届·祥恒杯全国大学生真题真做包装设计大赛">
+    <meta name="description" content="第八届·山鹰杯-全国大学生包装结构创新设计大赛 首届·祥恒杯全国大学生真题真做包装设计大赛">
+    <meta name="author" content="ininin.com">
+    <meta name="copyright" content="Copyright © 2017 ininin.com. All rights reserved.">
+    <title>第八届·山鹰杯-全国大学生包装结构创新设计大赛 首届·祥恒杯全国大学生真题真做包装设计大赛</title>
+    <link href="./favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="<?=STYLES_DESIGN?>contest.css?ininin=<?=VERSION?>"/>
+    <link rel="stylesheet" type="text/css" href="<?=SCRIPTS?>editor/wangEditor.css?ininin=<?=VERSION?>"/>
+    <?php include(MODULES.'dns_prefetch.xhtml');?>
+    <style type="text/css">
+        .main img {
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="background">
+    <img src="<?=IMAGES_DESIGN?>contest/bg.jpg"/>
+</div>
+<div class="background background-header">
+    <img src="<?=IMAGES_DESIGN?>contest/bg.jpg"/>
+</div>
+<div id="header" class="header">
+    <div class="layout">
+        <div class="rel">
+            <ul class="nav clearfix">
+                <li class="col col-logo">
+                    <a href="#"><img src="<?=IMAGES_DESIGN?>contest/logo.png"/></a>
+                </li>
+                <li class="col col-name">
+                    <h2>第八届·山鹰杯</h2>
+                    <h2>全国大学生包装结构创新设计大赛</h2>
+                    <h3>首届·祥恒杯全国大学生真题真做包装设计大赛</h3>
+                </li>
+            </ul>
+            <div class="nav-right">
+                <a class="btn btn-plain" href="#entry">我要报名</a><a
+                    class="btn btn-plain" href="#entry">我的大赛</a><a
+                    id="login" class="link login-before" name="registerurl"
+                    href="<?=DOMAIN?>passport/index.html" rel="nofollow">登录</a><span
+                    class="line login-before"></span><a
+                    class="link login-before" name="registerurl" href="<?=DOMAIN?>passport/index.html#type=1"
+                    rel="nofollow">注册</a><a
+                    id="user_name" class="link user-name ellipsis login-after"
+                    href="<?=DOMAIN?>member/index.html" target="_blank" rel="nofollow"></a><span
+                    class="line login-after"></span><a
+                    id="logout_btn" class="link login-after" href="javascript:;" rel="nofollow">退出</a>
+            </div>
+        </div>
+        <div class="anchor"></div>
+    </div>
+</div>
+<div id="main" class="main">
+    <div class="layout">
+        <ul id="sidebar" class="sidebar">
+            <li><i class="line"></i><a href="#home">首页</a></li>
+            <li><i class="line"></i><a href="#purpose">大赛背景</a></li>
+            <li><i class="line"></i><a href="#about">关于大赛</a></li>
+            <li><i class="line"></i><a href="#qualification">参赛资格</a></li>
+            <li><i class="line"></i><a href="#process">参赛流程</a></li>
+            <li><i class="line"></i><a href="#require">作品要求</a></li>
+            <li><i class="line"></i><a href="#entrymode">参赛方式</a></li>
+            <li><i class="line"></i><a href="#upload">参赛要求及作品提交</a></li>
+            <li><i class="line"></i><a href="#judge">评委及评选原则</a></li>
+            <li><i class="line"></i><a href="#awards">奖项设置</a></li>
+            <li><i class="line"></i><a href="#schedule">大赛日程</a></li>
+            <li><i class="line"></i><a href="#proposition">命题下载</a></li>
+            <li><i class="line"></i><a href="#awardsList">获奖作品</a></li>
+            <li><i class="line"></i><a href="#contact">联系方式</a></li>
+        </ul>
+        <div id="home" class="content" style="display: block">
+            <div class="article">
+                <div class="body-text">
+                    <div style="min-height: 208px; padding-bottom: 20px">
+                        <img src="<?=IMAGES_DESIGN?>contest/100.jpg" width="100%">
+                        <!--<div id="banner" class="slide-panel" data-duration="600" data-interval="3000">
+                            <ul class="slide-layer clearfix">
+                                <li class="slide-item">
+                                    <img src="<?=IMAGES_DESIGN?>contest/b1.jpg">
+                                </li>
+                                <li class="slide-item">
+                                    <img src="<?=IMAGES_DESIGN?>contest/b2.jpg">
+                                </li>
+                            </ul>
+                            <div class="slide-dots">
+                                <span class="slide-dot sel"><i class="slide-shade"></i></span><span class="slide-dot"><i
+                                    class="slide-shade"></i></span>
+                            </div>
+                        </div>-->
+                    </div>
+                </div>
+                <h4 class="headline">大赛新闻</h4>
+                <div id="newsList" class="body-text">
+                    <!--<ul class="news">
+                        <li class="new ellipsis">
+                            <a href="#new">【置顶】关于大赛赛区巡讲活动组织机构标准的通知[2017-11-07]</a>
+                        </li>
+                        <li class="new ellipsis">
+                            <a href="#new">【活动】关于大赛赛区巡讲活动组织机构标准的通知[2017-11-07]</a>
+                        </li>
+                        <li class="new ellipsis">
+                            <a href="#new">【通知】关于大赛赛区巡讲活动组织机构标准的通知[2017-11-07]</a>
+                        </li>
+                        <li class="new ellipsis">
+                            <a href="#new">【命题】关于大赛赛区巡讲活动组织机构标准的通知[2017-11-07]</a>
+                        </li>
+                    </ul>-->
+                </div>
+            </div>
+            <div id="newsDetail" class="article"></div>
+        </div>
+        <div id="purpose" class="content">
+            <div class="article">
+                <h4 class="headline">大赛背景</h4>
+                <div class="body-text">
+                    <div class="section">
+                        <div class="section">
+                            <b>第八届山鹰杯“全国大学生包装结构创新设计大赛”</b>是一项由教育部轻工类专业教学指导委员会主办的，面向全国普通高等学校包装类专业在校大学生的，全国性学科竞赛活动。旨在为包装设计领域培育和发现人才，挖掘新的包装创意和新作品，服务包装行业发展。大赛与教学相结合，通过调研分析，了解受众需求，进行创新包装结构设计，为高校学生提供一个展示自我的舞台！打造属于高校包装人自己的赛事！
+                            <p>大赛以培养大学生<b>“创新结构设计能力”</b>为目标，以发现人才，培养人才为宗旨，面向全国普通高等学校包装类专业在校大学生，结合参赛作品，激发学生的创新设计灵感，培养学生的创新创意素质和包装设计能力。
+                            </p>
+                        </div>
+                        <div class="section">
+                            <b>第八届山鹰杯“全国大学生包装结构创新设计大赛”</b>由全产业链包装上市企业山鹰国际控股股份公司冠名支持，不但提供包装创意展示的平台，更为广大包装学子提供进入包装行业龙头企业实习和工作的绿色通道！同时在大赛原有赛制下增设<b>祥恒杯“真题真做”全国大学生包装结构设计大赛</b>，以企业真实包装项目作为命题，旨在推动和培养包装高校学生解决实际工程问题能力！
+                        </div>
+                        <div class="section">
+                            <b>第八届山鹰杯“全国大学生包装结构创新设计大赛”</b>首次采用了网络提交作品的方式，所有设计作品需在规定时间内于大赛官方网站上完成提交，作品征集和评审定于<b>2018年1月至2018年8月</b>进行。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="about" class="content about">
+            <div class="anchor" style="display: none">
+                <a href="#about">大赛概况</a><a
+                    href="#about1">大赛亮点</a><!--<a
+                    href="#about2">大赛章程</a><a
+                    href="#about3">组委会文件</a>-->
+            </div>
+            <div class="article">
+                <h4 class="headline">大赛概况</h4>
+                <div class="body-text">
+                    <div class="section">
+                        <div class="section">
+                            1、设计主题：<b>“创意包装、智慧包装、提升消费体验”</b>。大赛以培养大学生<b>“创新结构设计能力”</b>为目标，结合参赛作品，激发学生的创新设计灵感，培养学生的创新创意素质和包装设计能力。本届赛事既有山鹰杯的开放命题大赛，同时也有结合企业真实包装项目作为命题的祥恒杯比赛部分。来考验同学们解决实际问题能力，展现最佳专业性！
+                        </div>
+                        <div class="section">
+                            <div>2、所有参赛作品必须是遵照大赛宗旨，按照比赛内容要求：</div>
+                            <div>（1）作品具有较强的创新内涵；</div>
+                            <div>（2）作品突出结构、功能与艺术等创新，突显价值理念；</div>
+                            <div>（3）作品从造型设计、环保性能、成本优化等方面体现大赛主题；</div>
+                            <div>（4）充分考虑材料运用及功能结构合理，考虑批量生产制造可行性；</div>
+                            <div>（5）体现创意包装、智慧包装以及注重消费体验的发展方向；</div>
+                            <div>（6）参加“真题真做”大赛部分则须围绕比赛命题和相关要求进行创作。</div>
+                        </div>
+                        <div class="section">
+                            <div>3、参赛作品以包装结构创新设计为导向，具体分类如下：</div>
+                            <div>（1）祥恒杯“真题真做”全国大学生包装结构设计大赛</div>
+                            <div>（2）电商包装</div>
+                            <div>（3）快销产品包装</div>
+                            <div>（4）工业产品包装</div>
+                            <div>（5）电器包装</div>
+                            <div>（6）零售展示包装</div>
+                            <div>（7）农产品包装</div>
+                            <div>（8）智能包装</div>
+                            <div>（9）其他</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="about1" class="article">
+                <h4 class="headline">大赛亮点</h4>
+                <div class="body-text">
+                    <div class="section">
+                        <h5>1、独特赛制</h5>
+                        <div>
+                            是时候展现真正的技术了!两种赛制，随你选择！既有山鹰杯的开放命题大赛，同时也有结合企业真实包装项目作为命题的祥恒杯比赛部分。来考验同学们解决实际问题能力，杜绝拿来主义抄袭，来展现最佳专业性！
+                        </div>
+                    </div>
+                    <div class="section">
+                        <h5>2、丰厚奖励</h5>
+                        <div>赛事不但提供包装创意展示的平台，更为大家提供进入包装行业龙头企业的绿色通道。表现优秀者可以直接收到包装龙头企业设计部高薪OFFER。踏出领先别人的第一步！</div>
+                    </div>
+                    <div class="section">
+                        <h5>3、评委阵容</h5>
+                        <div>不仅有来自业内高校的10-15名评审专家及资深行业专家进行评审。真题真做更加上包装行业龙头企业设计高管，从而让大赛更加贴合市场，更加落地。使命题和评审都更具有实际操作性！</div>
+                    </div>
+                    <div class="section">
+                        <h5>4、同步点评</h5>
+                        <div>评审部分每周在公众号将同步点评参赛作品，让每位参赛者都了解自己优点和不足，从而更加明确自己的定位和方向，有方向的继续努力！</div>
+                    </div>
+                    <div class="section">
+                        <h5>5、网络评审</h5>
+                        <div>祥恒杯首次开放网络评审，参赛者将作品同步到网络由大众赏析并投票，设计面向大众也应该由大众评审，网络评判分数将占总分数的30%，网络人气最高的作品将会获得<b>“最佳人气奖”</b>。
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--<div id="about2" class="article">
+                <h4 class="headline">大赛章程</h4>
+                <div class="body-text">TBA</div>
+            </div>
+            <div id="about3" class="article">
+                <h4 class="headline">组委会文件</h4>
+                <div class="body-text">TBA</div>
+            </div>-->
+        </div>
+        <div id="qualification" class="content">
+            <div class="article">
+                <h4 class="headline">参赛资格</h4>
+                <div class="body-text">
+                    <div class="section">1、参赛者资格：中国大陆，港澳台地区学习包装类专业的在校大学生，正式注册学生均可参加。</div>
+                    <div class="section">2、指导老师资格：在参赛者所在的高等院校任教，并在参赛作品创作过程中提供了实际指导和意见的老师。指导老师在日常教学活动中不一定对参赛者有直接任教关系。
+                    </div>
+                    <div class="section">3、没有经指导老师指导的作品亦可以个人参赛，但需通过单位统一报名。</div>
+                </div>
+            </div>
+        </div>
+        <div id="process" class="content">
+            <div class="article">
+                <h4 class="headline">参赛流程</h4>
+                <div class="body-text">
+                    <div class="section">
+                        <h5>第1步：报名</h5>
+                        <div>在大赛官网填写报名资料，完成报名，系统同时将生成参赛编号。</div>
+                        <div>如参加祥恒杯真题真做包装设计大赛，选手需在官网首页查看命题和相关要求。</div>
+                    </div>
+                    <div class="section">
+                        <h5>第2步：作品创作</h5>
+                    </div>
+                    <div class="section">
+                        <h5>第3步：上传及邮寄作品</h5>
+                        <div>按照要求格式在官网上传完成的作品电子稿（包括效果图、三视图、简要设计创意说明），按要求装裱的参赛作品邮寄到大赛组委会指定地址。</div>
+                    </div>
+                    <div class="section">
+                        <h5>第4步：线上及现场评审</h5>
+                    </div>
+                    <div class="section">
+                        <h5>第5步：获奖名单公布</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="require" class="content">
+            <div class="article">
+                <h4 class="headline">作品要求</h4>
+                <div class="body-text">
+                    <div class="section">1、作品具有较强的创新内涵；突出结构、功能与消费体验等创新，突显价值理念；创新角度可以从造型设计、环保性能、成本优化等多方位体现。</div>
+                    <div class="section">2、所有参赛作品需充分考虑材料运用及功能结构合理，考虑批量生产制造可行性。</div>
+                    <div class="section">3、所有参赛作品必须保证原创，不得盗窃他人作品/版权，不得一稿多投，发生纠纷与本比赛无任何关系。</div>
+                    <div class="section">4、参加“真题真做”大赛部分则须围绕比赛命题和相关要求进行创作。</div>
+                </div>
+            </div>
+        </div>
+        <div id="entrymode" class="content">
+            <div class="article">
+                <h4 class="headline">参赛方式</h4>
+                <div class="body-text">
+                    <div class="section">参赛者需登录赛事官网进行线上报名，并在规定的时间内按要求提交作品。</div>
+                    <div class="section">所有赛事信息都可登录公众号和官网进行查询。</div>
+                </div>
+            </div>
+        </div>
+        <div id="upload" class="content">
+            <div class="article">
+                <h4 class="headline">参赛要求及作品提交</h4>
+                <div class="body-text">
+                    <div class="section">
+                        <p>
+                            1、上传参赛作品电子版设计，作品设计方案必须清晰地反映在A3标准版面上，合理的规格尺寸，分辨率150dpi以上。内容包含作品主体效果图、基本外观尺寸图、设计说明等，不得出现参赛者姓名等相关信息。</p>
+                        <p>
+                            2、提交由参赛人员自行装裱的作品（包括系列设计作品中的单项作品）的效果图和平面图。请打印为A3（297mm×420mm）规格的幅面，整洁、美观、牢固地装裱于350mm×500mm黑色卡纸上，参加决赛评选。</p>
+                        <p>
+                            3、所有作品均需注明“2018第八届全国大学生包装结构创新设计大赛”字样，并按参赛要求提交创意设计说明。为保证评审的公正性，每件作品设计稿正面不可以出现参赛内容以外的任何文字和标记，需在作品的背面标注姓名、参赛学校及联系电话，否则视为无效。</p>
+                        <p>4、每件参赛作品不得超过4位作者，每人参赛作品不得超过2件。作品类别不限，同系列作品按1件计算。</p>
+                        <p>
+                            5、参赛作品必须是参赛选手自主设计、且无抄袭仿冒。参赛者需保证对参赛作品拥有充分、完全、排他的知识产权，不侵犯他人的任何专利、著作权、商标权及其他知识产权，参赛者本人同意主办方对参赛作品进行公布、宣传、展览。</p>
+                        <p>6、提交的所有参赛作品，无论获奖与否，均不退回，请参赛者自留底稿。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="awards" class="content">
+            <div class="article">
+                <h4 class="headline">奖项设置<span
+                        style="font-size: 14px; font-weight: normal">（主办方有权依据实际参赛作品数量和质量调整奖项设置）</span></h4>
+                <div class="body-text">
+                    <div class="section">
+                        <div>第八届山鹰杯“全国大学生包装结构创新设计大赛”所有奖项由教育部高等学校轻工类专业教学指导委员会颁发，具体奖项设置如下：</div>
+                        <table cellpadding="0" cellspacing="0">
+                            <colgroup>
+                                <col style="width: 100px"/>
+                                <col style="width: 120px"/>
+                                <col style="width: 150px"/>
+                            </colgroup>
+                            <tr>
+                                <td>奖项</td>
+                                <td>名额</td>
+                                <td>奖励内容</td>
+                            </tr>
+                            <tr>
+                                <td>特等奖</td>
+                                <td>10名</td>
+                                <td>证书、奖牌</td>
+                            </tr>
+                            <tr>
+                                <td>一等奖</td>
+                                <td>20名</td>
+                                <td>证书</td>
+                            </tr>
+                            <tr>
+                                <td>二等奖</td>
+                                <td>30名</td>
+                                <td>证书</td>
+                            </tr>
+                            <tr>
+                                <td>三等奖</td>
+                                <td>50名</td>
+                                <td>证书</td>
+                            </tr>
+                            <tr>
+                                <td>优秀组织奖</td>
+                                <td>待定</td>
+                                <td>证书</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="section">
+                        <div>同时参加“真题真做”大赛的作品，将有机会获得祥恒包装创意设计奖，获奖的作品会由山鹰国际进行再次颁奖，具体奖项设置如下：</div>
+                        <div>一等奖（3名），具体奖励包括：</div>
+                        <div>（1）奖励人民币10000元；</div>
+                        <div>（2）颁发获奖证书；</div>
+                        <div>（3）山鹰国际控股股份公司人事部直接发录用offer；</div>
+                        <div>（4）设计如被采用提供利润提成。</div>
+                        <div>二等奖（5名），具体奖励包括：</div>
+                        <div>（1）奖励人民币3000元；</div>
+                        <div>（2）颁发获奖证书；</div>
+                        <div>（3）提供山鹰国际实习机会。</div>
+                        <div>三等奖（10名），具体奖励包括：</div>
+                        <div>（1）奖励人民币1500元；</div>
+                        <div>（2）颁发获奖证书；</div>
+                        <div>（3）提供山鹰国际参观机会。</div>
+                        <div>最佳人气奖（1名），网络投票评选第一名将会获得最佳人气奖，具体奖励包括：</div>
+                        <div>（1）奖励人民币5000元；</div>
+                        <div>（2）获奖证书；</div>
+                        <div>（3）有机会录用为山鹰国际校园大使。</div>
+                    </div>
+                    <div class="section">
+                        <h5>获奖者权益：</h5>
+                        <div>1、均获得相关获奖证书；</div>
+                        <div>2、学生参赛者将有可能获得与大型包装企业进行沟通交流的机会，并优先获得实习或合作机会，特别突出者还将有机会成为大型包装企业设计师。</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="judge" class="content">
+            <div class="article">
+                <h4 class="headline">评委及评选原则</h4>
+                <div class="body-text">
+                    <div class="section">
+                        由来自业内高校的10-15名评审专家及资深行业专家进行评审。真题真做更加上包装行业龙头企业设计高管，从而让大赛更加贴合市场，更加落地。使命题和评审都更具有实际操作性！
+                    </div>
+                    <div class="section">
+                        评审部分每周在公众号将同步点评参赛作品，让每位参赛者都了解自己优点和不足，从而更加明确自己的定位和方向，有方向的继续努力！
+                    </div>
+                    <div class="section">
+                        祥恒杯首次开放网络评审，参赛者将作品同步到网络由大众赏析并投票，设计面向大众也应该由大众评审，网络评判分数将占总分数的30%，网络人气最高的作品将会获得“最佳人气奖”。
+                    </div>
+                    <div class="section">
+                        具体评审项目如下：
+                        <style type="text/css">
+                            .item-table {
+                                width: 100%;
+                                table-layout: fixed;
+                                border-collapse: collapse
+                            }
+
+                            .item-table th, .item-table td {
+                                text-align: center;
+                                padding: 5px 10px;
+                                border: 1px solid #deb378
+                            }
+                        </style>
+                        <table class="item-table" cellspacing="0" cellpadding="0">
+                            <colgroup>
+                                <col style="width: 80px"/>
+                                <col style="width: 50px"/>
+                                <col style="width: 80px"/>
+                                <col/>
+                            </colgroup>
+                            <tr>
+                                <th colspan="2">评审项目</th>
+                                <th>百分比</th>
+                                <th style="text-align: left">评分标准</th>
+                            </tr>
+                            <tr>
+                                <td colspan="2">创意构思</td>
+                                <td>40%</td>
+                                <td style="text-align: left">
+                                    <div>1．个性突出，具有原创性及独创性</div>
+                                    <div>2．符合人们使用习惯，挖掘使用者潜在需求</div>
+                                    <div>3．具有趣味性及互动性，充分发挥包装的功能</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">结构合理</td>
+                                <td>20%</td>
+                                <td style="text-align: left">
+                                    <div>1．基于创意的前提下具有较强的实用性，使用安全方便</div>
+                                    <div>2．对内装物有良好的保存及保护性能</div>
+                                    <div>3．考虑批量加工生产的效率及难易程度</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">销售外观</td>
+                                <td>15%</td>
+                                <td style="text-align: left">
+                                    <div>1．具有良好的终端展示效果，最好与平面设计表现相结合，能促进销售，赢得市场</div>
+                                    <div>2．符合商品属性，能体现产品价值及文化</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2">环保性能</td>
+                                <td>材料</td>
+                                <td rowspan="2">20%</td>
+                                <td rowspan="2" style="text-align: left">
+                                    <div>1．使用材料环保性</div>
+                                    <div>2．结构设计省材型，加工方式环保</div>
+                                    <div>3．考虑循环利用，材料可回收</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>结构</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">其他</td>
+                                <td>5%</td>
+                                <td style="text-align: left">
+                                    <div>1．提供作品样板</div>
+                                    <div>2．作品文案有创意，配合平面设计效果</div>
+                                    <div>3．作品描述清晰，介绍资料齐全</div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="section">
+                        <!--<h5>1、高校评审团</h5>-->
+                        <ul id="reviewerList1" class="reviewer-list clearfix">
+                            <!--<li class="item">
+                                <div class="portrait">
+                                    <img src="<?=IMAGES_DESIGN?>contest/1.jpg"/>
+                                </div>
+                                <p class="name">TBA</p>
+                                <p class="intro">TBA</p>
+                            </li>
+                            <li class="item">
+                                <div class="portrait">
+                                    <img src="<?=IMAGES_DESIGN?>contest/1.jpg"/>
+                                </div>
+                                <p class="name">TBA</p>
+                                <p class="intro">TBA</p>
+                            </li>
+                            <li class="item">
+                                <div class="portrait">
+                                    <img src="<?=IMAGES_DESIGN?>contest/1.jpg"/>
+                                </div>
+                                <p class="name">TBA</p>
+                                <p class="intro">TBA</p>
+                            </li>
+                            <li class="item">
+                                <div class="portrait">
+                                    <img src="<?=IMAGES_DESIGN?>contest/1.jpg"/>
+                                </div>
+                                <p class="name">TBA</p>
+                                <p class="intro">TBA</p>
+                            </li>-->
+                        </ul>
+                    </div>
+                    <div class="section">
+                        此外，参加祥恒杯“真题真做”大赛部分的作品，除了有机会获得上述奖项外，还可以同时参加由山鹰国际控股股份公司组织评选的祥恒包装创意设计奖，祥恒包装创意设计奖由山鹰国际组织的企业评审专家组进行同步评审，并引入进行网络投票评选，依据评审专家组评审结果和网络投票结果，综合确定选出“真题真做”比赛获奖作品。
+                    </div>
+                    <div class="section">
+                        <!--<h5>2、企业评审团</h5>-->
+                        <ul id="reviewerList2" class="reviewer-list clearfix">
+                            <!--<li class="item">
+                                <div class="portrait">
+                                    <img src="<?=IMAGES_DESIGN?>contest/1.jpg"/>
+                                </div>
+                                <p class="name">云小印</p>
+                                <p class="intro">设计师、品牌顾问艺术家</p>
+                            </li>
+                            <li class="item">
+                                <div class="portrait">
+                                    <img src="<?=IMAGES_DESIGN?>contest/1.jpg"/>
+                                </div>
+                                <p class="name">云小印</p>
+                                <p class="intro">设计师、品牌顾问艺术家</p>
+                            </li>
+                            <li class="item">
+                                <div class="portrait">
+                                    <img src="<?=IMAGES_DESIGN?>contest/1.jpg"/>
+                                </div>
+                                <p class="name">云小印</p>
+                                <p class="intro">设计师、品牌顾问艺术家</p>
+                            </li>
+                            <li class="item">
+                                <div class="portrait">
+                                    <img src="<?=IMAGES_DESIGN?>contest/1.jpg"/>
+                                </div>
+                                <p class="name">云小印</p>
+                                <p class="intro">设计师、品牌顾问艺术家</p>
+                            </li>-->
+                        </ul>
+                    </div>
+                    <!--<div class="section">
+                        <h5>3、评选原则</h5>
+                        <p>商业价值 / 审美价值 / 适用性 / 创意表现</p>
+                    </div>-->
+					
+                    <div class="section">
+                        <h4>“祥恒杯”真题真做大赛设计要求</h4>
+                        <h5>1、基本要求</h5>
+						<p>本大赛包装解决方案的设计主要考虑如下几点：</p>
+						<p>1）方案形式为内部缓冲结构加外包装箱/盒的整套包装解决方案；</p>
+						<p>2）结构设计重点关注产品的保护，并考虑包装的成型、开箱取物和重新包装的便利性；</p>
+						<p>3）以瓦楞纸板为首选材料，楞形和同一楞形的配材建议各不超过2种，如果需要使用除瓦楞纸板之外的其他材料，建议使用环保材料（禁用EPS），在同一套包装解决方案中尽量使用较少的材料种类；</p>
+						<p>4）外包装箱/盒的尺寸设计需要综合考虑托盘、货车、集装箱和货架尺寸，首选模数化设计，从而最大化装载和陈列空间的利用率；</p>
+						<p>5）包装材料的成本（请选手自行核价）尽量控制在产品售价的5%以下（产品售价取产品的销售均价，请选手自行调研）</p>
+						<p>6）设计方案时依次考虑堆码、跌落和振动，如果没有条件进行测试，请在方案呈现里体现思路。</p>
+                        <h5>2、堆码测试</h5>
+						<p>堆码测试是模拟货存静压的状态试验，验证最下方包装件经受垂直方向挤压的能力。本测试要求包装件在固定压力（模拟实际压力）持续15分钟作用下不变形，不破损。</p>
+						<p>该固定压力的计算公式为：</p>
+						<img src="<?=IMAGES_DESIGN?>contest/200.png">
+						<p>P - 固定压力值</p>
+						<p>W - 包装件毛重</p>
+						<p>H - 堆码高度上限，取3m</p>
+						<p>h - 包装件高度</p>
+						<p>H/h - 堆码层数，计算结果向下取整</p>
+						<p>K - 安全系数，取3</p>
+						<h5>3、跌落测试</h5>
+						<p>跌落测试是模拟包装件在搬运过程中可能受到的自由跌落冲击，验证包装在该情况下保护产品的能力。本测试要求包装件在经过“1角3棱6面”的10次跌落之后外观无明显变形或破损，产品无破损。如图2-1所示为包装件的角、棱和面的标识。</p>
+						<div style="text-align:center">
+							<img src="<?=IMAGES_DESIGN?>contest/201.png">
+							<p style="text-align:center">图2-1 包装件标识</p>
+						</div>
+						<p>跌落测试高度的取值依照表2-1。</p>
+						<table class="item-table" cellspacing="0" cellpadding="0">
+                            <colgroup>
+                                <col style="width:50%"/>
+                                <col/>
+                            </colgroup>
+                            <tr>
+                                <th>包装件重量（单位：kg）</th>
+                                <th>跌落高度（单位：mm）</th>
+                            </tr>
+                            <tr>
+                                <td><10</td>
+                                <td>760</td>
+                            </tr>
+                            <tr>
+                                <td>10-20</td>
+                                <td>610</td>
+                            </tr>
+                            <tr>
+                                <td>20-30</td>
+                                <td>460</td>
+                            </tr>
+                            <tr>
+                                <td>30-45</td>
+                                <td>310</td>
+                            </tr>
+                            <tr>
+                                <td>45-70</td>
+                                <td>200</td>
+                            </tr>
+                            <tr>
+                                <td>>70</td>
+                                <td>100</td>
+                            </tr>
+						</table>
+						<p style="text-align:center">表2-1 跌落高度对应表</p>
+						<p>跌落部位及次序依照表2-2。</p>
+						<table class="item-table" cellspacing="0" cellpadding="0">
+                            <colgroup>
+                                <col style="width:20%"/>
+                                <col style="width:30%"/>
+                                <col/>
+                            </colgroup>
+                            <tr>
+                                <th>次序</th>
+                                <th>部位</th>
+                                <th>说明</th>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>角</td>
+                                <td>取最脆弱的一个角，若不能确定则取角2-3-5</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>棱</td>
+                                <td>靠近跌落角的最短棱</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>棱</td>
+                                <td>靠近跌落角的次长棱</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>棱</td>
+                                <td>靠近跌落角的最长棱</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>面</td>
+                                <td>任意一个最小面</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>面</td>
+                                <td>另外一个最小面</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>面</td>
+                                <td>任意一个中等面</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>面</td>
+                                <td>另外一个中等面</td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td>面</td>
+                                <td>任意一个最大面</td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td>面</td>
+                                <td>另外一个最大面</td>
+                            </tr>
+						</table>
+						<p style="text-align:center">表2-2 跌落部位及次序</p>
+                        <h5>4、振动测试</h5>
+						<p>跌落测试是模拟包装件在运输过程中遇到的道路颠簸振动，验证包装在该情况下保护产品的能力。本测试要求包装件在固定频率下经受25mm高峰-低峰（全幅位移）的冲击5000次之后外观无明显变形或破损，产品无破损。</p>
+						<p>测试过程为：</p>
+						<p>1、将样品放置于振动台面上，设定好固定振幅</p>
+						<p>2、使振动台从2Hz频率开始振动，并逐渐提高频率，直到样品与振动台分离为止</p>
+						<p>3、保持频率不变使台面振动5000次，完成振动测试，检查样品</p>
+                        <h5>4、评判标准</h5>
+						<p>参赛选手须从上一节所列设计任务中选取1个或多个设计任务进行包装解决方案的设计。设计作品的图纸提交格式为DXF格式，在图纸上需要标明具体材料和相关性能（如瓦楞纸板的边压和耐破等），设计作品的呈现方式为PPT格式。</p>
+						<p>设计作品的评判标准如表2-3所示。</p>
+						<table class="item-table" cellspacing="0" cellpadding="0">
+                            <colgroup>
+                                <col style="width:20%"/>
+                                <col style="width:30%"/>
+                                <col/>
+                            </colgroup>
+                            <tr>
+                                <th colspan="2">分数占比</th>
+                                <th>评分标准</th>
+                            </tr>
+                            <tr>
+                                <td>创新</td>
+                                <td>25%</td>
+                                <td>结构创新且方案可落地</td>
+                            </tr>
+                            <tr>
+                                <td>环保</td>
+                                <td>10%</td>
+                                <td>采用绿色环保包装材料</td>
+                            </tr>
+                            <tr>
+                                <td>适度</td>
+                                <td>25%</td>
+                                <td>节约包装材料用量</td>
+                            </tr>
+                            <tr>
+                                <td>友好</td>
+                                <td>25%</td>
+                                <td>便于生产、储运、操作、开箱和再次包装</td>
+                            </tr>
+						</table>
+						<p style="text-align:center">表2-3 作品评判标准</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="schedule" class="content">
+            <div class="article">
+                <h4 class="headline">
+                    大赛日程</h4>
+                <div class="body-text">
+                    <div class="section">
+                        <h5>2017.11</h5>
+                        <div>大赛启动阶段</div>
+                    </div>
+                    <div class="section">
+                        <h5>2018.01</h5>
+                        <div>征稿阶段（第一轮通知）</div>
+                    </div>
+                    <div class="section">
+                        <h5>2018.03</h5>
+                        <div>征稿阶段（第二轮通知）</div>
+                    </div>
+                    <div class="section">
+                        <h5>2018.06</h5>
+                        <div>征稿阶段（第三轮通知）</div>
+                    </div>
+                    <div class="section">
+                        <h5>2018.07</h5>
+                        <div>作品评审，获奖名单公布</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="proposition" class="content proposition">
+            <div class="article">
+                <h4 class="headline">首届·祥恒杯全国大学生真题真做包装设计大赛 命题下载</h4>
+                <div id="topicList" class="body-text">
+                    <!--<ul class="propositions">
+                        <li class="item">
+                            <a href="http://cloud.ininin.com/58ea8970a849fc2ab4b75dc8b3d4e1b2.zip?download/礼品盒创新设计-云印技术（深圳）有限公司.zip"
+                               class="down">下载</a>
+                            <div class="name ellipsis">
+                                <a href="http://cloud.ininin.com/58ea8970a849fc2ab4b75dc8b3d4e1b2.zip?download/礼品盒创新设计-云印技术（深圳）有限公司.zip">礼品盒创新设计-云印技术（深圳）有限公司</a>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <a href="http://cloud.ininin.com/58ea8970a849fc2ab4b75dc8b3d4e1b2.zip?download/苹果包装创新设计-云印技术（深圳）有限公司.zip"
+                               class="down">下载</a>
+                            <div class="name ellipsis">
+                                <a href="http://cloud.ininin.com/58ea8970a849fc2ab4b75dc8b3d4e1b2.zip?download/苹果包装创新设计-云印技术（深圳）有限公司.zip">苹果包装创新设计-云印技术（深圳）有限公司</a>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <a href="http://cloud.ininin.com/58ea8970a849fc2ab4b75dc8b3d4e1b2.zip?download/礼品盒创新设计-云印技术（深圳）有限公司.zip"
+                               class="down">下载</a>
+                            <div class="name ellipsis">
+                                <a href="http://cloud.ininin.com/58ea8970a849fc2ab4b75dc8b3d4e1b2.zip?download/礼品盒创新设计-云印技术（深圳）有限公司.zip">礼品盒创新设计-云印技术（深圳）有限公司</a>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <a href="http://cloud.ininin.com/58ea8970a849fc2ab4b75dc8b3d4e1b2.zip?download/苹果包装创新设计-云印技术（深圳）有限公司.zip"
+                               class="down">下载</a>
+                            <div class="name ellipsis">
+                                <a href="http://cloud.ininin.com/58ea8970a849fc2ab4b75dc8b3d4e1b2.zip?download/苹果包装创新设计-云印技术（深圳）有限公司.zip">苹果包装创新设计-云印技术（深圳）有限公司</a>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <a href="http://cloud.ininin.com/58ea8970a849fc2ab4b75dc8b3d4e1b2.zip?download/礼品盒创新设计-云印技术（深圳）有限公司.zip"
+                               class="down">下载</a>
+                            <div class="name ellipsis">
+                                <a href="http://cloud.ininin.com/58ea8970a849fc2ab4b75dc8b3d4e1b2.zip?download/礼品盒创新设计-云印技术（深圳）有限公司.zip">礼品盒创新设计-云印技术（深圳）有限公司</a>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <a href="http://cloud.ininin.com/58ea8970a849fc2ab4b75dc8b3d4e1b2.zip?download/苹果包装创新设计-云印技术（深圳）有限公司.zip"
+                               class="down">下载</a>
+                            <div class="name ellipsis">
+                                <a href="http://cloud.ininin.com/58ea8970a849fc2ab4b75dc8b3d4e1b2.zip?download/苹果包装创新设计-云印技术（深圳）有限公司.zip">苹果包装创新设计-云印技术（深圳）有限公司</a>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <a href="http://cloud.ininin.com/58ea8970a849fc2ab4b75dc8b3d4e1b2.zip?download/礼品盒创新设计-云印技术（深圳）有限公司.zip"
+                               class="down">下载</a>
+                            <div class="name ellipsis">
+                                <a href="http://cloud.ininin.com/58ea8970a849fc2ab4b75dc8b3d4e1b2.zip?download/礼品盒创新设计-云印技术（深圳）有限公司.zip">礼品盒创新设计-云印技术（深圳）有限公司</a>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <a href="http://cloud.ininin.com/58ea8970a849fc2ab4b75dc8b3d4e1b2.zip?download/苹果包装创新设计-云印技术（深圳）有限公司.zip"
+                               class="down">下载</a>
+                            <div class="name ellipsis">
+                                <a href="http://cloud.ininin.com/58ea8970a849fc2ab4b75dc8b3d4e1b2.zip?download/苹果包装创新设计-云印技术（深圳）有限公司.zip">苹果包装创新设计-云印技术（深圳）有限公司</a>
+                            </div>
+                        </li>
+                    </ul>-->
+                </div>
+            </div>
+            <div id="topicDetail" class="article"></div>
+        </div>
+        <div id="awardsList" class="content awards-list">
+            <div class="anchor" style="display: none">
+                <a href="#awardsList1" class="sel">山鹰杯</a><a
+                    href="#awardsList2">祥恒杯</a>
+            </div>
+            <div id="awardsList1" class="article">
+                <h4 class="headline">山鹰杯</h4>
+                <div class="body-text">
+                    <div id="awards1" class="awards-empty">请关注大赛新闻动态</div>
+                </div>
+            </div>
+            <div id="awardsList2" class="article">
+                <h4 class="headline">祥恒杯</h4>
+                <div id="awards2" class="body-text">
+                    <div class="awards-empty">请关注大赛新闻动态</div>
+                </div>
+            </div>
+        </div>
+        <div id="contact" class="content contact">
+            <div class="article">
+                <h4 class="headline">联系方式</h4>
+                <div class="body-text">
+                    <div class="section">
+                        <table cellpadding="0" cellspacing="0" style="width: 360px; margin: 0 auto">
+                            <tr>
+                                <td class="qr-code">
+                                    <img src="<?=IMAGES_DESIGN?>contest/wb.png"/>
+                                    <p>大赛微博</p>
+                                </td>
+                                <td class="qr-code">
+                                    <img src="<?=IMAGES_DESIGN?>contest/wxcode.jpeg"/>
+                                    <p>大赛公众号</p>
+                                </td>
+                            </tr>
+                        </table>
+                        <p>第八届·山鹰杯 全国大学生包装结构创新设计大赛</p>
+                        <p>首届·祥恒杯 全国大学生真题真做包装设计大赛</p>
+                        <h5>主办方联系人</h5>
+                        东北林业大学包装工程系
+                        <div><b style="margin-right: 30px">王桂英&nbsp;&nbsp;&nbsp;&nbsp;13946083193</b><b>刘&nbsp;&nbsp;&nbsp;兵&nbsp;&nbsp;&nbsp;&nbsp;13936259009</b>
+                        </div>
+                        <div><b style="margin-right: 30px">徐淑艳&nbsp;&nbsp;&nbsp;&nbsp;13804515306</b><b>姜凯译&nbsp;&nbsp;&nbsp;&nbsp;15663526686</b>
+                        </div>
+                        教育部高等学校轻工类专业教学指导委员会包装工程专业指导组
+                        <div><b>王&nbsp;&nbsp;&nbsp;军&nbsp;&nbsp;&nbsp;&nbsp;13821539812</b></div>
+                        暨南大学包装工程研究所
+                        <div><b>张元标&nbsp;&nbsp;&nbsp;&nbsp;13750085338</b></div>
+                        <p><h5>大赛工作邮箱</h5>7849996@qq.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="entry" class="content entry">
+            <div class="article">
+                <h4 class="headline">
+                    我要报名</h4>
+                <div class="body-text">
+                    <div class="section">
+                        <p>1.参赛者在提交作品前，须确保已阅读并愿意遵守大赛赛制，任何违反比赛规则的作品，主办方有权取消其参赛资格。</p>
+                        <p>2.本次大赛所有参赛作品均为非公开参与，仅在入围公示期间对入围作品进行公开展示。</p>
+                        <p><label><input name="agreement" type="checkbox"/>我已阅读并愿意遵守大赛赛制</label></p>
+                        <button id="nextStep" class="btn btn-primary btn-dis">下一步</button>
+                    </div>
+                </div>
+            </div>
+            <div id="entryForm" class="article" style="display: none"></div>
+        </div>
+    </div>
+</div>
+<div class="medias">
+    <div class="media-list">
+        <h3>主办单位</h3>
+        <h4>教育部高等学校轻工类专业教学指导委员会</h4>
+        <h3>承办单位</h3>
+        <h4>教育部高等学校轻工类专业教学指导委员会包装工程专业指导组，东北林业大学，山鹰国际控股股份公司</h4>
+        <h3>协办单位</h3>
+        <h4>云印技术（深圳）有限公司</h4>
+        <h3>支持单位</h3>
+        <h4>全国各设有包装及相关专业的高等院校</h4>
+    </div>
+</div>
+<div class="footer">
+    <div class="layout">
+        <a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备13078924号</a> | 版权所有©2013-2017云印技术（深圳）有限公司
+    </div>
+</div>
+<script id="entryFormTpl" type="text/html">
+    <h4 class="headline">{{userCode?'我的大赛':'我要报名'}}</h4>
+    <div class="body-text form">
+        <div class="section">
+            {{if !userCode}}
+            <p class="light">
+                报名须知：本届大赛支持团队报名，每个团队人数最多不能超过四人。</p>
+            <div class="hr"></div>
+            {{/if}}
+            <div class="group">
+                {{if !userCode}}
+                <!--<h4 class="title">报名信息</h4>-->
+                <p class="sub-title">* 报名成功后报名信息不可修改，请谨慎填写。</p>
+                <div class="form-item">
+                    <div class="form-label">
+                        <label for="contestName">参赛人姓名：</label>
+                    </div>
+                    <div class="form-input">
+                        <input id="contestName" class="input"/>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <div class="form-label">
+                        <label for="schoolName">高校名称：</label>
+                    </div>
+                    <div class="form-right">
+                        <div class="form-col-50">
+                            <div class="form-input"
+                                 style="margin-right: 10px">
+                                <input id="schoolName" class="input"/>
+                            </div>
+                        </div>
+                        <div class="form-col-50">
+                            <div class="form-select"
+                                 style="margin-left: 10px">
+                                <select id="grade">
+                                    <option value="">--请选择--</option>
+                                    <option value="1">专科生</option>
+                                    <option value="2">本科生</option>
+                                    <option value="3">研究生</option>
+                                    <option value="4">其他人士</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <div class="form-label">
+                        <label for="major">专业名称：</label>
+                    </div>
+                    <div class="form-input">
+                        <input id="major" class="input"/>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <div class="form-label">
+                        <label for="instructor">指导教师：</label>
+                    </div>
+                    <div class="form-input">
+                        <input id="instructor" class="input"/>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <div class="form-label">
+                        <label for="phone">联系手机：</label>
+                    </div>
+                    <div class="form-input">
+                        <input id="phone" class="input"/>
+                    </div>
+                    <!--<div class="form-right">
+                        <div class="form-col-50">
+                            <div class="form-input" style="margin-right: 10px">
+                                <input id="phone" class="input"/>
+                            </div>
+                        </div>
+                        <div class="form-col-50">
+                            <div class="form-input" style="margin-left: 10px">
+                                <input id="code" class="input"/>
+                            </div>
+                        </div>
+                    </div>-->
+                </div>
+                <div class="form-item">
+                    <div class="form-label">
+                        <label for="email">联系邮箱：</label>
+                    </div>
+                    <div class="form-input">
+                        <input id="email" class="input"/>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <div class="form-label">
+                        <label for="qq">联系QQ：</label>
+                    </div>
+                    <div class="form-input">
+                        <input id="qq" class="input"/>
+                    </div>
+                </div>
+                <!--<div class="form-item">
+                    <div class="form-label">
+                        <label>参赛类型：</label>
+                    </div>
+                    <div class="form-input checkboxs">
+                        <label class="checkbox"><input name="contestType" type="checkbox"
+                                                       value="1"/>山鹰杯</label><label
+                            class="checkbox"><input name="contestType" type="checkbox"
+                                                    value="2"/>祥恒杯</label><span
+                            class="light">* 可多选，参加【祥恒杯】可同时参加【山鹰杯】</span>
+                    </div>
+                </div>-->
+                {{else}}
+                <div class="form-item">
+                    <div class="form-label">参赛编号：</div>
+                    <div class="form-text">{{userCode}}</div>
+                </div>
+                <div class="form-item">
+                    <div class="form-label">参赛人姓名：</div>
+                    <div class="form-text">{{nickName}}</div>
+                </div>
+                <div class="form-item">
+                    <div class="form-label">高校名称：</div>
+                    <div class="form-text">{{schoolName}}（{{{1:'专科生',2:'本科生',3:'研究生',4:'其他人士'}[grade]}}）</div>
+                </div>
+                <div class="form-item">
+                    <div class="form-label">专业名称：</div>
+                    <div class="form-text">{{major}}</div>
+                </div>
+                <div class="form-item">
+                    <div class="form-label">指导教师：</div>
+                    <div class="form-text">{{instructor}}</div>
+                </div>
+                <div class="form-item">
+                    <div class="form-label">联系手机：</div>
+                    <div class="form-text">{{contact}}</div>
+                </div>
+                <div class="form-item">
+                    <div class="form-label">联系邮箱：</div>
+                    <div class="form-text">{{email}}</div>
+                </div>
+                <div class="form-item">
+                    <div class="form-label">联系QQ：</div>
+                    <div class="form-text">{{qq}}</div>
+                </div>
+                <!--<div class="form-item">
+                    <div class="form-label">参赛类型：</div>
+                    <div class="form-text">{{contestTypeText}}</div>
+                </div>-->
+                {{/if}}
+            </div>
+            {{if userCode}}
+            <div class="group">
+                <!--<h4 class="title">作品信息</h4>
+                <p class="sub-title">* 如需修改作品信息，可在“我的大赛”页面进行修改。</p>-->
+                <div class="form-item">
+                    <div class="form-label">
+                        <label for="workName">作品名称：</label>
+                    </div>
+                    <div class="form-input">
+                        <input id="workName" class="input" value="{{work.workName}}"/>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <div class="form-label">
+                        <label>作品类别：</label>
+                    </div>
+                    <div class="form-select">
+                        <select id="workType">
+                            <option value="">--请选择--</option>
+                            {{each workTypeList as item i}}
+                            {{if item.k==work.workType}}
+                            <option value="{{item.k}}" selected>{{item.v}}</option>
+                            {{else}}
+                            <option value="{{item.k}}">{{item.v}}</option>
+                            {{/if}}
+                            {{/each}}
+                        </select>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <div class="form-label">
+                        <label>作品图片：</label>
+                    </div>
+                    <div class="form-right">
+                        <div class="upload-images clearfix">
+                            <div id="uploadImage-cont"
+                                 class="upload-image-add">
+                                            <span id="uploadImage" class="up-btn">
+                                                <span class="up-text">选择图片</span>
+                                            </span>
+                                <span class="up-doing">正在上传...</span>
+                            </div>
+                            <div style="clear:both">仅支持上传 jpg、png格式图片</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <div class="form-label">
+                        <label>作品文件：</label>
+                    </div>
+                    <div class="form-right">
+                        <div id="uploadFile-cont"
+                             class="upload-file">
+                                            <span id="uploadFile" class="up-btn btn btn-primary">
+                                                <span class="up-text">选择文件</span>
+                                            </span>
+                            <span class="up-doing">正在上传...</span>
+                            <div style="clear:both">请将作品和设计理念原文件打包为压缩包（rar、zip、7z）格式上传</div>
+                            <div id="uploadFile-info"
+                                 class="upload-info"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <div class="form-label">
+                        <label for="designConcept">设计理念：</label>
+                    </div>
+                    <div class="form-right form-editor">
+                                    <textarea id="designConcept" class="input"
+                                              style="width:100%; height:150px; display: none">{{work.designConcept}}</textarea>
+                        <div id="editor"></div>
+                    </div>
+                </div>
+            </div>
+            {{/if}}
+            <div class="form-item">
+                <div class="form-label">
+                    <label>&nbsp;</label>
+                </div>
+                <div class="form-right">
+                    <button id="nowEntry" class="btn btn-primary">{{userCode?'保存作品信息':'立即报名'}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+<script id="newsListTpl" type="text/html">
+    <ul class="news">
+        {{each newsList as news i}}
+        <li class="new ellipsis">
+            <a href="#home/news/${{news.id}}">【{{news.recordTimeText.slice(0,10)}}】{{news.newsTitle}}</a>
+        </li>
+        {{/each}}
+    </ul>
+</script>
+<script id="newsDetailTpl" type="text/html">
+    <h4 class="headline">{{newsDetail.newsTitle}}</h4>
+    <div class="body-text">{{#newsDetail.newsContent}}</div>
+</script>
+<script id="topicListTpl" type="text/html">
+    <ul class="propositions">
+        {{each topicList as topic i}}
+        <li class="item">
+            <a href="{{topic.propositionFile}}"
+               class="down">下载素材</a>
+            <div class="name ellipsis">
+                <a href="#proposition/${{topic.id}}">{{topic.propositionName}}-{{topic.propositionSource}}</a>
+            </div>
+        </li>
+        {{/each}}
+    </ul>
+</script>
+<script id="topicDetailTpl" type="text/html">
+    <h4 class="headline">{{topicDetail.propositionName}}-{{topicDetail.propositionSource}}</h4>
+    <div class="body-text">{{#topicDetail.propositionContent}}</div>
+</script>
+<script id="reviewerListTpl" type="text/html">
+    {{each reviewerList as reviewer i}}
+    <li class="item">
+        <div class="portrait">
+            <img src="{{reviewer.picture}}{{thumbnail}}"/>
+        </div>
+        <p class="name">{{reviewer.nickName}}</p>
+        <p class="intro">{{reviewer.profile}}</p>
+    </li>
+    {{/each}}
+</script>
+<script id="awardsListTpl" type="text/html">
+    {{each awardsList as awards i}}
+    {{if awards.awardRank && awards.list}}
+    {{if awardCategory!=3}}
+    <div class="awards-group">
+        {{/if}}
+        {{include 'awardsTableTpl' awards}}
+        {{if awardCategory!=3}}
+    </div>
+    {{/if}}
+    {{/if}}
+    {{/each}}
+    {{if awardCategory==2}}
+    <div id="awards3" class="awards-group">
+        {{/if}}
+</script>
+<script id="awardsTableTpl" type="text/html">
+    <h5>{{awardRankText}}</h5>
+    <table class="awards-table" cellspacing="0" cellpadding="0">
+        <colgroup>
+            <col style="width: 140px"/>
+            <col/>
+        </colgroup>
+        <thead>
+        <!--<tr>
+            <th>作品图片</th>
+            <th>作品名称/作品类别</th>
+            <th>参赛编号/参赛人姓名</th>
+        </tr>-->
+        </thead>
+        <tbody>
+        {{if list && list.length}}
+        {{each list as item k}}
+        <tr>
+            <td>
+                <div class="img">
+                    <img src="{{item.workImg}}{{thumbnail}}"/>
+                </div>
+            </td>
+            <td style="text-align: left">
+                <div class="name">参赛编号：{{item.userCode}}</div>
+                <div class="author">参赛人姓名：{{item.nickName}}</div>
+                <div class="name">作品名称：{{item.workName}}</div>
+                <div class="type">作品类别：{{item.workTypeText}}</div>
+            </td>
+        </tr>
+        {{/each}}
+        {{else}}
+        <tr>
+            <td colspan="2">
+                <div class="empty">尚未公布获奖作品，请关注大赛新闻动态</div>
+            </td>
+        </tr>
+        {{/if}}
+        </tbody>
+    </table>
+</script>
+<!--<script type="text/javascript" src="<?=SCRIPTS?>editor/wangEditor.min.js?ininin=<?=VERSION?>"></script>-->
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>uploader/main.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS_DESIGN?>contest/index.js?ininin=<?=VERSION?>"></script>
+</body>
+</html>

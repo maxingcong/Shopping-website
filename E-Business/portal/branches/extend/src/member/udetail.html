@@ -1,0 +1,278 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="我的基本信息" />
+    <meta name="description" content="" />
+    <meta name="author" content="${author}" />
+    <meta name="copyright" content="${copyright}" />
+    <title>我的基本信息</title>
+    <link  rel="shortcut icon" type="image/x-icon" href="<?=DOMAIN?>favicon.ico"  />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>layout.css" />
+    <?php include(MODULES.'dns_prefetch.xhtml');?>
+</head>
+<body>
+<?php include(MODULES.'header.xhtml');?>
+<div class="main ucenter uinfo">
+    <div class="layout clearfix">
+        <?php include(MODULES.'usersidebar.xhtml');?>
+        <div class="container">
+            <div class="upanel">
+                <h3 id="headline" class="headline">我的基本信息<!--span class="red">完善资料，可获得10元优惠券哦～</span--></h3>
+                <fieldset id="register" class="">
+                    <form id="info_org_form" class="forms reg_org" name="info_org">
+                        <input type="hidden" name="user_type" value="0" />
+                        <div class="form_group">
+                            <div class="form_item">
+                                <label>
+                                    <span class="field">账户名：</span>
+                                    <span class="readonly" id="ent_user_name"></span>
+                                    <span id="chkmail" class="readonly chkmail"></span>
+                                </label>
+                            </div>
+                            <div class="form_item">
+                                <label>
+                                    <span class="field">注册日期：</span>
+                                    <span class="readonly" id="ent_record_time"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <h3 class="headline">联系人信息</h3>
+                        <div class="form_group">
+                            <div class="form_item">
+                                <label>
+                                    <span class="field">联系人：</span>
+                                    <input class="textbox" type="text" id="ent_contact" name="contact" />
+                                    <i class="msg"></i>
+                                </label>
+                            </div>
+                            <div class="form_item">
+                                <label>
+                                    <span class="field">性别：</span>
+                                    <span id="link_sex" class="radios mt10 text_center">
+                                        <span data-value="0" class="radio">男</span>
+                                        <span data-value="1" class="radio">女</span>
+                                        <input id="ent_sex" name="sex" type="hidden" value="" />
+                                    </span>
+                                    <i class="msg"></i>
+                                </label>
+                            </div>
+                            <div class="form_item">
+                                <label>
+                                    <span class="field">联系人职位：</span>
+                                    <select id="ent_contact_job" name="contact_job">
+                                        <option value="" selected="selected">请选择</option>
+                                        <option value="CEO">CEO</option>
+                                        <option value="行政部门">行政部门</option>
+                                        <option value="销售/市场部门">销售/市场部门</option>
+                                        <option value="财务部门">财务部门</option>
+                                    </select>
+                                    <i class="msg"></i>
+                                </label>
+                            </div>
+                            <!--<div class="form_item">
+                                <label>
+                                    <span class="field">邮箱：</span>
+                                    <input id="ent_email" class="textbox" type="text" name="email" maxlength="100" />
+                                    <i class="msg"></i>
+                                </label>
+                            </div>-->
+                            <div class="form_item">
+                                <label>
+                                    <span class="field">手机：</span>
+                                    <input id="ent_phone" class="textbox" type="text" name="phone" />
+                                    <i class="msg"></i>
+                                </label>
+                            </div>
+                            <div class="form_item">
+                                <label>
+                                    <span class="field">固定电话：</span>
+                                    <input id="ent_tel" class="textbox" type="text" name="tel" maxlength="20" /><span class="alt">如：0755-12345678</span>
+                                    <i class="msg"></i>
+                                </label>
+                            </div>
+                            <div class="form_item">
+                                <label>
+                                    <span class="field">QQ号：</span>
+                                    <input id="ent_qq" class="textbox" type="text" name="qq" maxlength="20" />
+                                    <i class="msg"></i>
+                                </label>
+                            </div>
+                        </div>
+                        <h3 class="headline">企业信息</h3>
+                        <div class="form_group">
+                            <div class="form_item">
+                                <label>
+                                    <span class="field">企业名称：</span>
+                                    <input class="textbox" id="ent_ep_name" type="text" name="ep_name" />
+                                    <i class="msg"></i>
+                                </label>
+                            </div>
+                            <div class="form_item">
+                                <div>
+                                    <span class="field">详细地址：</span>
+                                    <select id="pid-address" name="province"></select>
+                                    <select id="cid-address" name="city"></select>
+                                    <select id="did-address" name="area"></select>
+                                    <input id="pcd-address" name="areaName" type="hidden" value="" />
+                                    <i class="msg"></i>
+                                </div>
+                            </div>
+                            <div class="form_item longtext">
+                                <label>
+                                    <span class="field"></span>
+                                    <input id="ent_address" class="textbox" type="text" name="address" />
+                                    <i class="msg"></i>
+                                </label>
+                            </div>
+                            <div class="form_item">
+                                <label>
+                                    <span class="field">企业类型：</span>
+                                    <span id="company_trade" class="radios mt10 text_center">
+                                        <span data-value="2" class="radio">私企</span>
+                                        <span data-value="1" class="radio">国营</span>
+                                        <span data-value="3" class="radio">中外合资</span>
+                                        <span data-value="4" class="radio">外资</span>
+                                        <span data-value="5" class="radio">政府机关/事业单位</span>
+                                        <span data-value="6" class="radio">其它</span>
+                                        <input id="ent_ep_trade" name="ep_trade" type="hidden" value="" />
+                                    </span>
+                                    <i class="msg"></i>
+                                </label>
+                            </div>
+                            <div class="form_item">
+                                <label>
+                                    <span class="field">企业人数：</span>
+                                    <span id="company_personsum" class="radios mt10 text_center">
+                                        <span data-value="1~49" class="radio">1~49</span>
+                                        <span data-value="50~99" class="radio">50~99</span>
+                                        <span data-value="100~499" class="radio">100~499</span>
+                                        <span data-value="500~999" class="radio">500~999</span>
+                                        <span data-value="1000以上" class="radio">1000以上</span>
+                                        <input id="ent_ep_person_sum" name="ep_person_sum" type="hidden" value="" />
+                                    </span>
+                                    <i class="msg"></i>
+                                </label>
+                            </div>
+                            <div class="form_item">
+                                <label>
+                                    <span class="field">公司行业：</span>
+                                    <select id="ent_ep_type" name="ep_type">
+                                        <option value="1">文印店/广告公司</option>
+                                        <option value="2">互联网/软件</option>
+                                        <option value="3">金融/保险</option>
+                                        <option value="4">餐饮</option>
+                                        <option value="5">美容/保健</option>
+                                        <option value="6">酒店/旅游</option>
+                                        <option value="7">建筑/建材/工程</option>
+                                        <option value="8">家居/室内设计/装潢</option>
+                                        <option value="9">房产中介</option>
+                                        <option value="10">教育/培训</option>
+                                        <option value="11">广告/媒体</option>
+                                        <option value="12">贸易/进出口</option>
+                                        <option value="13">计算机硬件及网络设备</option>
+                                        <option value="14">计算机软件</option>
+                                        <option value="15">IT服务（系统/数据/维护）/多领域经营</option>
+                                        <option value="52">互联网/电子商务</option>
+                                        <option value="16">网络游戏</option>
+                                        <option value="17">通讯（设备/运营/增值服务）</option>
+                                        <option value="18">电子技术/半导体/集成电路</option>
+                                        <option value="19">仪器仪表及工业自动化</option>
+                                        <option value="53">金融/银行/投资/基金/证券</option>
+                                        <option value="20">保险</option>
+                                        <option value="57">房地产/建筑/建材/工程</option>
+                                        <option value="58">家居/室内设计/装饰装潢</option>
+                                        <option value="21">物业管理/商业中心</option>
+                                        <option value="51">广告/会展/公关/市场推广</option>
+                                        <option value="61">媒体/出版/影视/文化/艺术</option>
+                                        <option value="22">印刷/包装/造纸</option>
+                                        <option value="23">咨询/管理产业/法律/财会</option>
+                                        <option value="60">教育/培训</option>
+                                        <option value="24">检验/检测/认证</option>
+                                        <option value="59">中介服务</option>
+                                        <option value="62">贸易/进出口</option>
+                                        <option value="25">零售/批发</option>
+                                        <option value="26">快速消费品（食品/饮料/烟酒/化妆品</option>
+                                        <option value="27">耐用消费品（服装服饰/纺织/皮革/家具/家电）</option>
+                                        <option value="28">办公用品及设备</option>
+                                        <option value="29">礼品/玩具/工艺美术/收藏品</option>
+                                        <option value="30">大型设备/机电设备/重工业</option>
+                                        <option value="31">加工制造（原料加工/模具）</option>
+                                        <option value="32">汽车/摩托车（制造/维护/配件/销售/服务）</option>
+                                        <option value="33">交通/运输/物流</option>
+                                        <option value="34">医药/生物工程</option>
+                                        <option value="55">医疗/护理/美容/保健</option>
+                                        <option value="35">医疗设备/器械</option>
+                                        <option value="54">酒店/餐饮</option>
+                                        <option value="36">娱乐/体育/休闲</option>
+                                        <option value="56">旅游/度假</option>
+                                        <option value="37">石油/石化/化工</option>
+                                        <option value="38">能源/矿产/采掘/冶炼</option>
+                                        <option value="39">电气/电力/水利</option>
+                                        <option value="40">航空/航天</option>
+                                        <option value="41">学术/科研</option>
+                                        <option value="42">政府/公共事业/非盈利机构</option>
+                                        <option value="43">环保</option>
+                                        <option value="44">农/林/牧/渔</option>
+                                        <option value="45">跨领域经营</option>
+                                        <option value="0">其它</option>
+                                    </select>
+                                    <i class="msg"></i>
+                                </label>
+                            </div>
+                            <div class="form_item purpose clearfix">
+                                <span class="field fl">购买用途：</span>
+                                <div id="company_purpose" class="checkboxs">
+                                    <span data-value="办公用品" class="checkbox">办公用品</span>
+                                    <span data-value="新员工入职套装" class="checkbox">新员工入职套装</span>
+                                    <span data-value="公司培训" class="checkbox">公司培训</span>
+                                    <span data-value="企业展会宣传" class="checkbox">企业展会宣传</span>
+                                    <br />
+                                    <span data-value="企业文化宣传" class="checkbox">企业文化宣传</span>
+                                    <span data-value="定制纪念品" class="checkbox">定制纪念品</span>
+                                    <span data-value="门店日常" class="checkbox">门店日常</span>
+                                    <span data-value="新年套装" class="checkbox">新年套装</span>
+                                    <br />
+                                    <span data-value="店铺装饰" class="checkbox">店铺装饰</span>
+                                    <span data-value="团队建设/团队活动" class="checkbox">团队建设/团队活动</span>
+                                    <span data-value="门店节日套装" class="checkbox">门店节日套装</span>
+                                    <input id="ent_ep_purpose" name="ep_purpose" type="hidden" value="" />
+                                </div>
+                                <i class="msg"></i>
+                            </div>
+                            <div class="form_item form_btm pl">
+                                <a id="submitOrg" class="submit btn_blue" href="javascript:;">保 存<input type="submit" value="" /></a>
+                            </div>
+                        </div>
+                    </form>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+</div>
+<?php include(MODULES.'footer.xhtml');?>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>member/udetail.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>location.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js?ininin=<?=VERSION?>"></script>
+<!--script type="text/javascript" src="<?=SCRIPTS?>jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>template-native.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>zh_cn.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tool.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>libs/location.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>member/udetail.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js"></script-->
+<?php include(MODULES.'linklogin.xhtml');?>
+</body>
+</html>

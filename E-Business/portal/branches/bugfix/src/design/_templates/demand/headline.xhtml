@@ -1,0 +1,10 @@
+<script id="demand_headline" type="text/template">
+    <h2 class="headline">
+        <b class="tit">{{product.designProductName}}</b><span class="desc">{{product.simpleDesc}}</span>
+        <span class="ref-order red">
+        {{if printProduct && printProduct.orderCode}}
+            （已关联印刷产品订单 <a href="<?=DOMAIN?>member/odetail.html?o={{printProduct.orderCode}}&t=0" target="_blank">{{printProduct.orderCode}}</a>，{{printProduct.productAttr}}）
+        {{/if}}
+        </span>
+    </h2>
+</script>

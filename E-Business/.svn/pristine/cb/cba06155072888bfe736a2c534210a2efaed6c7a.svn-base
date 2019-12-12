@@ -1,0 +1,3 @@
+<div class="attr form_btm clearfix">
+    <span class="atr">&nbsp;</span><a class="submit buynow yellow-box" href="javascript:;" onclick="_czc.push(['_trackEvent', '{{productName}}', '立即购买', '','','']);">立即购买<span class="doing"><span>计算中...</span></span></a><a class="submit addcart yellow-btn s2" href="javascript:;" onclick="_czc.push(['_trackEvent', '{{productName}}', '加入购物车', '','','']);">加入购物车<span class="doing"><span>计算中...</span></span></a>
+</div>

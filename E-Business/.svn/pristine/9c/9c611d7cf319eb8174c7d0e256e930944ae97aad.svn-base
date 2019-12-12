@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="限时优惠，首次购买&quot;新&quot;名片即可获得价值50元的专属名片设计券" />
+    <meta name="description" content="限时优惠，首次购买&quot;新&quot;名片即可获得价值50元的专属名片设计券" />
+    <meta name="author" content="${author}" />
+    <meta name="copyright" content="${copyright}" />
+    <title>限时优惠，首次购买"新"名片即可获得价值50元的专属名片设计券</title>
+    <link href="<?=DOMAIN?>favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>activity.css" />
+    <?php include(MODULES.'dns_prefetch.xhtml');?>
+    <style type="text/css">
+        .layout .act_main{padding: 70px 60px; background: url(../resources/activity/a17_3.jpg?v=1) repeat 0 0; font-size: 24px; color: #555;}
+        .layout .act_main .act_tag{display: inline-block; padding: 8px 20px; background-color: #0487e2; font-size: 44px; line-height: 44px; color: #fff;}
+        .layout .act_main .act_desc{font-size: 50px; font-weight: bold; color: #008cd6;}
+        .layout .act_main .act_desc2{font-size: 36px; color: #0487e2;}
+        .layout .act_main .link_list{width: 100%;}
+        .layout .act_main .link_list>li{float: left; width: 50%;}
+        .layout .act_main .link_list .link_buy{display: inline-block; width:190px; line-height: 48px; background-color: #00a0e9; color: #fff; text-decoration: none;}
+    </style>
+</head>
+<body>
+<?php include(MODULES.'header.xhtml');?>
+<div class="main active non_pad">
+    <div class="layout">
+        <div class="act_main mb80">
+            <div class="clearfix">
+                <img class="fr" style="margin: -15px 0 0 20px;" src="<?=IMAGES?>activity/a17_1.png" alt="限时优惠，首次购买&quot;新&quot;名片即可获得价值50元的专属名片设计券"/>
+                <div>
+                    <span class="act_tag">限时优惠</span>
+                    <div class="act_desc">首次购买“新”名片系列产品即送价值50元的专属名片设计券可免费设计专属名片模板</div>
+                    <div class="act_desc2">由顶级设计团队为您精心打造!</div>
+                </div>
+            </div>
+            <div class="text_center mb80">
+                <img class="mb35" src="<?=IMAGES?>activity/a22_2.png" alt="限时优惠，首次购买&quot;新&quot;名片即可获得价值50元的专属名片设计券"/>
+                <ul class="link_list clearfix">
+                    <li>
+                        <a class="link_buy" href="<?=DOMAIN?>product/200021.html" target="_blank" title="限时优惠，首次购买&quot;新&quot;名片即可获得价值50元的专属名片设计券" >立即购买</a>
+                    </li>
+                    <li>
+                        <a class="link_buy" href="<?=DOMAIN?>product/200022.html" target="_blank" title="限时优惠，首次购买&quot;新&quot;名片即可获得价值50元的专属名片设计券">立即购买</a>
+                    </li>
+                </ul>
+            </div>
+            <p class="mb80">活动说明：<br/>
+                1. 首次购买”新“名片系列产品，立即赠送50元专属名片设计券；<br/>
+                2. 该优惠券仅限名片设计服务使用，可免费设计专属名片模板；<br/>
+                3. 您有任何问题都可以直接联系专属会员顾问咨询；<br/>
+                4. 本活动最终解释权归云印所有。</p>
+        </div>
+    </div>
+</div>
+<?php include(MODULES.'footer.xhtml');?>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>activity/detail.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>location.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js?ininin=<?=VERSION?>"></script>
+<!--script type="text/javascript" src="<?=SCRIPTS?>jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>template-native.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>zh_cn.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tool.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>activity/detail.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>libs/location.js"></script-->
+<?php include(MODULES.'linklogin.xhtml');?>
+</body>
+</html>

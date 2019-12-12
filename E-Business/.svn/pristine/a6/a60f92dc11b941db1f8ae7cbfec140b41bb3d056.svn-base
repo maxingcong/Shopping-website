@@ -1,0 +1,50 @@
+<script id="product_params" type="text/template">
+    {{each namesOrder as name i}}
+    {{if name=='数量'}}
+    <div class="attr clearfix">
+        <div class="atr">{{name}}：</div>
+        <span class="counter counter-qty">
+            <a>-</a><input class="textbox" type="text" name="qty" value="{{qtyValue||1}}" data-name="{{name}}"><b>+</b>
+        </span>
+        <span class="unit">{{qtyFlag}}</span>
+        {{if paramTips[name]}}
+        <span class="alt">{{paramTips[name]}}</span>
+        {{/if}}
+    </div>
+    {{else if name=='字体尺寸' && cfgSize}}
+    <div class="form_item clearfix">
+        <span class="field">{{name}}：</span><span class="input p_size done" data-name="{{name}}">
+            <span class="txt">自定义：</span>
+            {{if cfgSize.data}}
+            <select class="textbox" name="len" data-value="{{cfgSize.value}}" value="{{cfgSize.value}}">
+                {{each cfgSize.data as v k}}
+                <option value="{{v}}">{{v}}</option>
+                {{/each}}
+            </select>
+            {{else}}
+            <input class="textbox" type="text" name="size" data-value="{{cfgSize.value}}" value="{{cfgSize.value}}"/>
+            {{/if}}
+            <span class="txt">{{cfgSize.unit}}</span>
+            <a class="btn" href="javascript:;">OK</a>
+        </span>
+        {{if paramTips[name]}}
+        <span class="alt">{{paramTips[name]}}</span>
+        {{/if}}
+    </div>
+    {{else if attrs[name].length}}
+    <div class="attr clearfix">
+        <div class="atr">{{name}}：</div>
+        <div class="vals clearfix" data-name="{{name}}">
+            {{each attrs[name] as val k}}
+            <a class="val {{attr[name]==val?'sel':''}}" href="javascript:;" data-imguri="{{paramImages[val]}}" data-value="{{val}}">{{val}}</a>&nbsp;
+            {{/each}}
+            {{if name=='拼接'}}
+            <a class="lnk" href="<?=DOMAIN?>faq/printing.html#30" data-text="{{paramTips[name]}}" target="_blank">什么是拼接？</a>
+            {{else if paramTips[name]}}
+            <span class="alt">{{paramTips[name]}}</span>
+            {{/if}}
+        </div>
+    </div>
+    {{/if}}
+    {{/each}}
+</script>

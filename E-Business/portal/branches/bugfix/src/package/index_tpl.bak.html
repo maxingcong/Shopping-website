@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+	<meta name="robots" content="all" />
+	<meta name="keywords" content="${keywords}" />
+	<meta name="description" content="${description}" />
+	<meta name="author" content="ininin.com" />
+	<meta name="copyright" content="Copyright © 2015 ininin.com. All rights reserved." />
+	<title>${title}</title>
+	<link href="<?=DOMAIN?>favicon.ico" rel="shortcut icon" type="image/x-icon" />
+	<link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css?ininin=<?=VERSION?>" />
+	<link rel="stylesheet" type="text/css" href="<?=STYLES?>package.css?ininin=<?=VERSION?>" />
+    <link rel="dns-prefetch" href="//colud.ininin.com" />
+    <link rel="dns-prefetch" href="//action.ininin.com" />
+</head>
+<body>
+	<?php include(MODULES.'header.xhtml');?>
+	<div id="main" class="main pdetail">
+		<div class="layout">
+			<div id="sitemap" class="sitemap clearfix">
+				<a href="<?=DOMAIN?>">首页</a><b>&gt;</b>
+				<h1><a href="<?=DOMAIN?>package/index.html">优惠套餐</a></h1>
+			</div>
+			<div id="template_package_view" class="discount clearfix"></div>
+			<!--explain-->
+			<div class="ddetail">
+    			<div class="probox explain clearfix">
+					<div id="product_hotlist" class="hotlist explain_side">
+						<h3 class="title">三大优惠</h3>
+						<ul>
+							<li class="privilege">
+								<p class="img"><img src="<?=IMAGES?>package/wdrx.png" alt="无敌任性券"/></p>
+								<p class="name">优惠一：赠送无敌任性券</p>
+							</li>
+							<li class="privilege">
+								<p class="img"><img src="<?=IMAGES?>package/jfq.png" alt="高倍积分"/></p>
+								<p class="name">优惠券二：赠送高倍积分</p>
+							</li>
+						</ul>
+					</div>
+					<div id="product_desc" class="pdesc">
+						<ul class="ptabs desctab">
+							<li class="sel" data-index="0"><a href="javascript:">购买流程</a></li>
+							<li data-index="1"><a href="javascript:">套餐介绍</a></li>
+							<li data-index="2"><a href="javascript:">使用流程</a></li>
+							<li data-index="3"><a href="javascript:">关于优惠券</a></li>
+							<li data-index="4"><a href="javascript:">关于积分</a></li>
+							<li data-index="5"><a href="javascript:">关于消费</a></li>
+							<li data-index="6"><a href="javascript:">关于提现</a></li>
+						</ul>
+						<ul class="p_contents">
+							<li data-index="0">
+								<h3 class="titleline">购买流程</h3>
+								<p class="ptxt"><img src="<?=IMAGES?>package/buysteps.png?v=1" alt="购买流程" /></p>
+							</li>
+							<li data-index="1">
+								<h3 class="titleline">套餐介绍</h3>
+								<p class="ptxt">
+								关于套餐：套餐是云印对于用户预存款的一项优惠措施，针对预付款的用户，可获得预存金额与购买套餐实际支付的金额相同，支付成功后，预付款将立即返回到您的现金账户上，同时云印赠送这部分用户不同数量和金额的优惠券和不同倍数的积分。</p>
+								<p class="ptxt">
+								1.赠送优惠券：购买云印平台上的优惠套餐，可获得不同金额和数量的优惠券，用于在支付不同的订单时使用<br/>
+								2.赠送多倍积分：购买云印平台上的优惠套餐，可获得多倍积分，赠送的积分可用于兑换云印积分商城中的商品将存入用户的现金账户。现金账户中的余额可以用于在本平台上进行消费。
+								</p>
+								<div class="tablebox">
+									<table class="table" cellpadding="0" cellspacing="0">
+											<colgroup>
+												<col style="width: 15%;"/>
+												<col style="width: 15%;"/>
+												<col style="width: 35%;"/>
+												<col/>
+											</colgroup>
+											<thead>
+												<tr>
+													<th colspan="2">套餐名称</th>
+													<th>赠送无敌任性券<p class="txt">（印刷、设计、办公用品通用，可叠加使用）</p></th>
+													<th>赠送积分<p class="txt">（可在积分商城兑换礼品）</p></th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td colspan="2">500元套餐<p class="txt">（赠送40元+1倍积分）</p></td>
+													<td>￥40</td>
+													<td>500<p class="txt">（1倍）</p></td>
+												</tr>
+												<tr>
+													<td colspan="2">800元套餐<p class="txt">（赠送60元+2倍积分）</p></td>
+													<td>￥60</td>
+													<td>1600<p class="txt">（2倍）</p></td>
+												</tr>
+												<tr>
+													<td colspan="2">2000元套餐<p class="txt">（赠送160元+2倍积分）</p></td>
+													<td>￥160</td>
+													<td>4000<p class="txt">（2倍）</p></td>
+												</tr>
+												<tr>
+													<td colspan="2">5000元套餐<p class="txt">（赠送400元+3倍积分）</p></td>
+													<td>￥400</td>
+													<td>15000<p class="txt">（3倍）</p></td>
+												</tr>
+												<tr>
+													<td colspan="2">20000元至尊套餐<p class="txt">（赠送1600元+5倍积分）</p></td>
+													<td>￥1600</td>
+													<td>100000<p class="txt">（5倍）</p></td>
+												</tr>
+												<tr>
+													<td>备注</td>
+													<td colspan="3" class="remark">
+														<p>1. 无敌任性券是指无消费金额限制，无产品限制，可叠加使用的优惠券；</p>
+														<p>2. 20000元至尊套餐赠送的优惠券有效期为6个月，其他套餐赠送的优惠券有效期为3个月；</p>
+														<p>3. 本套餐最终解释权归云印所有。</p>
+													</td>
+												</tr>
+											</tbody>
+									</table>
+								</div>
+							</li>
+							<li data-index="2">
+								<h3 class="titleline">使用流程</h3>
+								<p class="ptxt ml35"><img src="<?=IMAGES?>package/usesteps.png?v=1" alt="使用流程" /></p>
+							</li>
+
+							<li data-index="3">
+								<h3 class="titleline">关于优惠券</h3>
+								<div class="pwapper">
+									<div class="leftimg">
+										<img src="<?=IMAGES?>package/wdrx_sm.png" alt="无敌任性券" />
+									</div>
+									<div class="next pt10">
+										<p class="ptxt">说明：赠送的无敌任性券，可用于印刷服务、设计服务及办公用品订单，可叠加使用。<br/>使用方法：选择对应的设计服务订单或者印刷服务订单，在支付的时候，选择使用无敌任性券，即可抵扣对应的金额。
+										</p>
+									</div>
+								</div>
+							</li>
+
+							<li data-index="4">
+								<h3 class="titleline">关于积分</h3>
+								<div class="pwapper">
+									<div class="leftimg">
+										<img src="<?=IMAGES?>package/jfq_sm.png" alt="积分券" />
+									</div>
+									<div class="next">
+										<p>购买不同套餐将获赠不同倍数（1倍至5倍）的积分，数额越大的套餐，获赠的积分倍数越大。用户可以登录“<a href="<?=DOMAIN?>member/index.html" target="_blank">个人中心</a>”&gt;“<a href="<?=DOMAIN?>member/myintegral.html" target="_blank">我的积分</a>”查看当前积分数量。积分可以用在云印“<a href="<?=DOMAIN?>integral/index.html" target="_blank">积分商城</a>”中兑换相应礼品。
+										</p>
+										<p class="ptxt">使用方法：当您的积分满足对应的条件的时候，需要您联系云印客服进行兑换，联系方式：QQ客服 4008601846&nbsp;&nbsp;电话客服400-680-9111，更多详情请点击“<a href="<?=DOMAIN?>integral/index.html" target="_blank">积分商城</a>”。</p>
+									</div>
+								</div>
+							</li>
+
+							<li data-index="5">
+								<h3 class="titleline">关于消费</h3>
+								<p class="ptxt">1、购买套餐的金额（预存金额）将计入用户的"累计消费总额"；用现金账户、优惠券进行消费时，消费金额将不再计入累计消费金额。累计消费总额将成为用户在本平台会员成长体系的重要判断依据；<br />
+								2、购买套餐将获赠一定比例的积分；用现金账户、优惠券进行消费时，不再累计积分。</p>
+							</li>
+
+							<li data-index="6">
+								<h3 class="titleline">关于提现</h3>
+								<p class="ptxt">凡购买优惠套餐，一经使用，将不支持退换，套餐中金额也不可提现。</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!--end explain-->
+		</div>
+	</div>
+	<?php include(MODULES.'footer.xhtml');?>
+	<script id="template_package" type="text/template">
+		<div class="discount_pro">
+			<dl><dt><img src="<?=IMAGES?>package/discount.jpg" alt="优惠套餐" /></dt>
+				<dd>
+					<img src="<?=IMAGES?>package/discount_min.jpg" alt="优惠套餐" />
+				</dd>
+			</dl>
+		</div>
+		<div class="discount_intro">
+			<div class="discount_name">优惠套餐<p class="desc">云印预充值通道</p></div>
+			<form id="package" class="forms">
+				<div class="discount_package">
+					<!--span class="discount_desc">类型：</span-->
+					<div class="discount_set clearfix">
+						<% for(var i=0; temp=recharge_list[i]; i++){
+							var number=DEF_PID?(temp.id==DEF_PID? "1": "0"):(temp.recharge_amount=="800" ? "1": "0");%>
+							<div class="discount_attr"><span class="discount_type"><%=temp.recharge_amount%>元套餐</span><span class="counter"><a>-</a><input data-value="<%=temp.recharge_amount%>" class="textbox" type="text" name="package_<%=temp.id%>" value="<%=number%>"><b>+</b></span></div>
+						<% }%>
+					</div>
+				</div>
+				<div class="discount_privilege">
+					<span class="privilege_name clearfix"><a href="<?=DOMAIN?>faq/payment.html#5" target="_blank">如何使用优惠券？</a>恭喜您，您即将获得：</span>
+					<div class="privilege_intro">
+						<span id="total_amount" class="privilege"><span class="number">&nbsp;<img class="doing_gif" src="<?=IMAGES?>loading.gif" width="16"/>&nbsp;</span><span class="unit">元</span><span class="type">预存金额</span></span>
+						<span id="total_present" class="privilege"><span class="number">&nbsp;<img class="doing_gif" src="<?=IMAGES?>loading.gif" width="16"/>&nbsp;</span><span class="unit">元</span><span class="type">无敌任性券</span></span>
+						<span id="total_integral" class="privilege"><span class="number">&nbsp;<img class="doing_gif" src="<?=IMAGES?>loading.gif" width="16"/>&nbsp;</span><!--span class="unit">万</span--><span class="type">积分</span></span>
+					</div>
+				</div>
+				<div class="couponsel">
+					<div class="row"><span class="total_txt">支付金额：</span><i id="total_price" class="yellow total_cash">&nbsp;<img class="doing_gif" src="<?=IMAGES?>loading.gif" width="16"/>&nbsp;</i> <span class="total_cash_unit">元</span>
+					</div>
+					<div class="checkboxs terms">
+						<span class="form_item"><label class="checkbox sel"><input type="checkbox" name="agreement" value="true" checked="checked">我已阅读并接受 </label><a class="agreement_link" href="<?=DOMAIN?>agreement/discountpackage.html" target="_blank">《云印优惠套餐协议》</a></span>
+						<!-- <span class="form_item"><label> <span class="field">推荐人：</span>
+						<input class="textbox privilege_input" type="text" name="inviter" /><i class="msg"></i>
+						</label>
+						</span> -->
+					</div>
+					<div class="row"><a class="submit yellow-btn" href="javascript:;">立即购买<input onclick="_czc.push(['_trackEvent', '优惠套餐', '立即购买', '','','']);" value="" type="submit"></a>
+					</div>
+				</div>
+			</form>
+		</div>
+	</script>
+    <script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>tools_tpl.js?ininin=<?=VERSION?>"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>package/index_tpl.js?ininin=<?=VERSION?>"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>location_tpl.js?ininin=<?=VERSION?>"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>loaded_tpl.js?ininin=<?=VERSION?>"></script>
+	<!--script type="text/javascript" src="<?=SCRIPTS?>jquery-1.7.2.min.js?ininin=<?=VERSION?>"></script>
+	<script type="text/javascript" src="<?=SCRIPTS?>template-native.js?ininin=<?=VERSION?>"></script>
+	<script type="text/javascript" src="<?=SCRIPTS?>zh_cn.js?ininin=<?=VERSION?>"></script>
+	<script type="text/javascript" src="<?=SCRIPTS?>tool_tpl.js?ininin=<?=VERSION?>"></script>
+	<script type="text/javascript" src="<?=SCRIPTS?>package/index_tpl.js?ininin=<?=VERSION?>"></script>
+	<script type="text/javascript" src="<?=SCRIPTS?>loaded_tpl.js?ininin=<?=VERSION?>"></script>
+	<script type="text/javascript" src="<?=SCRIPTS?>libs/location_tpl.js?ininin=<?=VERSION?>"></script-->
+	<script type="script_weibo"></script>
+	<script type="script_linklogin"></script>
+    <script type="script_cnzz"></script>
+</body>
+</html>

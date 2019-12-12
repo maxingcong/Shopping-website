@@ -1,0 +1,50 @@
+<table class="table_view checkboxs select" cellpadding="0" cellspacing="0">
+    <colgroup>
+        <col width="5%"/>
+        <col width="45%"/>
+        <col width="30%"/>
+        <col width="20%"/>
+    </colgroup>
+    <thead>
+        <tr>
+            <th class="col2" colspan="2"><div>文件名</div></th>
+            <th class="col3"><div>下单时间</div></th>
+            <th class="col4"><div>预览</div></th>
+        </tr>
+    </thead>
+    <tbody>
+    <% for(var k=0; temp = fileList[k]; k++){ %>
+        <tr data-fid="<%=temp.fileId%>">
+            <td class="col1">
+                <div>
+                    <label class="checkbox <%=temp.selected && 'sel'%>">
+                        <input type="checkbox" name="chk" value="<%=temp.fileId%>" <%=temp.selected && 'checked="checked"'%>/>
+                    </label>
+                </div>
+            </td>
+            <td class="col2">
+                <div title="<%=temp.fileName%>">
+                    <a class="word-wrap" href="<%=temp.fileSrc%>" title="<%=temp.fileName%>" target="_blank"><%=temp.fileName%></a>
+                </div>
+            </td>
+            <td class="col4"><div><%=temp.recordTime%></div></td>
+            <td class="col5">
+                <div>
+                    <% if(temp.hasPreviewer){ %>
+                    <a class="previewer" href="javascript:;" data-urls="<%=temp.fileSrc%>">预览</a>
+                    <% } else { %>
+                    <a class="word-wrap" href="<%=temp.fileSrc%>" title="<%=temp.fileName%>" target="_blank">预览</a>
+                    <% } %>
+                </div>
+            </td>
+        </tr>
+    <% } %>
+    <% if(!fileList||!fileList.length){ %>
+    <tr>
+        <td class="col1" colspan="4">
+            <div class="empty"><dl class="vertical_middle"><dt class="vm_left"></dt><dd class="vm_right">暂无数据</dd></dl></div>
+        </td>
+    </tr>
+    <% } %>
+    </tbody>
+</table>

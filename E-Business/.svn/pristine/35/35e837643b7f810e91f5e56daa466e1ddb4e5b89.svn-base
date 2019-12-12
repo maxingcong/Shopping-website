@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="&quot;新&quot;单页Pro" />
+    <meta name="description" content="&quot;新&quot;单页Pro，让客户舍不得丢弃的收藏级宣传页" />
+    <meta name="author" content="${author}" />
+    <meta name="copyright" content="${copyright}" />
+    <title>“新”单页Pro - 让客户舍不得丢弃的收藏级宣传页</title>
+    <link href="<?=DOMAIN?>favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>new.css" />
+    <?php include(MODULES.'dns_prefetch.xhtml');?>
+    <style type="text/css">
+        .pro_wrapper .relative{position: relative;}
+        .pro_wrapper .body_wraper{color: #555;}
+        .pro_wrapper .text_blue{color: #00a0e9;}
+        .page_text{margin-bottom: 40px; font-size: 18px; line-height: 2em;}
+        .single_page{height: 628px; width:100%; padding-bottom: 65px;}
+        .single_page img{position: absolute; top: 65px; left: 100px;}
+        .single_page .title_box{position: absolute; top: 65px; left: 572px;}
+        .single_page .page_text{padding-top: 12px; line-height: 48px;}
+        .single_page .page_title{font-size: 80px; line-height: 90px;}
+        .single_page .sub_title{display: inline-block; letter-spacing: 6px; border-bottom: 1px solid #ccd5df; padding-bottom: 10px;font-size: 24px; line-height: 65px;}
+        .single_pages{padding: 50px 0 65px; border-top: 1px solid #ccd5df; clear: both; text-align: center;}
+        .single_pages h3{font-size: 32px; font-weight: normal;line-height: 1.8em;}
+        .single_pages .page_price{position: relative;}
+        .single_pages .page_price .price_icon{width: 100%; height: 184px; margin-bottom: 30px; font-size: 36px; line-height: 1.5em;}
+        .single_pages .page_price .price_icon span{position: absolute;}
+        .single_pages .page_price .price_information{margin-bottom: 20px; font-size: 26px; line-height: 1.8em;}
+        .single_pages .page_price .price_information span{font-size: 32px;}
+    </style>
+</head>
+<body>
+<?php include(MODULES.'header.xhtml');?>
+<div class="main active non_pad">
+    <div id="layout" class="layout pro_wrapper">
+        <div class="pro_head">
+            <div class="opacity"></div>
+            <div class="layout">
+                <h2 class="title fl">“新”单页Pro</h2>
+                <div class="pro_tabs pro_tabs_type fl clearfix">
+                    <span class="vline"></span>
+                    <a class="tab one" data-target="0" href="<?=DOMAIN?>new/200032.html">“新”单页</a>
+                </div>
+                <div id="tabs_desc" class="pro_tabs clearfix">
+                    <a class="tab" data-target="0" href="javascript:;">新价格</a>
+                    <span class="vline"></span>
+                    <a class="tab" data-target="1" href="javascript:;">新用途</a>
+                    <span class="vline"></span>
+                    <a class="tab" data-target="2" href="javascript:;">新包装</a>
+                    <span class="vline"></span>
+                    <a class="tab" data-target="3" href="javascript:;">新工艺</a>
+                    <span class="vline"></span>
+                    <a class="tab" data-target="4" href="javascript:;">新服务</a>
+                    <a class="btn_blue" href="<?=DOMAIN?>product/200033.html" onclick="_czc.push(['_trackEvent', '&quot;新&quot;单页Pro-头部', '立即购买', '','','']);">立即购买</a>
+                </div>
+            </div>
+        </div>
+        <div class="body_wraper pro_items">
+            <div class="single_page relative">
+                <img src="<?=IMAGES?>new/200033/1.jpg?v=1" alt="新单页"/>
+                <div class="title_box">
+                    <p class="page_title text_blue">"新"单页Pro</p>
+                    <p class="sub_title">让客户舍不得丢弃的收藏级宣传页</p>
+                    <p class="page_text">
+                        与名片同等质量300g铜版纸，厚度0.35mm，手感厚实细腻，纸张笔直挺括<br/>
+                        双面覆哑膜，表面更加平滑光亮，防水，防污，耐磨，耐折，使用寿命更久<br/>
+                        顶级UV油墨，色彩鲜艳，耐水、耐溶性、耐磨性好，只为忠实还原每个细节
+                    </p>
+                </div>
+            </div>
+            <div class="single_pages pro_item">
+                <h3>新价格</h3>
+                <p class="page_text">
+                    市面上高档的宣传单页基本都是200g左右，云印采用与名片同等质量、同等制作工艺的300g铜版纸，质量更好<br/>
+                    云印采用先进规模化生产工艺，极大提高单页的生产效率，质量更高，价格更低
+                </p>
+                <img class="mb80" src="<?=IMAGES?>new/200033/2.jpg?v=1" alt="新价格"/>
+                <div class="page_price">
+                    <div class="price_icon">
+                        <img src="<?=IMAGES?>new/200033/3-1.jpg?v=1" alt="新价格"/>
+                    </div>
+                    <ul class="clearfix" style="width: 786px; margin: 0 auto">
+                        <li class="fl" style="width: 393px;">
+                            <p class="price_information">
+                                500张A5仅需<span class="text_blue">199</span>元<br/>
+                                每增加500张加<span class="text_blue">100</span>元
+                            </p>
+                            <a class="btn_blue btn_big" href="<?=DOMAIN?>product/200033.html#157g铜版纸_500_A5(140mm*210mm）" onclick="_czc.push(['_trackEvent', '&quot;新&quot;单页Pro-底部', '立即购买', '','','']);">立即购买</a>
+                        </li>
+                        <li class="fl" style="width: 393px;">
+                            <p class="price_information">
+                                500张A4仅需<span class="text_blue">299</span>元<br/>
+                                每增加500张加<span class="text_blue">200</span>元
+                            </p>
+                            <a class="btn_blue btn_big" href="<?=DOMAIN?>product/200033.html#157g铜版纸_500_A4(210mm*285mm）" onclick="_czc.push(['_trackEvent', '&quot;新&quot;单页Pro-底部', '立即购买', '','','']);">立即购买</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="single_pages pro_item">
+                <h3>新用途</h3>
+                <p class="page_text">
+                    珠宝、家居、金融、奢侈品等行业使用尽显产品高贵品质，让您的产品给用户留下最深的印象
+                </p>
+                <img src="<?=IMAGES?>new/200033/4.jpg?v=1" alt="新用途"/>
+            </div>
+            <div class="single_pages pro_item">
+                <h3>新包装</h3>
+                <p class="page_text">
+                    包装采用云印专属设计的瓦楞纸包装，防止运输过程中出现磨边、折页，品质更有保证
+                </p>
+                <img src="<?=IMAGES?>new/200033/7.jpg?v=1" alt="新包装"/>
+            </div>
+            <div class="single_pages pro_item">
+                <h3>新工艺</h3>
+                <p class="page_text">
+                    采用顶尖KOMORI专业印刷机，出色的生产能力，过硬的印刷质量，保证每一个细节都还原到纸上<br/>
+                    进口Polor切纸机，高精度裁切，精度高达0.1mm，相当于一根极细的头发丝直径，为您呈现更完美的直角；<br/>
+                    全程采用GMG色彩管理系统，严格执行G7控制方法，将色差控制在10%以内，保证阶调再现性和层次感，高品质还原色彩。
+                </p>
+                <img src="<?=IMAGES?>new/200033/8.jpg?v=1" alt="新工艺"/>
+            </div>
+
+            <div class="single_pages pro_item relative">
+                <h3 class="text_center">新服务</h3>
+                <table class="new-service" cellspacing="0" cellpadding="0">
+                    <colgroup>
+                        <col style="width: 70px">
+                        <col>
+                    </colgroup>
+                    <tbody><tr>
+                        <th><i class="icon"></i></th>
+                        <td>专属会员顾问实时在线，5分钟内快速响应，通过电话、QQ、微信全渠道，解决您遇到的任何问题</td>
+                    </tr>
+                    <tr>
+                        <th><i class="icon time_icon"></i></th>
+                        <td>24小时在线下单不打烊，简单三步即可轻松完成下单</td>
+                    </tr>
+                    <tr>
+                        <th><i class="icon upload_icon"></i></th>
+                        <td>搭建云端专属企业素材库，永久存储您的设计素材，为您免去重复设计之苦，还可随时随地，随心修改。同时采用先进加密算法，有效保证数据私密性和安全性</td>
+                    </tr>
+                    <tr>
+                        <th><i class="icon logistics_icon"></i></th>
+                        <td>全方位的配送体系（第三方物流、自提点、加急配）+全国异地分发服务，不同配送方式满足您的不同需求，让您省时、省力、更省心</td>
+                    </tr>
+                    <tr>
+                        <th><i class="icon information_icon"></i></th>
+                        <td>短信，邮件，网站，微信公众号，随时随地掌握订单状态，自在安心</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<?php include(MODULES.'footer.xhtml');?>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>other/new.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>location.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js?ininin=<?=VERSION?>"></script>
+<!--<script type="text/javascript" src="<?=SCRIPTS?>jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>template-native.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>zh_cn.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tool.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>other/new.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>libs/location.js"></script>-->
+<?php include(MODULES.'linklogin.xhtml');?>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="配送方式及费用" />
+    <meta name="description" content="" />
+    <meta name="author" content="${author}" />
+    <meta name="copyright" content="${copyright}" />
+    <title>配送方式及费用</title>
+    <link rel="shortcut icon" type="image/x-icon"  href="<?=DOMAIN?>favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>help.css" />
+    <?php include(MODULES.'dns_prefetch.xhtml');?>
+</head>
+<body>
+    <?php include(MODULES.'header.xhtml');?>
+    <div class="main helper">
+      <div class="layout clearfix">
+        <?php include(MODULES.'helpsidebar.xhtml');?>
+        <div class="container">
+          <div class="upanel">
+            <h3 class="headline">配送方式及费用</h3>
+            <dl class="texts excursion">
+              <dt>配送范围</dt>
+              <dd>
+                <p>配送范围覆盖全国大部分地区（港澳台地区除外），云印中国所有门店提供免费周边送货上门服务，其他地区暂未开通免费配送，具体配送配费用请与本网站客服联系。</p>
+              </dd>
+              <dt>配送方式</dt>
+              <dd>
+                <p>云印所有门店都支持到店自取，除此之外，我们还支持快递、EMS、物流公司、云印免费送四种配送方式。</p>
+                <p>1. 快递：名片、优惠券等小件默认发快递，偏远地区或乡镇区域由EMS配送；</p>
+                <p>2. 物流：除名片、优惠券等小件之外的产品一律由物流公司配送，发至离您最近的物流点后，客户上门自提；</p>
+                <p>3. 加急快递：由顺丰配送，客户需补快递费用差价或顺丰到付。</p>
+                <p>4. 云印免费送：云印为云印门店周边客户提供免费送货上门服务，详情请与本网站客服联系。</p>
+              </dd>
+              <dt>配送费用</dt>
+              <dd>
+                <h4>1. 云印配送（云印门店周边客户可享免费送货上门服务，详情请与本网站客服联系。）</h4>
+                <h4>2. 默认快递</h4>
+                <div>全国地区（港澳台地区除外）快递费用：7元起（详情请咨询客服）。</div>
+                <h4>3. 指定其他</h4>
+                <div>如需指定其他快递配送，请先联系本网站客服为您备注，且仅限在线支付；同时，您指定的快递将由我们合作的快递转发，故发货和派送时间无法完成保证。</div>
+              </dd>
+              <dt>配送时间</dt>
+              <dd>
+                <p>不同的产品，生产制作的周期也不相同，具体制作周期请查看对应产品介绍。订购产品制作完成后，即刻发货。</p>
+                <p>普通快递：2-7天</p>
+                <p>加急快递：1-5天</p>
+                <p>EMS：2-10天</p>
+                <p>物流公司：根据配送距离而定</p>
+              </dd>
+            </dl>
+          </div>
+        </div>
+	</div>
+    </div>
+	<?php include(MODULES.'footer.xhtml');?>
+    <script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>location.js?ininin=<?=VERSION?>"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>loaded.js?ininin=<?=VERSION?>"></script>
+    <!--script type="text/javascript" src="<?=SCRIPTS?>jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>template-native.js"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>zh_cn.js"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>tool.js"></script>
+	<script type="text/javascript" src="<?=SCRIPTS?>loaded.js"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>libs/location.js"></script> -->
+    <?php include(MODULES.'linklogin.xhtml');?>
+  </body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h1>请使用最新版 chrome/firefox</h1>
+<h3>每隔一分钟会自动弹出通知，也可以使用页面中的发送通知功能即时查看通知</h3>
+<textarea id="content" style="width: 480px; height: 320px;">今天是个阳光明媚的好好……</textarea>
+<input id="send" type="button" value="发送通知"/>
+<script type="text/javascript">
+    Date.prototype.Format = function(fmt){
+        var o = {
+            "m+" : this.getMonth()+1,//月份
+            "d+" : this.getDate(),//日
+            "h+" : this.getHours(),//小时
+            "i+" : this.getMinutes(),//分
+            "s+" : this.getSeconds(),//秒
+            "q+" : Math.floor((this.getMonth()+3)/3),//季度
+            "S"  : this.getMilliseconds()//毫秒
+        };
+        if(/(y+)/.test(fmt))
+            fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));
+        for(var k in o)
+            if(new RegExp("("+ k +")").test(fmt))
+                fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));
+        return fmt;
+    };
+
+   /*HTML5桌面通知：notification api
+     https://www.w3.org/TR/notifications/
+     http://www.cnblogs.com/lxshanye/p/3560188.html
+     支持：只支持 chrome/firefox 最新版
+    demo：var notification = new Notification("通知标题",{body:"通知内容……", icon: "http://m.ininin.com/resources/logo.png"});*/
+
+    Notification.requestPermission(); //询问用户是否允许显示通知
+    /**
+     * 发送消息
+     * @param {Object} [options={}]
+     * @param {Object} [options.title] 消息标题
+     * @param {Object} [options.body] 消息内容
+     * @param {Object} [options.icon] 消息图标
+     * @returns {Notification}
+     */
+    function sendNotification(options){
+        options = options||{};
+        return new Notification(options.title||"通知标题", {
+            body: options.body||"通知内容……",
+            icon: options.icon||"http://m.ininin.com/resources/logo.png"
+        });
+    }
+    setInterval(function(){
+        sendNotification({
+            title: "亲，来消息了",
+            body: "["+(new Date().Format("yyyy-mm-dd hh:ii:ss"))+"]阳光明媚的好好……",
+            icon: "http://m.ininin.com/resources/logo.png"
+        });
+    }, 60*1000);
+    sendNotification();
+    document.getElementById("send").onclick = function(e){
+        sendNotification({
+            title: "通知标题",
+            body: document.getElementById("content").value
+        });
+    };
+</script>
+</body>
+</html>

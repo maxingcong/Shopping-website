@@ -1,0 +1,14 @@
+<div id="header" class="header" >
+    <div id="header_fixed" class="header_fixed">
+        <div class="headbar">
+            <div class="layout clearfix">
+                <?php include 'h_userbar.xhtml';?>
+                <?php include 'h_address.xhtml';?>
+                <?php include 'h_topbar.xhtml';?>
+            </div>
+        </div>
+    </div>
+    <div class="layout clearfix">
+        <?php include 'h_head_simple.xhtml';?>
+    </div>
+</div>

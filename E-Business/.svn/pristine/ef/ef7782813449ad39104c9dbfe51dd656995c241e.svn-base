@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="none" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="${author}" />
+    <meta name="copyright" content="${copyright}" />
+    <title>名片修改服务</title>
+    <link rel="shortcut icon" type="image/x-icon" href="<?=DOMAIN?>favicon.ico"  />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>layout.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES_DESIGN?>layout.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES_DESIGN?>design.css" />
+    <?php include(MODULES.'dns_prefetch.xhtml');?>
+</head>
+<body class="demand">
+<?php include(MODULES_DESIGN.'header.xhtml');?>
+<div class="main load">
+    <div id="demand" class="layout demand-list clearfix">
+        <div id="template-demand-view"></div>
+        <?php include(MODULES.'ordering.xhtml');?>
+    </div>
+</div>
+<?php include(MODULES_DESIGN.'footer.xhtml');?>
+<?php include(TEMPLATES_DESIGN.'demand/headline.xhtml');?>
+<?php include(TEMPLATES_DESIGN.'demand/attrs.xhtml');?>
+<?php include(TEMPLATES_DESIGN.'demand/custom_attrs.xhtml');?>
+<script id="template-demand" type="text/template">
+    <?php include(TEMPLATES_DESIGN.'demand/sitemap.xhtml');?>
+    {{include 'demand_headline'}}
+    {{if !isUpdate}}
+    <div class="d-attrs clearfix">
+        <h3 class="d-caption"><b class="red">*</b>请填写需要修改的人数</h3>
+        <div class="attr d-counter clearfix">
+            <span class="atr">人数：</span><span class="counter"><a>-</a><input class="textbox" type="text" name="counter" value="{{counter||1}}"><b>+</b></span><span class="unit">人</span>
+            <span class="red">（购买999元100次<a href="<?=DOMAIN_DESIGN?>category/126.html" target="_blank">设计修改会员</a>，价格更优惠！）</span>
+        </div>
+    </div>
+    {{/if}}
+    {{include 'demand_attrs'}}
+    {{include 'demand_custom_attrs'}}
+    <div class="d-attrs clearfix">
+        <h3 class="d-caption"><b class="red">*</b>请填写您需要修改的内容和相关信息</h3>
+        <dl class="attr attr-form clearfix">
+            <dt class="atr"><!-- 修改内容： --></dt>
+            <dd class="vals">
+                <textarea class="textbox" name="修改内容">{{demandParamsInfo['修改内容']}}</textarea>
+            </dd>
+        </dl>
+    </div>
+    <div class="d-attrs clearfix">
+        <h3 class="d-caption">请提交设计素材</h3>
+        <div id="material" class="material">
+            <div class="m-desc">
+                <p>请提供可编辑的设计文件，文件格式须为AI、CDR、PSD三种格式，其中文字未转曲，图层未合并；</p>
+                <p>公司标识源文件或包含标识的源文件，保证较高分辨率；</p>
+                <p>如有需要，您还可以购买<a href="<?=DOMAIN?>design/11.html" target="_blank">logo设计</a>服务。</p>
+                <p>您只需上传一个文件，若有多个素材，请打成压缩包一次上传。</p>
+            </div>
+            <a id="choice_yunfile" class="btn btn-primary btn-md choice_yunfile" href="javascript:;">云盘中选择</a>
+            <label id="material_upload-cont" class="up-cont btn btn-default btn-md">
+                <span id="material_upload" class="up-btn">
+                    <span class="up-text"></span>
+                </span>
+                <span class="up-doing">正在上传...</span>
+                <span class="up-forbid"></span>
+            </label>
+            <div id="material_upload-info" class="upload-info mt10"></div>
+        </div>
+    </div>
+    <?php include(TEMPLATES_DESIGN.'demand/contact_info.xhtml');?>
+</script>
+<?php include(TEMPLATES_DESIGN.'demand/choice_yunfile.xhtml');?>
+<?php include(TEMPLATES.'previewer.xhtml');?>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>uploader/main.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS_DESIGN?>product/main.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS_DESIGN?>product/18.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>location.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js?ininin=<?=VERSION?>"></script>
+<?php include(MODULES.'linklogin.xhtml');?>
+</body>
+</html>

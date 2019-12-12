@@ -1,0 +1,11 @@
+<ul id="template-floor_nav-view" class="floor-nav hide"></ul>
+<script id="template-floor_nav" type="text/template">
+{{each floorList as floor i}}
+<li class="nav-item {{floor.icon}}" data-nav_idx="{{floor.floorId}}" title="{{floor.floorAnchor||floor.floorName}}">
+    <a href="javascript:;" class="{{(floor.floorAnchor||floor.floorName).length<3?'one-row':''}}">{{floor.floorAnchor||floor.floorName}}</a>
+    {{if floorList.length-1 > i}}
+    <i class="cut-line"></i>
+    {{/if}}
+</li>
+{{/each}}
+</script>

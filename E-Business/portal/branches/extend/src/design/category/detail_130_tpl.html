@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="${keywords}" />
+    <meta name="description" content="${description}" />
+    <meta name="author" content="ininin.com" />
+    <meta name="copyright" content="Copyright © 2015 ininin.com. All rights reserved." />
+    <title>${title}</title>
+    <link href="<?=DOMAIN?>favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css?ininin=<?=VERSION?>" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES_DESIGN?>layout.css?ininin=<?=VERSION?>" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES_DESIGN?>product.css?ininin=<?=VERSION?>" />
+    <?php include(MODULES.'dns_prefetch.xhtml');?>
+</head>
+<body>
+<?php include(MODULES_DESIGN.'header.xhtml');?>
+<div class="main">
+    <div id="wrapper" class="layout custom clearfix">
+        <div id="template-product_list-view"></div>
+        <div id="template-product_options-view" class="p-options clearfix">
+            <!-- 询价单 -->
+        </div>
+        <div id="template-product_desc-view" class="p-detail"></div>
+    </div>
+</div>
+<?php include(MODULES_DESIGN.'footer.xhtml');?>
+<script id="template-product_list" type="text/template">
+    {{if productList && productList.length>1}}
+    <ul class="p-list {{productList.length%2==0?'p-list-lg':''}} clearfix">
+        {{each productList as product i}}
+        <li class="p-item {{productId==product.designProductId?'selected':''}}" data-idx="{{i}}">
+            <div class="p-head p-{{product.designProductId}}">
+                <h3 class="p-name">{{product.designProductName}}</h3>
+                <p class="p-desc">{{product.simpleDesc}}</p>
+            </div>
+            <div class="p-body">
+                <p class="p-cost-price"><span class="p-atr">市场价</span>：<b class="p-num">{{product.originalPrice}}</b>元</p>
+                <p class="p-price">{{#product.priceDesc}}<!--<b class="p-num">49</b>元/次，半年包100次仅需<b class="p-num">199</b>元--></p>
+            </div>
+            <div class="p-foot">
+                <dl class="p-promise">
+                    {{each product.serviceCommitments as item k}}
+                    {{if item.promiseName!=="" && item.promiseText!==""}}
+                    <dd class="p-text clearfix">
+                        <div class="p-atr">{{item.promiseName}}：</div>
+                        <div class="p-val">{{item.promiseText}}</div>
+                    </dd>
+                    {{/if}}
+                    {{/each}}
+                </dl>
+            </div>
+            <i class="p-ico"></i>
+        </li>
+        {{/each}}
+    </ul>
+    {{/if}}
+</script>
+
+<script id="template-product_options" type="text/template">
+    <div class="p-image">
+        <img src="{{pImageFirst}}" data-imguri="{{pImageFirst}}" alt="{{designProductName}}-{{simpleDesc}}">
+    </div>
+    <div class="p-params">
+        <h2 class="p-name red">{{designProductName||'定制设计'}}</h2>
+        <p class="p-desc yellow">下单后，客服顾问将全程跟进，并根据您的设计需要进行定制报价定制设计订单填写完成后，设计顾问会在1小时内联系您并确认询价需求客服报价时间为：周一至周五 9：00-12：00，13：30-19：30</p>
+        <fieldset id="fieldset_pdetail" class="product_detail">
+            <form id="quotation" class="forms">
+                <div id="form_detail" class="load">
+                    
+                </div>
+            </form>
+        </fieldset>
+    </div>
+</script>
+
+<!-- 定制询价单 -->
+<script id="quotation_form" type="text/template">
+    <?php include(TEMPLATES.'quotation_cus.xhtml');?>
+</script>
+
+<script id="template-product_desc" type="text/template">
+    {{if productDesc && productDesc.length}}
+    <div class="layout p-tabs clearfix">
+        {{each productDesc as item i}}
+        <a class="p-tab {{i?'':'sel'}}" href="javascript:;" data-idx="{{i}}">{{item.title}}</a>
+        {{/each}}
+    </div>
+    <ul class="p-contents">
+        {{each productDesc as item i}}
+        <li class="p-content" data-idx="{{i}}">{{#item.content}}</li>
+        {{/each}}
+    </ul>
+    {{/if}}
+</script>
+
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools_tpl.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>uploader/main.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS_DESIGN?>category/detail_tpl.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS_DESIGN?>category/detail_130_tpl.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>location_tpl.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded_tpl.js?ininin=<?=VERSION?>"></script>
+<script type="script_weibo"></script>
+<script type="script_linklogin"></script>
+<script type="script_cnzz"></script>
+</body>
+</html>

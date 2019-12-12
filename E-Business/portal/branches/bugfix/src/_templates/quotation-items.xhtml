@@ -1,0 +1,51 @@
+<ul id="quotation-items">
+    {{each attrData as item i}}
+    {{if item.values}}
+    <li class="p-attr" data-name="{{item.name}}" data-attr="{{item.attr}}">
+        <span class="p-key">{{item.attr}}：</span>
+        <div class="p-values">
+            {{each item.values as value j}}
+            {{if value=='其它'}}
+            <span class="p-value {{selected(item.name, value, item.values, j)}}" data-value="{{value}}"
+                  data-unit="{{item.unit}}" data-sign="{{item.sign}}">{{value}}<span
+                    class="p-custom"><label class="form-control">
+                <input class="form-text" type="text" name="w" value="{{$data[item.name]}}"/>
+                <span class="form-placeholder">{{item.text}}</span>
+            </label><span class="unit">{{item.unit}}</span><span class="handle">ok</span></span>
+            </span>
+            {{else if inputSize(item.name, value)}}
+            <span class="p-value {{selected(item.name, value, item.values, j)}}" data-value="{{value}}"
+                  data-unit="{{item.unit}}" data-sign="{{item.sign}}">{{value}}<span
+                    class="p-custom p-custom-multi"><label
+                    class="form-control">
+                <input class="form-text" type="text" name="w" value="{{$data[item.name + 'Width']}}"/>
+                <span class="form-placeholder">{{item.text}}</span>
+            </label><span class="unit">{{item.unit}}</span><span class="sign">{{item.sign}}</span><label
+                    class="form-control">
+                <input class="form-text" type="text" name="h" value="{{$data[item.name + 'Height']}}"/>
+                <span class="form-placeholder">{{item.text}}</span>
+            </label><span class="unit">{{item.unit}}</span><span class="handle">ok</span></span>
+            </span>
+            {{else}}
+            <span class="p-value {{selected(item.name, value, item.values, j)}}" data-value="{{value}}">{{value}}</span>
+            {{/if}}
+            {{/each}}
+        </div>
+    </li>
+    {{else}}
+    <li class="form-group" data-name="{{item.name}}" data-attr="{{item.attr}}">
+        <span class="form-label">{{item.attr}}：</span>
+        <label class="form-control">
+            {{if item.textarea}}
+            <textarea class="form-text" name="{{item.name}}"
+                      data-unit="{{item.unit}}">{{$data[item.name]||item.value}}</textarea>
+            {{else}}
+            <input class="form-text" type="text" name="{{item.name}}" value="{{$data[item.name]||item.value}}"
+                   data-unit="{{item.unit}}"/>
+            {{/if}}
+            <span class="form-placeholder">{{item.text}}</span>
+        </label><span class="form-desc">{{item.desc}}</span>
+    </li>
+    {{/if}}
+    {{/each}}
+</ul>

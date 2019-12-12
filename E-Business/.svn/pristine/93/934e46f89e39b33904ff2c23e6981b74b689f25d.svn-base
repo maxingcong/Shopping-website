@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="none"/>
+    <meta name="author" content="ininin.com"/>
+    <meta name="copyright" content="Copyright © 2014 ininin.com. All rights reserved."/>
+    <title>供应商平台 - 设计“省”心，印刷“简”单！</title>
+    <link rel="apple-touch-icon" href="<?=IMAGES?>logo.png"/>
+    <link rel="icon" type="image/png" href="<?=IMAGES?>logo.png"/>
+    <link rel="shortcut icon" type="image/x-icon" href="<?=DOMAIN?>favicon.ico"/>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>font-awesome.min.css"/>
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>bootstrap-datetimepicker.css"/>
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>layout.css"/>
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>home.css" />
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="<?=SCRIPTS?>libs/html5shiv-3.7.2.min.js"></script>
+    <script src="<?=SCRIPTS?>libs/respond-1.4.2.min.js"></script>
+    <![endif]-->
+    <object id="jatoolsPrinter" class="hide" classid="CLSID:B43D3361-D075-4BE2-87FE-057188254255" codebase="jatoolsPrinter.cab#version=8,6,0,0"></object>
+</head>
+<body>
+<!-- Start Header -->
+<header id="bs-header" class="navbar navbar-fixed-top bs-header" role="banner">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+                <i class="fa fa-navicon"></i>
+            </button>
+            <div class="navbar-brand"><a href="http://www.ininin.com" target="_blank"><img src="<?=IMAGES?>logo.png" alt="ininin.com"/></a><a href="<?=DOMAIN?>platform.html"><img class="sys" src="<?=IMAGES?>sys.png" alt="供应商平台"/></a> </div>
+        </div>
+        <nav id="bs-navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <!--<li class="dropdown">
+                    <a id="accountInfo" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
+                        Dropdown
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="accountInfo">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                    </ul>
+                </li>-->
+                <li>
+                    <a id="supplier_username" href="<?=DOMAIN?>platform.html#<?=DOMAIN?>info/basic_info.html"></a>
+                </li>
+                <li>|</li>
+                <li>
+                    <a href="<?=DOMAIN?>platform.html#<?=DOMAIN?>msg/msg_notify.html"><i class="fa fa-envelope"></i></a>
+                </li>
+                <li>|</li>
+                <li>
+                    <a id="header_changepw" href="#"> 修改密码</a>
+                </li>
+                <li>|</li>
+                <li>
+                    <a id="header_logout" href="#"><i class="fa fa-sign-out"></i> 安全退出</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<!-- End Header -->
+<div id="bs-container" class="container bs-container">
+    <!-- Start Sidebar -->
+    <div id="bs-sidebar-affix" class="bs-sidebar-affix"></div>
+    <nav id="bs-sidebar" class="bs-sidebar affix-top">
+        <ul class="nav bs-sidenav">
+            <li>
+                <a id="bs-sidebar-home" href="<?=DOMAIN?>home/index.html"><i class="fa fa-home"></i> 首页</a>
+            </li>
+            <li>
+                <a href="<?=DOMAIN?>order/order.html"><i class="fa fa-sticky-note-o"></i> 订单管理</a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-folder"></i> 产品维护</a>
+                <ul class="nav">
+                    <li><a href="<?=DOMAIN?>product/list.html"><i class="fa fa-file"></i> 产品管理</a></li>
+                    <li><a href="<?=DOMAIN?>delivery/list.html"><i class="fa fa-file"></i> 运费设置</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-folder"></i> 信息维护</a>
+                <ul class="nav">
+                    <li><a href="<?=DOMAIN?>info/basic_info.html"><i class="fa fa-file"></i> 基本信息</a></li>
+                    <li><a href="<?=DOMAIN?>info/financial_info.html"><i class="fa fa-file"></i> 财务信息</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="<?=DOMAIN?>total/data_stat.html"><i class="fa fa-bar-chart"></i> 数据统计</a>
+            </li>
+            <li>
+                <a href="<?=DOMAIN?>msg/msg_notify.html"><i class="fa fa-info-circle"></i> 消息通知</a>
+            </li>
+            <li>
+                <a href="<?=DOMAIN?>invoice/invoice_sent.html"><i class="fa fa-calendar-minus-o"></i> 发票寄送</a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-folder"></i> 生产配送</a>
+                <ul class="nav">
+                    <li><a href="<?=DOMAIN?>distribution/product_info.html"><i class="fa fa-file"></i> 商品信息查询</a></li>
+                    <li><a href="<?=DOMAIN?>distribution/sort_out.html"><i class="fa fa-file"></i> 分拣</a></li>
+                    <li><a href="<?=DOMAIN?>distribution/deliver_goods.html"><i class="fa fa-file"></i> 发货</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-folder"></i> 自动报价</a>
+                <ul class="nav">
+                    <li><a href="<?=DOMAIN?>autoquote/general_set.html"><i class="fa fa-file"></i> 通用参数配置</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <!-- End Sidebar -->
+    <div id="bs-wrapper" class="bs-wrapper">
+        <!-- Start Content -->
+        <div id="bs-content" class="bs-content"></div>
+        <!-- End Content -->
+    </div>
+</div>
+<!-- End Container -->
+<?php include(TEMPLATES.'footer.xhtml');?>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div id="template-modal_content-view" class="modal-content"></div>
+    </div>
+</div>
+<div class="modal fade" id="myAlert" tabindex="-1" role="dialog" aria-labelledby="myModalAlertLabel" data-backdrop="static" style="z-index: 1500">
+    <div class="modal-dialog" role="document">
+        <div id="template-modal_alert-view" class="modal-content"></div>
+    </div>
+</div>
+<div class="modal fade" id="myConfirm" tabindex="-1" role="dialog" aria-labelledby="myModalConfirmLabel" data-backdrop="static" style="z-index: 1500">
+    <div class="modal-dialog" role="document">
+        <div id="template-modal_confirm-view" class="modal-content"></div>
+    </div>
+</div>
+<!-- End Modal -->
+<script id="template-change_password" type="text/template">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">修改密码</h4>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="headerPassword" class="col-sm-3 text-right control-label">密码<b class="light">*</b> ：</label>
+                <div class="col-sm-6">
+                    <input type="password" class="form-control" id="headerPassword" placeholder="请填写密码" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="headerRepassword" class="col-sm-3 text-right control-label">重复密码<b class="light">*</b> ：</label>
+                <div class="col-sm-6">
+                    <input type="password" class="form-control" id="headerRepassword" placeholder="请再次填写密码" />
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn save btn-primary md-btn">确认修改</button>
+    </div>
+</script>
+<script id="template-modal_alert" type="text/template">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalAlertLabel">{{TITLE||'温馨提示'}}</h4>
+    </div>
+    <div class="modal-body">
+        <div class="alert alert-danger" role="alert">
+            {{#content}}
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default md-btn" data-dismiss="modal">关闭</button>
+    </div>
+</script>
+<script id="template-modal_confirm" type="text/template">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalConfirmLabel">{{TITLE||'温馨提示'}}</h4>
+    </div>
+    <div class="modal-body">
+        <div class="alert alert-info" role="alert">
+            {{#content}}
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default md-btn" data-dismiss="modal">关闭</button>
+        <button type="button" class="btn btn-primary confirm md-btn">确定</button>
+    </div>
+</script>
+<script type="text/javascript" src="<?=SCRIPTS?>libs/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>libs/bootstrap.min.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>libs/bootstrap-datetimepicker.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>uploader/plupload.full.min.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>uploader/qiniu-sdk.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>uploader/main.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>plugins/highcharts/highcharts.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>libs/jquery-barcode.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>libs/jquery.PrintArea.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>libs/utils.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>libs/location.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>config.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tool.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>common.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>platform.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=BfQkidZSIR9VpvE39M4LdRje"></script>
+</body>
+</html>

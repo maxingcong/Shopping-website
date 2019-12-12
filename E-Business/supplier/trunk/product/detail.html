@@ -1,0 +1,70 @@
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<div class="headbar clearfix">
+    <div class="nav-btns pull-right">
+        <button id="productUpdateBtn" type="button" class="btn btn-danger btn-sm"><i class="fa fa-edit"></i> 修改产品</button>
+        <a id="goPrevPage" class="btn btn-primary btn-sm" href="<?=DOMAIN?>product/list.html">返回</a>
+    </div>
+    <ol class="breadcrumb">
+        <li><a href="<?=DOMAIN?>home/index.html"><i class="fa fa-home"></i>首页</a></li>
+        <li><a href="<?=DOMAIN?>product/list.html">产品管理</a></li>
+        <li id="curr_pos_text" class="active">新建可供应产品</li>
+    </ol>
+</div>
+<div id="product-detail" class="product-detail load">
+    <div class="panel-group panel-quick" role="tablist" aria-multiselectable="true">
+        <!-- quickPanelOne -->
+        <a id="quickPanelOne" class="quick-nav-link" href="#quickPanelOne"></a>
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingOne">
+                <h4 class="panel-title">
+                    产品基本信息
+                    <a class="pull-right" role="button" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <i class="fa fa-angle-double-down"></i>
+                        <i class="fa fa-angle-double-up"></i>
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                <div class="panel-body">
+                    <form id="template-product_detail-view" class="form-inline"></form>
+                </div>
+            </div>
+        </div>
+        <!-- End quickPanelOne -->
+        <div class="panel-group panel-quick" id="template-product_info_details-view" role="tablist" aria-multiselectable="true"></div>
+        <!-- End quickPanelSix -->
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingSix">
+                <h4 class="panel-title">
+                    配送方式支持
+                    <a class="pull-right" role="button" data-toggle="collapse" href="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
+                        <i class="fa fa-angle-double-down"></i>
+                        <i class="fa fa-angle-double-up"></i>
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseSix" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingSix">
+                <div id="template-product_delivery-view" class="panel-body"></div>
+            </div>
+        </div>
+        <button id="productSaveBtn" type="button" class="btn btn-primary md-btn dis">保存</button>
+        <a class="btn btn-default md-btn" href="<?=DOMAIN?>product/list.html">返回</a>
+    </div>
+</div>
+<script id="template-product_info_details" type="text/template">
+    {{if !automated}}
+    {{include 'template-product_info_columns'}}
+    {{else}}
+    {{include 'template-automated_info_columns'}}
+    {{/if}}
+</script>
+<?php include(TEMPLATES.'product/detail.xhtml');?>
+<?php include(TEMPLATES.'product/params_table.xhtml');?>
+<?php include(TEMPLATES.'product/params.xhtml');?>
+<?php include(TEMPLATES.'product/attrs.xhtml');?>
+<?php include(TEMPLATES.'product/delivery.xhtml');?>
+<?php include(TEMPLATES.'product/product_info_columns.xhtml');?>
+<?php include(TEMPLATES.'product/automated_info_columns.xhtml');?>
+<?php include(TEMPLATES.'product/product_delivery.xhtml');?>
+<?php include(TEMPLATES.'product/options.xhtml');?>
+<script type="text/javascript" src="<?=SCRIPTS?>product/detail.js"></script>

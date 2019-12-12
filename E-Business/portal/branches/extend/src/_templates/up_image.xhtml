@@ -1,0 +1,46 @@
+<script id="template-up_image" type="text/template">
+    <table class="table" cellpadding="0" cellspacing="0">
+        <colgroup>
+            <col/>
+            <col style="width: 10px"/>
+            <col style="width: 160px"/>
+        </colgroup>
+        <tr>
+            <td class="up-edit-box">
+                {{if originalUri}}
+                <img src="{{originalUri}}"/>
+                {{else}}
+                <label id="up_image-cont" class="up-cont btn-default btn-md">
+                    <span id="up_image" class="up-btn">
+                        <span class="up-text"></span>
+                    </span>
+                    <span class="up-doing">正在上传...</span>
+                    <span class="up-forbid"></span>
+                </label>
+                <div class="up-alt">只支持JPG、PNG、GIF，大小不超过5M</div>
+                {{/if}}
+            </td>
+            <td></td>
+            <td class="up-preview-box">
+                <div class="img-preview">预览</div>
+                <div class="img-box">
+                    {{if figureurl}}
+                    <img src="{{figureurl}}"/><i></i>
+                    {{else}}
+                    <img src="<?=IMAGES?>member/udefault.png"/><i></i>
+                    {{/if}}
+                </div>
+                <div class="img-size">80*80像素</div>
+            </td>
+        </tr>
+    </table>
+    <div class="btns-center">
+        <label id="up_image2-cont" class="up-cont btn btn-primary btn-md">
+            <span id="up_image2" class="up-btn">
+                <span class="up-text"></span>
+            </span>
+            <span class="up-doing">正在上传...</span>
+            <span class="up-forbid"></span>
+        </label><a class="btn btn-primary btn-md save" href="javascript:;">确 定</a><a class="btn btn-default btn-md cannel" href="javascript:;">取 消</a>
+    </div>
+</script>

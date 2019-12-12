@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="支付方式" />
+    <meta name="description" content="" />
+    <meta name="author" content="${author}" />
+    <meta name="copyright" content="${copyright}" />
+    <title>支付方式</title>
+    <link rel="shortcut icon" type="image/x-icon"  href="<?=DOMAIN?>favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>help.css" />
+	<?php include(MODULES.'dns_prefetch.xhtml');?>
+</head>
+<body>
+    <?php include(MODULES.'header.xhtml');?>
+    <div class="main helper">
+	   <div class="layout clearfix">
+	        <?php include(MODULES.'helpsidebar.xhtml');?>
+	        <div class="container">
+	          <div class="upanel">
+	            <h3 class="headline">支付方式</h3>
+	            <dl class="texts excursion">
+	              <dt>账户余额支付</dt>
+	              <dd>
+	                <div>用户可预先在账户内充值，以待日后在站内消费使用。请在支付订单时，点击"使用账户余额"即可支付；如果您需要支付的金额大于账户内剩余金额时，可选择扣除余额部分，剩余部分通过网上银行付款。</div>
+	                <h4>● 如何给账户充值？</h4>
+	                <div>您可以通过银行汇款的方式，给账户充值。</div>
+	                <h4>● 账户中的余额可以提现吗？</h4>
+	                <div>充值余额暂时不能提现，敬请谅解。</div>
+	              </dd>
+	              <dt>支付宝支付</dt>
+	              <dd>
+	                <h4>●如何开通支付宝？</h4>
+	                <div>您需要登录支付宝网站，注册一个支付宝账户。目前支付宝提供2种付款方式：支付宝账户余额支付及网上银行付款。</div>
+	                <h4>●为什么支付宝采用即时到账？</h4>
+	                <div>担保交易主要是针对个人商家的，因为通过支付宝的担保能够保证支付过程的安全可靠以及良好的信誉和售后服务，而具有相当完善的信誉和服务保障，所以不需要采用担保付款，请您放心。</div>
+	              </dd>
+	              <dt>货到付款</dt>
+	              <dd>
+	                <h4>●如何使用货到付款？</h4>
+	                <div>在提交订单时勾选货到付款选项。</div>
+	                <h4>●哪些地区支持货到付款？</h4>
+	                <div>目前仅深圳市内（南山区、罗湖区、福田区）支持货到付款。</div>
+	              </dd>
+	            </dl>
+	          </div>
+	        </div>
+		</div>
+    </div>  
+	<?php include(MODULES.'footer.xhtml');?>
+    <script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>location.js?ininin=<?=VERSION?>"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>loaded.js?ininin=<?=VERSION?>"></script>
+    <!--script type="text/javascript" src="<?=SCRIPTS?>jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>template-native.js"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>zh_cn.js"></script>
+    <script type="text/javascript" src="<?=SCRIPTS?>tool.js"></script>
+	<script type="text/javascript" src="<?=SCRIPTS?>loaded.js"></script>
+	<script type="text/javascript" src="<?=SCRIPTS?>libs/location.js"></script> -->
+    <?php include(MODULES.'linklogin.xhtml');?>
+  </body>
+</html>

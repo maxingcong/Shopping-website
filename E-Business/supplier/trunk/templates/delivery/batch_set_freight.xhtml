@@ -1,0 +1,22 @@
+<script id="template-batch_set_freight" type="text/template">
+    <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+            <th>首<span class="logistics-price-type">{{METHOD}}</span><b class="light">*</b>（<span class="logistics-price-type-unit">{{UNIT}}</span>）</th>
+            <th>首<span class="logistics-price-type">{{METHOD}}</span>费用<b class="light">*</b>（元）</th>
+            <th>续<span class="logistics-price-type">{{METHOD}}</span><b class="light">*</b>（<span class="logistics-price-type-unit">{{UNIT}}</span>）</th>
+            <th>续<span class="logistics-price-type">{{METHOD}}</span>单价<b class="light">*</b>（元/<span class="logistics-price-type-unit">{{UNIT}}</span>）</th>
+            <th>预计时间（天）</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><input type="text" class="form-control" name="firstWeight" value="{{firstWeight}}"/></td>
+            <td><input type="text" class="form-control" name="firstPrice" value="{{firstPrice}}"/></td>
+            <td><input type="text" class="form-control" name="addWeight" value="{{addWeight}}"/></td>
+            <td><input type="text" class="form-control" name="addPrice" value="{{addPrice}}"/></td>
+            <td><input type="text" class="form-control" name="deliveryTime" value="{{deliveryTime}}"/></td>
+        </tr>
+        </tbody>
+    </table>
+</script>

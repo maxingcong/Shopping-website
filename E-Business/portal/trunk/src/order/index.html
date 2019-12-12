@@ -1,0 +1,312 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="印刷产品订单" />
+    <meta name="description" content="" />
+    <meta name="author" content="${author}" />
+    <meta name="copyright" content="${copyright}" />
+    <title>印刷产品订单</title>
+    <link rel="shortcut icon" type="image/x-icon" href="<?=DOMAIN?>favicon.ico"  />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>layout.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>designer.css" />
+	<?php include(MODULES.'dns_prefetch.xhtml');?>
+</head>
+<body>
+<?php include(MODULES.'header.xhtml');?>
+<div class="main ucenter myorder">
+	<div class="layout myorder_col clearfix">
+		<?php include(MODULES.'usersidebar.xhtml');?>
+		<div class="container">
+			<div class="upanel">
+				<h3 class="headline">印刷产品订单</h3>
+                <div id="ofilter" class="ofilter">
+                	<div class="searchbar">
+		                <input id="search_order_input" class="textbox" type="text" /><a class="search_btn" href="javascript:;"><i></i></a>
+		        	</div>
+                    <!--div class="search_order">
+                        <input id="search_order_input" class="textbox" type="text" />
+                        <a class="search_btn" href="javascript:;"> <i></i> </a>
+                    </div-->
+                    <ul>
+                        <li><a class="sel" href="javascript:;" data-status="">全部 <span id="data_all" class="yellow"></span></a></li>
+                        <li class="vline"></li>
+                        <li><a href="javascript:;" data-status="0">待支付 <span id="data_notpay" class="yellow"></span></a></li>
+                        <li class="vline"></li>
+                        <li><a href="javascript:;" data-status="1">已支付 <span id="data_pay" class="yellow"></span></a></li>
+                        <li class="vline"></li>
+                        <li><a href="javascript:;" data-status="2">已取消 <span id="data_cancel" class="yellow"></span></a></li>
+                        <li class="vline"></li>
+                        <li><a href="javascript:;" data-status="3">交易成功 <span id="data_success" class="yellow"></span></a></li>
+                    </ul>
+                </div>
+				<div id="myorder" class="list orders checkboxs">
+                    <div id="template_order_list_view"></div>
+				</div>
+				<div id="paginbar" class="paginbar hide"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="upload_text" class="upload_text">
+    <p>1.名片类产品请直接选择模板生成印刷文件；</p>
+    <p>2.其它印刷品可以选择云端的印刷文件，或者上传AI,PSD,CDR,PDF格式文件，每款对应一个文件；</p>
+    <p>3.若一个产品由多个印刷文件组成，请压缩成RAR或ZIP后再上传；</p>
+    <p>4.若是单面印刷，请在文件名中标注“单面印刷”；</p>
+    <p class="red">请仔细核对印刷文件内容，以避免造成损失。</p>
+</div>
+<?php include(MODULES.'footer.xhtml');?>
+<script id="template_order_list" type="text/template">
+    <% if(cancelCount>1){ %>
+    <div class="tr pb10"><a class="red delete-all" href="javascript:;">删除所有的取消订单</a></div>
+    <% } %>
+    <% for(var k=0; temp = order_list[k]; k++){
+    if(temp.order_product_list&&temp.order_product_list.length){ %>
+    <div id="oder_item_<%=temp.order_code%>" ocode="<%=temp.order_code%>" class="<%=temp.type==5?'item item5':'item'%>">
+        <?php include(TEMPLATES.'vip_order_tip.xhtml');?>
+        <div class="row"><span class="ocode">订单编号：<a href="<?=DOMAIN?>member/odetail.html?o=<%=temp.order_code%>"><%=temp.order_code%></a></span><span class="otime">下单时间：<%=temp.record_time%></span><span class="oprice">订单金额：<span class="red"><%=RMB(temp.total_price)%></span>（<%=temp.ship_price>0?'含运费'+RMB(temp.ship_price)+'元':'包邮'%>）</span></div>
+        <ol>
+            <li class="col2">
+                <div>商品信息</div>
+            </li>
+            <li class="col3">
+                <div>数量</div>
+            </li>
+            <li class="col4">
+                <div>金额（元）</div>
+            </li>
+            <li class="col5">
+                <div>印刷文件/预计出货日期<a class="up_help" href="<?=DOMAIN?>faq/distribution.html#1" title="生产周期说明" target="_blank"></a></div>
+            </li>
+            <li class="col6">
+                <div>商品状态</div>
+            </li>
+            <li class="col7">
+                <div>订单状态</div>
+            </li>
+        </ol>
+        <dl class="pros">
+            <dd class="colspan1">
+                <% for(var j=0; product = temp.order_product_list[j]; j++){
+	                	if(temp.order_product_list.length>5&&j>=3)continue;
+                	%>
+                    <ul ocode="<%=temp.order_code%>" opid="<%=product.order_product_id%>" pid="<%=product.product_id%>" pname="<%=product.product_name%>" cid="<%=product.category_id%>" ostatus="<%=temp.status%>">
+                        <li class="col2">
+                            <div>
+                                <% if(product.product_id){ %>
+                                    <a class="img" href="<?=DOMAIN?>product/<%=product.target_id||product.product_id%>.html#<%=product.product_attr%>" target="_blank" title="<%=product.product_name%>">
+                                <% }else{ %>
+                                    <a class="img" href="javascript:;" title="<%=product.product_name%>">
+                                <% } %>
+                                    <b><img src="<%=product.product_pic||(product.type==5?IMG.package:'')||(product.type==10?IMG.design:'')||DOMAIN.CLOUD%>?imageMogr2/thumbnail/!112x64r/auto-orient/gravity/Center/crop/112x64" alt="<%=product.product_name%>" /><i></i></b>
+                                </a><span class="desc ellipsis">
+                                <% if(product.product_id){ %>
+                                    <a href="<?=DOMAIN?>product/<%=product.target_id||product.product_id%>.html#<%=product.product_attr%>" target="_blank" title="<%=product.product_name%>"><%=product.product_name%></a>
+                                <% }else{ %>
+                                    <a href="javascript:;" title="<%=product.product_name%>"><%=product.product_name%></a>
+                                <% } %>
+                                </span>
+                            </div>
+                        </li>
+                        <li class="col3">
+                            <div><%=product.quantity||(product.product_count+'款')%></div>
+                        </li>
+                        <li class="col4">
+                            <div><%=RMB(product.total_price)%></div>
+                        </li>
+                        <li class="col5 upload">
+                            <div>
+                                <% if(temp._IsInstallService){ %>
+                                ---
+                                <% } else if(product.status==12 && product.relation_design_order){ %>
+                                    <p>已关联设计服务订单</p>
+                                    <a href="<?=DOMAIN?>member/odetail.html?o=<%=product.relation_design_order%>" target="_blank"><%=product.relation_design_order%></a>
+                                <% } else { %>
+                                    <% if(product.sorce_file&&product.file_url&&!product.card_id){ %>
+                                        <p><a class="ellipsis filename" href="<%=product.file_url%>?download/<%=product.sorce_file%>" title="<%=product.sorce_file%>" target="_blank"><%=product.sorce_file%></a></p>
+                                    <% }else if(product.card_id&&product.sorce_file){%>
+                                        <p><a class="ellipsis filename" href="javascript:;" title="<%=product.sorce_file%>" data-card_id="<%=product.card_id%>"><%=product.sorce_file%></a></p>
+                                    <%} %>
+                                    <% if(temp.status==0||(temp.status==1&&(product.status==2||product.status==3)&&product.update_time)){
+                                        var dStr = product.out_production_time||'---';%>
+                                            <!--if(temp.status==0){
+                                                dStr = dStr||DeliveryDate('',product.delivery,2);
+                                            }else{
+                                                dStr = DeliveryDate(product.update_time,product.delivery,2);
+                                            }-->
+                                        <%if(dStr&&product.product_id!=200000){ %>
+                                        <%if(product._IsInstallService){%>
+                                            <p class="ddate">---</p>
+                                        <%}else{%>
+                                            <p class="ddate"><%=dStr%></p>
+                                        <%}%>
+                                    <% }} %>
+                                <%}%>
+                            </div>
+                        </li>
+                        <li class="col6">
+                            <div class="status_str">
+                            	<%if(product.status==1){%>
+                            		<div class="not_pass" data-value="<%=product.not_pass_reason%>">
+                            			<p><b class="red"><%=product.status_str%></b></p>
+                            			<a href="javascript:;">查看原因</a>
+                            		</div>
+                            	<%}else if(product.status==5){if(!product.is_comment){%>
+                                    <p><%=product.status_str%></p>
+                                    <a class="comment btn btn-default upload-button" href="javascript:;">评价</a>
+                                <%}else{%>
+                                    已评价
+                                <%}}else{%>
+                            		<%=product.status_str%>
+                            	<%}%>
+                            </div>
+                        </li>
+                    </ul>
+                <% } %>
+            </dd>
+            <dd class="colspan2">
+                <ul pid="101">
+                    <li class="col7">
+                        <div>
+                            <% if(temp.status!=0){ %>
+                                <p><%=temp.status_str%></p>
+                            <% } %>
+                            <% if(temp.payable && temp._is_cancel){ %>
+                                <p><a class="cancel_order" href="javascript:;">取消订单</a></p>
+                            <% }%>
+                            <p><a class="look_desc" href="<?=DOMAIN?>member/odetail.html?o=<%=temp.order_code%>">查看订单详情</a></p>
+                            <% if(temp.status==2){ %>
+                            <p><a class="red delete" href="javascript:;">删除</a></p>
+                            <% }%>
+                            <% if(temp.status==5||temp.status==7){ %>
+                            <p><a class="btn apply-for-order" href="javascript:;"><%=temp.status==7?'重新提交申请':'提交申请'%></a></p>
+                            <% }%>
+                            <% if(temp.status==0){ %>
+                                <% if(temp.remittance_number){ %>
+                                    <p class="red">汇款待确认</p>
+                                <%}else if(temp.payable){%>
+                                    <p><a class="btn" href="<?=DOMAIN?>cart/payment.html?o=<%=temp.order_code%>">去支付</a></p>
+                                <%}%>
+                            <% }else if(temp._IsInstallService){%>
+                                <!--无操作-->
+                            <% }else if(temp._is_upload){%>
+                        		<p><a class="btn" href="<?=DOMAIN?>member/odetail.html?o=<%=temp.order_code%>"><% if(temp.order_product_list.length==temp._upload_count){ %>去修改文件<%}else{%>去上传文件<%}%></a></p>
+                        	<% }else if(temp.status==1&&FDDID==temp.take_type&&!temp._is_cancel){%>
+	                            <%if(temp.dist_code){%>
+                            		<p><a href="<?=DOMAIN?>member/odetail.html?o=<%=temp.dist_code%>&t=15">查看分发详情</a></p>
+                            	<%}else{%>
+                            		<!--p><a class="btn" href="<?=DOMAIN?>cart/distribute.html">去分发商品</a></p-->
+                            	<%}%>
+                        	<%}%>
+                            <% if(temp.status==1&&temp._is_receive){%>
+                            <p><a class="receive_goods" href="javascript:;">确认收货</a></p>
+                            <%}%>
+                        </div>
+                    </li>
+                </ul>
+            </dd>
+            <%if(temp.order_product_list.length>5){%>
+            	<dt class="rowspan1">
+            		<a href="<?=DOMAIN?>member/odetail.html?o=<%=temp.order_code%>" target="_blank">查看更多>></a>
+            	</dt>
+            <%}%>
+        </dl>
+    </div>
+    <% } }%>
+</script>
+<script id="template_comment_panel" type="text/template">
+    <form>
+        <div class="form-group">
+            <label><b>商品评价</b></label>
+            <textarea id="productComment" name="product" placeholder="请对商品进行评价~"></textarea>
+        </div>
+        <div class="form-group">
+            <label><b>服务评价</b></label>
+            <textarea id="serviceComment" name="service" placeholder="请对服务进行评价~"></textarea>
+        </div>
+        <div class="stars-wrap">
+            <span>认真写评价，可获得<a href="<?=DOMAIN?>integral/index.html" target="_blank" class="yellow"><b>云印5积分!</b></a></span>
+            <p data-type="1" class="mt20"><b class="red">*</b>商品质量<span data-index="1" class="col ml10"></span><span data-index="2" class="col"></span><span data-index="3" class="col"></span><span data-index="4" class="col"></span><span data-index="5" class="col"></span></p>
+            <p data-type="2"><b class="red">*</b>服务质量<span data-index="1" class="col ml10"></span><span data-index="2" class="col"></span><span data-index="3" class="col"></span><span data-index="4" class="col"></span><span data-index="5" class="col"></span></p>
+            <p data-type="3"><b class="red">*</b>交货周期<span data-index="1" class="col ml10"></span><span data-index="2" class="col"></span><span data-index="3" class="col"></span><span data-index="4" class="col"></span><span data-index="5" class="col"></span></p>
+        </div>
+    </form>
+</script>
+<script id="template_receive_panel" type="text/template">
+    <table class="table_view" cellpadding="0" cellspacing="0">
+        <colgroup>
+            <col width="40px">
+            <col width="35%">
+            <col width="22%">
+            <col width="22%">
+            <col>
+        </colgroup>
+        <thead>
+        <tr>
+            <th class="col1"><div></div></th>
+            <th class="col2"><div>商品信息</div></th>
+            <th class="col3"><div>数量</div></th>
+            <th class="col4"><div>金额（元）</div></th>
+            <th class="col5"><div>商品状态</div></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% if(status==1&&order_product_list&&order_product_list.length){%>
+        <% for(var i=0; product= order_product_list[i];i++){%>
+        <% if(product.status == 4){%>
+        <tr>
+            <td class="col1"><div>
+                <label class="checkbox" data-opid="<%=product.order_product_id%>"></label>
+            </div></td>
+            <td class="col2"><div>
+                <% if(product.product_id){ %>
+                <a class="img" href="<?=DOMAIN?>product/<%=product.target_id||product.product_id%>.html#<%=product.product_attr%>" target="_blank" title="<%=product.product_name%>">
+                    <% }else{ %>
+                    <a class="img" href="javascript:;" title="<%=product.product_name%>">
+                        <% } %>
+                        <b><img src="<%=product.product_pic||(product.type==5?IMG.package:'')||(product.type==10?IMG.design:'')||DOMAIN.CLOUD%>?imageMogr2/thumbnail/!112x64r/auto-orient/gravity/Center/crop/112x64" alt="<%=product.product_name%>" /><i></i></b>
+                    </a><span class="desc ellipsis">
+                                <% if(product.product_id){ %>
+                                    <a href="<?=DOMAIN?>product/<%=product.target_id||product.product_id%>.html#<%=product.product_attr%>" target="_blank" title="<%=product.product_name%>"><%=product.product_name%></a>
+                                <% }else{ %>
+                                    <a href="javascript:;" title="<%=product.product_name%>"><%=product.product_name%></a>
+                                <% } %>
+                                </span>
+            </div></td>
+            <td class="col3"><div><%=product.quantity||(product.product_count+'款')%></div></td>
+            <td class="col4"><div><%=RMB(product.total_price)%></div></td>
+            <td class="col5"><div><%=product.status_str%></div></td>
+        </tr>
+        <%}%>
+        <%}%>
+        <%}%>
+        </tbody>
+    </table>
+    <label class="checkbox checkbox_all"></label>
+</script>
+<?php include(TEMPLATES.'apply_for_order.xhtml');?>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>order/index.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>location.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js?ininin=<?=VERSION?>"></script>
+<!--script type="text/javascript" src="<?=SCRIPTS?>jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>template-native.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>zh_cn.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tool.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>order/index.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>libs/location.js"></script-->
+<?php include(MODULES.'linklogin.xhtml');?>
+</body>
+</html>

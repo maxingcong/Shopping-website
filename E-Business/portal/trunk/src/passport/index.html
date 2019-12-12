@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="注册" />
+    <meta name="description" content="" />
+    <meta name="author" content="${author}" />
+    <meta name="copyright" content="${copyright}" />
+    <title>注册</title>
+    <link  rel="shortcut icon" type="image/x-icon" href="<?=DOMAIN?>favicon.ico"  />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>layout.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>activity.css" />
+	<?php include(MODULES.'dns_prefetch.xhtml');?>
+</head>
+<body>
+<?php include(MODULES.'header_register.xhtml');?>
+<div class="main uregister">
+    <div id="slider_list_login" class="full-banner login-banner">
+        <div class="slide-panel" data-duration="300" data-interval="3500">
+            <ul class="slide-layer clearfix">
+                <li class="slide-item">
+                    <img src="http://cloud.ininin.com/1460011615020.jpg" alt="云印印刷">
+                </li>
+            </ul>
+        </div>
+    </div>
+    <fieldset id="register" class="register reg_type_user reg_box hide">
+        <!--<h3 class="reglogo"></h3>-->
+        <form id="register_user" class="forms">
+            <div class="title clearfix">
+                <strong>注册云印账户</strong>
+            </div>
+            <input type="hidden" name="user_type" value="0" />
+            <div class="form_item icon_person">
+                <label>
+                    <input id="account" class="textbox" type="text" name="username" />
+                    <strong class="required">*</strong>
+                    <i class="msg"></i>
+                </label>
+            </div>
+            <div class="form_item form_code hide">
+                <label>
+                    <input class="textbox" type="text" name="code" maxlength="6" />
+                </label>
+                <a id="sendCode" class="btn">发送验证码</a>
+                <i class="msg"></i>
+            </div>
+            <div class="form_item icon_lock">
+                <label>
+                    <input class="textbox" type="password" name="password" maxlength="20" autocomplete="off" />
+                    <strong class="required">*</strong>
+                    <i class="msg"></i>
+                </label>
+            </div>
+            <div class="form_item icon_inviter">
+                <label>
+                    <input class="textbox" type="text" name="inviter" />
+                    <a class="login_help" href="<?=DOMAIN?>faq/#2" title="商务经理是什么？" target="_blank"></a>
+                    <i class="msg"></i>
+                </label>
+            </div>
+            <div class="form_item reg_agree">
+                <div class="checkboxs">
+                    <label class="checkbox">
+                        <input type="checkbox" name="agreement" value="true" checked="checked" />我已阅读并接受
+                    </label>
+                    <a class="agreement_link" href="<?=DOMAIN?>agreement/account.html">《云印服务协议》</a>
+                </div>
+            </div>
+            <div class="form_item form_btm mt20">
+                <a class="submit" href="javascript:;">
+                    注 册<input onclick="_czc.push(['_trackEvent', '通用', '注册', '','','']);" type="submit" value="" />
+                </a>
+            </div>
+        </form>
+        <div class="switch_form"><span>已注册？<a id="goLogin" href="javascript:;">立即登录</a></span></div>
+        <?php include(MODULES.'login_qrcode.xhtml');?>
+    </fieldset>
+    <fieldset id="user_login" class="login login_box hide">
+        <form id="user_login_form" class="forms login_user">
+            <div class="title clearfix">
+                <strong>账户登录</strong>
+                <a href="javascript:;" id="userLoginChange" class="change loginbycode">手机动态码登录<i class="icon"></i></a>
+            </div>
+            <div class="form_item icon_person">
+                <label>
+                    <input id="userAccountLogin" class="textbox" type="text" name="username" />
+                    <i class="msg"></i>
+                </label>
+            </div>
+            <div id="loginPwd" class="form_item icon_lock">
+                <label>
+                    <input class="textbox" type="password" name="password" maxlength="20" autocomplete="off" />
+                    <i class="msg"></i>
+                </label>
+            </div>
+            <div id="loginCode" class="form_item form_code hide">
+                <label>
+                    <input class="textbox" type="text" name="code" maxlength="6" />
+                </label>
+                <a id="userSendCodeLogin" class="btn">发送验证码</a>
+                <i class="msg"></i>
+            </div>
+            <div class="form_item">
+                <div class="checkboxs">
+                    <a class="forget" href="<?=DOMAIN?>passport/forget.html">忘记密码</a>
+                    <label class="checkbox"><input type="checkbox" name="remember" value="1" />记住我 </label>
+                </div>
+            </div>
+            <div id="captcha" class="form_item captcha hide">
+                <label>
+                    <input class="textbox" type="text" name="captcha" /><img class="img" src=""/><a class="refresh" href="javascript:;">看不清楚<br/>换一张</a>
+                    <i class="msg"></i>
+                </label>
+            </div>
+            <div class="form_item form_btm">
+                <a class="submit" href="javascript:;">登 录<input onclick="_czc.push(['_trackEvent', '通用', '登录', '会员帐号','','']);" type="submit" value="" /></a>
+            </div>
+        </form>
+        <div class="switch_form"><span>还不是云印账户？<a id="goRegister" href="javascript:;">立即注册</a></span></div>
+        <div class="comlogin">
+            <div class="txt">使用其它账号登录：</div>
+            <div class="logins"><a id="sina_login_btn" onclick="_czc.push(['_trackEvent', '通用', '登录', '微博帐号','','sina_login_btn']);" href="javascript:;" class="lsina"></a><a id="qq_login_btn" onclick="_czc.push(['_trackEvent', '通用', '登录', 'QQ帐号','','qq_login_btn']);" href="javascript:;" class="ltencent"></a><a id="wechat_login_btn" onclick="_czc.push(['_trackEvent', '通用', '登录', '微信','','wechat_login_btn']);" href="javascript:;" class="lwechat"></a></div>
+        </div>
+        <?php include(MODULES.'login_qrcode.xhtml');?>
+    </fieldset>
+</div>
+<?php include(MODULES.'footer_register.xhtml');?>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>passport/register.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>location.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js?ininin=<?=VERSION?>"></script>
+<!--<script type="text/javascript" src="<?=SCRIPTS?>jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>template-native.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>zh_cn.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tool.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>passport/register.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>libs/location.js"></script>-->
+<?php include(MODULES.'linklogin.xhtml');?>
+</body>
+</html>

@@ -1,0 +1,363 @@
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<div id="general_set">
+    <ol class="breadcrumb">
+        <li><a href="<?=DOMAIN?>home/index.html"><i class="fa fa-home"></i>首页</a></li>
+        <li class="active">自动报价</li>
+        <li>通用参数配置</li>
+    </ol>
+    <!-- Start Tabs -->
+    <ul id="generalset-tabs" class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#paper_price" role="tab" data-toggle="tab">纸张吨价</a></li>
+        <li role="presentation"><a href="#print_machine" role="tab" data-toggle="tab">印刷机尺寸</a></li>
+        <li role="presentation"><a href="#general_paper" role="tab" data-toggle="tab">常用上机纸</a></li>
+        <li role="presentation"><a href="#print_price" role="tab" data-toggle="tab">印刷费设置</a></li>
+    </ul>
+    <div class="tab-content mt15">
+        <div role="tabpanel" class="tab-pane active" id="paper_price">
+            <div class="form-group">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#setPriceModl" data-act="add">增加纸张</button>
+            </div>
+            <div id="template-paper_price-view" class="table-scroll table-product-price">
+                
+            </div>
+        </div>
+
+        <div role="tabpanel" class="tab-pane" id="print_machine">
+            <div class="form-group">
+                <button type="button" class="btn btn-primary" data-act="add" data-toggle="modal" data-target="#addPrintModl">增加印刷机</button>
+            </div>
+            <div id="template-print_machine-view" class="table-scroll table-product-price">
+                
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="general_paper">
+            <div id="template-general_paper-view" class="table-scroll table-product-price">
+                
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="print_price">
+            <div id="template-print_price-view" class="table-scroll table-product-price">
+                
+            </div>
+            <div class="form-group mt15">
+                <button type="button" id="savePrintFee" class="btn btn-primary md-btn">保 存</button>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="pagination clearfix">
+        <div class="pull-left">
+            <span>共 <b id="data-recordCount">0</b> 条，每页
+            <select class="form-control" name="pageCount">
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="40">40</option>
+                <option value="50">50</option>
+            </select> 条</span>
+        </div>
+        <div id="paginbar" class="pull-right paginbar"></div>
+    </div> -->
+</div>
+
+<!-- 纸张吨价设置 模态框 start-->
+<div class="modal fade" id="setPriceModl" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div id="template-set_price-view" class="modal-content">
+            <!--  -->
+        </div>
+    </div>
+</div>
+<script id="template-set_price" type="text/template">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">{{title||'编辑纸张'}}</h4>
+    </div>
+    <div class="modal-body">
+        <table class="table table-hover table-center">
+            <thead>
+                <tr>
+                    <th>编号</th>
+                    <th>纸张名称</th>
+                    <th>纸张克重</th>
+                    <th>吨价(元/吨)</th>
+                </tr>
+            </thead>
+            <tbody class="form-inline">
+                <tr>
+                    <td style="line-height: 34px;">{{index}}</td>
+                    <td>
+                        <select class="form-control" name="name">
+                            {{if nameList.length != 0}}
+                                {{each nameList as item}}
+                                    {{ if name && item == name }}
+                                        <option value="{{item}}" selected="selected">{{item}}</option>
+                                    {{else}}
+                                        <option value="{{item}}">{{item}}</option>
+                                    {{/if}}
+                                {{/each}}
+                            {{else}}
+                                <option value="">请选择</option>
+                            {{/if}}
+                        </select>
+                    </td>
+                    <td>
+                        <select class="form-control" name="weight">
+                            {{if weightList.length != 0}}
+                                {{each weightList as temp}}
+                                    {{ if weight && temp == weight }}
+                                        <option value="{{temp}}" selected="selected">{{temp}}</option>
+                                    {{else}}
+                                        <option value="{{temp}}">{{temp}}</option>
+                                    {{/if}}
+                                {{/each}}
+                            {{else}}
+                                <option value="">请选择</option>
+                            {{/if}}
+                        </select>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" name="price" value="{{price}}" placeholder="元/吨"> 元
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="modal-footer text-center">
+        <button type="button" class="btn btn-primary md-btn save">确 定</button>
+        <button type="button" class="btn btn-default md-btn" data-dismiss="modal">取 消</button>
+    </div>
+</script>
+<!-- 纸张吨价设置 模态框 end-->
+
+<!-- 增加印刷机 模态框  start-->
+<div class="modal fade" id="addPrintModl" tabindex="-1" role="dialog" data-id="">
+    <div class="modal-dialog" role="document">
+        <div id="template-set_printer-view" class="modal-content">
+            <!--  -->
+        </div>
+    </div>
+</div>
+<script id="template-set_printer" type="text/template">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">{{title||'编辑印刷机'}}</h4>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <label class="control-label">印刷机编号：{{index}}</label>
+        </div>
+        <div class="form-group form-inline">
+            <label class="control-label">印刷机名称：</label>
+            <input type="text" class="form-control" name="name" value="{{name}}" placeholder="印刷机名称">
+        </div>
+        <div class="form-group form-inline">
+            <label class="control-label">最大进纸尺寸：</label>
+            <input type="text" class="form-control" name="maxx" value="{{maxx}}" placeholder="X/mm"> mm * 
+            <input type="text" class="form-control" name="maxy" value="{{maxy}}" placeholder="Y/mm"> mm
+        </div>
+        <div class="form-group form-inline">
+            <label class="control-label">最小进纸尺寸：</label>
+            <input type="text" class="form-control" name="minx" value="{{minx}}" placeholder="X/mm"> mm * 
+            <input type="text" class="form-control" name="miny" value="{{miny}}" placeholder="Y/mm"> mm
+        </div>
+    </div>
+    <div class="modal-footer text-center">
+        <button type="button" class="btn btn-primary md-btn save">确 定</button>
+        <button type="button" class="btn btn-default md-btn" data-dismiss="modal">取 消</button>
+    </div>
+</script>
+<!-- 增加印刷机 模态框 end-->
+
+<!-- 纸张吨价设置 -->
+<script id="template-paper_price" type="text/template">
+    <table class="table table-border table-hover table-center">
+        <colgroup>
+                <col width="10%">
+                <col width="15%">
+                <col width="15%">
+                <col width="15%">
+                <col width="15%">
+                <col width="30%">
+            </colgroup>
+        <thead>
+            <tr>
+                <th>编号</th>
+                <th>纸张名称</th>
+                <th>纸张克重</th>
+                <th>吨价</th>
+                <th>审核状态</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody data-num="{{resultList.length}}">
+        {{if resultList.length}}
+            {{each resultList as item i}}
+                <tr data-id="{{item.id}}">
+                    <td class="index">{{i+1}}</td>
+                    <td class="name">{{item.pageName}}</td>
+                    <td class="weight">{{item.pageGramWeight}}</td>
+                    <td class="price">{{item.tonsPrice}}</td>
+                    <td>{{['审核未通过', '审核中', '审核通过'][item.auditStatus+1]}}</td>
+                    <td>
+                        <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#setPriceModl" data-act="edit">编辑</button>
+                        <button type="button" class="btn btn-danger btn-xs">删除</button>
+                    </td>
+                </tr>
+            {{/each}}
+        {{else}}
+            <tr> <td colspan="6">没有相关数据</td> </tr>
+        {{/if}}
+        </tbody>
+    </table>
+</script>
+
+<!-- 印刷机设置 -->
+<script id="template-print_machine" type="text/template">
+    <table class="table table-border table-hover table-center">
+        <colgroup>
+                <col width="6%">
+                <col width="12%">
+                <col width="12%">
+                <col width="12%">
+                <col width="12%">
+                <col width="12%">
+                <col width="10%">
+                <col width="24%">
+            </colgroup>
+        <thead>
+            <tr>
+                <th>编号</th>
+                <th>印刷机名称</th>
+                <th>最大进纸尺寸X</th>
+                <th>最大进纸尺寸Y</th>
+                <th>最小进纸尺寸X</th>
+                <th>最小进纸尺寸Y</th>
+                <th>启用状态</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody data-num={{resultList.length}}>
+        {{if resultList.length}}
+            {{each resultList as item i}}
+                <tr data-id="{{item.id}}">
+                    <td class="index">{{i+1}}</td>
+                    <td class="name">{{item.printerName||''}}</td>
+                    <td class="maxx">{{item.maxPrintPageX||''}}</td>
+                    <td class="maxy">{{item.maxPrintPageY||''}}</td>
+                    <td class="minx">{{item.minPrintPageX||''}}</td>
+                    <td class="miny">{{item.minPrintPageY||''}}</td>
+                    <td class="status">{{['已停用', '已启用'][item.status]}}</td>
+                    <td class="btnlist">
+                        {{if item.status == 0}}
+                            <button type="button" class="use btn btn-success btn-xs">启用</button>
+                        {{else}}
+                            <button type="button" class="use btn btn-primary btn-xs">停用</button>
+                        {{/if}}
+                        <button type="button" class="btn btn-primary btn-xs" data-act="edit" data-toggle="modal" data-target="#addPrintModl">编辑</button>
+                        <button type="button" class="btn btn-danger btn-xs del">删除</button>
+                    </td>
+                </tr>
+            {{/each}}
+        {{else}}
+            <tr> <td colspan="8">没有相关数据</td> </tr>
+        {{/if}}
+        </tbody>
+    </table>
+</script>
+
+<!-- 常用上机纸 -->
+<script id="template-general_paper" type="text/template">
+    <table class="table table-border table-hover table-center">
+        <colgroup>
+                <col width="6%">
+                <col width="12%">
+                <col width="12%">
+                <col width="12%">
+                <col width="10%">
+                <col width="12%">
+                <col width="12%">                
+                <col width="6%">
+                <col width="18%">
+            </colgroup>
+        <thead>
+            <tr>
+                <th>编号</th>
+                <th>原始纸类型</th>
+                <th>原始纸尺寸X</th>
+                <th>原始纸尺寸Y</th>
+                <th>纸张开度</th>
+                <th>上机纸尺寸X</th>
+                <th>上机纸尺寸Y</th>
+                <th>状态</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        {{if resultList.length}}
+            {{each resultList as item i}}
+                {{ isUse = useItem[item.id] }}
+                <tr data-id="{{item.id}}">
+                    <td>{{i+1}}</td>
+                    <td>{{item.originalPageType}}</td>
+                    <td>{{item.originalPageSizeX}}</td>
+                    <td>{{item.originalPageSizeY}}</td>
+                    <td>{{item.pageOpen}}</td>
+                    <td>{{item.boardPageSizeX}}</td>
+                    <td>{{item.boardPageSizeY}}</td>
+                    {{if isUse}}
+                        <td class="status">已启用</td>
+                        <td class="btnbox"><button type="button" class="btn btn-danger btn-xs">停用</button></td>
+                    {{else}}
+                        <td class="status">已停用</td>
+                        <td class="btnbox"><button type="button" class="btn btn-primary btn-xs">启用</button></td>
+                    {{/if}}
+                </tr>
+            {{/each}}
+        {{else}}
+            <tr> <td colspan="9">没有相关数据</td> </tr>
+        {{/if}}
+        </tbody>
+    </table>
+</script>
+
+<!-- 印刷费设置 -->
+<script id="template-print_price" type="text/html">
+    <table class="table table-border table-hover table-center">
+        <colgroup>
+                <col width="10%">
+                <col width="26%">
+                <col width="16%">
+                <col width="16%">
+                <col width="16%">
+                <col width="16%">
+            </colgroup>
+        <thead>
+            <tr>
+                <th>颜色</th>
+                <th>数量</th>
+                {{ attrs = printBaseName.split('-')[1] ? printBaseName.split('-')[1].split('_') : [] }}
+                {{each attrs as name i}}
+                    <th>{{name}}(元)</th>
+                {{/each}}
+            </tr>
+        </thead>
+        <tbody data-id={{id}}>
+        {{if typeof id !== 'undefined'}}
+            {{each resultList as item key}}
+                {{ keyAttr = key.split('_'), artsAttr = item['工艺属性'] }}
+                <tr class="form-inline" data-key="{{key}}">
+                    <td>{{keyAttr[0]}}</td>
+                    <td>{{keyAttr[1]}}</td>
+                    {{each artsAttr as temp attr}}
+                        <td><input type="text" class="form-control" name="{{attr}}" value="{{temp}}"></td>
+                    {{/each}}
+                </tr>
+            {{/each}}
+        {{else}}
+            <tr> <td colspan="6">没有相关数据</td></tr>
+        {{/if}}
+        </tbody>
+    </table>
+</script>
+
+<script type="text/javascript" src="<?=SCRIPTS?>autoquote/general_set.js"></script>

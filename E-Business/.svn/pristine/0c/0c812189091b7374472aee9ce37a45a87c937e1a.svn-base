@@ -1,0 +1,241 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="五月大放价" />
+    <meta name="description" content="为了回报新老客户，在5月推出云印优惠季活动，本页面活动产品，凡是单笔购物实付金额满200元，即可额外获赠积分1000，可以用来兑换云印积分商城的各种礼品哦，仅限前100名，先到先得，云印小伙伴们快快行动吧！" />
+    <meta name="author" content="${author}" />
+    <meta name="copyright" content="${copyright}" />
+    <title>五月大放价</title>
+    <link href="<?=DOMAIN?>favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>activity.css" />
+    <?php include(MODULES.'dns_prefetch.xhtml');?>
+    <style type="text/css">
+        .full_page{background: url(../resources/activity/a26_1.jpg?v=1) center 0 repeat; position: relative;}
+        .full_page .act_main{width: 1920px; position: absolute; left: 50%; margin-left: -960px; overflow: hidden;}
+        .full_page .top_txt{width: 1220px; margin: -145px auto 0; font-size: 22px; line-height: 1.8; color: #ffe597;}
+        .full_page .act_main .pos{position: relative; margin-top: 70px;}
+        .full_page .act_main .pos a{position: absolute; top: 85px; width: 100px; height: 26px; line-height: 26px; font-size: 16px; background-color: #c82323; color: #fff39f; text-decoration: none; text-align: center;}
+        .full_page .act_main .pos a:hover{background-color: #b61717;}
+        .full_page .act_main .pos .posbtn1{left: 577px;}
+        .full_page .act_main .pos .posbtn2{left: 837px;}
+        .full_page .act_main .pos .posbtn3{left: 1097px;}
+        .full_page .act_body{margin-top: 910px; margin-bottom: 180px;}
+        .full_page .section{width: 1220px; margin: 0 auto 50px; color: #fff;}
+        .full_page .pro1, .full_page .pro2, .full_page .pro3, .full_page .pro4{width: 1150px; padding: 45px 35px; background-color: #f261a8;}
+        .full_page .section .h3{width: 100%; height: 53px; margin-bottom: 45px; background: url(../resources/activity/a26_3.png?v=1) center 0 no-repeat;}
+        .full_page .section .tit1{background-position: center 0;}
+        .full_page .section .tit2{background-position: center -60px;}
+        .full_page .section .tit3{background-position: center -120px;}
+        .full_page .section .tit4{background-position: center -180px;}
+        .full_page .pro1 .pro_list{width: 1024px; margin: 0 auto;}
+        .full_page .pro_list .item{float: left; width:236px; height: 340px; margin: 0 10px; overflow: hidden;}
+        .full_page .pro_list .item img{width: 100%; height: 236px; outline: none;}
+        .full_page .pro_list .text{padding: 0 10px; background-color: #d4478c;}
+        .full_page .pro_list .tline{font-size: 20px; line-height: 28px;}
+        .full_page .pro_list p{height: 40px; font-size: 16px; line-height: 20px;}
+        .full_page .pro_list .buycard{display: block; height: 34px; line-height: 34px; background-color: #aa2a69; text-decoration: none; text-align: center; color: #fff;}
+        .full_page .pro_list .buycard:hover{background-color: #911c4d;}
+        .full_page .pro2{background-color: #fda738;}
+        .full_page .pro2 .pro_list{width: 512px; margin: 0 auto;}
+        .full_page .pro2 .text{background-color: #ed9421;}
+        .full_page .pro2 .buycard{background-color: #d07603;}
+        .full_page .pro2 .buycard:hover{background-color: #c15902;}
+        .full_page .pro3{background-color: #f64646;}
+        .full_page .pro3 .pro_list{width: 768px; margin: 0 auto;}
+        .full_page .pro3 .text{background-color: #e63939;}
+        .full_page .pro3 .buycard{background-color: #c82323;}
+        .full_page .pro3 .buycard:hover{background-color: #b61717;}
+        .full_page .pro4{background-color: #768ec1;}
+        .full_page .pro4 .pro_last{width: 750px; height: 337px; margin: 0 auto;}
+        .full_page .pro4 .pro_last img{width: 100%; height: 268px;}
+        .full_page .pro_last .text{height: 70px; padding-left: 10px; background-color: #5a74ab;}
+        .full_page .pro_last .tline{font-size: 20px; line-height: 40px;}
+        .full_page .pro_last .buygraph{width: 150px; height: 70px; line-height: 70px; font-size: 16px; background-color: #486298; text-decoration: none; color: #fff; text-align: center;}
+        .full_page .pro_last .buygraph:hover{background-color: #32477c;}
+        .full_page .note{width: 1220px; margin: -20px auto 40px; font-size: 24px; line-height: 45px; color: #fd4848;}
+    </style>
+</head>
+<body>
+<?php include(MODULES.'header.xhtml');?>
+<div class="main active non_pad">
+    <div class="full_page">
+        <div class="act_main">
+            <img src="<?=IMAGES?>activity/a26.jpg" width="100%" height="730px" alt="五月大放价" />
+            <div class="top_txt">为了回报新老客户，在5月推出云印优惠季活动，本页面活动产品，凡是单笔购物实付金额满200元，即可额外获赠积分1000，可以用来兑换云印积分商城的各种礼品哦，仅限前100名，先到先得，云印小伙伴们快快行动吧！</div>
+            <div class="section">
+                <div id="getCoupon" class="pos">
+                    <img usemap="#map26_2" border="0" src="/resources/activity/a26_2.jpg" alt="五月大放价，多重优惠等着你">
+                    <map name="map26_2" id="map26_2">
+                        <area shape="rect" coords="440,10,690,120" href="javascript:;" class="get" data-id="183" title="满99元使用5元优惠券">
+                        <area shape="rect" coords="700,10,950,120" href="javascript:;" class="get" data-id="184" title="满199元使用10元优惠券">
+                        <area shape="rect" coords="960,10,1210,120" href="javascript:;" class="get" data-id="185" title="满500元使用30元优惠券">
+                    </map>
+                    <a href="javascript:;" class="get posbtn1" data-id="183" title="满99元使用5元优惠券">点击领取</a>
+                    <a href="javascript:;" class="get posbtn2" data-id="184" title="满199元使用10元优惠券">点击领取</a>
+                    <a href="javascript:;" class="get posbtn3" data-id="185" title="满500元使用30元优惠券">点击领取</a>
+                </div>
+            </div>
+        </div>
+        <div class="layout">
+            <div class="act_body">
+                <div class="section">
+                    <div class="pro1">
+                        <h3 class="h3 tit1"><!-- 名片类 质感名片，彰显你的品位 --></h3>
+                        <div class="pro_list clearfix">
+                            <div class="item">
+                                <a href="<?=DOMAIN?>product/63.html#冰白纸_2盒_90mm*54mm-直角_不烫金" title="点击购买" target="_blank"><img src="<?=IMAGES?>activity/a26_4.jpg" alt="冰白纸名片"></a>
+                                <div class="cont">
+                                    <div class="text">
+                                        <h3 class="tline">冰白纸名片</h3>
+                                        <p>表面呈现冰点珠光效果，时尚带感</p>
+                                    </div>
+                                    <a href="<?=DOMAIN?>product/63.html#冰白纸_2盒_90mm*54mm-直角_不烫金" class="buycard" title="点击购买" target="_blank" onclick="_czc.push(['_trackEvent', '冰白纸名片', '立即购买', '','','']);">点击购买</a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <a href="<?=DOMAIN?>product/67.html#荷兰白纸_2盒_90mm*54mm-直角_不烫金" title="点击购买" target="_blank"><img src="<?=IMAGES?>activity/a26_5.jpg" alt="荷兰白纸名片"></a>
+                                <div class="cont">
+                                    <div class="text">
+                                        <h3 class="tline">荷兰白纸名片</h3>
+                                        <p>炫彩色系在片片白色中显得更加突出</p>
+                                    </div>
+                                    <a href="<?=DOMAIN?>product/67.html#荷兰白纸_2盒_90mm*54mm-直角_不烫金" class="buycard" title="点击购买" target="_blank" onclick="_czc.push(['_trackEvent', '荷兰白纸名片', '立即购买', '','','']);">点击购买</a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <a href="<?=DOMAIN?>product/60.html#透明磨砂_2盒_85.5mm*54mm-圆角" title="点击购买" target="_blank"><img src="<?=IMAGES?>activity/a26_6.jpg" alt="透明磨砂名片"></a>
+                                <div class="cont">
+                                    <div class="text">
+                                        <h3 class="tline">透明磨砂名片</h3>
+                                        <p>马云同款名片，个性化.名片抓人眼球</p>
+                                    </div>
+                                    <a href="<?=DOMAIN?>product/60.html#透明磨砂_2盒_85.5mm*54mm-圆角" class="buycard" title="点击购买" target="_blank" onclick="_czc.push(['_trackEvent', '透明磨砂名片', '立即购买', '','','']);">点击购买</a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <a href="<?=DOMAIN?>product/57.html" title="点击购买" target="_blank"><img src="<?=IMAGES?>activity/a26_7.jpg" alt="铂金拉丝名片"></a>
+                                <div class="cont">
+                                    <div class="text">
+                                        <h3 class="tline">铂金拉丝名片</h3>
+                                        <p>成熟稳重，低调的奢华，商务社交必备名片</p>
+                                    </div>
+                                    <a href="<?=DOMAIN?>product/57.html" class="buycard" title="点击购买" target="_blank" onclick="_czc.push(['_trackEvent', '铂金拉丝名片', '立即购买', '','','']);">点击购买</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="pro2">
+                        <h3 class="h3 tit2"><!-- 名片类 质感名片，彰显你的品位 --></h3>
+                        <div class="pro_list clearfix">
+                            <div class="item">
+                                <a href="<?=DOMAIN?>product/200031.html#PVC材质_1套_80cm*180cm-展架+画幅+设计_铁质喷漆" title="点击购买" target="_blank"><img src="<?=IMAGES?>activity/a26_9.jpg" alt="门型展架"></a>
+                                <div class="cont">
+                                    <div class="text">
+                                        <h3 class="tline">门型展架</h3>
+                                        <p>展会宣传，户外促销必备神器</p>
+                                    </div>
+                                    <a href="<?=DOMAIN?>product/200031.html#PVC材质_1套_80cm*180cm-展架+画幅+设计_铁质喷漆" class="buycard" title="点击购买" target="_blank" onclick="_czc.push(['_trackEvent', '门型展架', '立即购买', '','','']);">点击购买</a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <a href="<?=DOMAIN?>product/150.html#经典易拉宝_1个_60cm*160cm-覆哑膜" title="点击购买" target="_blank"><img src="<?=IMAGES?>activity/a26_8.jpg" alt="易拉宝"></a>
+                                <div class="cont">
+                                    <div class="text">
+                                        <h3 class="tline">易拉宝</h3>
+                                        <p>悬挂式，可展开或卷曲，携带使用更方便</p>
+                                    </div>
+                                    <a href="<?=DOMAIN?>product/150.html#经典易拉宝_1个_60cm*160cm-覆哑膜" class="buycard" title="点击购买" target="_blank" onclick="_czc.push(['_trackEvent', '易拉宝', '立即购买', '','','']);">点击购买</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="pro3">
+                        <h3 class="h3 tit3"><!-- 名片类 质感名片，彰显你的品位 --></h3>
+                        <div class="pro_list clearfix">
+                            <div class="item">
+                                <a href="<?=DOMAIN?>product/148.html" title="点击购买" target="_blank"><img src="<?=IMAGES?>activity/a26_10.jpg" alt="海报"></a>
+                                <div class="cont">
+                                    <div class="text">
+                                        <h3 class="tline">海报</h3>
+                                        <p>惊爆你的眼球，宣传必备品</p>
+                                    </div>
+                                    <a href="<?=DOMAIN?>product/148.html" class="buycard" title="点击购买" target="_blank" onclick="_czc.push(['_trackEvent', '海报', '立即购买', '','','']);">点击购买</a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <a href="<?=DOMAIN?>product/200053.html#80g铜版纸_500_50mm*50mm-方形_不覆膜" title="点击购买" target="_blank"><img src="<?=IMAGES?>activity/a26_11.jpg" alt="不干胶"></a>
+                                <div class="cont">
+                                    <div class="text">
+                                        <h3 class="tline">不干胶</h3>
+                                        <p>定制你的专属物品，玩转不干胶</p>
+                                    </div>
+                                    <a href="<?=DOMAIN?>product/200053.html#80g铜版纸_500_50mm*50mm-方形_不覆膜" class="buycard" title="点击购买" target="_blank" onclick="_czc.push(['_trackEvent', '不干胶', '立即购买', '','','']);">点击购买</a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <a href="<?=DOMAIN?>product/113.html" title="点击购买" target="_blank"><img src="<?=IMAGES?>activity/a26_12.jpg" alt="会员卡"></a>
+                                <div class="cont">
+                                    <div class="text">
+                                        <h3 class="tline">会员卡</h3>
+                                        <p>店铺会员营销 吸引新老客户</p>
+                                    </div>
+                                    <a href="<?=DOMAIN?>product/113.html" class="buycard" title="点击购买" target="_blank" onclick="_czc.push(['_trackEvent', '会员卡', '立即购买', '','','']);">点击购买</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="pro4">
+                        <h3 class="h3 tit4"><!-- 名片类 质感名片，彰显你的品位 --></h3>
+                        <div class="pro_last clearfix">
+                            <a href="<?=DOMAIN?>product/200042.html#柯达金尊相纸_1_1寸证件照（8小张）-光面_不冷裱不塑封_裁剪_不调色" title="点击购买" target="_blank"><img src="<?=IMAGES?>activity/a26_13.jpg" alt="照片冲印"></a>
+                            <div>
+                                <a href="<?=DOMAIN?>product/200042.html#柯达金尊相纸_1_1寸证件照（8小张）-光面_不冷裱不塑封_裁剪_不调色" class="buygraph fr" title="点击购买" target="_blank" onclick="_czc.push(['_trackEvent', '照片冲印', '立即购买', '','','']);">点击购买</a>
+                                <div class="text">
+                                    <h3 class="tline">照片冲印</h3>
+                                    <p>让美好时光停留，定制你的专属记忆</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="note">
+                    <p>活动时间：5月1日——5月31日</p>
+                    <p>活动声明：凡是满足活动条件的客户，请主动联系BD和专属客服领取赠送积分，提供订单编号和帐户，3个工作日内发放到帐，活动截止到5月31日，活动最终解释权归云印所有。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php include(MODULES.'footer.xhtml');?>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>activity/a26.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>location.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js?ininin=<?=VERSION?>"></script>
+<!--script type="text/javascript" src="<?=SCRIPTS?>jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>template-native.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>zh_cn.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tool.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>activity/detail.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>libs/location.js"></script-->
+<?php include(MODULES.'linklogin.xhtml');?>
+</body>
+</html>

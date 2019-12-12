@@ -1,0 +1,104 @@
+<script id="template-product_params_table" type="text/template">
+    {{if names&&names.length>0&&params}}
+    <div class="table-scroll table-product-price">
+        <table class="table table-bordered table-hover table-center" data-mode="{{editMode}}">
+            <thead>
+            <tr>
+                {{each firstNames as name i}}
+                <th rowspan="2" data-name="{{name}}">{{name}}</th>
+                {{if firstNamesCount-1==i&&editMode<3}}
+                {{if showMode>0}}
+                <th class="multi-row" rowspan="2" data-name="基础值">
+                    <a href="#">{{editModeStr}}<i class="fa fa-cog" title="批量设置"></i></a>
+                </th>
+                {{else}}
+                <th rowspan="2" data-name="基础值">
+                    {{editModeStr}}
+                </th>
+                {{/if}}
+                {{/if}}
+                {{/each}}
+                {{each lastNames as name i}}
+                {{if showMode>0}}
+                <th class="multi-row" data-name="{{name}}" colspan="{{attrs[name].length}}">
+                    <a href="#">{{name}}<i class="fa fa-cog" title="批量设置"></i></a>
+                </th>
+                {{else}}
+                <th data-name="{{name}}" colspan="{{attrs[name].length}}">
+                    {{name}}
+                </th>
+                {{/if}}
+                {{/each}}
+            </tr>
+            {{if lastNamesCount>0}}
+            <tr>
+                {{each lastNames as name i}}
+                {{each attrs[name] as attr k}}
+                <th data-name="{{name}}" data-attr="{{attr}}">{{attr}}</th>
+                {{/each}}
+                {{/each}}
+            </tr>
+            {{/if}}
+            </thead>
+            <tbody>
+            {{if editMode>2}}
+            {{each attrs[names[0]] as attr0 a}}
+            <tr>
+                {{each firstNames as fname}}
+                <th data-name="{{fname}}">{{attrs[fname][a]}}</th>
+                {{/each}}
+                {{each lastNames as lname}}
+                <td>
+                    {{if showMode>0}}
+                    <input data-first_name="{{attr0}}" data-name="{{lname}}" data-attr="{{lname}}" type="text" class="form-control" value="{{if showMode!=2&&params[attr0]['工艺属性'][lname]>=0}}{{params[attr0]['工艺属性'][lname]}}{{/if}}"/>
+                    {{else if showMode!=2&&params[attr0]['工艺属性'][lname]>=0}}
+                    {{params[attr0]['工艺属性'][lname]}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            {{/each}}
+            {{else}}
+            {{each attrs[names[0]] as attr0 a}}
+            <tr>
+                <th rowspan="{{attrs[names[1]].length*attrs[names[2]].length}}" data-name="{{names[0]}}">{{attr0}}</th>
+                {{each attrs[names[2]] as attr2 c}}
+                {{each attrs[names[1]] as attr1 b}}
+                {{if b>0}}
+            </tr>
+            <tr>
+                {{/if}}
+                <th data-name="{{names[1]}}">{{attr1}}</th>
+                {{if b==0}}
+                <th rowspan="{{attrs[names[1]].length}}" data-name="{{names[2]}}">{{attr2}}</th>
+                {{/if}}
+                <td>
+                    {{if showMode>0}}
+                    <input data-first_name="{{attr0+'_'+attr1+'_'+attr2}}" data-name="基础值" type="text" class="form-control" value="{{if showMode!=2&&params[attr0+'_'+attr1+'_'+attr2]['基础值']>=0}}{{params[attr0+'_'+attr1+'_'+attr2]['基础值']}}{{/if}}"/>
+                    {{else if showMode!=2&&params[attr0+'_'+attr1+'_'+attr2]['基础值']>=0}}
+                    {{params[attr0+'_'+attr1+'_'+attr2]['基础值']}}
+                    {{/if}}
+                </td>
+                {{each lastNames as name i}}
+                {{each attrs[name] as attr k}}
+                <td>
+                    {{if showMode>0}}
+                    <input data-first_name="{{attr0+'_'+attr1+'_'+attr2}}" data-name="{{name}}" data-attr="{{attr}}" type="text" class="form-control" value="{{if showMode!=2&&params[attr0+'_'+attr1+'_'+attr2]['工艺属性'][name][attr]>=0}}{{params[attr0+'_'+attr1+'_'+attr2]['工艺属性'][name][attr]}}{{/if}}"/>
+                    {{else if showMode!=2&&params[attr0+'_'+attr1+'_'+attr2]['工艺属性'][name][attr]>=0}}
+                    {{params[attr0+'_'+attr1+'_'+attr2]['工艺属性'][name][attr]}}
+                    {{/if}}
+                </td>
+                {{/each}}
+                {{/each}}
+                {{/each}}
+            </tr>
+            {{/each}}
+            {{/each}}
+            {{/if}}
+            </tbody>
+        </table>
+    </div>
+    {{else}}
+    <span class="gray">{{if showMode==2}}请先选择具体产品{{else}}没有数据{{/if}}</span>
+    {{/if}}
+</script>

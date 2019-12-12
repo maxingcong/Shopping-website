@@ -1,0 +1,77 @@
+<script id="template-accountinfo" type="text/template">
+    <div class="acc_brief">
+        <i class="headimg fl"><img src="{{if figureurl}}{{figureurl}}{{else}}<?=IMAGES?>member/udefault.png{{/if}}" alt="用户头像"></i>
+        <a href="javascript:;" class="headimg_edit"><span>编辑头像</span></a>
+        <div class="briefinfo">
+            <h3 class="uname">
+                <a href="<?=DOMAIN?>member/udetail.html">
+                    {{username}}{{if vipLevel>0}}<span class="vip-icon vip-icon-{{vipLevel}} alt gray">{{VIP_LEVEL[vipLevel]}}</span>{{/if}}
+                </a>
+            </h3>
+            <div class="viptype">
+                {{if level=='铁牌'}}
+                <i class="medal fe"></i><span>铁牌会员</span><!-- fe、cu、ag、au、c 化学元素符号表示各材质奖牌-->
+                {{else if level=='铜牌'}}
+                <i class="medal cu"></i><span>铜牌会员</span>
+                {{else if level=='银牌'}}
+                <i class="medal ag"></i><span>银牌会员</span>
+                {{else if level=='金牌'}}
+                <i class="medal au"></i><span>金牌会员</span>
+                {{else if level=='钻石'}}
+                <i class="medal c"></i><span>钻石会员</span>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+    <div class="acc_degree">
+        <span>资料完整度：</span>
+    <span class="hundred" title="{{completePercent}}">
+        <i class="ratio blue-bg" style="width: {{completePercent}};"></i>
+    </span>
+        {{if completePercent=='100%'}}
+        <a href="<?=DOMAIN?>member/udetail.html" title="已完善">已完善</a>
+        {{else}}
+        <a href="<?=DOMAIN?>member/udetail.html" title="立即完善">立即完善</a>
+        {{/if}}
+    </div>
+    <div class="acc_safe">
+        <span>账户安全指数：</span>
+        {{if safetyCount==3}}
+        <span class="level ugreen" title="安全">安全<i></i></span><!-- ured、uyellow、ugreen 红黄绿表示三个级别-->
+        {{else if safetyCount == 2}}
+        <span class="level ugreen" title="较高">较高<i></i></span>
+        {{else if safetyCount == 1}}
+        <span class="level uorange" title="较低">较低<i></i></span>
+        {{/if}}
+    <span class="safeicon">
+        <a href="<?=DOMAIN?>member/modifypwd.html" class="i0 done" target="_blank" title="登录密码"></a>
+        <a href="<?=DOMAIN?>member/paypwd.html" target="_blank" class="i1 {{if hasPayPassword==1}}done{{/if}}" title="支付密码"></a>
+        <!--<i class="i2"></i><i class="i3"></i>-->
+        <a href="<?=DOMAIN?>member/safetips.html" target="_blank" class="i4 {{if safetyFlag==1}}done{{/if}}" title="安全问题"></a>
+    </span>
+        {{if hasPayPassword&&safetyFlag}}
+        <a href="<?=DOMAIN?>member/safety.html" title="安全中心">查看</a>
+        {{else}}
+        <a href="<?=DOMAIN?>member/safety.html" title="立即提升">立即提升</a>
+        {{/if}}
+    </div>
+</script>
+<script id="vip_info" type="text/template">
+{{if vipLevel==1}}
+    <p>1、为在云印制作的所有设计文件提供无限次修改服务</p>
+    <p>2、为企业制作一套名片专属模板</p>
+    <p>3、设计服务9折（不含VI）</p>
+    <p>4、有效期至{{effectiveTimeStr}}</p>
+{{else if vipLevel==2}}
+    <p>1、为在云印制作的所有设计文件提供无限次修改服务</p>
+    <p>2、为企业制作一套名片专属模板，且1年内可不限次数更新</p>
+    <p>3、设计优先服务，优先安排，优先设计</p>
+    <p>4、设计服务8折（不含VI）</p>
+    <p>5、所有设计产品均由高级设计师提供服务</p>
+    <p>6、有效期至{{effectiveTimeStr}}</p>
+{{else if vipLevel==3}}
+    <p>1、已使用{{designCount-updateDesignCount}}次，还剩{{updateDesignCount}}次</p>
+    <p>2、有效期至{{effectiveTimeStr}}</p>
+{{/if}}
+</script>
+<?php include(TEMPLATES.'up_image.xhtml');?>

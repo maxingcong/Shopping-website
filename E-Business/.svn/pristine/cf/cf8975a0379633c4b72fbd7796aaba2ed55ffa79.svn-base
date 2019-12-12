@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="renderer" content="webkit|ie-stand"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all"/>
+    <meta name="keywords" content="商品询价订单"/>
+    <meta name="description" content=""/>
+    <meta name="author" content="${author}"/>
+    <meta name="copyright" content="${copyright}"/>
+    <title>商品询价订单</title>
+    <link rel="shortcut icon" type="image/x-icon" href="<?=DOMAIN?>favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css"/>
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>layout.css"/>
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>todraft.css"/>
+	<?php include(MODULES.'dns_prefetch.xhtml');?>
+</head>
+<body>
+<?php include(MODULES.'header.xhtml');?>
+<div class="main ucenter myorder">
+    <div class="layout myorder_col clearfix">
+        <?php include(MODULES.'usersidebar.xhtml');?>
+        <div class="container">
+            <div class="upanel">
+                <h3 class="headline">商品询价订单</h3>
+                <div id="ofilter" class="ofilter">
+                    <div class="searchbar fr">
+                        <input id="search_order_input" class="textbox" type="text" name="keyword"/><a class="search_btn"
+                                                                                                      href="javascript:;"><i></i></a>
+                    </div>
+                    <ul>
+                        <li><a class="sel" href="javascript:;" data-status="">全部 <span id="data_all"
+                                                                                       class="yellow"></span></a></li>
+                        <li class="vline"></li>
+                        <li><a href="javascript:;" data-status="Done">价格已出 <span id="data_done"
+                                                                                 class="yellow"></span></a></li>
+                        <li class="vline"></li>
+                        <li><a href="javascript:;" data-status="Draft">价格未出 <span id="data_draft" class="yellow"></span></a>
+                        </li>
+                        <li class="vline"></li>
+                        <li><a href="javascript:;" data-status="Expired">价格已过期 <span id="data_expired"
+                                                                                     class="yellow"></span></a></li>
+                        <li class="vline"></li>
+                        <li><a href="javascript:;" data-status="Canceled">已取消 <span id="data_canceled"
+                                                                                    class="yellow"></span></a></li>
+                    </ul>
+                </div>
+                <div id="myorder" class="list orders checkboxs">
+                    <div id="template_order_list_view"></div>
+                </div>
+                <div id="paginbar" class="paginbar hide"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php include(MODULES.'footer.xhtml');?>
+<script id="template_order_list" type="text/template">
+    <% if(cancelCount>1){ %>
+    <div class="tr pb10"><a class="red delete-all" href="javascript:;">删除所有的取消订单</a></div>
+    <% } %>
+    <% for(var k=0; temp = quotation_list[k]; k++){%>
+    <div id="oder_item_<%=temp.id%>" ocode="<%=temp.id%>" class="item">
+        <div class="row"><span class="ocode">询价单编号：<a href="<%=DOMAIN.MEMBER%>odetail.html?o=<%=temp.id%>&t=20"><%=temp.id%></a></span><span
+                class="otime">询价时间：<%=temp.date_created_str%></span><%if(temp.date_deadline_str){%><span class="oprice">价格有效期至：<%=temp.date_deadline_str%></span><%}%>
+        </div>
+        <ol class="designs">
+            <li class="col2">
+                <div>商品信息</div>
+            </li>
+            <% if(temp.type === 'Design') {%>
+            <li class="col3">
+                <div></div>
+            </li>
+            <li class="col5">
+                <div>总价</div>
+            </li>
+            <li class="col4">
+                <div>初稿时间</div>
+            </li>
+            <% }else{ %>
+            <li class="col3">
+                <div>数量</div>
+            </li>
+            <li class="col5">
+                <div class="red">预估总价（不含运费）</div>
+            </li>
+            <li class="col4">
+                <div>预计货期</div>
+            </li>
+            <% } %>
+
+            <li class="col6">
+                <div>询价状态</div>
+            </li>
+            <li class="col7">
+                <div>操作</div>
+            </li>
+        </ol>
+        <dl class="pros designs">
+            <dd class="colspan1">
+                <ul ocode="<%=temp.id%>" opid="<%=temp.product_id%>" cid="<%=temp.category_id%>"
+                    ostatus="<%=temp.status%>">
+                    <li class="col2">
+                        <div>
+                            <% if(temp.product_id){ %>
+                            <% if(temp.type === 'Design') {%>
+                            <a class="img"
+                               href="<?=DOMAIN_DESIGN?>category/<%=temp.category_id||temp.product_id%>.html?o=<%=temp.id%>">
+                                <% }else{ %>
+                                <a class="img" href="<%=DOMAIN.PRODUCT%><%=temp.target_id||temp.product_id%>.html"
+                                   target="_blank" title="<%=temp.product_name%>">
+                                    <% } %>
+                                    <% }else{ %>
+                                    <a class="img" href="javascript:;" title="<%=temp.product_name%>">
+                                        <% } %>
+                                        <b><img src="<%=temp.product_img||DOMAIN.CLOUD%>?imageMogr2/thumbnail/!112x64r/auto-orient/gravity/Center/crop/112x64"
+                                                alt="<%=temp.product_name%>"/>
+                                            <i></i></b>
+                                    </a><span class="desc ellipsis">
+                            <% if(temp.product_id){ %>
+                                <% if(temp.type === 'Design') {%>
+                                    <a href="<?=DOMAIN_DESIGN?>category/<%=temp.category_id||temp.product_id%>.html?o=<%=temp.id%>"
+                                       target="_blank" title="<%=temp.product_name%>">
+                                <% }else{ %>
+                                    <a href="<%=DOMAIN.PRODUCT%><%=temp.target_id||temp.product_id%>.html"
+                                       target="_blank" title="<%=temp.product_name%>">
+                                <% } %>
+                                <%=temp.product_name%></a>
+                            <% }else{ %>
+                                <a href="javascript:;" title="<%=temp.product_name%>"><%=temp.product_name%></a>
+                            <% } %>
+                            </span>
+                        </div>
+                    </li>
+                    <li class="col3">
+                        <div><%=temp.number%></div>
+                    </li>
+                    <li class="col5">
+                        <div class="red"><%=RMB(temp.sale_price + (temp.urgent_cost||0))%></div>
+                    </li>
+                    <li class="col4">
+                        <%if(temp.type === 'Design' && temp.design_time_str){%>
+                        <p class="ddate"><span class="red"><%=temp.design_time_str%></span> 天</p>
+                        <%}else if(temp.delivery){%>
+                        <p class="ddate"><span class="red"><%=temp.delivery%></span> 天</p>
+                        <%}else{%>
+                        <p class="ddate">---</p>
+                        <%}%>
+                    </li>
+                    <li class="col6">
+                        <div class="status_str"><%=temp.status_str%></div>
+                    </li>
+                </ul>
+            </dd>
+            <dd class="colspan2">
+                <ul pid="101">
+                    <li class="col7">
+                        <div>
+                            <p>
+                                <% if(temp.type === 'Design') {%>
+                                <a class="look_desc"
+                                   href="<?=DOMAIN_DESIGN?>category/<%=temp.category_id||temp.product_id%>.html?o=<%=temp.id%>">
+                                    <% }else{ %>
+                                    <a class="look_desc"
+                                       href="<%=DOMAIN.PRODUCT%><%=temp.target_id||temp.product_id%>.html?o=<%=temp.id%>">
+                                        <% } %>
+                                        复制询价单</a>
+                            </p>
+                            <p>
+                                <% if(temp.status=="Done"){ %>
+                                    <% if(temp.type === 'Design') {%>
+                                    <a class="btn"
+                                   href="<?=DOMAIN_DESIGN?>product/<%=temp.product_id%>.html?qo=<%=temp.id%>">
+                                    <% }else{ %>
+                                        <a class="btn" href="<%=DOMAIN.MEMBER%>odetail.html?o=<%=temp.id%>&t=20">
+                                    <% } %>询价单详情</a>
+                                <% }else{ %>
+                                        <a class="look_desc" href="<%=DOMAIN.MEMBER%>odetail.html?o=<%=temp.id%>&t=20">询价单详情</a>
+                                <% } %>
+                            </p>
+                            <% if(temp.status=="Canceled"){ %>
+                            <p><a class="red delete" href="javascript:;">删除</a></p>
+                            <% }%>
+                            <% if(temp.status=="Draft"){ %>
+                            <p><a class="cancel_order" href="javascript:;">取消询价单</a></p>
+                            <% }%>
+                        </div>
+                    </li>
+                </ul>
+            </dd>
+        </dl>
+    </div>
+    <% } %>
+</script>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>order/quotation.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>location.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js?ininin=<?=VERSION?>"></script>
+<!--script type="text/javascript" src="<?=SCRIPTS?>jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>template-native.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>zh_cn.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tool.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>order/quotation.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>libs/location.js"></script-->
+<?php include(MODULES.'linklogin.xhtml');?>
+</body>
+</html>

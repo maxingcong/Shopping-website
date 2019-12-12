@@ -1,0 +1,31 @@
+<script id="template-product_list" type="text/template">
+    {{if productList && productList.length>1}}
+    <ul class="p-list {{productList.length%2==0?'p-list-lg':''}} c-{{designCategoryId}} clearfix">
+        {{each productList as product i}}
+        <li class="p-item {{productId==product.designProductId?'selected':''}}" data-idx="{{i}}">
+            <div class="p-head p-{{product.designProductId}}">
+                <h3 class="p-name">{{product.designProductName}}</h3>
+                <p class="p-desc">{{product.simpleDesc}}</p>
+            </div>
+            <div class="p-body">
+                <p class="p-cost-price"><span class="p-atr">市场价</span>：<b class="p-num">{{product.originalPrice}}</b>元</p>
+                <p class="p-price">{{#product.priceDesc}}<!--<b class="p-num">49</b>元/次，半年包100次仅需<b class="p-num">199</b>元--></p>
+            </div>
+            <div class="p-foot">
+                <dl class="p-promise">
+                    {{each product.serviceCommitments as item k}}
+                    {{if item.promiseName!=="" && item.promiseText!==""}}
+                    <dd class="p-text clearfix">
+                        <div class="p-atr">{{item.promiseName}}：</div>
+                        <div class="p-val">{{item.promiseText}}</div>
+                    </dd>
+                    {{/if}}
+                    {{/each}}
+                </dl>
+            </div>
+            <i class="p-ico"></i>
+        </li>
+        {{/each}}
+    </ul>
+    {{/if}}
+</script>

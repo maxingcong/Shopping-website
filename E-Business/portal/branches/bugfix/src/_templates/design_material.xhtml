@@ -1,0 +1,30 @@
+<h3 id="material_title" class="headline"><span>请上传设计素材</span></h3>
+<div id="material" class="material">
+    <div class="block">
+        <a id="choice_yunfile" class="file_btn choice_yunfile" href="javascript:;">从云盘中选取素材</a>
+        <label id="file_upload-cont" class="up-cont btn-default btn-md">
+            <span id="file_upload" class="up-btn">
+                <span class="up-text"></span>
+            </span>
+            <span class="up-doing">正在上传...</span>
+            <span class="up-forbid"></span>
+        </label>
+        <span id="upload_file_uris"></span>
+        <div id="file_upload-info" class="upload-info mt10"></div>
+        <ul id="exhibit_file" class="exhibit_file mt10">
+            <% if(fileChecked && fileChecked.length){  for(var k=0; file = fileChecked[k]; k++){ %>
+                <li>
+                    <a href="<%=file.fileSrc||file.fileUrl%>" title="<%=file.fileName%>" target="_blank"><%=file.fileName%></a>
+                    <a href="javascript:;" class="del" data-fid="<%=file.fileId%>">删除</a>
+                </li>
+            <% } } %>
+        </ul>
+        <div class="row gray">
+        请提供公司标识源文件或包含标识的源文件，且保证较高分辨率；如果需要，您还可以购买<a href="<?=DOMAIN?>design/11.html" target="_blank">logo设计</a>服务。<br/>
+        上传素材格式仅支持jpg、png、ai、cdr、eps、psd、tiff、PPT、word、rar、zip、pdf、7z；<br/>
+        您只需上传一个文件，若有多个素材，请打包一次上传；<br/>
+        您所上传的素材将同步至你的云盘；需求审核通过前，您可在订单列表页更改需求或重新上传素材；<br/>
+        若您的订单需求审核不通过，我们将尽快通知您修改设计需求，请保持联系方式畅通。
+        </div>
+    </div>
+</div>

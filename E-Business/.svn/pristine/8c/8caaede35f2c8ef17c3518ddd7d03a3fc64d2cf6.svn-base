@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="author" content="${author}" />
+    <meta name="copyright" content="${copyright}" />
+    <title>LOGO设计服务协议</title>
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css"/>
+</head>
+<body class="body smallBody">
+<div class="agreement">
+    <h3>原创logo设计服务条款</h3>
+    <p>① 【<b>经典版</b>】2000元（包含logo、logo标准色、标准字体）。</p>
+    <p>② 【<b>豪华版</b>】5000元（包含logo、logo标准色、标准字体、标志横竖式组合、标志墨稿、标志反白稿、标志方格坐标制图、标志标准化制图、标志最小使用规范、标志明度使用规范、赠送一次名片设计）。</p>
+    <p>③ 原创logo设计出稿时间为3天（不包含后期调整的时间）。</p>
+    <p>④ 因原创logo设计均只出一套方案，所以在设计之前，请务必将您的需求一次性描述到位，若您在设计中途或完成之后更改需求，将等同于重做，需要重新支付一次相同价位的原创设计费用。</p>
+    <p>⑤ 若您对logo方案有修改意见，不支持推翻重做，仅支持在原方案的基础上进行调整，例如色彩，大小，比例等，可修改两次，每次不得超过两处。</p>
+    <p>⑥ 若您对方案不满意，或后期调整也不能满足您的需求，将视具体情况协商解决。</p>
+    <p>⑦ 方案是否能够注册需有相关机构审核，因其超出云印的收费标准，所以不包含在logo原创设计服务中。</p>
+    <p>⑧ 原创logo设计服务，最终会提供给您logo的标准色、标准字体等矢量文件。</p>
+    <h3>仿制logo设计服务条款</h3>
+    <p>① 仿制logo设计服务是指由您提供参考物，再由设计师根据您提供的参考物进行模仿设计。</p>
+    <p>② 因一般提供的仿制参考物是印刷实物或拍照图片，所以无法仿制出100%一致的，在颜色、字体上会存在一定差异。若您对仿制要求甚高，请您提供相应的CMYK色值、字体等信息，以便我们可以仿制得更接近参考物。</p>
+    <p>③ 仿制logo设计服务不包含您自己绘制的草图，因草图只是一个大致的思路概念，与最终呈现出来的实际效果相差甚远，所以仿制logo设计服务不支持您提供的草图。</p>
+    <p>④ 若您提出在普通设计的基础上进行优化的需求，恕不接受，因其已超出普通设计的需求。</p>
+    <p>⑤ 若您对最终仿制的logo效果不够满意，可修改两次，每次不得超过两处。</p>
+    <p>⑥ 仿制logo设计服务，最终会提供给您logo的矢量文件。</p>
+</div>
+<script type="text/javascript">
+    var hostName = location.hostname, DOMAIN = hostName.slice(parseInt(hostName.lastIndexOf(".") - 6));
+    document.domain = DOMAIN;
+    frameElement.callback();
+</script>
+</body>
+</html>

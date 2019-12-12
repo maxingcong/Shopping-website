@@ -1,0 +1,20 @@
+<div class="options options-{{productId}}">
+    <fieldset class="product_detail">
+        <div id="form_details" class="forms forms_border pattr">
+            <div class="pro_title">
+                <?php include(TEMPLATES.'product/headline.xhtml');?>
+                <?php include(TEMPLATES.'product/gift_score.xhtml');?>
+            </div>
+            <div id="product_params-{{productId}}" class="attrs"></div>
+            <?php include(TEMPLATES.'product/preferntial_info.xhtml');?>
+            <div class="pro_attr">
+                <?php include(TEMPLATES.'product/weight.xhtml');?>
+                <?php include(TEMPLATES.'product/delivery_day.xhtml');?>
+            </div>
+            <?php include(TEMPLATES.'product/address.xhtml');?>
+            <?php include(TEMPLATES.'product/price.xhtml');?>
+            <?php include(TEMPLATES.'product/declare.xhtml');?>
+            <?php include(TEMPLATES.'product/form_btm.xhtml');?>
+        </div>
+    </fieldset>
+</div>

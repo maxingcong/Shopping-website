@@ -1,0 +1,73 @@
+<script id="template-mode_template_list" type="text/template">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>计价方式</th>
+            <th>物流公司</th>
+            <th>审核状态</th>
+            <th>状态</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        {{if modeTemplateList&&modeTemplateList.length}}
+        <tbody>
+        {{each modeTemplateList as modeTemplate i}}
+        <tr data-id="{{modeTemplate.id}}">
+            <td>{{modeTemplate.valuationMethodName}}</td>
+            <td>{{modeTemplate.shippingCompany}}</td>
+            <td>
+                {{if modeTemplate.id}}
+                {{if modeTemplate.status==2}}
+                待审核
+                {{else if modeTemplate.status==1}}
+                审核已通过
+                {{else if modeTemplate.status==0}}
+                审核未通过
+                {{/if}}
+                {{/if}}
+            </td>
+            <td>
+                {{if modeTemplate.id}}
+                {{if modeTemplate.disableStatus==1}}
+                已禁用
+                {{else}}
+                已启用
+                {{/if}}
+                {{/if}}
+            </td>
+            <td>
+                {{if modeTemplate.id}}
+                {{if modeTemplate.disableStatus==1}}
+                <button name="btn-status" class="btn btn-primary btn-xs">启用</button>
+                {{else}}
+                <button name="btn-status" class="btn btn-danger btn-xs">禁用</button>
+                {{/if}}
+                {{/if}}
+                {{if modeTemplate.id}}
+                <a class="btn btn-success btn-xs" href="<?=DOMAIN?>delivery/detail.html?id={{modeTemplate.id}}&deliveryId={{modeTemplate.deliveryId}}">修改价格</a>
+                {{else}}
+                <a class="btn btn-primary btn-xs" href="<?=DOMAIN?>delivery/detail.html?type={{modeTemplate.valuationMethod}}&modeId={{modeTemplate.deliveryModeId}}&deliveryId={{modeTemplate.deliveryId}}">设置价格</a>
+                {{/if}}
+            </td>
+        </tr>
+        {{/each}}
+        </tbody>
+        {{else if modeTemplateList}}
+        <tfoot>
+        <tr>
+            <td colspan="5">
+                <div class="text-center gray no-data">您还没有可用配送方式计价模板</div>
+            </td>
+        </tr>
+        </tfoot>
+        {{else}}
+        <tfoot>
+        <tr>
+            <td colspan="5">
+                <div class="load"></div>
+            </td>
+        </tr>
+        </tfoot>
+        {{/if}}
+    </table>
+</script>

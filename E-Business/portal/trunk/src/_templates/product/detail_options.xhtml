@@ -1,0 +1,87 @@
+<form id="pdetail" class="forms forms_border">
+    <div class="pro_title">
+        <h1 class="headline">
+            <a href="<?=DOMAIN?>product/<%=productId%>.html" title="<%=productName%>"><%=productName%></a>
+            <p class="mark"><%=simpleDesc%>
+                <%if(_productAlt){%>
+                <a class="icon_help" href="javascript:;" data-alt_text="<%=_productAlt%>"></a>
+                <%}%></p>
+            <!--%if(_productMark){%>
+            <p class="mark"><%=_productMark%>
+                <%if(_productAlt){%>
+                <a class="icon_help" href="javascript:;" data-alt_text="<%=_productAlt%>"></a>
+                <%}%>
+            </p>
+            <%}%-->
+        </h1>
+        <!--<div class="attr gift_score">
+            <span class="atr">赠送积分：</span><span class="vals"><b id="data-giftScore-<%=productId%>" class="yellow">0</b><span> 分</span><a href="<?=DOMAIN?>integral/index.html" target="_blank">积分商城</a></span>
+        </div>-->
+    </div>
+    <div id="product_pattr-<%=productId%>" class="pattr">
+        <% include('template-product_number_card') %>
+        <% if(productList&&productList.length){ %>
+        <% for(var item="", i=0; item=productList[i]; i++){ %>
+        <div id="template-product_params-<%=item.productId%>-view" class="attrs" data-product_id="<%=item.productId%>"></div>
+        <% } %>
+        <% }else{ %>
+        <div id="template-product_params-<%=productId%>-view" class="attrs" data-product_id="<%=productId%>"></div>
+        <% } %>
+        <% if(preferntialInfo && preferntialInfo.length>0){%>
+        <dl class="attr privilege-list clearfix">
+            <dt class="atr">优惠信息：</dt>
+            <dd class="vals clearfix">
+                <%for(var item, i=0; item=preferntialInfo[i]; i++){%>
+                <%if(item.preferentialTitle!=="" && item.preferentialDescription!==""){%>
+                <div class="pri-item">
+                    <span class="pri-icon"><%=item.preferentialTitle%></span><span class="pri-text yellow"><%=item.preferentialDescription%></span>
+                    <%if(item.preferentialLink){%>
+                    <a class="pri-link" href="<%=item.preferentialLink%>" target="_blank">详情&gt;&gt;</a>
+                    <%}%>
+                </div>
+                <%}%>
+                <%}%>
+            </dd>
+        </dl>
+        <%}%>
+        <div class="pro_attr pro_btm">
+            <% include('template-product_number') %>
+            <% if(HAS_WEIGHT){ %>
+            <div class="attr weight clearfix">
+                <span id="data-valuationMethod-<%=productId%>" class="atr"></span><span id="data-valuationValue-<%=productId%>" class="vals"></span>
+            </div>
+            <% } %>
+            <% if(HAS_DELIVERY_DAY){ %>
+            <div class="attr day clearfix">
+                <span class="atr">生产周期：</span><span class="vals"><b id="data-deliveryDay-<%=productId%>" class="yellow"><%==DOING%></b> <span>天</span> <span id="data-deliveryDate-<%=productId%>" class="delivery_date"></span></span>
+            </div>
+            <% } %>
+        </div>
+        <?php include(TEMPLATES.'delivery_address.xhtml');?>
+        <%if(categoryId==30||categoryId==39||categoryId==40||categoryId==41||categoryId==42||categoryId==141||categoryId==142){%>
+        <div class="attr pprice clearfix">
+            <span class="vals gap_pl_40"><span>共 </span><span id="data-counter-<%=productId%>" class="yellow"><%==DOING%></span><span> 人，共 </span><span id="data-quantity-<%=productId%>"><%==DOING%></span><span>，共计 </span><b id="data-discountAmount-<%=productId%>" class="yellow"><%==DOING%></b><span> 元</span><span id="data-moneyAlt-<%=productId%>" class="alt"></span></span>
+        </div>
+        <%}else if(HAS_AVG_PRICE==1){%>
+        <div class="attr pprice clearfix">
+            <span class="atr">价格：</span><span class="vals"><b id="data-discountAmount-<%=productId%>" class="yellow"><%==DOING%></b><span> 元</span>，<span>平均</span> <b id="data-avgDiscountAmount-<%=productId%>" class="yellow"><%==DOING%></b> <span>元/<%==_quantityUnit%></span></span>
+        </div>
+        <%}else if(HAS_ONLY_TOTAL_PRICE){%>
+        <div class="attr pprice clearfix">
+            <span class="atr">价格：</span><span class="vals"><b id="data-discountAmount-<%=productId%>" class="yellow"><%==DOING%></b><span> 元</span><span id="data-amountAlt-<%=productId%>" class="alt"></span></span>
+        </div>
+        <%}else{%>
+        <div class="attr pprice clearfix">
+            <span class="atr">价格：</span><span class="vals"><span id="data-counterAmount-<%=productId%>"><%==DOING%></span><span> 元 * <span id="data-counter-<%=productId%>"><%==DOING%></span>款 = </span><b id="data-discountAmount-<%=productId%>" class="yellow"><%==DOING%></b><span> 元</span><span id="data-amountAlt-<%=productId%>" class="alt"></span></span>
+        </div>
+        <%}%>
+        <%if(HAS_COUNTER_DECLARE){%>
+        <div class="attr declare clearfix">
+            <span class="atr">说明：</span><span class="vals">如果需要印刷多款（不同内容），请分别选择对应数量加入购物车下单</span>
+        </div>
+        <%}%>
+    </div>
+    <div class="form_btm btm_attr">
+        <a class="submit buynow yellow-box dis" href="javascript:;" onclick="_czc.push(['_trackEvent', '<%=productName%>', '立即购买', '','','']);">立即购买<span class="doing"><span>计算中...</span></span></a><a class="submit yellow-btn addcart s2 dis" href="javascript:;" onclick="_czc.push(['_trackEvent', '<%=productName%>', '加入购物车', '','','']);">加入购物车<span class="doing"><span>计算中...</span></span></a>
+    </div>
+</form>

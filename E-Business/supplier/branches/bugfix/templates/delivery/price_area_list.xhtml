@@ -1,0 +1,82 @@
+<script id="template-price_area_list" type="text/template">
+    <table class="table table-hover">
+        <colgroup>
+            <col style="width: 24px">
+            <col style="width: 50px">
+            <col />
+            <col style="width: 150px"/>
+            <col style="width: 10%"/>
+            <col style="width: 10%"/>
+            <col style="width: 10%"/>
+            <col style="width: 12%"/>
+            <col style="width: 10%"/>
+        </colgroup>
+        <thead>
+        <tr>
+            <th></th>
+            <th>序号</th>
+            <th>配送至</th>
+            <th class="text-center">操作</th>
+            <th><b class="light">*</b>首<span class="logistics-price-type">{{METHOD}}</span>（<span class="logistics-price-type-unit">{{UNIT}}</span>）</th>
+            <th><b class="light">*</b>首<span class="logistics-price-type">{{METHOD}}</span>费用（元）</th>
+            <th><b class="light">*</b>续<span class="logistics-price-type">{{METHOD}}</span>（<span class="logistics-price-type-unit">{{UNIT}}</span>）</th>
+            <th><b class="light">*</b>续<span class="logistics-price-type">{{METHOD}}</span>单价（元/<span class="logistics-price-type-unit">{{UNIT}}</span>）</th>
+            <th>预计时间（天）</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{if deliveryModeTemplate.priceAreaList&&deliveryModeTemplate.priceAreaList.length}}
+        {{include 'template-price_area_each'}}
+        {{else}}
+        </tbody>
+        <thead>
+        <tr>
+            <td colspan="9">
+                <div class="text-left gray no-data">您还没有可用配送方式</div>
+            </td>
+        </tr>
+        </thead>
+        {{/if}}
+        <tfoot>
+        <tr>
+            <th scope="row">
+                <div class="checkbox">
+                    <label><input type="checkbox" name="priceArea_all"/><i class="fa fa-checkbox"></i></label>
+                </div>
+            </th>
+            <td>全选</td>
+            <td colspan="7">
+                <div class="text-left">
+                    <a href="#" class="edit-price-area mr15" title="添加可配送区域">添加可配送区域</a>
+                    <a href="#" class="multi-del-price-area mr15" title="批量删除配送区域">批量删除</a>
+                    <a href="#" class="batch-set-freight" title="批量设置配送区域价格">批量操作</a>
+                </div>
+            </td>
+        </tr>
+        </tfoot>
+    </table>
+</script>
+<script id="template-price_area_each" type="text/template">
+{{each deliveryModeTemplate.priceAreaList as priceArea i}}
+<tr data-id="{{priceArea.id}}">
+    <th scope="row">
+        <div class="checkbox">
+            <label><input type="checkbox" name="priceArea" value="{{priceArea.id}}" {{if priceArea.CHECKED}}checked="checked"{{/if}}/><i class="fa fa-checkbox"></i></label>
+        </div>
+    </th>
+    <td class="serial-number">{{i+1}}</td>
+    <td class="destination">{{(priceArea.destination||'').replace(/^;+/, '').replace(/;+$/, '')}}</td>
+    <td class="text-center">
+        <div class="icons">
+            <a href="#" class="edit-price-area"><i class="fa fa-edit"></i> 编辑</a>
+            <a href="#" class="del-price-area"><i class="fa fa-trash" ></i> 删除</a>
+        </div>
+    </td>
+    <td><input type="text" class="form-control" name="firstWeight" value="{{priceArea.firstMeteringSize||1}}"/></td>
+    <td><input type="text" class="form-control" name="firstPrice" value="{{priceArea.firstMeteringSizePrice}}"/></td>
+    <td><input type="text" class="form-control" name="addWeight" value="{{priceArea.additionalMeteringSize||1}}"/></td>
+    <td><input type="text" class="form-control" name="addPrice" value="{{priceArea.additionalMeteringSizePrice}}"/></td>
+    <td><input type="text" class="form-control" name="deliveryTime" value="{{priceArea.deliveryTime}}"/></td>
+</tr>
+{{/each}}
+</script>

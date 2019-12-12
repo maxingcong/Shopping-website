@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+
+        /* slide-panel */
+        .slide-panel,
+        .slide-panel .slide-layer,
+        .slide-panel .slide-item,
+        .slide-panel .slide-item img {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .slide-panel {
+            position: relative;
+            overflow: hidden;
+        }
+        .slide-panel .slide-layer {
+            position: relative;
+            width:100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            line-height:0;
+            font-size: 0;
+            overflow: visible;
+            text-align: left;
+            white-space: nowrap;
+            overflow: visible;
+        }
+        .slide-panel .slide-item {
+            vertical-align: top;
+            display: inline-block;
+            *display: inline;
+            *zoom:1;
+        }
+        .slide-dots {
+            position: absolute;
+            left: 0;
+            font-size: 0;
+            line-height: 0;
+            bottom: 10%;
+            width: 100%;
+            height: 8px;
+            text-align: center;
+        }
+        .slide-dots .slide-dot {
+            width: 15%;
+            height: 100%;
+            margin:0 1%;
+            display: inline-block;
+            vertical-align: middle;
+            background: #000;
+            opacity: .2;
+            filter: alpha(opacity=20);
+            cursor: pointer;
+        }
+        .slide-dots .slide-dot.sel,
+        .slide-dots .slide-dot:hover {
+            opacity: .4;
+            filter: alpha(opacity=40);
+        }
+        .slide-panel .slide-prev,
+        .slide-panel .slide-next {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 30px;
+            height: 50px;
+            margin-top: -25px;
+        }
+        .slide-panel .slide-next {
+            left: auto;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="slide-panel" class="slide-panel" style="width: 400px; height: 240px">
+    <ul class="slide-layer clearfix">
+        <li class="slide-item">
+            <a class="grid-link" href="http://alpha.ininin.com/" title="新名片" target="_blank">
+                <img src="http://cloud.ininin.com/image1/2015-07-17-18-25-26-328.jpg?imageMogr2/thumbnail/!482x310r/auto-orient/gravity/Center/crop/482x310" alt="新名片">
+            </a>
+        </li>
+        <li class="slide-item">
+            <a class="grid-link" href="http://alpha.ininin.com/" title="新名片" target="_blank">
+                <img src="http://cloud.ininin.com/1453727472730.jpg?imageMogr2/thumbnail/!482x310r/auto-orient/gravity/Center/crop/482x310" alt="新名片">
+            </a>
+        </li>
+        <li class="slide-item">
+            <a class="grid-link" href="http://alpha.ininin.com/" title="新名片" target="_blank">
+                <img src="http://cloud.ininin.com/1453727468168.jpg?imageMogr2/thumbnail/!482x310r/auto-orient/gravity/Center/crop/482x310" alt="新名片">
+            </a>
+        </li>
+    </ul>
+    <div class="slide-dots">
+        <span class="slide-dot"></span>
+        <span class="slide-dot"></span>
+        <span class="slide-dot"></span>
+    </div>
+    <div class="slide-prev"></div>
+    <div class="slide-next"></div>
+</div>
+<script type="text/javascript" src="/scripts/jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="/scripts/tools.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="/scripts/product/index.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript">
+    define("widgets/slider", ["base", "tools"], function($, T){
+        /**
+         * 轮播
+         * @param {Object} options
+         * @param {String} options.cont 容器
+         * @param {String} options.duration 动画持续时间
+         * @param {String} options.interval 动画间隔时间
+         * @example
+         * Slider({
+         *     cont: "#slide-panel",
+         *     duration: 300,
+         *     interval: 1500,
+         *     direction: "lr",
+         *     autoplay: false
+         * });
+         * @returns {*}
+         */
+        function Slider(options) {
+            var _this = this,
+                    opts = options||{};
+            opts.duration = opts.duration||300;
+            opts.interval = opts.interval||3500;
+            opts.direction = opts.direction||"lr"; //lr:从左到右，rl:从右到左
+            opts.autoplay = opts.autoplay==null?true:opts.autoplay;
+            _this.options = opts;
+            _this.$cont = $(options.cont);
+            _this.$list = $(".slide-layer", _this.$cont);
+            _this.$dots = $(".slide-dots", _this.$cont);
+            _this.index = 0;
+            _this.count = $(".slide-item", _this.$list).length;
+            _this.setDotClass();
+            if (!_this.count) return;
+            //_this.width = _this.$cont.width();
+            _this.$list.append($(".slide-item:first-child", _this.$list).clone());
+
+            _this.autoplay();
+
+            _this.$cont.on("click.prev", ".slide-prev", function (e) {
+                _this.direction = "lr";
+                _this.slider(_this.index - 1);
+            }).on("click.next", ".slide-next", function (e) {
+                _this.direction = "rl";
+                _this.slider(_this.index + 1);
+            }).on("mouseenter", function (e) {
+                if (_this.timer){
+                    clearInterval(_this.timer);
+                }
+            }).on("mouseleave", function (e) {
+                _this.autoplay();
+            });
+            $(".slide-dot", _this.$dots).on("mouseenter", function (e) {
+                var index = $(this).index();
+                _this.slider(index);
+            });
+            return _this;
+        }
+        Slider.prototype = {
+            /**
+             * 滑动
+             * @param {Number} [index=0]
+             */
+            slider: function (index) {
+                var _this = this,
+                        opts = _this.options;
+                if (typeof(index) === "undefined") {
+                    _this.index += opts.direction=="lr" ? 1 : -1;
+                } else {
+                    _this.index = index;
+                }
+                if (_this.index < 0) {
+                    _this.index = _this.count - 1;
+                }
+                if (_this.index > _this.count) {
+                    _this.$list.css("left", 0);
+                    _this.index = 1;
+                }
+                _this.$list.stop(true).animate({
+                            left: -_this.index * 100 + "%"
+                        },
+                        {
+                            speed: "easing",
+                            duration: opts.duration
+                        });
+                _this.setDotClass();
+            },
+            /**
+             * 自动播放
+             */
+            autoplay: function(){
+                var _this = this,
+                        opts = _this.options;
+                if(opts.autoplay){
+                    if (_this.timer) clearInterval(_this.timer);
+                    _this.timer = setInterval(function(){
+                        _this.slider();
+                    }, opts.interval);
+                }
+            },
+            /**
+             * 设置状态点样式
+             * @param {Number} [index=0]
+             */
+            setDotClass: function(index){
+                var _this = this;
+                index = _this.index||0;
+                $(".slide-dot", _this.$dots).removeClass("sel").eq(index<_this.count?index:0).addClass("sel");
+            }
+        };
+        return function(options){
+            return new Slider(options);
+        };
+    });
+    require(["base", "tools", "widgets/slider"], function ($, T, SliderPanel) {
+        SliderPanel({
+            cont: "#slide-panel",
+            duration: 300,
+            interval: 3500,
+            direction: "lr",
+            autoplay: true
+        });
+    });
+</script>
+</body>
+</html>

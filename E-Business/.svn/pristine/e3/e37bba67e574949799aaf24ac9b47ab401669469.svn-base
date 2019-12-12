@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="制作名片" />
+    <meta name="description" content="" />
+    <meta name="author" content="${author}" />
+    <meta name="copyright" content="${copyright}" />
+    <title>制作名片</title>
+    <link rel="shortcut icon" type="image/x-icon" href="<?=DOMAIN?>favicon.ico"  />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>layout.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>designer.css" />
+	<link rel="stylesheet" type="text/css" href="<?=STYLES_DESIGN?>design.css" />
+	<?php include(MODULES.'dns_prefetch.xhtml');?>
+</head>
+<body class="demand">
+<?php include(MODULES.'header.xhtml');?>
+<div class="main">
+    <div id="make" class="layout load">
+		<div id="sitemap" class="sitemap clearfix">
+			<a href="<?=DOMAIN?>card/index.html">我的名片模板</a><b>&gt;</b><span>制作名片</span>
+		</div>
+		<div id="product_panel">
+			<div id="template-product-view"></div>
+		</div>
+		<div id="design_panel" class="template_panel clear">
+			<div class="d-attrs clearfix">
+				<h3 class="d-caption">请填写名片信息</h3>
+				<div id="designer" class="designer designer_load"></div>
+				<p class="red">备注：请仔细检查所填写的信息，并确保所填写的全部信息没有错误</p>
+			</div>
+		</div>
+    	<div id="template_panel" class="template_panel clear" style="display: none">
+			<div id="template-template-view"></div>
+		</div>
+		<div id="card_list_panel" style="display: none">
+			<ul id="template-card_list-view" class="d-card-list"></ul>
+		</div>
+		<div id="payment_panel">
+			<div id="template-contact_info-view"></div>
+			<?php include(MODULES.'ordering.xhtml');?>
+		</div>
+	</div>
+</div>
+<?php include(MODULES.'footer.xhtml');?>
+<script id="template-product" type="text/template">
+	<div class="d-attrs clearfix">
+		<h3 class="d-caption">{{designProductName}}</h3>
+		<dl class="attr attr-form clearfix">
+			<dt class="atr">制作人数：</dt>
+			<dd class="vals d-counter">
+				<span class="counter">
+					<a>-</a><input class="textbox" type="text" name="qty" value="1" data-name="counter"><b>+</b>
+				</span>人 <span class="red">（如需制作多人名片，购买999元100次<a href="<?=DOMAIN_DESIGN?>category/126.html" target="_blank">设计修改会员</a>，价格更优惠！）</span>
+			</dd>
+		</dl>
+		<dl class="attr attr-form clearfix">
+			<dt class="atr">价格：</dt>
+			<dd class="vals">
+				<span class="text"><b id="data-price" class="yellow sell-price">{{RMB(price)}}</b>元，市场价<b id="data-costPrice" class="yellow cost-price">{{RMB(costPrice)}}</b>元</span>
+			</dd>
+		</dl>
+	</div>
+</script>
+<script id="template-template" type="text/template">
+	<div class="d-attrs clearfix">
+		<h3 class="d-caption">已选模板（{{templateName}}）</h3>
+		<div class="template" data-template_id="{{templateId}}">
+			<span class="image">
+				<img src="{{showFrontImage}}" alt="{{templateName}}"/>
+			</span><span class="image">
+				<img src="{{showBackImage}}" alt="{{templateName}}"/>
+			</span>
+		</div>
+	</div>
+	<div class="d-attrs clearfix">
+		<h3 class="d-caption">导入名片信息</h3>
+		<div class="import_info">
+			<dl class="desc">
+				<dd>1、请您下载“<a href="{{excelUrl||'javascript:;'}}" target="_blank">模板信息.xls</a>”，填写完成后导入该文件</dd>
+				<dd>2、请选择需要导入的文件
+					<label id="file_upload-cont" class="up-cont btn-default btn-md">
+		                    <span id="file_upload" class="up-btn">
+		                        <span class="up-text"></span>
+		                    </span>
+						<span class="up-doing">正在上传...</span>
+						<span class="up-forbid"></span>
+					</label>
+					<span id="file_upload_uris" class="ml10 info"></span>
+				</dd>
+			</dl>
+			<div id="template-import_result-view"></div>
+		</div>
+	</div>
+</script>
+<script id="template-import_result" type="text/template">
+	<p class="caption">您导入的信息如下（共 <b class="red">{{data.length-1}}</b> 条记录）：</p>
+	<div class="import_result">
+		<table class="table_view" cellpadding="0" cellspacing="0">
+			<thead>
+			<tr>
+				{{each data[0] as value i}}
+				<th><div>{{value}}</div></th>
+				{{/each}}
+			</tr>
+			</thead>
+			<tbody>
+			{{each data as row k}}
+			{{if k>0}}
+			<tr>
+				{{each data[0] as value i}}
+				<td><div>{{row[i]}}</div></td>
+				{{/each}}
+			</tr>
+			{{/if}}
+			{{/each}}
+			</tbody>
+		</table>
+	</div>
+	<p class="red mt10">备注：</p>
+	<p class="red">1.请仔细检查所填写的信息，并确保所填写的全部信息没有错误</p>
+	<p class="red">2.确认提交后，将扣减您的模板次数</p>
+	<div class="btm_btn">
+		<a class="btn btn-primary btn-lg submit" href="javascript:;">生成名片预览</a>
+	</div>
+</script>
+<script id="template-card_list" type="text/template">
+	{{each cardList as card i}}
+	<li class="card {{format==1&&(card.index-1)%2==0?'vertical':''}}" data-card_id="{{card.cardId}}">
+		<div class="d-caption clearfix">
+			<div class="fr">
+				<a class="edit" href="javascript:;">修改</a><em class="d-line">|</em><a class="del" href="javascript:;">删除</a>
+			</div>
+			<span>第 {{card.index}} 款 <b class="red">{{card.cardName}}</b></span>
+		</div>
+		<div class="images">
+				<span id="card-frontImage-{{card.cardId}}" class="image">
+					<span class="doing"><span class="reload"><a class="btn_reload" href="javascript:;" data-src="{{card.frontImage}}">重新加载图片</a></span></span>
+				</span><span id="card-backImage-{{card.cardId}}" class="image">
+					<span class="doing"><span class="reload"><a class="btn_reload" href="javascript:;" data-src="{{card.backImage}}">重新加载图片</a></span></span>
+				</span>
+		</div>
+	</li>
+	{{if format==1&&i%2==1}}
+	<li class="clear"></li>
+	{{/if}}
+	{{/each}}
+</script>
+<script id="template-contact_info" type="text/template">
+	<?php include(TEMPLATES_DESIGN.'demand/contact_info.xhtml');?>
+</script>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>uploader/main.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>card/make.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>location.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js?ininin=<?=VERSION?>"></script>
+<?php include(MODULES.'linklogin.xhtml');?>
+</body>
+</html>

@@ -1,0 +1,298 @@
+@charset "utf-8";
+.demand { background: #fff;}
+.demand .sitemap { padding: 20px 0; width: 1220px;}
+.demand .demand-list { padding-bottom: 90px;}
+.demand .newbox .doing span { font-size: 16px; line-height: 34px;}
+.btn-lg { width: 200px; font-size: 16px; }
+.headline { padding: 0 0 20px}
+.headline .tit {
+    color: #db2148;
+    font-size: 20px;
+    line-height: 32px;
+}
+.headline .desc {
+    color: #666;
+    font-size: 14px;
+    margin-left: 10px;
+}
+.headline .ref-order {
+    font-size: 14px;
+    margin-left: 15px;
+}
+.demand textarea.textbox { width: 680px;}
+.demand textarea.high{height: 205px;}
+/*设计属性*/
+.d-caption {
+    line-height: 32px;
+    font-weight: bold;
+}
+.d-attrs {
+    padding: 20px 0;
+    border-top: 1px solid #ccd5df;
+}
+.d-attrs .attr {
+    padding: 10px 0;
+    overflow: hidden;
+}
+.d-attrs .atr, .d-attrs .val {
+    line-height: 32px;
+    float: left;
+}
+.d-attrs .atr {
+    min-width: 70px;
+    text-align: right;
+}
+.d-attrs .vals {
+    line-height: 32px;
+    overflow: hidden;
+}
+.d-attrs .vals {
+    margin: 0 0 -10px;
+    /*word-spacing: -10px;*/
+    line-height: 0;
+}
+.d-attrs .val {
+    color: #666;
+    text-align: center;
+    min-width: 88px;
+    margin: 0 3px 10px;
+    padding: 0 5px;
+    line-height: 30px;
+    white-space: nowrap;
+    border: 1px solid #ccd5df;
+    text-decoration: none;
+}
+.d-attrs .counter {
+    word-spacing: 0;
+    margin:4px 10px 4px 0;
+    vertical-align: middle;
+}
+.d-attrs .text { line-height: 32px;}
+.d-attrs .sell-price { font-size: 24px; vertical-align: bottom}
+.d-attrs .cost-price { text-decoration: line-through;}
+.d-attrs .val.sel{
+    color: #db2148;
+    padding: 0 5px;
+    border: 1px solid #db2148;
+}
+.d-attrs .color { color: #fff; padding: 1px 6px; border: 0}
+.d-attrs .color1 {padding: 0px 5px; border: 1px solid #ccd5df; color: #666;}
+.d-attrs .color2 { background: #3fa2fe;}
+.d-attrs .color3 { background: #808080;}
+.d-attrs .color4 { background: #ffc600;}
+.d-attrs .color5 { background: #e91c1c;}
+.d-attrs .color6 { background: #0ca032;}
+
+.d-attrs .color1.sel {border: 1px solid #db2148; color: #db2148;}
+.d-attrs .color2.sel {border: 1px solid #0048d1; color: #0048d1;}
+.d-attrs .color3.sel {border: 1px solid #333; color: #333;}
+.d-attrs .color4.sel {border: 1px solid #f05704; color: #f05704;}
+.d-attrs .color5.sel {border: 1px solid #a50000; color: #a50000;}
+.d-attrs .color6.sel {border: 1px solid #025f02; color: #025f02;}
+
+
+.d-attrs .val .inputbox{display: none;/* vertical-align: middle*/}
+.d-attrs .val.sel .inputbox{display: inline; margin-left: 5px; color: #999;}
+/*定制设计-询价单属性*/
+.custom-quot .attr{padding: 0;}
+.custom-quot .val{line-height: 32px; padding: 0 0 0 10px; border: none; margin: 0; text-align: left;}
+/*折页、手提袋等特殊样式*/
+.d-attrs .radios .val .inputbox{display: inline; margin: 0 3px 10px; color: #666;}
+.d-attrs .d-area .val, .d-attrs .d-area .val.sel{border: none; padding-left: 0; margin-left: 0;}
+.d-attrs .d-area .val .inputbox{display: inline;}
+.d-attrs .d-area .val.sel .inputbox{margin-left: 0;}
+.d-attrs .inputbox .textbox {
+    width: 80px;
+    min-width: 80px;
+    padding: 2px 3px;
+    border-color: #ccd5df;
+    border-radius: 0;
+    text-align: center;
+    vertical-align: baseline;
+}
+.d-attrs .attr-form .vals {
+    position: relative;
+    margin: 0;
+    padding: 0 3px
+}
+.d-attrs .d-size{line-height: 30px; color: #666;}
+.d-attrs .d-alts {
+    width: 400px;
+    float: right;
+}
+.d-mark { padding: 10px 0 15px}
+.d-radios{margin-left: 24px;}
+.d-radios .radio{background-position: -15px -164px;}
+.d-radios .radio.sel{background-position: -15px -204px;}
+/*material*/
+.material {}
+.material .m-desc { padding-bottom: 10px;}
+.pop-choice-yunfile { padding: 10px 25px 25px}
+.pop-choice-yunfile .table_view thead { background-color: #fbfbfb;}
+/*联系人信息*/
+.contact_info {
+    padding: 20px 0 30px;
+    border-top: 1px solid #ccd5df;
+}
+.contact_info .d-caption {}
+.contact_info .textbox { width: 160px}
+.contact_info .item {
+    position: relative;
+    margin-right: 20px;
+    display: inline-block;
+}
+.contact_info .checkboxs { margin: 15px 0 0}
+.contact_info .checkbox { margin: 0}
+.demand .btmline { margin: 0}
+
+/*创意设计联系人信息*/
+.contact_more .line {
+    height: 3px;
+    background: #fbfbfb url(../images/line.png?v=1) -3px -10px repeat-x;
+    overflow: hidden;
+}
+.contact_more .d-contact {
+    height: 246px;
+    padding: 20px 360px 0 20px;
+    background: #fbfbfb url(../images/demand/c_bg.jpg?v=1) right 0 no-repeat;
+}
+.contact_more .d-contact .remark { margin: 20px 0 0 72px;}
+.contact_more .textbox { width: 146px;}
+.contact_more .d-contact .textarea { width: 660px;}
+.contact_more .d-contact .field {
+    display: inline-block;
+    min-width: 72px;
+    text-align: right;
+    line-height: 30px;
+    float: left;
+}
+.contact_more .d-contact .dm_list {
+    margin-top: 20px;
+    font-size: 0;
+}
+.contact_more .dm_list .field, .contact_more .dm_list .radio {
+    font-size: 14px;
+    vertical-align: top;
+}
+.contact_more .dm_list .radio {
+    width: 122px;
+    min-width: 100px;
+    line-height: 30px;
+    margin: 0 5px 10px 0;
+}
+.contact_more .dm_list .radio i {
+    height: 30px;
+    background-position: right -1410px;
+}
+
+/*design_infos*/
+.design-infos { padding: 5px 0 25px;}
+.design-infos .attr .atr { line-height: 20px;}
+.design-infos .counter { margin: 0 5px 0 0}
+/*fields*/
+.fields { margin: 8px 0 0; padding:0; overflow: hidden;}
+.fields .field { position: relative; padding: 7px 0; overflow: hidden;}
+.fields label { position: relative; display: inline-block;}
+.fields .checkbox { width: 45px; height: 20px; margin: 0; cursor: pointer}
+.fields .col1 { width: 420px; overflow: hidden; float: left;}
+.fields .col2 { overflow: hidden;}
+.fields .textbox { width: 256px;}
+.fields .long .textbox { width: 536px;}
+.fields .col2 .checkbox { width: 70px;}
+.fields .alt { padding: 0 5px; display: inline-block; vertical-align: middle;}
+.fields .last { line-height: 28px;}
+.fields textarea.textbox { width: 736px; vertical-align: top;}
+.fields .en { padding-top: 7px; margin-left: 72px;}
+.fields .col2 .en { margin-left: 97px;}
+.field-list .items li { width: 160px; float: left}
+.field-list .checkbox { cursor: pointer; margin:10px 0 0}
+.field-list .weaken { opacity: .75; filter: alpha(opacity=75);}
+/*显示控制*/
+.design-infos .zh-cn .alt { display: none;}
+.design-infos .en-us .alt { visibility: hidden;}
+.design-infos .fields.en-us .en { margin-top: -46px; *margin-top: -48px;}
+.design-infos .fields.en-us .zh .textbox { visibility: hidden;}
+.design-infos .fields.zh-cn .en {
+    position: absolute;
+    top: 0;
+    height: 0;
+    display: block !important;
+    overflow: hidden;
+    visibility: hidden;
+}
+.design-infos .field-list.zh-cn .en { display: none;}
+.design-infos .field-list.en-us .zh { display: none;}
+/*Excel表格*/
+.field-excel {
+    margin: 20px 0 0;
+    padding: 20px 0 0;
+    border-top: 1px dashed #ccd5df;
+}
+.excel-result {
+    margin: 10px 0 0;
+    overflow-y: hidden;
+    overflow-x: auto;
+    border: 1px solid #ccd5df
+}
+.excel-result .table_view {
+    min-width: 100%;
+    margin: -1px;
+    table-layout: fixed
+}
+.excel-result th,
+.excel-result td {
+    table-layout: fixed
+}
+.excel-result th>div,
+.excel-result td>div {
+    max-height: 160px;
+    padding: 5px 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    overflow-y: auto
+}
+.excel-result th>div {
+    background: #fbfbfb
+}
+.excel-result td {
+    text-align: left;
+    vertical-align: top
+}
+/*.excel-result .col0,
+.excel-result .col1,
+.excel-result .col2,
+.excel-result .col3 {
+    text-align: center;
+    vertical-align: middle;
+    background: #fbfbfb
+}*/
+.excel-result textarea.textbox,
+.excel-result pre.textbox {
+    width: 100%;
+    min-height: 20px;
+    line-height: 20px;
+    padding: 5px 8px;
+    margin: -5px -8px;
+    border-radius: 0;
+    border: 0;
+    overflow: hidden;
+    overflow-y: auto
+}
+.excel-result textarea.textbox {
+    height: 20px
+}
+.excel-result pre.textbox {
+    text-align: left;
+    padding: 0;
+    margin: 0
+}
+/*选择时间控件*/
+.bucket-popup{padding: 0 13px; margin: 20px auto 40px;}
+.bucket-popup p .pick, .bucket-popup p .nopick{display: inline-block; width: 40px; height: 14px; margin: 0 5px; background-color: #f8d3da; vertical-align: -2px;}
+.bucket-popup p .nopick{background-color: #ebebeb;}
+.buckettable{border: none; border-spacing: 2px; border-collapse: separate; border-color: transparent; background-color: transparent;table-layout: fixed;}
+.buckettable th{background-color: #fbfbfb; font-weight: normal;}
+.buckettable td{line-height: 34px; background-color: #f8d3da; cursor: pointer; color: #db2148;}
+.buckettable td.sel{background-color: #db2148; color: #fff;}
+.buckettable th, .buckettable td{border: none; text-align: center;}
+.buckettable td.nopick{font-size: 0; background-color: #ebebeb; cursor: default;}

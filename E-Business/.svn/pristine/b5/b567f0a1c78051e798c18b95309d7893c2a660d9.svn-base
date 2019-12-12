@@ -1,0 +1,90 @@
+@charset "utf-8";
+@font-face {
+    font-family: 'DINPro';
+    src: url('../../themes/fonts/DINPro-Regular.otf');
+    /*src: url('../themes/fonts/DINPro-Regular.eot');
+    src: url('../themes/fonts/DINPro-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../themes/fonts/DINPro-Regular.woff') format('woff'),
+        url('../themes/fonts/DINPro-Regular.ttf') format('truetype'),
+        url('../themes/fonts/DINPro-Regular.svg#DINPro') format('svg');*/
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*designer/index.html*/
+.designers {margin: 40px auto 36px; overflow: hidden;}
+.designers .slide-panel { width: 1230px; height: 408px; }
+.designers .slide-panel .slide-item {width: 236px;height: 408px;margin: 0 10px 0 0;}
+.designers .slide-item a, .designers .slide-item img{height: 100%; text-decoration: none;}
+.designers .slide-panel .slide-dots {display: none; }
+.designers .slide-panel .slide-prev{z-index: 99;}
+.designers .slide-panel .slide-next {right: 10px; z-index: 99;}
+.designers .slide-item {position: relative;}
+.designers .designer-item {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    font-size: 14px;
+    line-height: 20px;
+    white-space: normal;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+.designers .designer-shade {
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ca0536;
+    opacity: .8;
+    filter: Alpha(opacity=80);
+}
+.designers .slide-item:hover .designer-item {top: 0;}
+.designers .designer-title {
+    position: relative;
+    min-height: 72px;
+    padding: 20px 30px 8px 30px;
+    font-size: 30px;
+    line-height: 36px;
+    overflow: hidden;
+    /*white-space: normal;
+    word-wrap: break-word;
+    word-break: break-word;*/
+    font-family: 'DINPro','微软雅黑';
+}
+.designers .designer-text {
+    position: absolute;
+    width: 154px;
+    padding: 8px 10px;
+    margin-left: 30px;
+    bottom: 20px;
+    border: 1px solid #fff;
+    text-align: center;
+    overflow: hidden;
+}
+
+/*designer/designer.html 设计师个人主页*/
+.design-figure{width: 100%; height: 400px;  margin-top: 40px;}
+.design-figure .info{width: 250px; height: 100%; padding: 0 20px; background-color: #fff; overflow: hidden;}
+.design-figure .info .head{padding-bottom: 40px; text-align: center;}
+.design-figure .info p:first-child{font-size: 18px;}
+.design-figure .headimg{position: relative; width: 100px; height: 100px; margin: 55px auto 15px; border-radius: 50%; overflow: hidden;}
+.design-figure .headimg img{width: 100%; height: 100%;}
+.design-figure .overlay{position: absolute;left: 0; top: 0; width: 100px; height: 100px; background: url(../../themes/images/zoomview.png?v=1) -2px -206px no-repeat; z-index: 1;}
+.design-figure .overlay:hover{background-position: -130px -206px;}
+.design-figure .figure{float: none; width: 930px; height: 400px; margin-left: 290px;}
+.design-figure .figure .slide-item{width: 930px;}
+.design-figure .figure .slide-item img{width: 100%;}
+.design-figure .intr{padding: 10px 0; border-top: 1px solid #f5f5f5; line-height: 24px; text-align: left;}
+.design-works{width: 100%; min-height: 400px; margin-top: 20px;}
+.design-pros{width: 250px; height: 417px; padding: 0 20px; border-top: 4px solid #db2148; background-color: #fff;}
+.design-pros .title{padding: 15px 0 10px;}
+.design-pros .pros-list li{padding: 4px 0; line-height: 28px;}
+.design-pros .pros-list li>span{color: #db2148;}
+.design-projects{margin-left: 310px;}
+.design-projects .filter-bar{ height: 33px; line-height: 33px;}
+.design-projects .recommend-cases ul{padding-top: 0;}

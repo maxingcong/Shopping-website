@@ -1,0 +1,265 @@
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<div class="page-basic">
+    <ol class="breadcrumb">
+        <li><a href="<?=DOMAIN?>home/index.html"><i class="fa fa-home"></i>首页</a></li>
+        <li>信息维护</li>
+        <li class="active">基本信息</li>
+    </ol>
+    <div id="template-basic_info-view" class="panel-group panel-quick" role="tablist" aria-multiselectable="true">
+    </div>
+</div>
+<div class="modal fade" id="addProducts" tabindex="-1" role="dialog" aria-labelledby="addProductsLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="addProductsLabel">请选择可生产产品</h4>
+            </div>
+            <div class="modal-body" id="template-category-view" style="height:400px;overflow-y:auto;"></div>
+            <div class="modal-footer">
+                <button type="button" id="add_products_btn" class="btn btn-primary save md-btn">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script id="template-change_address" type="text/template">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">修改地址</h4>
+    </div>
+    <div class="modal-body">
+        <h5 id="defAddress">广东省深圳市南山区</h5>
+        <form>
+            <div class="form-group">
+                <label></label>
+                <input type="text" id="addressInput" class="form-control" placeholder="请填写具体街道" />
+            </div>
+        </form>
+        <div id="baidumap" class="mappop"></div>
+    </div>
+    <div class="modal-footer">
+        <button id="saveAddress" type="button" class="btn btn-primary md-btn save">保存</button>
+    </div>
+</script>
+<script id="template-basic_info" type="text/template">
+    <!-- quickPanelOne -->
+    <a id="quickPanelOne" class="quick-nav-link" href="#quickPanelOne"></a>
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                登录信息
+                <a class="pull-right" role="button" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <i class="fa fa-angle-double-down"></i>
+                    <i class="fa fa-angle-double-up"></i>
+                </a>
+            </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body">
+                <form class="form-inline">
+                    <table class="table-form">
+                        <colgroup>
+                            <col style="width: 120px"/>
+                            <col/>
+                        </colgroup>
+                        <tr>
+                            <th>
+                                <label class="control-label">账户名：</label>
+                            </th>
+                            <td>{{cellPhone}}</td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label class="control-label">注册时间：</label>
+                            </th>
+                            <td>{{dateCreated}}</td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- End quickPanelOne -->
+    <!-- quickPanelTwo -->
+    <a id="quickPanelTwo" class="quick-nav-link" href="#quickPanelTwo"></a>
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingTwo">
+            <h4 class="panel-title">
+                公司基本信息
+                <a class="pull-right" role="button" data-toggle="collapse" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fa fa-angle-double-down"></i>
+                    <i class="fa fa-angle-double-up"></i>
+                </a>
+            </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+            <div class="panel-body">
+                <form class="form-inline">
+                    <table class="table-form">
+                        <colgroup>
+                            <col style="width: 120px"/>
+                            <col style="width: 30%"/>
+                            <col style="width: 140px"/>
+                            <col/>
+                        </colgroup>
+                        <tr>
+                            <th>
+                                <label class="control-label">公司名称<b class="light">*</b>：</label>
+                            </th>
+                            <td>{{companyName}}</td>
+                            <th>
+                                <label class="control-label">公司地址<b class="light">*</b>：</label>
+                            </th>
+                            <td><span id="companyAddress"></span><a id="change_address_btn" class="btn btn-link" role="button">修改</a></td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label class="control-label">法人代表<b class="light">*</b>：</label>
+                            </th>
+                            <td>{{corporateRep}}</td>
+                            <th>
+                                <label for="legal_person_mb" class="control-label">法人代表联系方式：</label>
+                            </th>
+                            <td><input id="legal_person_mb" type="text" class="form-control" value="{{corporateRepCellphone}}" placeholder="请填写法人代表联系方式" /></td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for="tel_phone" class="control-label">固定电话：</label>
+                            </th>
+                            <td>
+                                <input id="tel_phone" type="text" class="form-control" value="{{corporateRepTelephone}}" placeholder="请填写固定电话" />
+                            </td>
+                            <th>
+                                <label for="web_site" class="control-label">公司网址：</label>
+                            </th>
+                            <td><input id="web_site" type="text" class="form-control" value="{{companyWebsite}}" placeholder="请填写公司网址" /></td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for="company_fax" class="control-label">公司传真：</label>
+                            </th>
+                            <td>
+                                <input id="company_fax" type="text" class="form-control" value="{{companyFax}}" placeholder="请填写公司传真" />
+                            </td>
+                            <th>
+                                <label for="year_output" class="control-label">公司年产值：</label>
+                            </th>
+                            <td><input id="year_output" type="text" class="form-control" value="{{annualOutputValue}}" placeholder="请填写公司年产值" /></td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for="person_number" class="control-label">公司人数：</label>
+                            </th>
+                            <td>
+                                <input id="person_number" type="text" class="form-control" value="{{companyNumber}}" placeholder="请填写公司人数" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for="factory_machine" class="control-label">公司设备：</label>
+                            </th>
+                            <td colspan="3">
+                                <textarea id="factory_machine" class="form-control input-long" rows="3" placeholder="请填写公司设备">{{supplierEquipment}}</textarea>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- End quickPanelTwo -->
+    <!-- quickPanelThree -->
+    <a id="quickPanelThree" class="quick-nav-link" href="#quickPanelThree"></a>
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingThree">
+            <h4 class="panel-title">
+                联系人信息
+                <a class="pull-right" role="button" data-toggle="collapse" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                    <i class="fa fa-angle-double-down"></i>
+                    <i class="fa fa-angle-double-up"></i>
+                </a>
+            </h4>
+        </div>
+        <div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
+            <div class="panel-body">
+                <form class="form-inline">
+                    <table class="table-form">
+                        <colgroup>
+                            <col style="width: 120px"/>
+                            <col style="width: 30%"/>
+                            <col style="width: 140px"/>
+                            <col/>
+                        </colgroup>
+                        <tr>
+                            <th>
+                                <label for="link_man" class="control-label">联系人姓名：</label>
+                            </th>
+                            <td><input id="link_man" type="text" class="form-control" value="{{contactsName}}" placeholder="请填写联系人姓名" /></td>
+                            <th>
+                                <label class="control-label">性别：</label>
+                            </th>
+                            <td>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" value="0" name="sex" {{if contactsSex==0}}checked="checked"{{/if}}><i class="fa fa-radio"></i>男
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" value="1" name="sex" {{if contactsSex==1}}checked="checked"{{/if}}><i class="fa fa-radio"></i>女
+                                    </label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for="link_mobile" class="control-label">联系人手机号：</label>
+                            </th>
+                            <td><input id="link_mobile" type="text" class="form-control" value="{{contactsCellphone}}" placeholder="请填写联系人手机号" /></td>
+                            <th>
+                                <label for="link_position" class="control-label">职位：</label>
+                            </th>
+                            <td><input id="link_position" type="text" class="form-control" value="{{contactsPosition}}" placeholder="请填写职位" /></td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for="link_qq" class="control-label">联系人QQ：</label>
+                            </th>
+                            <td>
+                                <input id="link_qq" type="text" class="form-control" value="{{contactsQq}}" placeholder="请填写联系人QQ" />
+                            </td>
+                            <th>
+                                <label for="email" class="control-label">联系人邮箱：</label>
+                            </th>
+                            <td><input id="email" type="text" class="form-control" value="{{contactsEmail}}" placeholder="请填写联系人邮箱" /></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- End quickPanelThree -->
+    <!-- quickPanelFour -->
+    <a id="quickPanelFour" class="quick-nav-link" href="#quickPanelFour"></a>
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingFour">
+            <h4 class="panel-title">
+                可供应产品
+                <a class="pull-right" role="button" data-toggle="collapse" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                    <i class="fa fa-angle-double-down"></i>
+                    <i class="fa fa-angle-double-up"></i>
+                </a>
+            </h4>
+        </div>
+        <div id="collapseFour" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFour">
+            <div class="panel-body">
+                <h5>请填写你可以生产哪些产品。</h5>
+                <div class="table-scroll table-product-price" id="template-products-view"> </div>
+            </div>
+        </div>
+    </div>
+    <!-- End quickPanelFour -->
+    <button id="basicSaveBtn" type="button" class="btn btn-primary md-btn">保存</button>
+</script>
+<?php include(TEMPLATES.'info/products.xhtml');?>
+<script type="text/javascript" src="<?=SCRIPTS?>info/basic_info.js"></script>

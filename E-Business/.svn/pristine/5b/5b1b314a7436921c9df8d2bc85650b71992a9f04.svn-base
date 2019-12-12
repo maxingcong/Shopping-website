@@ -1,0 +1,34 @@
+<dl id="sidebar" class="sidebar">
+    <dt><a href="<?=DOMAIN?>member/index.html">我的云印</a></dt>
+    <dt><a href="javascript:;">订单中心</a></dt>
+    <dd><a href="<?=DOMAIN?>order/index.html">印刷产品订单</a></dd>
+    <dd><a href="<?=DOMAIN?>order/design.html">设计服务订单</a></dd>
+    <dd><a href="<?=DOMAIN?>order/package.html">账户充值订单</a></dd>
+    <dd><a href="<?=DOMAIN?>order/quotation.html">商品询价订单</a></dd>
+    <!--<dd><a href="<?=DOMAIN?>order/distribute.html">多地分发订单</a></dd>-->
+    <!--dt><a href="javascript:;">余额中心</a></dt>
+    <dd><a href="<?=DOMAIN?>member/designservice.html">赠送设计</a></dd>
+    <dd><a href="<?=DOMAIN?>member/myfile.html">我的文件</a></dd-->
+    <!--<dd><a href="<?=DOMAIN?>member/modifypwd.html">修改登录密码</a></dd>
+    <dd><a href="<?=DOMAIN?>member/paypwd.html">修改支付密码</a></dd>-->
+    <dt><a href="javascript:;">个人中心</a></dt>
+    <dd><a href="<?=DOMAIN?>member/udetail.html">个人资料</a></dd>
+    <dd><a href="<?=DOMAIN?>member/safety.html">安全中心</a></dd>
+    <dd><a href="<?=DOMAIN?>member/receiveraddress.html">收货地址</a></dd>
+    <dd><a href="<?=DOMAIN?>member/union.html">账号绑定</a></dd>
+    <dd><a href="<?=DOMAIN?>member/myservice.html">专属客服</a></dd>
+    <dt><a href="javascript:;">资产中心</a></dt>
+    <dd><a href="<?=DOMAIN?>member/mycoupon.html">我的优惠券</a></dd>
+    <dd><a href="<?=DOMAIN?>member/mywallet.html">我的余额</a></dd>
+    <!--<dd><a href="<?=DOMAIN?>member/myintegral.html">我的积分</a></dd>-->
+    <dd><a href="<?=DOMAIN?>member/myinvoice.html">发票申请</a></dd>
+    <dt><a href="javascript:;">我的云盘</a></dt>
+    <dd><a href="<?=DOMAIN?>yunfile/index.html">我的资料</a></dd>
+    <dd><a href="<?=DOMAIN?>yunfile/mydesign.html">我的设计文件</a></dd>
+    <dd><a href="<?=DOMAIN?>yunfile/myprint.html">我的印刷PDF</a></dd>
+    <dt><a href="javascript:;">我的名片模板</a></dt>
+    <dd><a href="<?=DOMAIN?>card/index.html">我的名片模板</a></dd>
+    <dt><a href="javascript:;">消息中心</a></dt>
+    <dd><a href="<?=DOMAIN?>member/message.html">系统消息<b id="message_count_number"></b></a></dd>
+    <dt></dt>
+</dl>

@@ -1,0 +1,35 @@
+<h3 id="material_title" class="headline"><span>请上传设计素材</span></h3>
+<div id="material" class="material checkboxs">
+    <div class="block">
+        <a id="choice_yunfile" class="file_btn choice_yunfile" href="javascript:;">从云盘中选取素材</a>
+        <label id="file_upload-cont" class="up-cont btn-default btn-md">
+            <span id="file_upload" class="up-btn">
+                <span class="up-text"></span>
+            </span>
+            <span class="up-doing">正在上传...</span>
+            <span class="up-forbid"></span>
+        </label>
+        <span id="upload_file_uris"></span>
+        <div id="file_upload-info" class="upload-info mt10"></div>
+        <ul id="exhibit_file" class="exhibit_file mt10">
+            <% if(fileChecked && fileChecked.length){ for(var k=0; file = fileChecked[k]; k++){ %>
+                <li>
+                    <a href="<%=file.fileSrc%>" title="<%=file.fileName%>" target="_blank"><%=file.fileName%></a>
+                    <a href="javascript:;" class="del" data-fid="<%=file.fileId%>">删除</a>
+                </li>
+            <% } } %>
+        </ul>
+        <div class="row red">
+            为了设计师更好地了解您的需求，设计出您满意的画册，请您提供：<br/>
+            1、一份word文档的内容说明：内容包含每页需要的文字内容，图片及其他要求；<br/>
+            2、画册所需的所有图片源文件（请提供分辨率300以上的图片，以便保证画册设计质量）<br/>
+            请将以上素材压缩为zip/rar的压缩文件上传；<br/>
+            为了提高设计出品质量，提升沟通效率，节省您的时间，我们会优先为您设计包括封面封底及两张内页的画册风格稿，待您确认风格及版式后再进行所有页面的细致设计。
+        </div>
+    </div>
+</div>
+
+
+
+
+

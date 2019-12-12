@@ -1,0 +1,328 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="7月夏季新品汇" />
+    <meta name="description" content="7月夏季新品汇，让你的广告火起来" />
+    <meta name="author" content="${author}" />
+    <meta name="copyright" content="${copyright}" />
+    <title>7月夏季新品汇</title>
+    <link href="<?=DOMAIN?>favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>activity.css" />
+    <?php include(MODULES.'dns_prefetch.xhtml');?>
+    <style type="text/css">
+        .non_pad{padding-bottom: 482px;}
+        .full_page{position: relative; min-height: 3218px;}
+        .full_page img{width: 100%; height: 100%;}
+        .full_page .act_main, .full_page .act_body{width: 1920px; position: absolute; left: 50%; margin-left: -960px; overflow: hidden;}
+        .full_page .act_main .pos a{position: absolute; top: 131px; display: inline-block; width: 90px; height: 24px; line-height: 24px; font-size: 12px; color: #680126; text-align: center;}
+        .full_page .act_main .pos a:hover{text-decoration: underline; color: #3e0016;}
+        .full_page .act_main .pos .posbtn1{left: 700px;}
+        .full_page .act_main .pos .posbtn2{left: 920px;}
+        .full_page .act_main .pos .posbtn3{left: 1140px;}
+        .full_page .act_body{margin-top: 586px;}/*1004-850*/
+        .full_page .section{width: 100%; text-align: center;}
+        .full_page .act_body .bg1{height: 756px; background: url(../resources/activity/a28_2.png?v=1) left 0 repeat;}
+        .full_page .act_body .bg2{height: 940px; background: url(../resources/activity/a28_3.png?v=1) left 0 repeat;}
+        .full_page .act_body .bg3{height: 966px; background: url(../resources/activity/a28_4.png?v=1) left 0 repeat;}
+        .full_page .section h2{padding: 20px 0 10px 0; font-size: 30px; color: #fbdf02;}
+        .full_page .bg2 h2{color: #333;}
+        .full_page .act_product {width: 900px; margin: 0 auto;}
+        .full_page ul li {float: left; color: #666;}
+        .full_page .rec_list li{position: relative; width: 427px; height: 270px; overflow: hidden; padding: 10px; margin: 6px 0 0 6px; background: #fff url(../resources/activity/a28_5.png?v=1) right 52px no-repeat;}
+        .rec_list .p_mark{position: absolute; left: 20px; top: 0; display:inline-block; width: 87px; height: 59px; background: url(../resources/activity/a28_5.png?v=1) left -335px no-repeat; z-index: 2;}
+        .rec_list .p_img{position:absolute; left:10px; top:10px; width: 270px; height: 270px; overflow: hidden; z-index: 1;}
+        .rec_list .p_info{margin-left: 280px; padding-top: 20px;}
+        .rec_list .name, .p_list .p_name{font-size: 18px; color: #f01436; font-weight: bold;}
+        .rec_list .p_price{position: absolute; right: 10px;bottom: 10px;}
+        .p_price .price{color: #f3002f;}
+        .p_price .price b{font-size: 24px;}
+        .rec_list .btn, .p_list .btn{height: 34px; line-height: 34px; background-color: #f3002f;}
+        .rec_list .btn:hover, .p_list .btn:hover{background-color: #be0227;}
+        .p_list li{width: 220px; height: 326px; overflow: hidden; margin: 7px 0 0 7px; background-color: #fff;}
+        .p_list .p_img{width: 200px; height: 200px; padding: 10px 10px 0 10px; overflow: hidden;}
+        .p_list .p_name{line-height: 34px;}
+        .p_list .p_desc{line-height: 28px; background-color: #efefef;}
+        .p_list .p_price{font-size: 0; margin-top: 10px;}
+        .p_list .p_price .price{display: inline-block; font-size:14px; width: 128px; height:32px; line-height: 32px; border: 1px solid #f3002f;}
+        .p_list .p_price .btn{width: 70px; font-size: 14px;}
+        .p_list .p_price .price, .p_list .p_price .btn{vertical-align: top;}
+        .full_page ul li:first-child{margin-left: -1px;}
+        .p_big_list li{width: 294px; height: 400px; margin: 10px 0 0 10px;}
+        .p_big_list .p_img{width: 274px; height: 274px;}
+        .p_big_list .p_price .price{width: 201px;}
+        .full_page .p_big_list li.first{margin-left: -2px;}
+    </style>
+</head>
+<body>
+<?php include(MODULES.'header.xhtml');?>
+<div class="main active non_pad">
+    <div class="full_page">
+        <div class="act_main">
+            <img src="<?=IMAGES?>activity/a28.jpg?v=2" width="100%" height="349px" alt="7月夏季新品汇" />
+            <div id="getCoupon" class="pos">
+                <img usemap="#mapa27_1" border="0" src="<?=IMAGES?>activity/a28_1.jpg?v=2" height="237px" alt="7月夏季新品汇，多重优惠等着你">
+                <map name="mapa27_1" id="mapa27_1">
+                    <area shape="rect" coords="700,131,790,155" href="javascript:;" class="get" data-id="270" title="满99减5通用券">
+                    <area shape="rect" coords="920,131,1010,155" href="javascript:;" class="get" data-id="271" title="满199减10通用券">
+                    <area shape="rect" coords="1140,131,1230,155" href="javascript:;" class="get" data-id="272" title="满500减30通用券">
+                </map>
+                <a href="javascript:;" class="get posbtn1" data-id="270" title="满99减5通用券">[ 立即领取  ]</a>
+                <a href="javascript:;" class="get posbtn2" data-id="271" title="满199减10通用券">[ 立即领取 ]</a>
+                <a href="javascript:;" class="get posbtn3" data-id="272" title="满500减30通用券">[ 立即领取 ]</a>
+            </div>
+        </div>
+        <div class="act_body">
+            <div class="section bg1">
+                <h2>夏季新品上线，宣传推广必备</h2>
+                <div class="act_product">
+                    <ul class="rec_list clearfix">
+                        <li>
+                            <span class="p_mark"></span>
+                            <div class="p_img">
+                                <a href="<?=DOMAIN?>product/200298.html" target="_blank"><img src="<?=IMAGES?>activity/a28_6.jpg?v=2" alt="广告扇"/></a>
+                            </div>
+                            <div class="p_info">
+                                <div class="name tr">广告扇</div>
+                                <div class="desc tr">夏日广告宣传必备</div>
+                            </div>
+                            <div class="p_price">
+                                <div class="price"><b>0.45</b>元/把起</div>
+                                <a class="btn" href="<?=DOMAIN?>product/200298.html" target="_blank">立即购买</a>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="p_mark"></span>
+                            <div class="p_img">
+                                <a href="<?=DOMAIN?>product/200105.html" target="_blank"><img src="<?=IMAGES?>activity/a28_7.jpg?v=2" alt="玻璃贴"/></a>
+                            </div>
+                            <div class="p_info">
+                                <div class="name tr">玻璃贴</div>
+                                <div class="desc tr">企业品牌形象体现</div>
+                            </div>
+                            <div class="p_price">
+                                <div class="price"><b>20</b>元/张起</div>
+                                <a class="btn" href="<?=DOMAIN?>product/200105.html" target="_blank">立即购买</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="p_list clearfix">
+                        <li>
+                            <div class="p_img">
+                                <a href="<?=DOMAIN?>product/200303.html" target="_blank"><img src="<?=IMAGES?>activity/a28_8.jpg?v=2" alt="高光相纸海报"/></a>
+                            </div>
+                            <div class="p_name">高光相纸海报</div>
+                            <div class="p_desc">高品质还原色彩</div>
+                            <div class="p_price">
+                                <span class="price"><b>8.7</b>元/张起</span>
+                                <a class="btn" href="<?=DOMAIN?>product/200303.html" target="_blank">立即购买</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="p_img">
+                                <a href="<?=DOMAIN?>product/200.html" target="_blank"><img src="<?=IMAGES?>activity/a28_9.jpg?v=2" alt="横幅"/></a>
+                            </div>
+                            <div class="p_name">横幅</div>
+                            <div class="p_desc">开业庆典，活动气氛营造</div>
+                            <div class="p_price">
+                                <span class="price"><b>20</b>元起</span>
+                                <a class="btn" href="<?=DOMAIN?>product/200.html" target="_blank">立即购买</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="p_img">
+                                <a href="<?=DOMAIN?>product/200036.html" target="_blank"><img src="<?=IMAGES?>activity/a28_10.jpg?v=2" alt="KT板"/></a>
+                            </div>
+                            <div class="p_name">KT板</div>
+                            <div class="p_desc">商场广告促销板</div>
+                            <div class="p_price">
+                                <span class="price"><b>15</b>元起</span>
+                                <a class="btn" href="<?=DOMAIN?>product/200036.html" target="_blank">立即购买</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="p_img">
+                                <a href="<?=DOMAIN?>product/200100.html" target="_blank"><img src="<?=IMAGES?>activity/a28_11.jpg?v=2" alt="高端彩域名片"/></a>
+                            </div>
+                            <div class="p_name">高端彩域名片</div>
+                            <div class="p_desc">传递之间，尽显品味</div>
+                            <div class="p_price">
+                                <span class="price"><b>188</b>元/200张起</span>
+                                <a class="btn" href="<?=DOMAIN?>product/200100.html" target="_blank">立即购买</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="section bg2">
+                <h2>云印设计</h2>
+                <div class="act_product">
+                    <ul class="p_list p_big_list clearfix">
+                        <li class="first">
+                            <div class="p_img">
+                                <a href="<?=DOMAIN_DESIGN?>category/124.html" target="_blank"><img src="<?=IMAGES?>activity/a28_12.jpg?v=2" alt="名片、工牌修改套餐"/></a>
+                            </div>
+                            <div class="p_name">名片、工牌修改套餐</div>
+                            <div class="p_desc">超值修改套餐，1年内100次随时使用</div>
+                            <div class="p_price">
+                                <span class="price"><b>199</b>元/100次</span>
+                                <a class="btn" href="<?=DOMAIN_DESIGN?>category/124.html" target="_blank">立即购买</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="p_img">
+                                <a href="<?=DOMAIN_DESIGN?>category/9.html?pid=106" target="_blank"><img src="<?=IMAGES?>activity/a28_13.jpg?v=2" alt="名片数据化设计"/></a>
+                            </div>
+                            <div class="p_name">名片数据化设计</div>
+                            <div class="p_desc">送118元名片印刷优惠券</div>
+                            <div class="p_price">
+                                <span class="price"><b>199</b>元/个</span>
+                                <a class="btn" href="<?=DOMAIN_DESIGN?>category/9.html?pid=106" target="_blank">立即购买</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="p_img">
+                                <a href="<?=DOMAIN_DESIGN?>category/25.html" target="_blank"><img src="<?=IMAGES?>activity/a28_14.jpg?v=2" alt="折页创意设计"/></a>
+                            </div>
+                            <div class="p_name">折页创意设计</div>
+                            <div class="p_desc">送180元折页印刷优惠券</div>
+                            <div class="p_price">
+                                <span class="price"><b>599</b>元/2折起</span>
+                                <a class="btn" href="<?=DOMAIN_DESIGN?>category/25.html" target="_blank">立即购买</a>
+                            </div>
+                        </li>
+                        <li class="first">
+                            <div class="p_img">
+                                <a href="<?=DOMAIN_DESIGN?>category/23.html" target="_blank"><img src="<?=IMAGES?>activity/a28_15.jpg?v=2" alt="宣传单创意设计"/></a>
+                            </div>
+                            <div class="p_name">宣传单创意设计</div>
+                            <div class="p_desc">送119元单页印刷优惠券</div>
+                            <div class="p_price">
+                                <span class="price"><b>499</b>元/个</span>
+                                <a class="btn" href="<?=DOMAIN_DESIGN?>category/23.html" target="_blank">立即购买</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="p_img">
+                                <a href="<?=DOMAIN_DESIGN?>category/11.html?pid=108" target="_blank"><img src="<?=IMAGES?>activity/a28_16.jpg?v=2" alt="LOGO创意设计"/></a>
+                            </div>
+                            <div class="p_name">LOGO创意设计</div>
+                            <div class="p_desc">为客户建立多渠道适用的品牌标识</div>
+                            <div class="p_price">
+                                <span class="price"><b>1999</b>元/个</span>
+                                <a class="btn" href="<?=DOMAIN_DESIGN?>category/11.html?pid=108" target="_blank">立即购买</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="p_img">
+                                <a href="<?=DOMAIN_DESIGN?>category/108.html" target="_blank"><img src="<?=IMAGES?>activity/a28_17.jpg?v=2" alt="企业VI套餐"/></a>
+                            </div>
+                            <div class="p_name">企业VI套餐</div>
+                            <div class="p_desc">快速提升品牌价值的视觉方案</div>
+                            <div class="p_price">
+                                <span class="price"><b>4999</b>元起</span>
+                                <a class="btn" href="<?=DOMAIN_DESIGN?>category/108.html" target="_blank">立即购买</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="section bg3">
+                <h2>云印热卖产品</h2>
+                <div class="act_product">
+                    <ul class="rec_list clearfix">
+                        <li>
+                            <span class="p_mark"></span>
+                            <div class="p_img">
+                                <a href="<?=DOMAIN?>product/200021.html" target="_blank"><img src="<?=IMAGES?>activity/a28_18.jpg?v=2" alt="名片"/></a>
+                            </div>
+                            <div class="p_info">
+                                <div class="name tr">名片</div>
+                                <div class="desc tr">传递之间，沟通你我</div>
+                            </div>
+                            <div class="p_price">
+                                <div class="price"><b>11.8</b>元/200张起</div>
+                                <a class="btn" href="<?=DOMAIN?>product/200021.html" target="_blank">立即购买</a>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="p_mark"></span>
+                            <div class="p_img">
+                                <a href="<?=DOMAIN?>product/200068.html" target="_blank"><img src="<?=IMAGES?>activity/a28_19.jpg?v=2" alt="画册"/></a>
+                            </div>
+                            <div class="p_info">
+                                <div class="name tr">画册</div>
+                                <div class="desc tr">企业品牌宣传首选</div>
+                            </div>
+                            <div class="p_price">
+                                <div class="price"><b>0.35</b>元/本起</div>
+                                <a class="btn" href="<?=DOMAIN?>product/200068.html" target="_blank">立即购买</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="p_list p_big_list clearfix">
+                        <li class="first">
+                            <div class="p_img">
+                                <a href="<?=DOMAIN?>product/200032.html" target="_blank"><img src="<?=IMAGES?>activity/a28_20.jpg?v=2" alt="宣传单"/></a>
+                            </div>
+                            <div class="p_name">宣传单</div>
+                            <div class="p_desc">一张行走的广告宣传单</div>
+                            <div class="p_price">
+                                <span class="price"><b>99</b>元/500张起</span>
+                                <a class="btn" href="<?=DOMAIN?>product/200032.html" target="_blank">立即购买</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="p_img">
+                                <a href="<?=DOMAIN?>product/200054.html" target="_blank"><img src="<?=IMAGES?>activity/a28_21.jpg?v=2" alt="折页"/></a>
+                            </div>
+                            <div class="p_name">折页</div>
+                            <div class="p_desc">美观大方，信息承载量大</div>
+                            <div class="p_price">
+                                <span class="price"><b>149</b>元/500张起</span>
+                                <a class="btn" href="<?=DOMAIN?>product/200054.html" target="_blank">立即购买</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="p_img">
+                                <a href="<?=DOMAIN?>product/200031.html" target="_blank"><img src="<?=IMAGES?>activity/a28_22.jpg?v=2" alt="展架"/></a>
+                            </div>
+                            <div class="p_name">展架</div>
+                            <div class="p_desc">展会活动宣传利器</div>
+                            <div class="p_price">
+                                <span class="price"><b>98</b>元/套起</span>
+                                <a class="btn" href="<?=DOMAIN?>product/200031.html" target="_blank">立即购买</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php include(MODULES.'footer.xhtml');?>
+<script type="text/javascript" src="<?=SCRIPTS?>jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tools.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>activity/a28.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>location.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js?ininin=<?=VERSION?>"></script>
+<!--script type="text/javascript" src="<?=SCRIPTS?>jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>template-native.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>zh_cn.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tool.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>stationary/detail.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>loaded.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>libs/location.js"></script-->
+<?php include(MODULES.'linklogin.xhtml');?>
+</body>
+</html>

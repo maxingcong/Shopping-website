@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>base.css" />
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>layout.css" />
+</head>
+<body>
+<div class="pay-list checkboxs">
+    <dl class="pay-item pay-coupon">
+        <dt class="pay-head"></dt>
+        <dd class="pay-body"></dd>
+    </dl>
+</div>
+<script type="text/javascript" src="/scripts/jquery.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript" src="/scripts/tools.js?ininin=<?=VERSION?>"></script>
+<script type="text/javascript">
+    require(["base", "tools"], function ($, T) {
+    });
+</script>
+</body>
+</html>

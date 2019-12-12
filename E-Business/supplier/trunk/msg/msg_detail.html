@@ -1,0 +1,15 @@
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<div class="headbar clearfix">
+    <div class="nav-btns pull-right">
+        <a id="goPrevPage" class="btn btn-primary btn-sm" href="<?=DOMAIN?>msg/msg_notify.html">返回</a>
+    </div>
+    <ol class="breadcrumb">
+        <li><a href="<?=DOMAIN?>home/index.html"><i class="fa fa-home"></i>首页</a></li>
+        <li><a href="<?=DOMAIN?>msg/msg_notify.html">消息通知</a></li>
+        <li class="active">消息详情</li>
+    </ol>
+    <div id="msg_wrapper">
+        <div class="load"></div>
+    </div>
+</div>
+<script type="text/javascript" src="<?=SCRIPTS?>msg/msg_detail.js"></script>

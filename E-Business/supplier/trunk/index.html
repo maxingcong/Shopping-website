@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="renderer" content="webkit|ie-stand"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="robots" content="none"/>
+    <meta name="author" content="ininin.com">
+    <meta name="copyright" content="Copyright © 2014 ininin.com. All rights reserved.">
+    <title>供应商平台 - 设计“省”心，印刷“简”单！</title>
+    <link rel="apple-touch-icon" href="<?=IMAGES?>logo.png"/>
+    <link rel="icon" type="image/png" href="<?=IMAGES?>logo.png"/>
+    <link rel="shortcut icon" type="image/x-icon" href="<?=DOMAIN?>favicon.ico"/>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>font-awesome.min.css"/>
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>layout.css"/>
+    <link rel="stylesheet" type="text/css" href="<?=STYLES?>index.css">
+    <link rel="dns-prefetch" href="http://colud.ininin.com/">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="<?=SCRIPTS?>libs/html5shiv-3.7.2.min.js"></script>
+    <script src="<?=SCRIPTS?>libs/respond-1.4.2.min.js"></script>
+    <![endif]-->
+<body>
+<!-- Start Header -->
+<header id="bs-header" class="navbar navbar-fixed-top bs-header rel" role="banner">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+                <i class="fa fa-navicon"></i>
+            </button>
+            <div class="navbar-brand"><a href="http://www.ininin.com" target="_blank"><img src="<?=IMAGES?>logo.png" alt="ininin.com"/></a><a href="<?=DOMAIN?>"><img class="sys" src="<?=IMAGES?>sys.png" alt="供应商平台"/></a> </div>
+        </div>
+        <nav id="bs-navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a class="faq" href="<?=DOMAIN?>faq/index.html" target="_blank">常见问题</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="sys-login">
+            <h3 class="text-center">欢迎进入云印供应商平台</h3>
+            <form class="form-horizontal">
+                <p id="login_notice" class="err-notice text-center"></p>
+                <div class="form-group">
+                    <label for="login_mobile" class="col-sm-2 control-label">账号：</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="j_username" class="form-control" id="login_mobile" placeholder="请填写账号">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="login_password" class="col-sm-2 control-label">密码：</label>
+                    <div class="col-sm-10">
+                        <input type="password" name="j_password" class="form-control" id="login_password" placeholder="请填写密码">
+                    </div>
+                </div>
+                <div id="captcha" class="form-group captcha hide">
+                    <label>
+                        <input class="textbox" type="text" name="captcha" /><img class="img" src=""/><a class="refresh" href="javascript:;">看不清楚<br/>换一张</a>
+                        <i class="msg"></i>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 text-right control-label"></label>
+                    <div class="col-sm-10">
+                        <button id="login_btn" type="button" class="btn btn-primary btn-block btn-lg">登 录</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12 text-right">
+                        <a href="<?=DOMAIN?>forget/index.html">忘记密码？</a>
+                    </div>
+                </div>
+            </form>
+            <!--<div class="apply-join-box">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <button class="btn btn-primary btn-block btn-lg" onclick=" window.location='<?=DOMAIN?>join/apply_for_join.html'">申请加盟</button>
+                    </div>
+                </div>
+            </div>-->
+        </div>
+    </div>
+</header>
+<!-- End Header -->
+<div class="wrapper">
+    <div class="home-banner container-fluid">
+        <div class="row">
+            <div id="carousel-banner-generic" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-banner-generic" data-slide-to="0" class="carousel-bar"></li>
+                    <li data-target="#carousel-banner-generic" data-slide-to="1" class="carousel-bar active"></li>
+                    <li data-target="#carousel-banner-generic" data-slide-to="2" class="carousel-bar"></li>
+                </ol>
+                <div class="carousel-inner" role="listbox">
+                    <div class="item">
+                        <div class="item_box item_bg1" data-holder-rendered="true">
+                        </div>
+                        <!-- <img src="<?=IMAGES?>login/0.jpg" alt="First slide">-->
+                    </div>
+                    <div class="item active">
+                        <div class="item_box item_bg2" data-holder-rendered="true">
+                        </div>
+                        <!--<img src="<?=IMAGES?>login/1.jpg" alt="Second slide">-->
+                    </div>
+                    <div class="item">
+                        <div class="item_box item_bg3" data-holder-rendered="true">
+                        </div>
+                        <!--<img src="<?=IMAGES?>login/2.jpg" alt="Third slide">-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="bs-container" class="container bs-container" style="padding-top: 0; max-width: 1220px;">
+    <div class="row line" style="margin: 0;">
+        <div class="col-sm-9 process-wrapper">
+            <h2 class="process-tit">加盟成为云印供应商流程</h2>
+            <ul class="row process">
+                <li class="col-sm-4">
+                    <img src="resources/login/step1.png" alt="加盟流程">
+                    <div class="text">
+                        <h3 class="tit1">1.供应商在线申请</h3>
+                        <p>在线提交供应商申请</p>
+                    </div>
+                </li>
+                <li class="col-sm-4">
+                    <img src="resources/login/step2.png" alt="加盟流程">
+                    <div class="text">
+                        <h3 class="tit2">2.商务洽谈</h3>
+                        <p>云印审核，并联系与您洽谈具体的合作事宜</p>
+                    </div>
+                </li>
+                <li class="col-sm-4">
+                    <img src="resources/login/step3.png" alt="加盟流程">
+                    <div class="text">
+                        <h3 class="tit3">3.开始接单</h3>
+                        <p>分配订单，开始接单</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="col-sm-3 now-apply">
+            <a class="bigbtn" href="<?=DOMAIN?>recruit.html">立即申请</a>
+            <p class="mail">联系邮箱：<a href="mailto:gys@ininin.com?subject=">gys@ininin.com</a></p>
+        </div>
+    </div>
+    <div class="adv line rel">
+        <h3 class="adv-tit text-center">云印优势</h3>
+        <ul class="clearfix rel row">
+            <li class="col-sm-5 text-right">
+                <img src="resources/login/ad_1.png">
+            </li>
+            <li class="col-sm-2 circle-wrapper">
+                <span class="circle circle1">01</span>
+            </li>
+            <li class="col-sm-5 text-left">
+                <h3 class="tit1">新一代互联网印刷品牌</h3>
+                <p>云印将以互联网的方式重构传统商务印刷领域；</p>
+                <p>致力于打造最大互联网印刷设计服务平台。</p>
+            </li>
+        </ul>
+        <ul class="clearfix rel row">
+            <li class="col-sm-5 text-left">
+                <h3 class="tit2">A轮5000万融资</h3>
+                <p>云印技术（深圳）有限公司成立于2013年8月，创立之初便获得天使轮融资；</p>
+                <p>2015年7月，云印获得5000万A轮融资。</p>
+            </li>
+            <li class="col-sm-2 circle-wrapper">
+                <span class="circle circle2">02</span>
+            </li>
+            <li class="col-sm-5 text-left">
+                <img src="resources/login/ad_2.png">
+            </li>
+        </ul>
+        <ul class="clearfix rel row">
+            <li class="col-sm-5 text-right">
+                <img src="resources/login/ad_3.png">
+            </li>
+            <li class="col-sm-2 circle-wrapper">
+                <span class="circle circle3">03</span>
+            </li>
+            <li class="col-sm-5 text-left">
+                <h3 class="tit3">10多万家企业用户</h3>
+                <p>从成立至今，云印已累计有10多万家企业用户，涉及金融、IT、旅游、建筑等多个行业，预计2016年全国采购金额将超3亿元。</p>
+            </li>
+        </ul>
+        <ul class="clearfix rel row">
+            <li class="col-sm-5 text-left">
+                <h3 class="tit4">互联网团队+传统印刷团队</h3>
+                <p>云印核心团队来自华为、腾讯、阿里、雅昌、当纳利等知名企业；</p>
+                <p>团队成员具有多年的互联网行业经验和传统印刷行业经验，并将二者有效的进行了整合。</p>
+            </li>
+            <li class="col-sm-2 circle-wrapper">
+                <span class="circle circle4">04</span>
+            </li>
+            <li class="col-sm-5 text-left">
+                <img src="resources/login/ad_4.png">
+            </li>
+        </ul>
+        <a class="circle circle5" href="<?=DOMAIN?>faq/index.html">了解更多</a>
+    </div>
+    <div>
+        <h2 class="traits-tit"><a class="pull-right" href="<?=DOMAIN?>faq/index.html">了解更多</a>为什么加入我们</h2>
+        <ul class="traits clearfix row">
+            <li class="col-sm-3">
+                <div class="img"><img src="<?=IMAGES?>login/101.jpg" alt="客户多"></div>
+                <div class="text">
+                    <h3 class="tit tit1">客户多</h3>
+
+                    <div class="des">
+                        云印成立以来，发展迅速，业务量增长显著，已在深圳、北京、武汉、西安建立了分公司及服务点，并计划在16年拓展到全国30个城市中去。云印通过线下销售顾问的现场指导与线上便捷的下单流程相结合的O2O模式，快速积累了大量优质客户。
+                    </div>
+                </div>
+            </li>
+            <li class="col-sm-3">
+                <div class="img"><img src="<?=IMAGES?>login/102.jpg" alt="利润高"></div>
+                <div class="text">
+                    <h3 class="tit tit2">利润高</h3>
+
+                    <div class="des">云印通过搭建线上平台，减少印刷中间环节，提高了印刷效率，让优质供应商取得更高的利润，提供更好的产品和服务。</div>
+                </div>
+            </li>
+            <li class="col-sm-3">
+                <div class="img"><img src="<?=IMAGES?>login/103.jpg" alt="无账期"></div>
+                <div class="text">
+                    <h3 class="tit tit3">无账期</h3>
+
+                    <div class="des">云印供应商系统采用先进技术，保证客户收到货品后实时自动将货款划归您的账户，您可随时申请提现，保证您的货款0账期，拥有一个健康的现金流。</div>
+                </div>
+            </li>
+            <li class="col-sm-3">
+                <div class="img"><img src="<?=IMAGES?>login/104.jpg" alt="流程短"></div>
+                <div class="text">
+                    <h3 class="tit tit4">流程短</h3>
+
+                    <div class="des">
+                        云印供应商系统提供24小时在线申请，轻松三步实现快捷审核。通过审核后即可使用云印自主研发的网络接单平台及先进的后台管理系统，实现自动接单。此外，云印平台还提供专属客服服务，从售前咨询、稿件设计到售后服务，为供应商省去繁琐的沟通环节，方便快捷。
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<?php include(TEMPLATES.'footer.xhtml');?>
+<script type="text/javascript" src="<?=SCRIPTS?>libs/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>libs/bootstrap.min.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>libs/utils.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>config.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>tool.js"></script>
+<script type="text/javascript" src="<?=SCRIPTS?>index.js"></script>
+</body>
+</html>

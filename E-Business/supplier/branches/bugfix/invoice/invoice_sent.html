@@ -1,0 +1,105 @@
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/global.php');?>
+<div class="page-invoice">
+    <ol class="breadcrumb">
+        <li><a href="<?=DOMAIN?>home/index.html"><i class="fa fa-home"></i>首页</a></li>
+        <li class="active">发票寄送</li>
+    </ol>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-default" style="padding: 0">
+                <div class="panel-heading">
+                    请开具相关的增值税发票，相关信息如下：
+                </div>
+                <table class="table-form">
+                    <colgroup>
+                        <col style="width: 120px;">
+                        <col>
+                    </colgroup>
+                    <tbody><tr>
+                        <th><span style="padding-right: 48px;">名</span>称：</th>
+                        <td>深圳市云印电子商务有限公司</td>
+                    </tr>
+                    <tr>
+                        <th>纳税人识别号：</th>
+                        <td>9144030035982214XQ</td>
+                    </tr>
+                    <tr>
+                        <th>地 址、电 话：</th>
+                        <td>深圳市前海深港合作区前湾一路1号A栋201室 0755-86700810</td>
+                    </tr>
+                    <tr>
+                        <th>开户行及账号：</th>
+                        <td>招商银行源兴支行 755928935310801</td>
+                    </tr>
+                    </tbody></table>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-default" style="padding: 0">
+                <div class="panel-heading">
+                    开发票相关资料：
+                </div>
+                <table class="table-form">
+                    <tr>
+                        <th>开户许可证：</th>
+                        <td><a href="<?=DOMAIN?>resources/download/open_accounts_licence.pdf?download/开户许可证.pdf" target="_blank">点击下载</a></td>
+                        <th>营业执照（四证合一）：</th>
+                        <td><a href="<?=DOMAIN?>resources/download/business_license.jpg?download/营业执照（四证合一）.jpg" target="_blank">点击下载</a></td>
+                    </tr>
+                    <tr>
+                        <th>一般纳税人认定通知书：</th>
+                        <td><a href="<?=DOMAIN?>resources/download/general_taxpayer.jpg?download/一般纳税人认定通知书.jpg" target="_blank">点击下载</a></td>
+                        <th><!--营业执照：--></th>
+                        <td><!--<a href="<?=DOMAIN?>resources/download/business_license.pdf?download/营业执照.pdf" target="_blank">点击下载</a>--></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    发票寄送：
+                </div>
+                <div class="panel-body">
+                    <form class="form-inline">
+                        <table class="table-form">
+                            <colgroup>
+                                <col style="width: 140px;">
+                                <col>
+                            </colgroup>
+                            <tbody><tr>
+                                <th>待开发票额度：</th>
+                                <td><span id="invoiceAmountWp"></span>元</td>
+                            </tr>
+                            <tr>
+                                <th>本次寄送发票额度<b class="light">*</b>：</th>
+                                <td><input type="text" class="form-control" id="invoiceAmount" placeholder="请填写金额" /> 元</td>
+                            </tr>
+                            <tr>
+                                <th>发票寄送信息：</th>
+                                <td>
+                                    <select id="deliverySelect" class="form-control"></select>
+                                    <input type="text" class="form-control hide" id="deliveryInput" placeholder="请填写物流公司" />
+                                    <input type="text" class="form-control" id="sendInfo" placeholder="请填写快递单号" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <td>
+                                    <button type="button" id="invoice_sent_btn" class="btn btn-primary md-btn dis">确认</button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                    <!--<div id="invoice_msg" class="info-box hide">
+                        当前不能开具发票。如需开具发票，请在信息维护&#45;&#45;<a href="<?=DOMAIN?>platform.html#<?=DOMAIN?>info/financial_info.html">财务信息</a>中修改相关信息！
+                    </div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="<?=SCRIPTS?>invoice/invoice_sent.js"></script>

@@ -1,0 +1,14 @@
+<script id="template-product_desc" type="text/template">
+    {{if productDesc && productDesc.length}}
+    <div class="layout p-tabs clearfix">
+        {{each productDesc as item i}}
+        <a class="p-tab {{i?'':'sel'}}" href="javascript:;" data-idx="{{i}}">{{item.title}}</a>
+        {{/each}}
+    </div>
+    <ul class="p-contents">
+        {{each productDesc as item i}}
+        <li class="p-content" data-idx="{{i}}">{{#item.content}}</li>
+        {{/each}}
+    </ul>
+    {{/if}}
+</script>

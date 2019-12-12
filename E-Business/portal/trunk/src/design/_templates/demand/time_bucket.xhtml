@@ -1,0 +1,28 @@
+<script id="template-time_bucket" type="text/template">
+    <div class="bucket-popup">
+        <table class="buckettable" border="0" cellspacing="2">
+            <colgroup>
+                <col width="108px">
+                <col width="108px">
+                <col width="108px">
+                <col width="108px">
+                <col width="108px">
+                <col width="108px">
+                <col width="108px">
+                <col width="108px">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>时间</th>
+                    {{each weekList as item i}}
+                        <th>{{item.m}}-{{item.d}}<br/>{{item.w}}</th>
+                    {{/each}}
+                </tr>
+            </thead>
+            <tbody align="center">
+                {{#tree}}
+            </tbody>
+        </table>
+        <p class="mt10">温馨提示：<span class="pick"></span>代表改时间段可选，<span class="nopick"></span>代表该时间段不可选</p>
+    </div>
+</script>

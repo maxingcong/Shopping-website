@@ -1,0 +1,23 @@
+<script id="attrs_area" type="text/template">
+    <dl class="attr d-area clearfix">
+        <dt class="atr">面积：</dt>
+        <dd class="vals" data-name="面积">
+        	<a class="val" href="javascript:;" data-value="其他" data-unit="mm">
+        		{{if attr["面积"].indexOf("其他")>-1 && (dv = attr["面积"].replace(/[其他:cm]/g,'')) }}
+				    <span class="inputbox d-size done">
+				        <input type="text" class="textbox" name="x"  placeholder="长" data-value="{{dv.split('*')[0]}}" value="{{dv.split('*')[0]}}" />
+				        <span>mm x</span>
+				        <input type="text" class="textbox" name="y"  placeholder="宽" data-value="{{dv.split('*')[1]}}" value="{{dv.split('*')[1]}}" />
+				        <span>mm</span>
+				    </span>
+				{{else}}
+					<span class="inputbox d-size">
+				        <input type="text" class="textbox" name="x"  placeholder="长" data-value="" value="" /> <span>mm x</span>
+				        <input type="text" class="textbox" name="y"  placeholder="宽" data-value="" value="" /> <span>mm</span>
+				    </span>
+				{{/if}}
+	        </a>
+        </dd>
+    </dl>
+</script>
+	

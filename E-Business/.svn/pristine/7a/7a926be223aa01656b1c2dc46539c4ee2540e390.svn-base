@@ -1,0 +1,47 @@
+<script id="demand_attrs" type="text/template">
+    {{if options.namesOrder.length}}
+    <div id="options_attrs" class="d-attrs clearfix">
+        <h3 class="d-caption">{{if required}}<b class="red">*</b>{{/if}}请选择您要设计产品的规格和尺寸</h3>
+        {{each options.namesOrder as name i}}
+        {{if options.values[name] && options.values[name].length>0}}
+        <dl class="attr clearfix">
+            <dt class="atr">{{name}}：</dt>
+            <dd class="vals" data-name="{{name}}">
+                {{each options.values[name] as value k}}
+                    {{if /^其他/.test(value)}}<!-- 其他 or xxx尺寸 -->
+                        <a class="val {{(disAttr[name] || disKeys[value]) ? 'not-allowed' : ''}}{{attr[name].indexOf(value)>-1 ? 'sel' : ''}}" href="javascript:;" data-value="其他" data-unit="mm">其他
+                            {{if attr[name].indexOf(value)>-1 && (dv = attr[name].replace(/[其他:cm]/g,''))}}
+                                <span class="inputbox d-size done">
+                                    <input class="textbox" type="text" name="width" data-value="{{dv.split('*')[0]}}" value="{{dv.split('*')[0]}}" placeholder="长" />
+                                    <span>mm x</span>
+                                    <input class="textbox" type="text" name="height" data-value="{{dv.split('*')[1]}}" value="{{dv.split('*')[1]}}" placeholder="宽" />
+                                    <span>mm</span>
+                                </span>
+                            {{else}}
+                                <span class="inputbox d-size">
+                                    <input class="textbox" type="text" name="width" data-value="" value="" placeholder="长" />
+                                    <span>mm x</span>
+                                    <input class="textbox" type="text" name="height" data-value="" value="" placeholder="宽" />
+                                    <span>mm</span>
+                                </span>
+                            {{/if}}
+                        </a>
+                    {{else}}
+                        <a class="val {{(disAttr[name] || disKeys[value]) ? 'not-allowed' : ''}} {{attr[name]==value ? 'sel' : ''}}" href="javascript:;" data-value="{{value}}">{{value}}</a>
+                    {{/if}}
+                {{/each}}
+            </dd>
+        </dl>
+        {{/if}}
+        {{/each}}
+        {{if optionsTemplateName}}
+            {{include optionsTemplateName}}
+        {{/if}}
+    </div>
+    {{else if optionsTemplateName}}
+    <div class="d-attrs clearfix">
+        <h3 class="d-caption">{{if required}}<b class="red">*</b>{{/if}}请选择您要设计产品的规格和尺寸</h3>
+        {{include optionsTemplateName}}
+    </div>
+    {{/if}}
+</script>

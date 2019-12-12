@@ -1,0 +1,23 @@
+<ul class="radios clearfix">
+    <% for(var k=0; temp = addressList[k]; k++){ %>
+    <li id="address_item-<%=temp.addressId%>" class="adritem<%=temp.isDefault?' def':''%>" data-address_id="<%=temp.addressId%>">
+        <p class="line"></p>
+        <div class="row1">
+            <span class="tel"><%=temp.phone||temp.tel%></span><span class="name ellipsis"><%=temp.receiver%></span>
+        </div>
+        <div class="row2">
+            <span class="addr" title="<%=temp.address.replace(/\^/gi,' ')%>"><%=temp.address.replace(/\^/gi," ")%></span>
+        </div>
+        <div class="row3">
+            <span class="def">默认地址</span>
+            <a class="def" href="javascript:;">设为默认</a>
+            <a class="upd" href="javascript:;">修改</a><a class="del" href="javascript:;">删除</a>
+        </div>
+        <p class="line"></p>
+        <i class="check"></i>
+    </li>
+    <% } %>
+    <% if(addressList&&addressList.length<10){ %>
+    <li class="additem"><p></p><div>添加地址</div></li>
+    <% } %>
+</ul>
